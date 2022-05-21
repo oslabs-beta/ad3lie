@@ -1,0 +1,23 @@
+{
+  "name": "d3act",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslabs-beta/D3ACT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/D3ACT/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/D3ACT#readme",
+  "devDependencies": {
+    "electron": "^18.2.4"
+  }
+}
