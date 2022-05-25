@@ -15,10 +15,6 @@ module.exports = {
   
   module: {
     rules: [
-      // // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-      // { test: /\.tsx?$/, loader: "ts-loader" },
-      // // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      // { test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -28,6 +24,25 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
           }
         }
+      },
+      {
+        test: /\/src\/.+\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          'style-loader', 
+          'css-loader', 
+           {
+             loader: 'postcss-loader',
+             options: {
+               postcssOptions: {
+                 plugins: {
+                  tailwindcss: {},
+                  autoprefixer: {},
+                }
+               }
+             }
+           }
+          ]
       }
     ]
   },
