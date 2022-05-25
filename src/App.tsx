@@ -1,0 +1,24 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
+import BarChart from './components/BarChart'
+import ChartCustomizer from './components/BarChartCustomizer'
+import NavBar from './components/NavBar'
+
+
+export default () => {
+  return (
+    <HashRouter>
+      <Router>
+        <div>
+          <NavBar />
+          <ChartCustomizer >
+            <Routes>
+              <Route path="barchart" element={<BarChart />} />
+            </Routes>
+          </ChartCustomizer> 
+        </div>
+      </Router>
+    </HashRouter>
+    
+  )
+}
