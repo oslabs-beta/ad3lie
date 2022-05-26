@@ -6,13 +6,13 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   // devtool: "source-map",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js']
   },
-  
+
   module: {
     rules: [
       {
@@ -21,7 +21,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript'
+            ]
           }
         }
       },
@@ -29,27 +33,29 @@ module.exports = {
         test: /\/src\/.+\.css$/i,
         exclude: /node_modules/,
         use: [
-          'style-loader', 
-          'css-loader', 
-           {
-             loader: 'postcss-loader',
-             options: {
-               postcssOptions: {
-                 plugins: {
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: {
                   tailwindcss: {},
-                  autoprefixer: {},
+                  autoprefixer: {}
                 }
-               }
-             }
-           }
-          ]
+              }
+            }
+          }
+        ]
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: './src/index.html'
-  })],
-  devServer:{
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
+  devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
   }

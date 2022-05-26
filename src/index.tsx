@@ -9,5 +9,4 @@ import "./styles.css"
 type title = string;
 
 const root = document.getElementById('root');
-render(
-<App />, root);
+render( <App />, root);

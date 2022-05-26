@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable */
+
+
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
 import BarChart from './components/BarChart'
 import ChartCustomizer from './components/ChartCustomizer'
@@ -8,18 +11,20 @@ import AppLayout from './layouts/AppLayout';
 
 export default () => {
   return (
-    // <HashRouter>
-    //   <Router>
-    //     <div>
-    //       <NavBar />
-    //       <ChartCustomizer >
-    //         <Routes>
-    //           <Route path="bar-chart" element={<BarChart />} />
-    //         </Routes>
-    //       </ChartCustomizer> 
-    //     </div>
-    //   </Router>
-    // </HashRouter>
+    <Fragment>
+    <HashRouter>
+      <Router>
+        <div>
+          <NavBar />
+          <ChartCustomizer >
+            <Routes>
+              <Route path="bar-chart" element={<BarChart data={[]} xKey={''} yKey={''} height={''} width={''} />} />
+            </Routes>
+          </ChartCustomizer> 
+        </div>
+      </Router>
+    </HashRouter>
     <AppLayout />
+    </Fragment>
   )
 }

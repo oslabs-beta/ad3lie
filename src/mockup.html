@@ -1,27 +1,42 @@
 <html>
   <head>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            gridTemplateRows: {
+              // Complex site-specific row configuration
+              'main': '100px repeat(2, minmax(0, 1fr)) 50px',
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
-    <App State="{}">
-    //<ChartContext>
-        <Nav></Nav>
-        <CustomizerContainer class=""">
-            <ActiveChartCustomizer>
+  <body class="max-w-screen min-w-screen max-h-screen min-h-screen p-11">
+    <App class="max-w-full min-w-full max-h-full min-h-full grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
+        <Nav class="col-start-1 col-span-1 border-2 rounded">Nav - OnClick SetState(BarChart)</Nav>
+        <CustomizerContainer class="row-start-2 row-span-2 border-2 rounded" id="">
+          Customizer Container
+            <BarChartChartCustomizer id="">
         </CustomizerContainer>
-        <ChartContainer class="">
+        <ChartContainer class="col-start-2 row-start-1 row-span-2 border-2 rounded">
+            Chart Container
             <ActiveChart></ActiveChart>
         </ChartContainer>
-        <CodeContainer class="">
+        <CodeContainer class="col-start-2 row-start-3 border-2 rounded">
+            Code Container
             <ActiveCode></ActiveCode>
         </CodeContainer>
-        <import></import>
-        <export></export>
-    //</ChartContext>
+        <ImportExportContainer class="row-start-4 col-span-2 flex place-content-between border-2 rounded">
+          <button class="border-2 rounded shrink">Import</button>
+          <button class="border-2 rounded shrink">Export</button>
+        </ImportExportContainer>
     </App>
   </body>
 </html>
-
+<!-- 
 <BrowserRouter>
     <Fragment>
       <Navbar />
@@ -48,4 +63,4 @@
         </Routes>
       </div>
     </Fragment>
-  </BrowserRouter>
+  </BrowserRouter> -->

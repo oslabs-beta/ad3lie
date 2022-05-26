@@ -8,6 +8,8 @@
     "esModuleInterop": true,
     "jsx": "react",
     "target": "es6",
-    "strict": true
+    "strict": true,
+    "lib": ["dom"],
+    "moduleResolution": "node"
   }
 }
