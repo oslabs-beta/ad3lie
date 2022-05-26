@@ -1,15 +1,51 @@
-<App State="{}">
-  //<ChartContext>
-      <Nav></Nav>
-      <CustomizerContainer class=""">
-          <ActiveChartCustomizer>
-      </CustomizerContainer>
-      <ChartContainer class="">
-          <ActiveChart></ActiveChart>
-      </ChartContainer>
-      <CodeContainer class="">
-          <ActiveCode></ActiveCode>
-      </CodeContainer>
-  //</ChartContext>
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <App State="{}">
+    //<ChartContext>
+        <Nav></Nav>
+        <CustomizerContainer class=""">
+            <ActiveChartCustomizer>
+        </CustomizerContainer>
+        <ChartContainer class="">
+            <ActiveChart></ActiveChart>
+        </ChartContainer>
+        <CodeContainer class="">
+            <ActiveCode></ActiveCode>
+        </CodeContainer>
+        <import></import>
+        <export></export>
+    //</ChartContext>
+    </App>
+  </body>
+</html>
 
-</App>
+<BrowserRouter>
+    <Fragment>
+      <Navbar />
+      <div className="container mt-5">
+        <!-- <Routes>
+          <Route
+            path="/"
+            element={allDrink.length > 0 && <Home allDrink={allDrink} />}
+          ></Route> -->
+          <Route
+            path="/:id"
+            element={<ChartContainer />}
+          >
+                    <CustomizerContainer class=""">
+                        <ActiveChartCustomizer>
+                    </CustomizerContainer>
+                    <ChartContainer class="">
+                        <ActiveChart></ActiveChart>
+                    </ChartContainer>
+                    <CodeContainer class="">
+                        <ActiveCode></ActiveCode>
+                    </CodeContainer>
+            </Route>
+        </Routes>
+      </div>
+    </Fragment>
+  </BrowserRouter>
