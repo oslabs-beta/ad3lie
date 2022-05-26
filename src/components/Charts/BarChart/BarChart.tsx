@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import * as d3 from 'd3';
-import { Data, BarChartProps } from './BarChartCustomizer';
-import { useChartDimensions } from '../utils/utils';
-import { Axis, Bars, Chart } from './Chart';
+import { Data, BarChartProps } from './BarChartForm';
+import { useChartDimensions } from '../../../utils/utils';
+import { Axis, Bars, Chart } from '../../ChartComponents';
 
 // BarChartProps<string | number | object[]>
 export default function BarChart({

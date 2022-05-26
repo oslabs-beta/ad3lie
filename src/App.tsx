@@ -3,8 +3,8 @@
 
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
-import BarChart from './components/BarChart'
-import ChartCustomizer from './components/ChartCustomizer'
+import BarChart from './components/Charts/BarChart/BarChart'
+import ChartCustomizer from './components/ignore'
 import NavBar from './components/NavBar'
 import AppLayout from './layouts/AppLayout';
 
