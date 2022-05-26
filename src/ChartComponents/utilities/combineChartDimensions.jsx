@@ -7,7 +7,7 @@
  * @author: Antonio Ayala, Sophia Chiao
  */
 
-// import modules and libraries
+  // import modules and libraries
 
  export const combineChartDimensions = dimensions => {
     let parsedDimensions = {

@@ -7,16 +7,15 @@
  * @author: Antonio Ayala, Sophia Chiao
  */
 
-// import modules and libraries
-import { useRef, useState, useEffect } from 'react';
-import ResizeObserver from "resize-observer-polyfill"
-import { useChartDimensions } from './useChartDimensions';
+  // import modules and libraries
+  import { useChartDimensions } from './utils';
+
 
  const chartSettings = {
     "marginLeft": 75
   }
 
-  const ChartWithDimensions = () => {
+  export const ChartWithDimensions = () => {
     
     // creating a custom hook useChartDimensions
     const [ref, dms] = useChartDimensions(chartSettings)

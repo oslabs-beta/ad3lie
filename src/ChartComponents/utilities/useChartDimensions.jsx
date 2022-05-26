@@ -3,14 +3,16 @@
  * @name: useChartDimensions
  * @description: creates a new chart dimension object based on window changes
  * @param: passedSettings, and object with a similar model structure as combineChartDimensions' parsedDimensions
- * @returns: returns an anonymous function that changes the size of the window
+ * @returns: returns the size of the new window
  * @author: Antonio Ayala, Sophia Chiao
  */
 
+// import modules and libraries
 import { combineChartDimensions } from './combineChartDimensions'
+import { useRef, useState, useEffect } from 'react';
 
 
-// custom React Hook useChartDimensions that helps keep charts responsive and automatically updates any dimensions when
+  // custom React Hook useChartDimensions that helps keep charts responsive and automatically updates any dimensions when
   // window is resized
   export const useChartDimensions = passedSettings => {
     
@@ -65,12 +67,13 @@ import { combineChartDimensions } from './combineChartDimensions'
       }, [])
     })
     // create a new object with new dimensions
-    const newSettings = combineChartDimensions({
-      ...dimensions,
-      width: dimensions.width || width,
-      height: dimensions.height || height,
-    })
+    // const newSettings = combineChartDimensions({
+    //   ...dimensions,
+    //   width: dimensions.width || width,
+    //   height: dimensions.height || height,
+    // })
 
     // initial conditions, useEffect will invoke when ref or newSettings changes
-    return [ref, newSettings]
+    // return [ref, newSettings]
+    return [ref, combineChartDimensions]
   }
