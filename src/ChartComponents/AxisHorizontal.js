@@ -12,45 +12,48 @@ import React, { useMemo } from 'react';
 import { scaleLinear, domain, range, ticks } from 'd3';
 
 export const AxisHorizontal = ({
-  domain = [0,100], 
-  range = [10,290]
-}, pixelsPerTick = 30) => {
-
+  domain = [0, 100],
+  range = [10, 290],
+  pixelsPerTick = 30,
+  }) => {
   // creating the tick marks for the X-Axis (Axis Bottom) utilizing the React Hook useMemo
   // useMemo returns a memoized value https://dmitripavlutin.com/react-usememo-hook/
   const ticks = useMemo(() => {
-
     // set the xScale using d3's scaleLinear() method
-    // to create a visual scale point. This method is used to transform data values into 
+    // to create a visual scale point. This method is used to transform data values into
     // visual variables.
     const xScale = scaleLinear()
       .domain(domain)
-      .range(range)
+      .range(range);
 
     // declaring variable width to determine the width of the graph
-    const width = range[1] - range[0]
-
+    const width = range[1] - range[0];
+    // console.log("width: ", width);
+    
     // determine how many ticks to use/can fit in the axis based on range -> width/pixelsPerTick
-    const numberOfTicksTarget = Math.max(1, Math.floor(width / pixelsPerTick))
+    const numberOfTicksTarget = Math.max(1, Math.floor(width / pixelsPerTick));
+    // console.log("numberOfTicksTarget: ", numberOfTicksTarget);
 
-    return xScale
-      // using d3's .ticks() method to generate ticks, quantity of ticks based on input value 
-      .ticks(numberOfTicksTarget)
-      // creating the minor label
-      .map(value => ({
-        value,
-        xOffset: xScale(value)
-      }))
+    return (
+      xScale
+        // using d3's .ticks() method to generate ticks, quantity of ticks based on input value
+        .ticks(numberOfTicksTarget)
+        // creating the minor label
+        .map((value) => ({
+          value,
+          xOffset: xScale(value),
+        }))
+    );
   }, [
     // whenever domain and range change, update tickmarks
     domain.join("-"),
-    range.join("-")
-  ])
+    range.join("-"),
+  ]);
 
   return (
-    <svg>
+    <svg >
       <path
-        // drawing x and y axises using svg path (V draws a vertical line, H draws a horizontal line)
+        // drawing x axis using svg path (V draws a vertical line, H draws a horizontal line)
         d={[
           "M", range[0], 6,
           "v", -6,
@@ -63,25 +66,23 @@ export const AxisHorizontal = ({
       />
 
       {ticks.map(({ value, xOffset }) => (
-        <g
-          key={value}
-          transform={`translate(${xOffset}, 0)`}
-        >
-          <line
-            y2="6"
-            stroke="currentColor"
-          />
+        <g 
+        key={value}
+        // transform moves the tickmarks, where the first arg is the interval and the second arg is the placement on the DOM
+        transform={`translate(${xOffset}, 0)`}>
+          <line y2="6" stroke="currentColor" />
           <text
             key={value}
             style={{
               fontSize: "10px",
               textAnchor: "middle",
-              transform: "translateY(20px)"
-            }}>
-            { value }
+              transform: "translateY(20px)",
+            }}
+          >
+            {value}
           </text>
         </g>
       ))}
     </svg>
-  )
-}
+  );
+};
