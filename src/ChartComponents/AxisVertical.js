@@ -3,7 +3,7 @@
  * @description: produces a modularized template for the Vertical Axis
  * @param: (object with keys domain: number[] and range: number[]), pixelsPerTick: number
  * @returns: A rendering of the Y-Axis
- * @author: Antonio Ayala, Sophia Chiao
+ * @author: Antonio Ayala, Sophia Chiao -
  */
 
 
