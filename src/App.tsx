@@ -13,7 +13,7 @@ export default () => {
           <NavBar />
           <ChartCustomizer >
             <Routes>
-              <Route path="barchart" element={<BarChart />} />
+              <Route path="bar-chart" element={<BarChart />} />
             </Routes>
           </ChartCustomizer> 
         </div>
