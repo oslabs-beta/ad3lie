@@ -22,6 +22,8 @@ export const AxisHorizontal = ({
     // set the xScale using d3's scaleLinear() method
     // to create a visual scale point. This method is used to transform data values into
     // visual variables.
+    // .domain is generating every intermediate tick mark
+    // .range is setting the range at which these tick marks will reside
     const xScale = scaleLinear()
       .domain(domain)
       .range(range);

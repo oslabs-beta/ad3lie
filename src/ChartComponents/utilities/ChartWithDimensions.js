@@ -1,6 +1,6 @@
 /**
  * @pr
- * @name: Chart
+ * @name: ChartWithDimensions
  * @description: produces a modularized template for all Charts
  * @param: (object with keys domain: number[] and range: number[]), pixelsPerTick: number
  * @returns: A rendering of the Chart
@@ -10,6 +10,7 @@
 // import modules and libraries
 import { useRef, useState, useEffect } from 'react';
 import ResizeObserver from "resize-observer-polyfill"
+import { useChartDimensions } from './useChartDimensions';
 
  const chartSettings = {
     "marginLeft": 75
@@ -20,6 +21,7 @@ import ResizeObserver from "resize-observer-polyfill"
     // creating a custom hook useChartDimensions
     const [ref, dms] = useChartDimensions(chartSettings)
   
+    // 
     const xScale = useMemo(() => (
       d3.scaleLinear()
       .domain([0, 100])
