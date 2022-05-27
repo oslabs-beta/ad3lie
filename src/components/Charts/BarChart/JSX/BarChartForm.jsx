@@ -1,14 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
-export default function BarChartForm () {
-  const [data, setData] = useState([]);
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisTitle, setXAxisTitle] = useState('X-axis');
-  const [yAxisTitle, setYAxisTitle] = useState('Y-axis');
-  const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);
-
+const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width}) => {
+  
   return (
     <Fragment>
       <div>Chart Customizer Form</div>
@@ -33,16 +26,16 @@ export default function BarChartForm () {
             onChange={(e) => setYKey(e.target.value)}
           />
           <input
-            id="set-XAxisTitle"
+            id="set-xAxisLabel"
             type="string"
-            value={xAxisTitle}
-            onChange={(e) => setXAxisTitle(e.target.value)}
+            value={xAxisLabel}
+            onChange={(e) => setxAxisLabel(e.target.value)}
           />
           <input
-            id="set-YAxisTitle"
+            id="set-yAxisLabel"
             type="string"
-            value={yAxisTitle}
-            onChange={(e) => setYAxisTitle(e.target.value)}
+            value={yAxisLabel}
+            onChange={(e) => setyAxisLabel(e.target.value)}
           />
           <input
             id="set-height"
@@ -73,6 +66,7 @@ BarChartForm.propTypes = {
   width: PropTypes.number,
 }
 
+export default BarChartForm;
 
 // Event Handlers here to update state dynamically, on change
 // Call some fn getData() to import? or pull from whereever we import the data from
@@ -91,14 +85,14 @@ BarChartForm.propTypes = {
 //   setYKey(event.target.value);
 // }
 
-// const changeXAxisTitle = (event: ChangeEvent<HTMLInputElement>) => {
+// const changexAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
 //   event.preventDefault();
-//   setXAxisTitle(event.target.value);
+//   setxAxisLabel(event.target.value);
 // }
 
-// const changeYAxisTitle = (event: ChangeEvent<HTMLInputElement>) => {
+// const changeyAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
 //   event.preventDefault();
-//   setYAxisTitle(event.target.value);
+//   setyAxisLabel(event.target.value);
 // }
 
 // const changeWidth = (event: ChangeEvent<HTMLInputElement>) => {

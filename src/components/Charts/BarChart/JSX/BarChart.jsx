@@ -55,7 +55,7 @@ import { Axis, Bars, Chart } from '../../../ChartComponents/JSX';
   // const keyAccessor = (d, i) => i
 
    return (
-    <div className="barchart" ref={ref}>
+    <div className="barchart graph" ref={ref}>
       <Chart dimensions={dimensions}>
         <Axis
           dimensions={dimensions}

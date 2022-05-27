@@ -1,6 +1,4 @@
 /* eslint-disable */
-
-
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
 import BarChart from './components/Charts/BarChart/BarChart'
