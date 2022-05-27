@@ -5,7 +5,7 @@ import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContaine
 // import AppLayout from './layouts/AppLayout';
 
 
-export default App = () => {
+const App = () => {
   return (
     // <Fragment>
     // <HashRouter>
@@ -31,3 +31,5 @@ export default App = () => {
     
   )
 }
+
+export default App

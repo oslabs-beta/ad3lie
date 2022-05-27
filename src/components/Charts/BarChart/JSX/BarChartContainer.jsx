@@ -1,5 +1,8 @@
-import { Component } from "react";
-import { BarChart, BarChartForm } from "./";
+import React, { useState } from 'react';
+import BarChart from "./BarChart";
+import BarChartForm from "./BarChartForm"
+import BarChartCodePreview from "./BarChartCodePreview"
+
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -10,17 +13,17 @@ We update state from the form, which the graph reads and re-renders from
 </BarChartContainer>
 */
 const BarChartContainer = (props) => {
-  const [data, setData] = useState([]);
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisLabel, setxAxisLabel] = useState('');
-  const [yAxisLabel, setyAxisLabel] = useState('');
-  const [height, setHeight] = useState(0);
-  const [width, setWidth] = useState(0);
+  const [data, setData] = useState([{'x': 1, 'y': 1}]);
+  const [xKey, setXKey] = useState('x');
+  const [yKey, setYKey] = useState('y');
+  const [xAxisLabel, setxAxisLabel] = useState('x');
+  const [yAxisLabel, setyAxisLabel] = useState('y');
+  const [height, setHeight] = useState(100);
+  const [width, setWidth] = useState(100);
 
 
-  // Event Handlers here to update state dynamically
-// Call some fn getData() to import? or pull from whereever we import the data from
+  // Event Handlers to update
+    // Call some fn getData() to import? or pull from whereever we import the data from
 const handleData = (e) => {
   e.preventDefault();
   setData(JSON.parse(e.target.value));
@@ -56,12 +59,14 @@ const handleHeight = (e) => {
   setHeight(+e.target.value);
 }
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight }
+const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
-    <div className="barchartcontainer">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} handlers={handlers}></BarChartForm>
+    <div className="barchart-container">
+        {/* <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
+        handlers={handlers}></BarChartForm> */}
         <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></BarChart>
+        <BarChartCodePreview />
     </div>
     );
 }

@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from "prop-types"
 
-const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width}) => {
+const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight } }) => {
   
   return (
     <Fragment>
@@ -11,43 +12,43 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width}
             id="set-data"
             type="array"
             value={data}
-            onChange={(e) => setData(JSON.parse(e.target.value))}
+            onChange={handleData}
           />
           <input
             id="set-XKey"
             type="string"
             value={xKey}
-            onChange={(e) => setXKey(e.target.value)}
+            onChange={handleXKey}
           />
           <input
             id="set-YKey"
             type="string"
             value={yKey}
-            onChange={(e) => setYKey(e.target.value)}
+            onChange={handleYKey}
           />
           <input
             id="set-xAxisLabel"
             type="string"
             value={xAxisLabel}
-            onChange={(e) => setxAxisLabel(e.target.value)}
+            onChange={handleXAxisLabel}
           />
           <input
             id="set-yAxisLabel"
             type="string"
             value={yAxisLabel}
-            onChange={(e) => setyAxisLabel(e.target.value)}
+            onChange={handleYAxisLabel}
           />
           <input
             id="set-height"
             type="number"
             value={height}
-            onChange={(e) => setHeight(+e.target.value)}
+            onChange={handleHeight}
           />
           <input
             id="set-width"
             type="number"
             value={width}
-            onChange={(e) => setWidth(+e.target.value)}
+            onChange={handleWidth}
           />
         </form>
       </section>

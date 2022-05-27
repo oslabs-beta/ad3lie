@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import * as d3 from 'd3'
 import { dimensionsPropsType } from "../../../utils/utils.js";
-import { useChartDimensions } from "../Chart.jsx";
+import { useChartDimensions } from "./Chart.jsx";
 
 const axisComponentsByDimension = {
   x: AxisHorizontal,

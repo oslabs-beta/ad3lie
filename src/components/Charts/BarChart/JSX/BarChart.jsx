@@ -2,20 +2,28 @@ import React, { useState, useEffect, useMemo } from 'react';
 import * as d3 from 'd3';
 import PropTypes from "prop-types"
 import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
-import { Axis, Bars, Chart } from '../../../ChartComponents/JSX';
+import Axis from "../../../ChartComponents/JSX/Axis.jsx"
+import Bars from "../../../ChartComponents/JSX/Bars.jsx"
+import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 
  const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel }) => {
   
-  const [data, setData] = useState([]);
+  const [chartData, setChartData] = useState(data);
 
   // on load or when data changes, reset state
   useEffect(() => {
-    setData(data);
+    setChartData(data);
   }, [data]);
 
+
   // 1. Process data. Look at the data structure and declare how to access the values we'll need.
-  const xAccessor = (d) = useMemo(() => (d) => d[xKey], []);
-  const yAccessor = (d) = useMemo(() => (d) => d[yKey], []);
+  // const xAccessor = data = useMemo(() => (data) => data[xKey]);
+  // const yAccessor = data = useMemo(() => (data) => data[yKey]);
+  const xAccessor = data[`${xKey}`];
+  const yAccessor = data[`${yKey}`];
+
+  console.log(xAccessor)
+  console.log(yAccessor)
 
   // 2. Determine chart dimensions
   const [ref, dimensions] = useChartDimensions({
@@ -23,6 +31,8 @@ import { Axis, Bars, Chart } from '../../../ChartComponents/JSX';
   });
 
   // 3. Create scales. Create scales for every data-to-physical attribute in our chart
+console.log(data)
+
   const xScale = useMemo(
     () => d3
         .scaleBand()
@@ -46,12 +56,11 @@ import { Axis, Bars, Chart } from '../../../ChartComponents/JSX';
   const yAccessorScaled = d => yScale(yAccessor(d))
   const keyAccessor = (d, i) => i
 
-  //  const barPadding = 2
-
+  // const barPadding = 2
   // const xAccessorScaled = d => xScale(d.x0) + barPadding
   // const yAccessorScaled = d => yScale(yAccessor(d))
-  const widthAccessorScaled = d => xScale(d.x1) - xScale(d.x0) // - barPadding
-  const heightAccessorScaled = d => dimensions.boundedHeight - yScale(yAccessor(d))
+  // const widthAccessorScaled = d => xScale(d.x1) - xScale(d.x0) - barPadding
+  // const heightAccessorScaled = d => dimensions.boundedHeight - yScale(yAccessor(d))
   // const keyAccessor = (d, i) => i
 
    return (
