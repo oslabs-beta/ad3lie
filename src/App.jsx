@@ -24,7 +24,7 @@ const App = () => {
     // </Fragment>
     <Fragment>
         <div>
-            <h1>This is the App Component. I am adjacent to BarChartContainer.</h1>
+            <h1>This is the App Component. I serve the BarChartContainer.</h1>
         </div>
         <BarChartContainer />
     </Fragment>

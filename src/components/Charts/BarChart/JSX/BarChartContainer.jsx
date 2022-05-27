@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import BarChart from "./BarChart";
 import BarChartForm from "./BarChartForm"
 import BarChartCodePreview from "./BarChartCodePreview"
+import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../../../ChartComponents/ScatterPlot/App.jsx'
+import * as d3 from "d3"
+import { getScatterData, getTimelineData } from '../../../../ChartComponents/ScatterPlot/Data'
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -13,15 +16,36 @@ We update state from the form, which the graph reads and re-renders from
 </BarChartContainer>
 */
 const BarChartContainer = (props) => {
-  const [data, setData] = useState([{'x': 1, 'y': 1}]);
-  const [xKey, setXKey] = useState('x');
-  const [yKey, setYKey] = useState('y');
-  const [xAxisLabel, setxAxisLabel] = useState('x');
-  const [yAxisLabel, setyAxisLabel] = useState('y');
+const getData = () => ({
+  // timeline: getTimelineData(),
+  scatter: getScatterData(),
+})
+
+  const [data, setData] = useState(getData().scatter);
+  const [xKey, setXKey] = useState('humidity');
+  const [yKey, setYKey] = useState('temperature');
+  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
+  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(100);
   const [width, setWidth] = useState(100);
+  // const [xAccessor, setXAccessor] = useState(humidityAccessor)
+  // const [yAccessor, setYAccessor] = useState(temperatureAccessor)
+const parseDate = d3.timeParse("%m/%d/%Y")
+const dateAccessor = d => parseDate(d.date)
+const temperatureAccessor = d => d.temperature
+const humidityAccessor = d => d.humidity
 
-
+console.log('You just rerendered the BarChartContainer')
+  // // on load or when data changes, reset state
+  // useEffect(() => {
+  //   setData(getData().scatter);
+  //   setXKey('humidity');
+  //   setYKey('temperature');
+  //   setXAxisLabel('X-axis: Humidity');
+  //   setYAxisLabel('Y-axis: Temperature');
+  //   setHeight(100);
+  //   setWidth(100);
+  // }, []);
   // Event Handlers to update
     // Call some fn getData() to import? or pull from whereever we import the data from
 const handleData = (e) => {
@@ -41,12 +65,12 @@ const handleYKey = (e) => {
 
 const handleXAxisLabel = (e) => {
   e.preventDefault();
-  setxAxisLabel(e.target.value);
+  setXAxisLabel(e.target.value);
 }
 
 const handleYAxisLabel = (e) => {
   e.preventDefault();
-  setyAxisLabel(e.target.value);
+  setYAxisLabel(e.target.value);
 }
 
 const handleWidth = (e) => {
@@ -62,13 +86,16 @@ const handleHeight = (e) => {
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
+    <Fragment>
+    <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
     <div className="barchart-container">
-        {/* <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></BarChartForm> */}
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></BarChart>
-        <BarChartCodePreview />
+        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
+        handlers={handlers}></BarChartForm>
+        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
+        {/* <BarChartCodePreview /> */}
     </div>
-    );
+    </Fragment>
+  );
 }
 
 export default BarChartContainer
