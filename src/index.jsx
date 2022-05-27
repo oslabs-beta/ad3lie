@@ -6,7 +6,7 @@ import App from './App';
 
 import "./styles.css"
 
-type title = string;
+// type title = string;
 
 const root = document.getElementById('root');
 render( <App />, root);
