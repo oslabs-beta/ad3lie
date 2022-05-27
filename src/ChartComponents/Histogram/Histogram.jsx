@@ -8,7 +8,7 @@ import Chart from '../utilities/Chart'
 import Bars from '../utilities/Bars'
 import Axis from "../utilities/Axis"
 import Gradient from "../utilities/Gradient";
-import { useChartDimensions } from "../utilities/useChartDimensions"
+import { useChartDimensions } from "../utilities/useChartDimensions_comments"
 import { accessorPropsType } from "../utilities/accessorPropsType"
 import { useUniqueId } from "../utilities/useUniqueId"
 

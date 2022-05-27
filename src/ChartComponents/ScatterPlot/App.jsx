@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
-import { getScatterData } from "./Data"
+import { getScatterData, getTimelineData } from './Data'
 
-import ScatterPlot from "./ScatterPlot"
+import Timeline from "../Timeline/Timeline"
+import ScatterPlot from "../ScatterPlot/ScatterPlot"
+import Histogram from "../Histogram/Histogram"
 
 import "./styles.css"
 
@@ -11,7 +13,10 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
+// console.log('humidityAccessor from App.jsx', humidityAccessor)
+
 const getData = () => ({
+  timeline: getTimelineData(),
   scatter: getScatterData(),
 })
 const App = () => {
@@ -24,15 +29,26 @@ const App = () => {
   return (
     <div className="App">
       <h1>
-        FROM APP.JSX
+        Weather Dashboard
       </h1>
       <div className="App__charts">
+        <Timeline
+          data={data.timeline}
+          xAccessor={dateAccessor}
+          yAccessor={temperatureAccessor}
+          label="Temperature"
+        />
         <ScatterPlot
           data={data.scatter}
-          xAccessor={humidityAccessor}
+          xAccessor={humidityAccessor} // returns humidity property of an object
           yAccessor={temperatureAccessor}
-          // xLabel="Humidity"
-          // yLabel="Temperature"
+          xLabel="Humidity"
+          yLabel="Temperature"
+        />
+        <Histogram
+          data={data.scatter}
+          xAccessor={humidityAccessor}
+          label="Humidity"
         />
       </div>
     </div>

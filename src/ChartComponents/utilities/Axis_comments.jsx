@@ -10,7 +10,7 @@
 import React from "react"
 import PropTypes from "prop-types" // This is essentially typescript but REACT
 import * as d3 from 'd3'
-import { useChartDimensions } from './useChartDimensions'
+import { useChartDimensions } from './useChartDimensions_comments'
 
 // declaring a const axisComponentsByDimension set where the x and y keys are set to the
 // functions AxisHorizontal and AxisVertical through JavaScript/React Hoisting

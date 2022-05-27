@@ -1,4 +1,3 @@
-
 body {
     padding: 1.6em 2em 4em;
     letter-spacing: -0.011em;
@@ -23,6 +22,20 @@ h1 {
     background: #ecf0f1;
 }
 
+.Timeline {
+    height: 300px;
+    min-width: 500px;
+    width: calc(100% + 1em);
+    margin-bottom: 2em;
+}
+
+.Histogram {
+    height: 500px;
+    flex: 1;
+    min-width: 500px;
+    overflow: hidden;
+}
+
 .ScatterPlot {
     height: 500px;
     width: 500px;
@@ -36,7 +49,9 @@ h1 {
     margin: -0.5em;
 }
 
-.ScatterPlot {
+.Timeline,
+.ScatterPlot,
+.Histogram {
     background: white;
     padding: 0.6em 1em;
     margin: 0.5em;
