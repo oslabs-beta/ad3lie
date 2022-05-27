@@ -2,7 +2,8 @@ import React from "react";
 
 function LineChart(props) {
   return(
-    <div className='Chart'>
+    <div  className={props.className}>
+      Chart
     </div>
   )
 }
