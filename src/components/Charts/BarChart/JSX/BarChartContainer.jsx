@@ -7,7 +7,8 @@
 //   const [width, setWidth] = useState(100);
 
 import { Component } from "react";
-import { BarChart, BarChartForm } from "./";
+import BarChart from "./BarChart";
+import BarChartForm from "./BarChartForm";
 
 class BarChartContainer extends Component {
   constructor() {
@@ -30,3 +31,5 @@ class BarChartContainer extends Component {
             );
         }
 }
+
+export default BarChartContainer;

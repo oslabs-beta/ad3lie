@@ -1,12 +1,8 @@
 /* eslint-disable */
-
-
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
-import BarChart from './components/Charts/BarChart/BarChart'
-import ChartCustomizer from './components/ignore'
-import NavBar from './components/NavBar'
-import AppLayout from './layouts/AppLayout';
+import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer.jsx';
+import NavBar from './components/NavBar';
 
 
 export default () => {
@@ -15,16 +11,13 @@ export default () => {
     <HashRouter>
       <Router>
         <div>
-          <NavBar />
-          <ChartCustomizer >
             <Routes>
-              <Route path="bar-chart" element={<BarChart data={[]} xKey={''} yKey={''} height={''} width={''} />} />
+              <Route path="/" element={NavBar} />
+              <Route path="bar-chart" element={<BarChartContainer />} />
             </Routes>
-          </ChartCustomizer> 
         </div>
       </Router>
     </HashRouter>
-    <AppLayout />
     </Fragment>
   )
 }
