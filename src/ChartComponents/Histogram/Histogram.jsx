@@ -8,9 +8,9 @@ import Chart from '../utilities/Chart'
 import Bars from '../utilities/Bars'
 import Axis from "../utilities/Axis"
 import Gradient from "../utilities/Gradient";
-import { useChartDimensions } from "../utilities/useChartDimensions_comments"
-import { accessorPropsType } from "../utilities/accessorPropsType"
-import { useUniqueId } from "../utilities/useUniqueId"
+import { useChartDimensions } from "../utilities/utils"
+import { accessorPropsType } from "../utilities/utils"
+import { useUniqueId } from "../utilities/utils"
 
 const gradientColors = ["#9980FA", "rgb(226, 222, 243)"]
 const Histogram = ({ data, xAccessor, label }) => {

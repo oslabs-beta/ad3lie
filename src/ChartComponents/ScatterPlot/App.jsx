@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
-import { getScatterData, getTimelineData } from './Data'
+import { getScatterData, getTimelineData, getNumbersData, getTimelineData3 } from './Data'
+import { userAxisData } from "./EnteredData"
 
 import Timeline from "../Timeline/Timeline"
 import ScatterPlot from "../ScatterPlot/ScatterPlot"
 import Histogram from "../Histogram/Histogram"
+import LineGraph from "../LineGraph/LineGraph"
 
 import "./styles.css"
 
@@ -13,12 +15,16 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
-// console.log('humidityAccessor from App.jsx', humidityAccessor)
+const xUserAccessor = d => d[userAxisData["x"]];
+const yUserAccessor = d => d[userAxisData["y"]];
 
 const getData = () => ({
   timeline: getTimelineData(),
   scatter: getScatterData(),
+  line: getNumbersData(),
+  timeline3: getTimelineData3()
 })
+
 const App = () => {
   const [data, setData] = useState(getData())
 
@@ -33,7 +39,7 @@ const App = () => {
       </h1>
       <div className="App__charts">
         <Timeline
-          data={data.timeline}
+          data={data.timeline3}
           xAccessor={dateAccessor}
           yAccessor={temperatureAccessor}
           label="Temperature"
@@ -49,6 +55,12 @@ const App = () => {
           data={data.scatter}
           xAccessor={humidityAccessor}
           label="Humidity"
+        />
+        <LineGraph
+          data={data.line}
+          xAccessor={xUserAccessor}
+          yAccessor={yUserAccessor}
+          label="Efficiency"
         />
       </div>
     </div>

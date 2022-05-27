@@ -1,12 +1,15 @@
 import * as d3 from "d3"
+import PropTypes from "prop-types";
 
 const randomAroundMean = (mean, deviation) => mean + boxMullerRandom() * deviation
 const boxMullerRandom = () => (
-  Math.sqrt(-2.0 * Math.log(Math.random())) *
+  Math.sqrt(-2.0 * Math.log(Math.random())) * 
   Math.cos(2.0 * Math.PI * Math.random())
 )
 
 const today = new Date()
+
+// TYPE: DATE
 const formatDate = d3.timeFormat("%m/%d/%Y")
 export const getTimelineData = (length = 100) => {
   let lastTemperature = randomAroundMean(70, 20)
@@ -21,9 +24,41 @@ export const getTimelineData = (length = 100) => {
   })
 }
 
+// TYPE: NUMBER
 export const getScatterData = (count = 100) => (
   new Array(count).fill(0).map((d, i) => ({
     temperature: randomAroundMean(70, 20),
     humidity: randomAroundMean(0.5, 0.1),
   }))
 )
+
+
+// ============================================================================================================= //
+import { userEnteredData, userAxisData } from "./EnteredData";
+
+// TYPE: DATE ---- TIMELINE
+export const getTimelineData3 = (length = userEnteredData.length, userAxis = userAxisData) => {
+
+  return (new Array(length).fill({}).map((d, i) => ({
+    [userAxis["x"]]: new Date(userEnteredData[i][userAxis["x"]]),
+    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
+  }))
+  )
+}
+console.log("gettimelineData", getTimelineData3())
+
+// TYPE: NUMBERS ---- LINE GRAPHS
+const objectComparisonCallback = (arrayItemA, arrayItemB) => {
+  if (arrayItemA[userAxisData["x"]] < arrayItemB[userAxisData["x"]]) return -1;
+  if (arrayItemA[userAxisData["x"]] > arrayItemB[userAxisData["x"]]) return 1;
+  return 0
+}
+userEnteredData.sort(objectComparisonCallback)
+
+export const getNumbersData = (userAxis = userAxisData, count = userEnteredData.length) => {
+  return (new Array(count).fill({}).map((d, i) => ({
+    [userAxis["x"]]: userEnteredData[i][userAxis["x"]],
+    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
+  }))
+  )
+}

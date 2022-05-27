@@ -6,17 +6,15 @@ import * as d3 from "d3"
 import Chart from '../utilities/Chart'
 import Line from '../utilities/Line'
 import Axis from "../utilities/Axis"
-import Gradient from "../utilities/Gradient";
+
 import { useChartDimensions } from "../utilities/utils"
 import { accessorPropsType } from "../utilities/utils"
-import { useUniqueId } from "../utilities/utils"
 
 const formatDate = d3.timeFormat("%-b %-d")
-const gradientColors = ["rgb(226, 222, 243)", "#f8f9fa"]
 
-const Timeline = ({ data, xAccessor, yAccessor, label }) => {
+
+const LineGraph = ({ data, xAccessor, yAccessor, label }) => {
   const [ref, dimensions] = useChartDimensions()
-  const gradientId = useUniqueId("Timeline-gradient")
 
   const xScale = d3.scaleTime()
     .domain(d3.extent(data, xAccessor))
@@ -32,33 +30,16 @@ const Timeline = ({ data, xAccessor, yAccessor, label }) => {
   const y0AccessorScaled = yScale(yScale.domain()[0])
 
   return (
-    <div className="Timeline" ref={ref}>
+    <div className="LineGraph" ref={ref}>
       <Chart dimensions={dimensions}>
-        <defs>
-          <Gradient
-            id={gradientId}
-            colors={gradientColors}
-            x2="0"
-            y2="100%"
-          />
-        </defs>
         <Axis
           dimension="x"
           scale={xScale}
-          formatTick={formatDate}
         />
         <Axis
           dimension="y"
           scale={yScale}
           label={label}
-        />
-        <Line
-          type="area"
-          data={data}
-          xAccessor={xAccessorScaled}
-          yAccessor={yAccessorScaled}
-          y0Accessor={y0AccessorScaled}
-          style={{fill: `url(#${gradientId})`}}
         />
         <Line
           data={data}
@@ -70,14 +51,14 @@ const Timeline = ({ data, xAccessor, yAccessor, label }) => {
   )
 }
 
-Timeline.propTypes = {
+LineGraph.propTypes = {
     xAccessor: accessorPropsType,
     yAccessor: accessorPropsType,
     label: PropTypes.string,
 }
 
-Timeline.defaultProps = {
+LineGraph.defaultProps = {
     xAccessor: d => d.x,
     yAccessor: d => d.y,
 }
-export default Timeline
+export default LineGraph
