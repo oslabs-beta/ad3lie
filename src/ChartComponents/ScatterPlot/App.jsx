@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getNumbersData, getTimelineData3 } from './Data'
+import { getScatterData, getTimelineData, getNumbersData, getUONumData } from './Data'
 import { userAxisData } from "./EnteredData"
 
 import Timeline from "../Timeline/Timeline"
@@ -22,7 +22,7 @@ const getData = () => ({
   timeline: getTimelineData(),
   scatter: getScatterData(),
   line: getNumbersData(),
-  timeline3: getTimelineData3()
+  uonum: getUONumData(),
 })
 
 const App = () => {
@@ -39,15 +39,15 @@ const App = () => {
       </h1>
       <div className="App__charts">
         <Timeline
-          data={data.timeline3}
+          data={data.timeline}
           xAccessor={dateAccessor}
           yAccessor={temperatureAccessor}
           label="Temperature"
         />
         <ScatterPlot
-          data={data.scatter}
-          xAccessor={humidityAccessor} // returns humidity property of an object
-          yAccessor={temperatureAccessor}
+          data={data.uonum}
+          xAccessor={xUserAccessor} // returns humidity property of an object
+          yAccessor={yUserAccessor}
           xLabel="Humidity"
           yLabel="Temperature"
         />

@@ -1,917 +1,3071 @@
 import PropTypes from 'prop-types';
 
 export const userAxisData = {
-  "x": "value",
-  "y": "marketvalue",
+  "x": "flipper_length_mm",
+  "y": "culmen_depth_mm",
   "xType": "number",
   "yType": "number"
 }
 
 export const userEnteredData = [
   {
-    "date": "2019-07-15",
-    "marketvalue": 96462.350117,
-    "value": 0
-  },
-  {
-    "date": "2019-07-16",
-    "marketvalue": 96525.107316,
-    "value": 0.06505874978567416
-  },
-  {
-    "date": "2019-07-17",
-    "marketvalue": 96399.51708,
-    "value": -0.06513736906035285
-  },
-  {
-    "date": "2019-07-18",
-    "marketvalue": 96452.964545,
-    "value": -0.009729777460963951
-  },
-  {
-    "date": "2019-07-19",
-    "marketvalue": 96673.377824,
-    "value": 0.21876691449466315
-  },
-  {
-    "date": "2019-07-22",
-    "marketvalue": 96446.730245,
-    "value": -0.016192713510560883
-  },
-  {
-    "date": "2019-07-23",
-    "marketvalue": 96483.764726,
-    "value": 0.02219996607383714
-  },
-  {
-    "date": "2019-07-24",
-    "marketvalue": 96579.495121,
-    "value": 0.12144116731337547
-  },
-  {
-    "date": "2019-07-25",
-    "marketvalue": 96691.287123,
-    "value": 0.2373330172054904
-  },
-  {
-    "date": "2019-07-26",
-    "marketvalue": 96508.730766,
-    "value": 0.04808160794729189
-  },
-  {
-    "date": "2019-07-29",
-    "marketvalue": 96565.511343,
-    "value": 0.10694454973870622
-  },
-  {
-    "date": "2019-07-30",
-    "marketvalue": 96591.277652,
-    "value": 0.13365580959164142
-  },
-  {
-    "date": "2019-07-31",
-    "marketvalue": 96607.294778,
-    "value": 0.15026034595279442
-  },
-  {
-    "date": "2019-08-01",
-    "marketvalue": 96480.329478,
-    "value": 0.018638734157101378
-  },
-  {
-    "date": "2019-08-02",
-    "marketvalue": 96577.3235,
-    "value": 0.1191899045177189
-  },
-  {
-    "date": "2019-08-05",
-    "marketvalue": 96489.351828,
-    "value": 0.027991968853391398
-  },
-  {
-    "date": "2019-08-06",
-    "marketvalue": 96254.421325,
-    "value": -0.21555435021829908
-  },
-  {
-    "date": "2019-08-07",
-    "marketvalue": 96496.665176,
-    "value": 0.03557352579361686
-  },
-  {
-    "date": "2019-08-08",
-    "marketvalue": 96576.337347,
-    "value": 0.11816758544835776
-  },
-  {
-    "date": "2019-08-09",
-    "marketvalue": 96888.061228,
-    "value": 0.44132359462904586
-  },
-  {
-    "date": "2019-08-12",
-    "marketvalue": 96720.383677,
-    "value": 0.26749665510640047
-  },
-  {
-    "date": "2019-08-13",
-    "marketvalue": 96719.469592,
-    "value": 0.26654904705114235
-  },
-  {
-    "date": "2019-08-14",
-    "marketvalue": 96757.986517,
-    "value": 0.30647853762781035
-  },
-  {
-    "date": "2019-08-15",
-    "marketvalue": 96403.474788,
-    "value": -0.06103451650160878
-  },
-  {
-    "date": "2019-08-16",
-    "marketvalue": 96685.82158,
-    "value": 0.23166703146766543
-  },
-  {
-    "date": "2019-08-19",
-    "marketvalue": 96841.157439,
-    "value": 0.39269966110149856
-  },
-  {
-    "date": "2019-08-20",
-    "marketvalue": 96839.713987,
-    "value": 0.3912032720976549
-  },
-  {
-    "date": "2019-08-21",
-    "marketvalue": 96845.792683,
-    "value": 0.3975048975428437
-  },
-  {
-    "date": "2019-08-22",
-    "marketvalue": 96892.596646,
-    "value": 0.4460253440623729
-  },
-  {
-    "date": "2019-08-23",
-    "marketvalue": 96843.749491,
-    "value": 0.3953867737385596
-  },
-  {
-    "date": "2019-08-26",
-    "marketvalue": 96703.057011,
-    "value": 0.24953455281573025
-  },
-  {
-    "date": "2019-08-27",
-    "marketvalue": 96780.07342,
-    "value": 0.3293754533397027
-  },
-  {
-    "date": "2019-08-28",
-    "marketvalue": 96842.400645,
-    "value": 0.39398846030501383
-  },
-  {
-    "date": "2019-08-29",
-    "marketvalue": 96964.07836,
-    "value": 0.5201285707754887
-  },
-  {
-    "date": "2019-08-30",
-    "marketvalue": 97164.496279,
-    "value": 0.7278965950428959
-  },
-  {
-    "date": "2019-09-03",
-    "marketvalue": 97166.571221,
-    "value": 0.730047633243275
-  },
-  {
-    "date": "2019-09-04",
-    "marketvalue": 97176.918344,
-    "value": 0.7407742255224905
-  },
-  {
-    "date": "2019-09-05",
-    "marketvalue": 97537.624853,
-    "value": 1.114709246349265
-  },
-  {
-    "date": "2019-09-06",
-    "marketvalue": 97399.021771,
-    "value": 0.9710230497846082
-  },
-  {
-    "date": "2019-09-09",
-    "marketvalue": 97486.474542,
-    "value": 1.0616830543293116
-  },
-  {
-    "date": "2019-09-10",
-    "marketvalue": 97437.181374,
-    "value": 1.0105821139725695
-  },
-  {
-    "date": "2019-09-11",
-    "marketvalue": 97230.638306,
-    "value": 0.7964643076476332
-  },
-  {
-    "date": "2019-09-12",
-    "marketvalue": 97314.601929,
-    "value": 0.8835072035527816
-  },
-  {
-    "date": "2019-09-13",
-    "marketvalue": 97384.387342,
-    "value": 0.9558519193049446
-  },
-  {
-    "date": "2019-09-16",
-    "marketvalue": 97113.050706,
-    "value": 0.6745643126160203
-  },
-  {
-    "date": "2019-09-17",
-    "marketvalue": 97277.18766,
-    "value": 0.8447208076640023
-  },
-  {
-    "date": "2019-09-18",
-    "marketvalue": 97384.016826,
-    "value": 0.955467815040897
-  },
-  {
-    "date": "2019-09-19",
-    "marketvalue": 97308.230347,
-    "value": 0.8769019508378395
-  },
-  {
-    "date": "2019-09-20",
-    "marketvalue": 97327.895344,
-    "value": 0.8972881398288274
-  },
-  {
-    "date": "2019-09-23",
-    "marketvalue": 97436.158107,
-    "value": 1.0095213197883528
-  },
-  {
-    "date": "2019-09-24",
-    "marketvalue": 97514.106981,
-    "value": 1.090328882433732
-  },
-  {
-    "date": "2019-09-25",
-    "marketvalue": 97526.298578,
-    "value": 1.1029675927546114
-  },
-  {
-    "date": "2019-09-26",
-    "marketvalue": 97388.084778,
-    "value": 0.9596849546762738
-  },
-  {
-    "date": "2019-09-27",
-    "marketvalue": 97443.947461,
-    "value": 1.0175963397215726
-  },
-  {
-    "date": "2019-09-30",
-    "marketvalue": 97383.464669,
-    "value": 0.9548954082942955
-  },
-  {
-    "date": "2019-10-01",
-    "marketvalue": 97474.627225,
-    "value": 1.0494012500962298
-  },
-  {
-    "date": "2019-10-02",
-    "marketvalue": 97342.32013,
-    "value": 0.9122419388835923
-  },
-  {
-    "date": "2019-10-03",
-    "marketvalue": 97211.29761,
-    "value": 0.7764143130367395
-  },
-  {
-    "date": "2019-10-04",
-    "marketvalue": 97512.613281,
-    "value": 1.0887804026401253
-  },
-  {
-    "date": "2019-10-07",
-    "marketvalue": 97776.735033,
-    "value": 1.3625885274470002
-  },
-  {
-    "date": "2019-10-08",
-    "marketvalue": 97569.263823,
-    "value": 1.1475085405418954
-  },
-  {
-    "date": "2019-10-09",
-    "marketvalue": 97407.235701,
-    "value": 0.9795382165725179
-  },
-  {
-    "date": "2019-10-10",
-    "marketvalue": 97465.039155,
-    "value": 1.0394615482453309
-  },
-  {
-    "date": "2019-10-11",
-    "marketvalue": 97406.169206,
-    "value": 0.9784326090492652
-  },
-  {
-    "date": "2019-10-14",
-    "marketvalue": 97452.690911,
-    "value": 1.0266604460691733
-  },
-  {
-    "date": "2019-10-15",
-    "marketvalue": 97470.595007,
-    "value": 1.0452211549657366
-  },
-  {
-    "date": "2019-10-16",
-    "marketvalue": 97466.029882,
-    "value": 1.0404886090610774
-  },
-  {
-    "date": "2019-10-17",
-    "marketvalue": 97568.950336,
-    "value": 1.1471835567532775
-  },
-  {
-    "date": "2019-10-18",
-    "marketvalue": 97634.155296,
-    "value": 1.2147798364633535
-  },
-  {
-    "date": "2019-10-21",
-    "marketvalue": 97691.341629,
-    "value": 1.274063414906796
-  },
-  {
-    "date": "2019-10-22",
-    "marketvalue": 97726.839352,
-    "value": 1.310862977593113
-  },
-  {
-    "date": "2019-10-23",
-    "marketvalue": 97811.64346,
-    "value": 1.3987771823550128
-  },
-  {
-    "date": "2019-10-24",
-    "marketvalue": 97896.967942,
-    "value": 1.4872308452571805
-  },
-  {
-    "date": "2019-10-25",
-    "marketvalue": 97905.45484,
-    "value": 1.4960289908442477
-  },
-  {
-    "date": "2019-10-28",
-    "marketvalue": 97867.999828,
-    "value": 1.4572003577510557
-  },
-  {
-    "date": "2019-10-29",
-    "marketvalue": 97811.109714,
-    "value": 1.3982238618114509
-  },
-  {
-    "date": "2019-10-30",
-    "marketvalue": 97798.521902,
-    "value": 1.385174405744154
-  },
-  {
-    "date": "2019-10-31",
-    "marketvalue": 97982.915923,
-    "value": 1.5763308732948067
-  },
-  {
-    "date": "2019-11-01",
-    "marketvalue": 98026.460333,
-    "value": 1.6214722263171875
-  },
-  {
-    "date": "2019-11-04",
-    "marketvalue": 98254.760558,
-    "value": 1.858145109284576
-  },
-  {
-    "date": "2019-11-05",
-    "marketvalue": 98229.873598,
-    "value": 1.8323454475825602
-  },
-  {
-    "date": "2019-11-06",
-    "marketvalue": 98028.29059,
-    "value": 1.623369605966118
-  },
-  {
-    "date": "2019-11-07",
-    "marketvalue": 98140.154028,
-    "value": 1.7393355116944356
-  },
-  {
-    "date": "2019-11-08",
-    "marketvalue": 97909.590581,
-    "value": 1.5003164055661404
-  },
-  {
-    "date": "2019-11-11",
-    "marketvalue": 97860.451155,
-    "value": 1.449374845527018
-  },
-  {
-    "date": "2019-11-12",
-    "marketvalue": 97819.505278,
-    "value": 1.4069273238251971
-  },
-  {
-    "date": "2019-11-13",
-    "marketvalue": 97782.130513,
-    "value": 1.368181880701877
-  },
-  {
-    "date": "2019-11-14",
-    "marketvalue": 97854.08529,
-    "value": 1.442775519476721
-  },
-  {
-    "date": "2019-11-15",
-    "marketvalue": 97997.972258,
-    "value": 1.5919393827098665
-  },
-  {
-    "date": "2019-11-18",
-    "marketvalue": 98098.840952,
-    "value": 1.6965073243758693
-  },
-  {
-    "date": "2019-11-19",
-    "marketvalue": 98175.19985,
-    "value": 1.7756666004119432
-  },
-  {
-    "date": "2019-11-20",
-    "marketvalue": 98201.76881,
-    "value": 1.8032099476015713
-  },
-  {
-    "date": "2019-11-21",
-    "marketvalue": 98219.35793,
-    "value": 1.8214441291020904
-  },
-  {
-    "date": "2019-11-22",
-    "marketvalue": 98037.0082,
-    "value": 1.63240692466033
-  },
-  {
-    "date": "2019-11-25",
-    "marketvalue": 98083.980689,
-    "value": 1.6811020776843095
-  },
-  {
-    "date": "2019-11-26",
-    "marketvalue": 98231.524896,
-    "value": 1.8340573051083173
-  },
-  {
-    "date": "2019-11-27",
-    "marketvalue": 98359.11636,
-    "value": 1.9663280447753928
-  },
-  {
-    "date": "2019-11-29",
-    "marketvalue": 98331.157465,
-    "value": 1.9373437882586395
-  },
-  {
-    "date": "2019-12-02",
-    "marketvalue": 98196.470453,
-    "value": 1.7977172792251803
-  },
-  {
-    "date": "2019-12-03",
-    "marketvalue": 97985.542392,
-    "value": 1.5790536651372347
-  },
-  {
-    "date": "2019-12-04",
-    "marketvalue": 98186.013875,
-    "value": 1.7868772178050334
-  },
-  {
-    "date": "2019-12-05",
-    "marketvalue": 98219.730127,
-    "value": 1.821829976014952
-  },
-  {
-    "date": "2019-12-06",
-    "marketvalue": 98192.107341,
-    "value": 1.7931941549236181
-  },
-  {
-    "date": "2019-12-09",
-    "marketvalue": 98290.427798,
-    "value": 1.895120405819171
-  },
-  {
-    "date": "2019-12-10",
-    "marketvalue": 98285.248089,
-    "value": 1.8897507367268076
-  },
-  {
-    "date": "2019-12-11",
-    "marketvalue": 98201.027441,
-    "value": 1.802441389714374
-  },
-  {
-    "date": "2019-12-12",
-    "marketvalue": 98201.027441,
-    "value": 1.802441389714374
-  },
-  {
-    "date": "2019-12-13",
-    "marketvalue": 98202.295923,
-    "value": 1.8037563918872026
-  },
-  {
-    "date": "2019-12-16",
-    "marketvalue": 98402.31284,
-    "value": 2.011108707850268
-  },
-  {
-    "date": "2019-12-17",
-    "marketvalue": 98425.828874,
-    "value": 2.035487166359186
-  },
-  {
-    "date": "2019-12-18",
-    "marketvalue": 98438.830245,
-    "value": 2.048965348244896
-  },
-  {
-    "date": "2019-12-19",
-    "marketvalue": 98435.414501,
-    "value": 2.0454243356157646
-  },
-  {
-    "date": "2019-12-20",
-    "marketvalue": 98538.69284,
-    "value": 2.152490293344073
-  },
-  {
-    "date": "2019-12-23",
-    "marketvalue": 98570.553713,
-    "value": 2.185519628583527
-  },
-  {
-    "date": "2019-12-24",
-    "marketvalue": 98504.782564,
-    "value": 2.117336395518787
-  },
-  {
-    "date": "2019-12-26",
-    "marketvalue": 98581.437432,
-    "value": 2.196802495926899
-  },
-  {
-    "date": "2019-12-27",
-    "marketvalue": 98720.114047,
-    "value": 2.3405649222329115
-  },
-  {
-    "date": "2019-12-30",
-    "marketvalue": 98811.176919,
-    "value": 2.4349674242345207
-  },
-  {
-    "date": "2019-12-31",
-    "marketvalue": 98781.648462,
-    "value": 2.4043560437693086
-  },
-  {
-    "date": "2020-01-02",
-    "marketvalue": 98829.828144,
-    "value": 2.4543026622599036
-  },
-  {
-    "date": "2020-01-03",
-    "marketvalue": 98984.759794,
-    "value": 2.61491625897622
-  },
-  {
-    "date": "2020-01-06",
-    "marketvalue": 99090.374196,
-    "value": 2.7244039522284575
-  },
-  {
-    "date": "2020-01-07",
-    "marketvalue": 99103.969722,
-    "value": 2.7384980790909172
-  },
-  {
-    "date": "2020-01-08",
-    "marketvalue": 98935.740683,
-    "value": 2.5640994263565045
-  },
-  {
-    "date": "2020-01-09",
-    "marketvalue": 98912.261117,
-    "value": 2.5397587732711076
-  },
-  {
-    "date": "2020-01-10",
-    "marketvalue": 98961.384815,
-    "value": 2.5906840285032446
-  },
-  {
-    "date": "2020-01-13",
-    "marketvalue": 99037.266888,
-    "value": 2.669348992510406
-  },
-  {
-    "date": "2020-01-14",
-    "marketvalue": 99161.301492,
-    "value": 2.7979324282753004
-  },
-  {
-    "date": "2020-01-15",
-    "marketvalue": 99205.498722,
-    "value": 2.843750542748349
-  },
-  {
-    "date": "2020-01-16",
-    "marketvalue": 99277.861479,
-    "value": 2.9187671237379584
-  },
-  {
-    "date": "2020-01-17",
-    "marketvalue": 99378.671186,
-    "value": 3.0232739151210493
-  },
-  {
-    "date": "2020-01-21",
-    "marketvalue": 99408.32095,
-    "value": 3.05401105138617
-  },
-  {
-    "date": "2020-01-22",
-    "marketvalue": 99466.008723,
-    "value": 3.1138144595863952
-  },
-  {
-    "date": "2020-01-23",
-    "marketvalue": 99427.619056,
-    "value": 3.0740168940559713
-  },
-  {
-    "date": "2020-01-24",
-    "marketvalue": 99471.869889,
-    "value": 3.119890577359693
-  },
-  {
-    "date": "2020-01-27",
-    "marketvalue": 99493.909123,
-    "value": 3.1427380758637917
-  },
-  {
-    "date": "2020-01-28",
-    "marketvalue": 99317.1838,
-    "value": 2.9595315473211548
-  },
-  {
-    "date": "2020-01-29",
-    "marketvalue": 99387.141368,
-    "value": 3.032054731667325
-  },
-  {
-    "date": "2020-01-30",
-    "marketvalue": 99477.812675,
-    "value": 3.126051308456118
-  },
-  {
-    "date": "2020-01-31",
-    "marketvalue": 99470.344875,
-    "value": 3.1183096351598087
-  },
-  {
-    "date": "2020-02-03",
-    "marketvalue": 99297.665981,
-    "value": 2.9392979339203547
-  },
-  {
-    "date": "2020-02-04",
-    "marketvalue": 99329.471305,
-    "value": 2.9722696829617403
-  },
-  {
-    "date": "2020-02-05",
-    "marketvalue": 99463.16128,
-    "value": 3.1108625897671898
-  },
-  {
-    "date": "2020-02-06",
-    "marketvalue": 99547.611143,
-    "value": 3.1984095579859506
-  },
-  {
-    "date": "2020-02-07",
-    "marketvalue": 99625.998005,
-    "value": 3.2796711713562696
-  },
-  {
-    "date": "2020-02-10",
-    "marketvalue": 99627.317677,
-    "value": 3.2810392408656686
-  },
-  {
-    "date": "2020-02-11",
-    "marketvalue": 99781.123177,
-    "value": 3.4404853872776604
-  },
-  {
-    "date": "2020-02-12",
-    "marketvalue": 99809.3414,
-    "value": 3.4697384823616737
-  },
-  {
-    "date": "2020-02-13",
-    "marketvalue": 99864.647901,
-    "value": 3.5270732880479527
-  },
-  {
-    "date": "2020-02-14",
-    "marketvalue": 99886.065631,
-    "value": 3.549276489581009
-  },
-  {
-    "date": "2020-02-18",
-    "marketvalue": 99962.535655,
-    "value": 3.628550967040089
-  },
-  {
-    "date": "2020-02-19",
-    "marketvalue": 99980.937927,
-    "value": 3.647628121989849
-  },
-  {
-    "date": "2020-02-20",
-    "marketvalue": 99957.573011,
-    "value": 3.623406323566256
-  },
-  {
-    "date": "2020-02-21",
-    "marketvalue": 100031.146504,
-    "value": 3.6996780429580833
-  },
-  {
-    "date": "2020-02-24",
-    "marketvalue": 100072.426001,
-    "value": 3.742471419804005
-  },
-  {
-    "date": "2020-02-25",
-    "marketvalue": 99596.767212,
-    "value": 3.2493683713886705
-  },
-  {
-    "date": "2020-02-26",
-    "marketvalue": 99157.912966,
-    "value": 2.7944196318361816
-  },
-  {
-    "date": "2020-02-27",
-    "marketvalue": 99016.338379,
-    "value": 2.647652953615837
-  },
-  {
-    "date": "2020-02-28",
-    "marketvalue": 98337.425682,
-    "value": 1.943841885176657
-  },
-  {
-    "date": "2020-03-02",
-    "marketvalue": 98301.807934,
-    "value": 1.9069178957063622
-  },
-  {
-    "date": "2020-03-03",
-    "marketvalue": 98884.455507,
-    "value": 2.510933423312005
-  },
-  {
-    "date": "2020-03-04",
-    "marketvalue": 99008.175924,
-    "value": 2.6391911496165563
-  },
-  {
-    "date": "2020-03-05",
-    "marketvalue": 99604.840305,
-    "value": 3.2577375361355463
-  },
-  {
-    "date": "2020-03-06",
-    "marketvalue": 99573.954775,
-    "value": 3.2257193135206723
-  },
-  {
-    "date": "2020-03-09",
-    "marketvalue": 99050.095595,
-    "value": 2.6826481781350977
-  },
-  {
-    "date": "2020-03-10",
-    "marketvalue": 97083.61397,
-    "value": 0.6440480169169255
-  },
-  {
-    "date": "2020-03-11",
-    "marketvalue": 97555.344687,
-    "value": 1.1330789356410016
-  },
-  {
-    "date": "2020-03-12",
-    "marketvalue": 95679.567718,
-    "value": -0.8114900767507288
-  },
-  {
-    "date": "2020-03-13",
-    "marketvalue": 92576.864774,
-    "value": -4.027981215766838
-  },
-  {
-    "date": "2020-03-16",
-    "marketvalue": 93733.407117,
-    "value": -2.8290239629140714
-  },
-  {
-    "date": "2020-03-17",
-    "marketvalue": 91607.048274,
-    "value": -5.033364662079001
-  },
-  {
-    "date": "2020-03-18",
-    "marketvalue": 91694.180035,
-    "value": -4.9430374402206105
-  },
-  {
-    "date": "2020-03-19",
-    "marketvalue": 90045.520094,
-    "value": -6.652160159084837
-  },
-  {
-    "date": "2020-03-20",
-    "marketvalue": 90212.523693,
-    "value": -6.4790318880055615
-  },
-  {
-    "date": "2020-03-23",
-    "marketvalue": 90196.641544,
-    "value": -6.495496497234692
-  },
-  {
-    "date": "2020-03-24",
-    "marketvalue": 90193.913538,
-    "value": -6.498324549834169
-  },
-  {
-    "date": "2020-03-25",
-    "marketvalue": 92200.885414,
-    "value": -4.417749202493235
-  },
-  {
-    "date": "2020-03-26",
-    "marketvalue": 92407.372467,
-    "value": -4.203689465456402
-  },
-  {
-    "date": "2020-03-27",
-    "marketvalue": 93599.775484,
-    "value": -2.96755638809127
-  },
-  {
-    "date": "2020-03-30",
-    "marketvalue": 93951.489511,
-    "value": -2.6029436385849567
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39.1,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 36.7,
+    "culmen_depth_mm": 19.3,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39.3,
+    "culmen_depth_mm": 20.6,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.9,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3625,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39.2,
+    "culmen_depth_mm": 19.6,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4675,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 34.1,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3475,
+    "sex": null
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 42,
+    "culmen_depth_mm": 20.2,
+    "flipper_length_mm": 190,
+    "body_mass_g": 4250,
+    "sex": null
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 37.8,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 186,
+    "body_mass_g": 3300,
+    "sex": null
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 37.8,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 180,
+    "body_mass_g": 3700,
+    "sex": null
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 17.6,
+    "flipper_length_mm": 182,
+    "body_mass_g": 3200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.6,
+    "culmen_depth_mm": 21.2,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 34.6,
+    "culmen_depth_mm": 21.1,
+    "flipper_length_mm": 198,
+    "body_mass_g": 4400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 36.6,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.7,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 42.5,
+    "culmen_depth_mm": 20.7,
+    "flipper_length_mm": 197,
+    "body_mass_g": 4500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 34.4,
+    "culmen_depth_mm": 18.4,
+    "flipper_length_mm": 184,
+    "body_mass_g": 3325,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 46,
+    "culmen_depth_mm": 21.5,
+    "flipper_length_mm": 194,
+    "body_mass_g": 4200,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.8,
+    "culmen_depth_mm": 18.3,
+    "flipper_length_mm": 174,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.7,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 180,
+    "body_mass_g": 3600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35.9,
+    "culmen_depth_mm": 19.2,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.2,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.8,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 180,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35.3,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.6,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 183,
+    "body_mass_g": 3550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.5,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.9,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 172,
+    "body_mass_g": 3150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.5,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 180,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.5,
+    "culmen_depth_mm": 16.7,
+    "flipper_length_mm": 178,
+    "body_mass_g": 3250,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.2,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 178,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.5,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 188,
+    "body_mass_g": 3300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.9,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 184,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.4,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3325,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.2,
+    "culmen_depth_mm": 21.1,
+    "flipper_length_mm": 196,
+    "body_mass_g": 4150,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 38.8,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 42.2,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 180,
+    "body_mass_g": 3550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.6,
+    "culmen_depth_mm": 19.3,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.8,
+    "culmen_depth_mm": 19.1,
+    "flipper_length_mm": 184,
+    "body_mass_g": 4650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.5,
+    "culmen_depth_mm": 18,
+    "flipper_length_mm": 182,
+    "body_mass_g": 3150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.8,
+    "culmen_depth_mm": 18.4,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 186,
+    "body_mass_g": 3100,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 44.1,
+    "culmen_depth_mm": 19.7,
+    "flipper_length_mm": 196,
+    "body_mass_g": 4400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37,
+    "culmen_depth_mm": 16.9,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3000,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.6,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 190,
+    "body_mass_g": 4600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 182,
+    "body_mass_g": 3425,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.5,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 179,
+    "body_mass_g": 2975,
+    "sex": null
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 42.3,
+    "culmen_depth_mm": 21.2,
+    "flipper_length_mm": 191,
+    "body_mass_g": 4150,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 39.6,
+    "culmen_depth_mm": 17.7,
+    "flipper_length_mm": 186,
+    "body_mass_g": 3500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.1,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 188,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 42,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 200,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 34.5,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 187,
+    "body_mass_g": 2900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.4,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 39,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 186,
+    "body_mass_g": 3550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.6,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 36.5,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 181,
+    "body_mass_g": 2850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.6,
+    "culmen_depth_mm": 19.1,
+    "flipper_length_mm": 194,
+    "body_mass_g": 3750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35.7,
+    "culmen_depth_mm": 16.9,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.3,
+    "culmen_depth_mm": 21.1,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.6,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 18.2,
+    "flipper_length_mm": 192,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 36.4,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 184,
+    "body_mass_g": 2850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.6,
+    "culmen_depth_mm": 18,
+    "flipper_length_mm": 192,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35.5,
+    "culmen_depth_mm": 16.2,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 19.1,
+    "flipper_length_mm": 188,
+    "body_mass_g": 4100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 35.9,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3050,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 41.8,
+    "culmen_depth_mm": 19.4,
+    "flipper_length_mm": 198,
+    "body_mass_g": 4450,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 33.5,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39.7,
+    "culmen_depth_mm": 18.4,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39.6,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 196,
+    "body_mass_g": 3550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 45.8,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 197,
+    "body_mass_g": 4150,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 35.5,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 42.8,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 40.9,
+    "culmen_depth_mm": 16.8,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 37.2,
+    "culmen_depth_mm": 19.4,
+    "flipper_length_mm": 184,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 36.2,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 42.1,
+    "culmen_depth_mm": 19.1,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 34.6,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 42.9,
+    "culmen_depth_mm": 17.6,
+    "flipper_length_mm": 196,
+    "body_mass_g": 4700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 36.7,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 35.1,
+    "culmen_depth_mm": 19.4,
+    "flipper_length_mm": 193,
+    "body_mass_g": 4200,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.3,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 41.3,
+    "culmen_depth_mm": 20.3,
+    "flipper_length_mm": 194,
+    "body_mass_g": 3550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.3,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.9,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 38.3,
+    "culmen_depth_mm": 19.2,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 38.9,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 35.7,
+    "culmen_depth_mm": 18,
+    "flipper_length_mm": 202,
+    "body_mass_g": 3550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 205,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 34,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.6,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 186,
+    "body_mass_g": 4450,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.2,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.8,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 38.1,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.3,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 196,
+    "body_mass_g": 4350,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 33.1,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 178,
+    "body_mass_g": 2900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 43.2,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 192,
+    "body_mass_g": 4100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 35,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 192,
+    "body_mass_g": 3725,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 41,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 203,
+    "body_mass_g": 4725,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.7,
+    "culmen_depth_mm": 16,
+    "flipper_length_mm": 183,
+    "body_mass_g": 3075,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.8,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 190,
+    "body_mass_g": 4250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 37.9,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 193,
+    "body_mass_g": 2925,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 39.7,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 184,
+    "body_mass_g": 3550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.6,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 199,
+    "body_mass_g": 3750,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.2,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.1,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3175,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.2,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 197,
+    "body_mass_g": 4775,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 38.1,
+    "culmen_depth_mm": 16.5,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3825,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.6,
+    "culmen_depth_mm": 20.3,
+    "flipper_length_mm": 191,
+    "body_mass_g": 4600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 39.7,
+    "culmen_depth_mm": 17.7,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.2,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 197,
+    "body_mass_g": 4275,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 39.6,
+    "culmen_depth_mm": 20.7,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.7,
+    "culmen_depth_mm": 18.3,
+    "flipper_length_mm": 196,
+    "body_mass_g": 4075,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.6,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 188,
+    "body_mass_g": 2900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 37.3,
+    "culmen_depth_mm": 20.5,
+    "flipper_length_mm": 199,
+    "body_mass_g": 3775,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 35.7,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3325,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 36.2,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 37.7,
+    "culmen_depth_mm": 19.8,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 40.2,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 176,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 41.4,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 202,
+    "body_mass_g": 3875,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 35.2,
+    "culmen_depth_mm": 15.9,
+    "flipper_length_mm": 186,
+    "body_mass_g": 3050,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 40.6,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 199,
+    "body_mass_g": 4000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.8,
+    "culmen_depth_mm": 17.6,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3275,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 41.5,
+    "culmen_depth_mm": 18.3,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 39,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3050,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 44.1,
+    "culmen_depth_mm": 18,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 38.5,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3325,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Torgersen",
+    "culmen_length_mm": 43.1,
+    "culmen_depth_mm": 19.2,
+    "flipper_length_mm": 197,
+    "body_mass_g": 3500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.8,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.5,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 199,
+    "body_mass_g": 4475,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 38.1,
+    "culmen_depth_mm": 17.6,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3425,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 41.1,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 35.6,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3175,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.2,
+    "culmen_depth_mm": 20.1,
+    "flipper_length_mm": 200,
+    "body_mass_g": 3975,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37,
+    "culmen_depth_mm": 16.5,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.7,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 193,
+    "body_mass_g": 4250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.2,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.6,
+    "culmen_depth_mm": 17.2,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3475,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 32.1,
+    "culmen_depth_mm": 15.5,
+    "flipper_length_mm": 188,
+    "body_mass_g": 3050,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 40.7,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3725,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.3,
+    "culmen_depth_mm": 16.8,
+    "flipper_length_mm": 192,
+    "body_mass_g": 3000,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 39.2,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 190,
+    "body_mass_g": 4250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36.6,
+    "culmen_depth_mm": 18.4,
+    "flipper_length_mm": 184,
+    "body_mass_g": 3475,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 37.8,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 36,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Adelie",
+    "island": "Dream",
+    "culmen_length_mm": 41.5,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 201,
+    "body_mass_g": 4000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.5,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 192,
+    "body_mass_g": 3500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 196,
+    "body_mass_g": 3900,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.3,
+    "culmen_depth_mm": 19.2,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.4,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 188,
+    "body_mass_g": 3525,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52.7,
+    "culmen_depth_mm": 19.8,
+    "flipper_length_mm": 197,
+    "body_mass_g": 3725,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3950,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.1,
+    "culmen_depth_mm": 18.2,
+    "flipper_length_mm": 178,
+    "body_mass_g": 3250,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.3,
+    "culmen_depth_mm": 18.2,
+    "flipper_length_mm": 197,
+    "body_mass_g": 3750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46,
+    "culmen_depth_mm": 18.9,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.3,
+    "culmen_depth_mm": 19.9,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.6,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.7,
+    "culmen_depth_mm": 20.3,
+    "flipper_length_mm": 194,
+    "body_mass_g": 3775,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 47,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 185,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 201,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.9,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3575,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.5,
+    "culmen_depth_mm": 19.6,
+    "flipper_length_mm": 201,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.3,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 197,
+    "body_mass_g": 3300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 58,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.4,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.2,
+    "culmen_depth_mm": 18.2,
+    "flipper_length_mm": 195,
+    "body_mass_g": 4400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 42.4,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 181,
+    "body_mass_g": 3600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 48.5,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 43.2,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 187,
+    "body_mass_g": 2900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.6,
+    "culmen_depth_mm": 19.4,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.7,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 197,
+    "body_mass_g": 4150,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.5,
+    "culmen_depth_mm": 18.4,
+    "flipper_length_mm": 200,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.5,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 200,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.4,
+    "culmen_depth_mm": 17.8,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52.8,
+    "culmen_depth_mm": 20,
+    "flipper_length_mm": 205,
+    "body_mass_g": 4550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 40.9,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 54.2,
+    "culmen_depth_mm": 20.8,
+    "flipper_length_mm": 201,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 42.5,
+    "culmen_depth_mm": 16.7,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 203,
+    "body_mass_g": 4100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.7,
+    "culmen_depth_mm": 18.6,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 47.5,
+    "culmen_depth_mm": 16.8,
+    "flipper_length_mm": 199,
+    "body_mass_g": 3900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 47.6,
+    "culmen_depth_mm": 18.3,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52,
+    "culmen_depth_mm": 20.7,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.9,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 192,
+    "body_mass_g": 2700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 53.5,
+    "culmen_depth_mm": 19.9,
+    "flipper_length_mm": 205,
+    "body_mass_g": 4500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 210,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.2,
+    "culmen_depth_mm": 17.5,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.9,
+    "culmen_depth_mm": 19.1,
+    "flipper_length_mm": 196,
+    "body_mass_g": 3550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.5,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 196,
+    "body_mass_g": 3500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.9,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 196,
+    "body_mass_g": 3675,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.8,
+    "culmen_depth_mm": 18.5,
+    "flipper_length_mm": 201,
+    "body_mass_g": 4450,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.1,
+    "culmen_depth_mm": 17.9,
+    "flipper_length_mm": 190,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49,
+    "culmen_depth_mm": 19.6,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.5,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.8,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3675,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 48.1,
+    "culmen_depth_mm": 16.4,
+    "flipper_length_mm": 199,
+    "body_mass_g": 3325,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.4,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 201,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.7,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.7,
+    "culmen_depth_mm": 19.7,
+    "flipper_length_mm": 203,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 42.5,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 187,
+    "body_mass_g": 3350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 52.2,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 197,
+    "body_mass_g": 3450,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 16.6,
+    "flipper_length_mm": 191,
+    "body_mass_g": 3250,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.3,
+    "culmen_depth_mm": 19.9,
+    "flipper_length_mm": 203,
+    "body_mass_g": 4050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.2,
+    "culmen_depth_mm": 18.8,
+    "flipper_length_mm": 202,
+    "body_mass_g": 3800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.6,
+    "culmen_depth_mm": 19.4,
+    "flipper_length_mm": 194,
+    "body_mass_g": 3525,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 51.9,
+    "culmen_depth_mm": 19.5,
+    "flipper_length_mm": 206,
+    "body_mass_g": 3950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 46.8,
+    "culmen_depth_mm": 16.5,
+    "flipper_length_mm": 189,
+    "body_mass_g": 3650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 45.7,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 195,
+    "body_mass_g": 3650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 55.8,
+    "culmen_depth_mm": 19.8,
+    "flipper_length_mm": 207,
+    "body_mass_g": 4000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 43.5,
+    "culmen_depth_mm": 18.1,
+    "flipper_length_mm": 202,
+    "body_mass_g": 3400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 49.6,
+    "culmen_depth_mm": 18.2,
+    "flipper_length_mm": 193,
+    "body_mass_g": 3775,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.8,
+    "culmen_depth_mm": 19,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Chinstrap",
+    "island": "Dream",
+    "culmen_length_mm": 50.2,
+    "culmen_depth_mm": 18.7,
+    "flipper_length_mm": 198,
+    "body_mass_g": 3775,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.1,
+    "culmen_depth_mm": 13.2,
+    "flipper_length_mm": 211,
+    "body_mass_g": 4500,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50,
+    "culmen_depth_mm": 16.3,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.7,
+    "culmen_depth_mm": 14.1,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50,
+    "culmen_depth_mm": 15.2,
+    "flipper_length_mm": 218,
+    "body_mass_g": 5700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.6,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.5,
+    "culmen_depth_mm": 13.5,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4550,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.4,
+    "culmen_depth_mm": 14.6,
+    "flipper_length_mm": 211,
+    "body_mass_g": 4800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.7,
+    "culmen_depth_mm": 15.3,
+    "flipper_length_mm": 219,
+    "body_mass_g": 5200,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.3,
+    "culmen_depth_mm": 13.4,
+    "flipper_length_mm": 209,
+    "body_mass_g": 4400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.8,
+    "culmen_depth_mm": 15.4,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5150,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 40.9,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 216,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.5,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.4,
+    "culmen_depth_mm": 14.6,
+    "flipper_length_mm": 213,
+    "body_mass_g": 5850,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.8,
+    "culmen_depth_mm": 14.6,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.3,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 217,
+    "body_mass_g": 5850,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 42,
+    "culmen_depth_mm": 13.5,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.2,
+    "culmen_depth_mm": 15.2,
+    "flipper_length_mm": 221,
+    "body_mass_g": 6300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.2,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 209,
+    "body_mass_g": 4800,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.7,
+    "culmen_depth_mm": 15.1,
+    "flipper_length_mm": 222,
+    "body_mass_g": 5350,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.2,
+    "culmen_depth_mm": 14.3,
+    "flipper_length_mm": 218,
+    "body_mass_g": 5700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.1,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5000,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.5,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 213,
+    "body_mass_g": 4400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.3,
+    "culmen_depth_mm": 15.8,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.9,
+    "culmen_depth_mm": 13.1,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5000,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.1,
+    "culmen_depth_mm": 15.1,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.5,
+    "culmen_depth_mm": 14.3,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4100,
+    "sex": null
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.8,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.2,
+    "culmen_depth_mm": 14.3,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50,
+    "culmen_depth_mm": 15.3,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.3,
+    "culmen_depth_mm": 15.3,
+    "flipper_length_mm": 222,
+    "body_mass_g": 5250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.8,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 209,
+    "body_mass_g": 4700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.1,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 207,
+    "body_mass_g": 5050,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 59.6,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 230,
+    "body_mass_g": 6050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.1,
+    "culmen_depth_mm": 14.8,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5150,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.4,
+    "culmen_depth_mm": 16.3,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.6,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 213,
+    "body_mass_g": 4950,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.4,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 219,
+    "body_mass_g": 5250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44,
+    "culmen_depth_mm": 13.6,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4350,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.7,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 208,
+    "body_mass_g": 5350,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 42.7,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 208,
+    "body_mass_g": 3950,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.6,
+    "culmen_depth_mm": 16,
+    "flipper_length_mm": 225,
+    "body_mass_g": 5700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.3,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.6,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.5,
+    "culmen_depth_mm": 15.9,
+    "flipper_length_mm": 222,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.6,
+    "culmen_depth_mm": 13.9,
+    "flipper_length_mm": 217,
+    "body_mass_g": 4900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.5,
+    "culmen_depth_mm": 13.9,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.5,
+    "culmen_depth_mm": 15.9,
+    "flipper_length_mm": 225,
+    "body_mass_g": 5400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.9,
+    "culmen_depth_mm": 13.3,
+    "flipper_length_mm": 213,
+    "body_mass_g": 5100,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 15.8,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.6,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.5,
+    "culmen_depth_mm": 14.1,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.1,
+    "culmen_depth_mm": 14.4,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.1,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 225,
+    "body_mass_g": 5000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.5,
+    "culmen_depth_mm": 14.4,
+    "flipper_length_mm": 217,
+    "body_mass_g": 4900,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45,
+    "culmen_depth_mm": 15.4,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5050,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.8,
+    "culmen_depth_mm": 13.9,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4300,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.5,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 220,
+    "body_mass_g": 5000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.2,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4450,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.4,
+    "culmen_depth_mm": 15.3,
+    "flipper_length_mm": 224,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.3,
+    "culmen_depth_mm": 13.8,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.2,
+    "culmen_depth_mm": 14.9,
+    "flipper_length_mm": 221,
+    "body_mass_g": 5300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.7,
+    "culmen_depth_mm": 13.9,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4400,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 54.3,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 231,
+    "body_mass_g": 5650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.8,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 219,
+    "body_mass_g": 4700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.8,
+    "culmen_depth_mm": 16.8,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5700,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.2,
+    "culmen_depth_mm": 14.4,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4650,
+    "sex": null
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.5,
+    "culmen_depth_mm": 16.2,
+    "flipper_length_mm": 229,
+    "body_mass_g": 5800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.5,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 220,
+    "body_mass_g": 4700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.7,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 223,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.7,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4750,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.4,
+    "culmen_depth_mm": 15.6,
+    "flipper_length_mm": 221,
+    "body_mass_g": 5000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.2,
+    "culmen_depth_mm": 15.6,
+    "flipper_length_mm": 221,
+    "body_mass_g": 5100,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.5,
+    "culmen_depth_mm": 14.8,
+    "flipper_length_mm": 217,
+    "body_mass_g": 5200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.4,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.6,
+    "culmen_depth_mm": 16,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5800,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.5,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 209,
+    "body_mass_g": 4600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 51.1,
+    "culmen_depth_mm": 16.3,
+    "flipper_length_mm": 220,
+    "body_mass_g": 6000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 13.8,
+    "flipper_length_mm": 215,
+    "body_mass_g": 4750,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 16.4,
+    "flipper_length_mm": 223,
+    "body_mass_g": 5950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.1,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4625,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 52.5,
+    "culmen_depth_mm": 15.6,
+    "flipper_length_mm": 221,
+    "body_mass_g": 5450,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.4,
+    "culmen_depth_mm": 14.6,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4725,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50,
+    "culmen_depth_mm": 15.9,
+    "flipper_length_mm": 224,
+    "body_mass_g": 5350,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.9,
+    "culmen_depth_mm": 13.8,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4750,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.8,
+    "culmen_depth_mm": 17.3,
+    "flipper_length_mm": 228,
+    "body_mass_g": 5600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.4,
+    "culmen_depth_mm": 14.4,
+    "flipper_length_mm": 218,
+    "body_mass_g": 4600,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 51.3,
+    "culmen_depth_mm": 14.2,
+    "flipper_length_mm": 218,
+    "body_mass_g": 5300,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.5,
+    "culmen_depth_mm": 14,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4875,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 52.1,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5550,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.5,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 218,
+    "body_mass_g": 4950,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 52.2,
+    "culmen_depth_mm": 17.1,
+    "flipper_length_mm": 228,
+    "body_mass_g": 5400,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.5,
+    "culmen_depth_mm": 14.5,
+    "flipper_length_mm": 212,
+    "body_mass_g": 4750,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.5,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 224,
+    "body_mass_g": 5650,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.5,
+    "culmen_depth_mm": 14.7,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.8,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 226,
+    "body_mass_g": 5200,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.4,
+    "culmen_depth_mm": 15.8,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4925,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.9,
+    "culmen_depth_mm": 14.6,
+    "flipper_length_mm": 222,
+    "body_mass_g": 4875,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.4,
+    "culmen_depth_mm": 14.4,
+    "flipper_length_mm": 203,
+    "body_mass_g": 4625,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 51.1,
+    "culmen_depth_mm": 16.5,
+    "flipper_length_mm": 225,
+    "body_mass_g": 5250,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.5,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 219,
+    "body_mass_g": 4850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 55.9,
+    "culmen_depth_mm": 17,
+    "flipper_length_mm": 228,
+    "body_mass_g": 5600,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.2,
+    "culmen_depth_mm": 15.5,
+    "flipper_length_mm": 215,
+    "body_mass_g": 4975,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.1,
+    "culmen_depth_mm": 15,
+    "flipper_length_mm": 228,
+    "body_mass_g": 5500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.3,
+    "culmen_depth_mm": 13.8,
+    "flipper_length_mm": 216,
+    "body_mass_g": 4725,
+    "sex": null
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.8,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 215,
+    "body_mass_g": 5500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 41.7,
+    "culmen_depth_mm": 14.7,
+    "flipper_length_mm": 210,
+    "body_mass_g": 4700,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 53.4,
+    "culmen_depth_mm": 15.8,
+    "flipper_length_mm": 219,
+    "body_mass_g": 5500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.3,
+    "culmen_depth_mm": 14,
+    "flipper_length_mm": 208,
+    "body_mass_g": 4575,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.1,
+    "culmen_depth_mm": 15.1,
+    "flipper_length_mm": 209,
+    "body_mass_g": 5500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.5,
+    "culmen_depth_mm": 15.2,
+    "flipper_length_mm": 216,
+    "body_mass_g": 5000,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.8,
+    "culmen_depth_mm": 15.9,
+    "flipper_length_mm": 229,
+    "body_mass_g": 5950,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 43.5,
+    "culmen_depth_mm": 15.2,
+    "flipper_length_mm": 213,
+    "body_mass_g": 4650,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 51.5,
+    "culmen_depth_mm": 16.3,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5500,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.2,
+    "culmen_depth_mm": 14.1,
+    "flipper_length_mm": 217,
+    "body_mass_g": 4375,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 55.1,
+    "culmen_depth_mm": 16,
+    "flipper_length_mm": 230,
+    "body_mass_g": 5850,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 44.5,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 217,
+    "body_mass_g": 4875,
+    "sex": null
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 48.8,
+    "culmen_depth_mm": 16.2,
+    "flipper_length_mm": 222,
+    "body_mass_g": 6000,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 47.2,
+    "culmen_depth_mm": 13.7,
+    "flipper_length_mm": 214,
+    "body_mass_g": 4925,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 46.8,
+    "culmen_depth_mm": 14.3,
+    "flipper_length_mm": 215,
+    "body_mass_g": 4850,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 50.4,
+    "culmen_depth_mm": 15.7,
+    "flipper_length_mm": 222,
+    "body_mass_g": 5750,
+    "sex": "MALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 45.2,
+    "culmen_depth_mm": 14.8,
+    "flipper_length_mm": 212,
+    "body_mass_g": 5200,
+    "sex": "FEMALE"
+  },
+  {
+    "species": "Gentoo",
+    "island": "Biscoe",
+    "culmen_length_mm": 49.9,
+    "culmen_depth_mm": 16.1,
+    "flipper_length_mm": 213,
+    "body_mass_g": 5400,
+    "sex": "MALE"
   }
 ]
-
-userEnteredData.propTypes = {
-  year: PropTypes.number,
-  efficiency: PropTypes.number,
-  sales: PropTypes.number
-}

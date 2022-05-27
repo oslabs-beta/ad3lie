@@ -36,6 +36,16 @@ export const getScatterData = (count = 100) => (
 // ============================================================================================================= //
 import { userEnteredData, userAxisData } from "./EnteredData";
 
+// TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
+
+export const getUONumData = (userAxis = userAxisData, count = userEnteredData.length) => {
+  return (new Array(count).fill({}).map((d, i) => ({
+    [userAxis["x"]]: userEnteredData[i][userAxis["x"]],
+    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
+  }))
+  )
+}
+
 // TYPE: DATE ---- TIMELINE
 export const getTimelineData3 = (length = userEnteredData.length, userAxis = userAxisData) => {
 
@@ -47,7 +57,7 @@ export const getTimelineData3 = (length = userEnteredData.length, userAxis = use
 }
 console.log("gettimelineData", getTimelineData3())
 
-// TYPE: NUMBERS ---- LINE GRAPHS
+// TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 const objectComparisonCallback = (arrayItemA, arrayItemB) => {
   if (arrayItemA[userAxisData["x"]] < arrayItemB[userAxisData["x"]]) return -1;
   if (arrayItemA[userAxisData["x"]] > arrayItemB[userAxisData["x"]]) return 1;
