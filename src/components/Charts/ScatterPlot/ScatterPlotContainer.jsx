@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from 'react';
+import ScatterPlotForm from './ScatterPlotForm';
+import ScatterPlot from './ScatterPlot';
+import ScatterPlotCodePreview from './ScatterPlotCodePreview';
+
 import * as d3 from "d3"
 import { getScatterData, getTimelineData } from './Data'
-
-import Timeline from "../Timeline/Timeline"
-import ScatterPlot from "../ScatterPlot/ScatterPlot"
-import Histogram from "../Histogram/Histogram"
 
 import "./styles.css"
 
@@ -13,50 +13,32 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
-// console.log('humidityAccessor from App.jsx', humidityAccessor)
-
 const getData = () => ({
   timeline: getTimelineData(),
   scatter: getScatterData(),
 })
-const App = () => {
+
+function ScatterPlotContainer(props) {
   const [data, setData] = useState(getData())
 
   useInterval(() => {
     setData(getData())
   }, 4000)
 
-  return (
-    <div className="App">
-      <h1>
-        Weather Dashboard
-      </h1>
-      <div className="App__charts">
-        <Timeline
-          data={data.timeline}
-          xAccessor={dateAccessor}
-          yAccessor={temperatureAccessor}
-          label="Temperature"
-        />
-        <ScatterPlot
+  return(
+    <div className='ChartContainer'>
+      <ScatterPlotForm className='border-2 m-2' />
+      <ScatterPlot
           data={data.scatter}
           xAccessor={humidityAccessor} // returns humidity property of an object
           yAccessor={temperatureAccessor}
           xLabel="Humidity"
           yLabel="Temperature"
         />
-        <Histogram
-          data={data.scatter}
-          xAccessor={humidityAccessor}
-          label="Humidity"
-        />
-      </div>
+      <ScatterPlotCodePreview className='border-2 m-2' />
     </div>
   )
 }
-
-export default App
-
 
 function useInterval(callback, delay) {
   const savedCallback = useRef();
@@ -77,3 +59,5 @@ function useInterval(callback, delay) {
     }
   }, [delay]);
 }
+
+export default ScatterPlotContainer;
