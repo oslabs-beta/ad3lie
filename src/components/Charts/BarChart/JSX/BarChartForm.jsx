@@ -62,16 +62,16 @@ export default function BarChartForm () {
   );
 }
 
-
-BarChartForm.propTypes = {
-  data: PropTypes.array,
-  xKey: PropTypes.string,
-  yKey: PropTypes.string,
-  xAxisLabel: PropTypes.string,
-  yAxisLabel: PropTypes.string,
-  height: PropTypes.number,
-  width: PropTypes.number,
-}
+//PropTypes does not exist;
+// BarChartForm.propTypes = {
+//   data: PropTypes.array,
+//   xKey: PropTypes.string,
+//   yKey: PropTypes.string,
+//   xAxisLabel: PropTypes.string,
+//   yAxisLabel: PropTypes.string,
+//   height: PropTypes.number,
+//   width: PropTypes.number,
+// }
 
 
 // Event Handlers here to update state dynamically, on change

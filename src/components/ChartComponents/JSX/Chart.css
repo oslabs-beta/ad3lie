@@ -1,0 +1,62 @@
+.Chart {
+    overflow: visible;
+}
+
+.Chart text {
+    fill: #95a5a6;
+}
+
+.Line {
+    transition: all 0.3s ease-out;
+}
+
+.Line--type-line {
+    fill: none;
+    stroke: #9980FA;
+    stroke-width: 3px;
+    stroke-linecap: round;
+}
+
+.Line--type-area {
+    fill: rgba(152, 128, 250, 0.185);
+    stroke-width: 0;
+}
+
+.Axis__line {
+    stroke: #bdc3c7;
+}
+
+.Axis__label {
+    text-anchor: middle;
+    font-size: 0.9em;
+    letter-spacing: 0.01em;
+}
+
+.Axis__tick {
+    font-size: 0.8em;
+    transition: all 0.3s ease-out;
+}
+
+.AxisHorizontal .Axis__tick {
+    text-anchor: middle;
+}
+
+.AxisVertical .Axis__tick {
+    dominant-baseline: middle;
+    text-anchor: end;
+}
+
+.Circles__circle {
+    fill: #9980FA;
+    transition: all 0.3s ease-out;
+}
+
+.Bars__rect {
+    fill: #9980FA;
+    transition: all 0.3s ease-out;
+}
+
+.domain,
+.tick line {
+    stroke: #dadada;
+}

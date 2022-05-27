@@ -2,9 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import * as d3 from 'd3';
 import PropTypes from "prop-types"
 import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
-import { Axis, Bars, Chart } from '../../../ChartComponents/JSX';
+import Axis from '../../../ChartComponents/JSX/Axis';
+import Bars from '../../../ChartComponents/JSX/Bars';
+import Chart from '../../../ChartComponents/JSX/Chart';
 
- const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel }) => {
+ const BarChart = ({ _data, xKey, yKey, xAxisLabel, yAxisLabel }) => {
   
   const [data, setData] = useState([]);
 

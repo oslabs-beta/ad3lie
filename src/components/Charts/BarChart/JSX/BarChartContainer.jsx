@@ -12,7 +12,7 @@ import BarChartForm from "./BarChartForm";
 
 class BarChartContainer extends Component {
   constructor() {
-    super(props);
+    super(this.props);
     this.state = {
       data: [],
       xKey: 'xKey',

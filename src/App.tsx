@@ -9,14 +9,12 @@ export default () => {
   return (
     <Fragment>
     <HashRouter>
-      <Router>
         <div>
             <Routes>
-              <Route path="/" element={NavBar} />
+              <Route path="/" element={<NavBar />} />
               <Route path="bar-chart" element={<BarChartContainer />} />
             </Routes>
         </div>
-      </Router>
     </HashRouter>
     </Fragment>
   )
