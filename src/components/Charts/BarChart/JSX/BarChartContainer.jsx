@@ -86,15 +86,15 @@ const handleHeight = (e) => {
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
-    <Fragment>
+    <div>
     <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
-    <div className="barchart-container">
+    <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
         <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
         handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
+        {/* <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart> */}
         {/* <BarChartCodePreview /> */}
     </div>
-    </Fragment>
+    </div>
   );
 }
 
