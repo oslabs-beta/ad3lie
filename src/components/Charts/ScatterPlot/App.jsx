@@ -9,9 +9,9 @@ import { userAxisData } from "./EnteredData"
 // import LineGraph from "../LineGraph/LineGraph" // wrong file path
 // import BarChart from "../BarChart/BarChart" // should be fine
 //------------------------------------------------------------------
-import Timeline from "../../../ChartComponents/Timeline/Timeline"
+// import Timeline from "../../../ChartComponents/Timeline/Timeline"
 import ScatterPlot from "./ScatterPlot"
-import Histogram from "../../../ChartComponents/Histogram/Histogram"
+// import Histogram from "../../../ChartComponents/Histogram/Histogram"
 
 import "./styles.css"
 
@@ -44,12 +44,12 @@ const App = () => {
         Weather Dashboard
       </h1>
       <div className="App__charts">
-        <Timeline
+        {/* <Timeline
           data={data.timeline}
           xAccessor={dateAccessor}
           yAccessor={temperatureAccessor}
           label="Temperature"
-        />
+        /> */}
         <ScatterPlot
           data={data.uonum}
           xAccessor={xUserAccessor} // returns humidity property of an object
@@ -57,7 +57,7 @@ const App = () => {
           xLabel="Humidity"
           yLabel="Temperature"
         />
-        <Histogram
+        {/* <Histogram
           data={data.scatter}
           xAccessor={humidityAccessor}
           label="Humidity"
@@ -67,12 +67,12 @@ const App = () => {
           xAccessor={xUserAccessor}
           yAccessor={yUserAccessor}
           label="Efficiency"
-        />
-        {/* <BarChart
-          data={data.barchart}
-          xAccessor={humidityAccessor}
-          label="Humidity"
         /> */}
+        // {/* <BarChart
+        //   data={data.barchart}
+        //   xAccessor={humidityAccessor}
+        //   label="Humidity"
+        // /> */}
       </div>
     </div>
   )
