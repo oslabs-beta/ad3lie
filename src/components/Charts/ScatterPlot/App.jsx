@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
 import { getScatterData, getTimelineData } from './Data'
 
-import Timeline from "../Timeline/Timeline"
-import ScatterPlot from "../ScatterPlot/ScatterPlot"
-import Histogram from "../Histogram/Histogram"
+import Timeline from "../../../ChartComponents/Timeline/Timeline"
+import ScatterPlot from "./ScatterPlot"
+import Histogram from "../../../ChartComponents/Histogram/Histogram"
 
 import "./styles.css"
 

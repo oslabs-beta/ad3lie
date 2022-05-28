@@ -1,35 +1,25 @@
+/* eslint-disable */
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
-import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer'
-// import NavBar from './components/NavBar'
-// import AppLayout from './layouts/AppLayout';
+import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
+import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
+import NavBar from './components/NavBar';
+import ScatterPlotContainer from './components/Charts/ScatterPlot/ScatterPlotContainer';
 
 
-const App = () => {
+export default () => {
   return (
-    // <Fragment>
-    // <HashRouter>
-    //   <Router>
-    //     <div>
-    //       <NavBar />
-    //       <ChartCustomizer >
-    //         <Routes>
-    //           <Route path="bar-chart" element={<BarChart data={[]} xKey={''} yKey={''} height={''} width={''} />} />
-    //         </Routes>
-    //       </ChartCustomizer> 
-    //     </div>
-    //   </Router>
-    // </HashRouter>
-    // <AppLayout />
-    // </Fragment>
     <Fragment>
+    <HashRouter>
         <div>
-            <h1>This is the App Component. I serve the BarChartContainer.</h1>
+            <Routes>
+              <Route path="/" element={<NavBar />} />
+              <Route path="bar-chart" element={<BarChartContainer />} />
+              <Route path="line-chart" element={<LineChartContainer />} />
+              <Route path='scatter-plot-chart' element={<ScatterPlotContainer />} />
+            </Routes>
         </div>
-        <BarChartContainer />
+    </HashRouter>
     </Fragment>
-    
   )
 }
-
-export default App

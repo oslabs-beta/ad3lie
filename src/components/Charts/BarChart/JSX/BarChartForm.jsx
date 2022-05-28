@@ -116,16 +116,16 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width,
   );
 }
 
-
-BarChartForm.propTypes = {
-  data: PropTypes.array,
-  xKey: PropTypes.string,
-  yKey: PropTypes.string,
-  xAxisLabel: PropTypes.string,
-  yAxisLabel: PropTypes.string,
-  height: PropTypes.number,
-  width: PropTypes.number,
-}
+//PropTypes does not exist;
+// BarChartForm.propTypes = {
+//   data: PropTypes.array,
+//   xKey: PropTypes.string,
+//   yKey: PropTypes.string,
+//   xAxisLabel: PropTypes.string,
+//   yAxisLabel: PropTypes.string,
+//   height: PropTypes.number,
+//   width: PropTypes.number,
+// }
 
 export default BarChartForm;
 
