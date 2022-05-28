@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getNumbersData, getUONumData } from './Data'
+import { getScatterData, getTimelineData, getNumbersData, getUONumData, getBarChartData } from './Data'
 import { userAxisData } from "./EnteredData"
 
 import Timeline from "../Timeline/Timeline"
 import ScatterPlot from "../ScatterPlot/ScatterPlot"
 import Histogram from "../Histogram/Histogram"
 import LineGraph from "../LineGraph/LineGraph"
+import BarChart from "../BarChart/BarChart"
 
 import "./styles.css"
 
@@ -23,6 +24,7 @@ const getData = () => ({
   scatter: getScatterData(),
   line: getNumbersData(),
   uonum: getUONumData(),
+  barchart: getBarChartData(),
 })
 
 const App = () => {
@@ -62,6 +64,11 @@ const App = () => {
           yAccessor={yUserAccessor}
           label="Efficiency"
         />
+        {/* <BarChart
+          data={data.barchart}
+          xAccessor={humidityAccessor}
+          label="Humidity"
+        /> */}
       </div>
     </div>
   )

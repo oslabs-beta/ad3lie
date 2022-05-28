@@ -36,6 +36,26 @@ export const getScatterData = (count = 100) => (
 // ============================================================================================================= //
 import { userEnteredData, userAxisData } from "./EnteredData";
 
+// TYPE: NUMBER/STRING ---- BAR CHART
+export const getBarChartData = (arrOfObj = userEnteredData, userAxis = userAxisData, count = userEnteredData.length) => {
+  const cache = {};
+
+  return () => {
+    const cache = {}
+    const result = arr.reduce((acc, curr) => {
+      if (curr[userAxis["x2"]] in cache) {
+        return acc[cache[userAxis["x2"]]][userAxis["y"]] += curr[userAxis["y"]]
+      }
+      // else add to cache and accumulator
+      cache[curr[userAxis["x2"]]] = Object.keys(cache).length;
+      return acc.push(curr)
+    }, [])
+    return result;
+  };
+}
+
+console.log(getBarChartData())
+
 // TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 
 export const getUONumData = (userAxis = userAxisData, count = userEnteredData.length) => {

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 
 export const userAxisData = {
-  "x": "flipper_length_mm",
-  "y": "culmen_depth_mm",
+  "x": "culmen_length_mm",
+  "y": "body_mass_g",
+  "x2": "species",
   "xType": "number",
-  "yType": "number"
+  "yType": "number",
+  "x2Type": "string",
 }
 
 export const userEnteredData = [
