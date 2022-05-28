@@ -7,7 +7,7 @@ import * as d3 from "d3"
 import Chart from '../utilities/Chart'
 import Bars from '../utilities/Bars'
 import Axis from "../utilities/Axis"
-import Gradient from "../utilities/Gradient";
+import Gradient from "../../components/ChartComponents/JSX/Gradient";
 import { useChartDimensions } from "../utilities/utils"
 import { accessorPropsType } from "../utilities/utils"
 import { useUniqueId } from "../utilities/utils"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getNumbersData, getUONumData, getBarChartData } from './Data'
+import { getScatterData, getTimelineData, getNumbersData, getUONumData, getBarChartData } from '../../../utils/parseData'
 import { userAxisData } from "./EnteredData"
 
 // import Timeline from "../Timeline/Timeline" // wrong file path

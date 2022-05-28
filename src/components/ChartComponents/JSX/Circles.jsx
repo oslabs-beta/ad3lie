@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { accessorPropsType } from './utils'
+import { accessorPropsType } from "../../../utils/utils.js"
 
 const Circles = ({ data, keyAccessor, xAccessor, yAccessor, radius }) => {
 

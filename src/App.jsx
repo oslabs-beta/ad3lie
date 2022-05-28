@@ -5,6 +5,7 @@ import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContaine
 import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
 import NavBar from './components/NavBar';
 import ScatterPlotContainer from './components/Charts/ScatterPlot/ScatterPlotContainer';
+import HistogramContainer from './components/Charts/Histogram/JSX/HistogramContainer';
 
 
 export default () => {
@@ -17,6 +18,7 @@ export default () => {
               <Route path="bar-chart" element={<BarChartContainer />} />
               <Route path="line-chart" element={<LineChartContainer />} />
               <Route path='scatter-plot-chart' element={<ScatterPlotContainer />} />
+              <Route path='histogram' element={<HistogramContainer />} />
             </Routes>
         </div>
     </HashRouter>

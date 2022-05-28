@@ -2,11 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import * as d3 from "d3"
 
-import Chart from '../../../ChartComponents/utilities/Chart'
-import Circles from '../../../ChartComponents/utilities/Circles'
-import Axis from "../../../ChartComponents/utilities/Axis"
-import { useChartDimensions } from "../../../ChartComponents/utilities/utils"
-import { accessorPropsType } from "../../../ChartComponents/utilities/utils"
+import Chart from "../../ChartComponents/JSX/Chart"
+import Circles from "../../ChartComponents/JSX/Circles"
+import Axis from "../../ChartComponents/JSX/Axis"
+import { useChartDimensions, accessorPropsType } from "../../../utils/utils.js"
 
 const ScatterPlot = ({ data, xAccessor, yAccessor, xLabel, yLabel }) => {
   const [ref, dimensions] = useChartDimensions({

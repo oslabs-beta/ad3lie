@@ -8,7 +8,7 @@
  */
 
   // import modules and libraries
-  import { useChartDimensions } from './utils';
+  import { useChartDimensions } from '../../../ChartComponents/utilities/utils';
 
 
  const chartSettings = {

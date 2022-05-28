@@ -4,7 +4,7 @@ import ScatterPlot from './ScatterPlot';
 import ScatterPlotCodePreview from './ScatterPlotCodePreview';
 
 import * as d3 from "d3"
-import { getScatterData, getTimelineData } from './Data'
+import { getScatterData, getTimelineData } from '../../../utils/parseData'
 
 import "./styles.css"
 

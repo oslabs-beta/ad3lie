@@ -34,7 +34,7 @@ export const getScatterData = (count = 100) => (
 
 
 // ============================================================================================================= //
-import { userEnteredData, userAxisData } from "./EnteredData";
+import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/EnteredData";
 
 // TYPE: NUMBER/STRING ---- BAR CHART
 export const getBarChartData = (arrOfObj = userEnteredData, userAxis = userAxisData, count = userEnteredData.length) => {
