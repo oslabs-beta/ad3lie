@@ -15,7 +15,6 @@ We update state from the form, which the graph reads and re-renders from
     <BarChartCodePreview />
 </BarChartContainer>
 */
-
 const BarChartContainer = (props) => {
 const getData = () => ({
   // timeline: getTimelineData(),
@@ -100,6 +99,12 @@ const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleY
 }
 
 export default BarChartContainer
+
+
+
+
+
+
 
 // class BarChartContainer extends Component {
 //   constructor() {

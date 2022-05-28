@@ -10,7 +10,7 @@ module.exports = {
   },
   // devtool: "source-map",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
   },
 
   module: {
@@ -21,7 +21,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      },
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       },
