@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import * as d3 from "d3"
 
 
-import Chart from '../utilities/Chart'
-import Line from '../utilities/Line'
-import Axis from "../utilities/Axis"
+import Chart from '../../../ChartComponents/utilities/Chart'
+import Line from '../../../ChartComponents/utilities/Line'
+import Axis from "../../../ChartComponents/utilities/Axis"
 
-import { useChartDimensions } from "../utilities/utils"
-import { accessorPropsType } from "../utilities/utils"
+import { useChartDimensions } from "../../../ChartComponents/utilities/utils"
+import { accessorPropsType } from "../../../ChartComponents/utilities/utils"
 
 const formatDate = d3.timeFormat("%-b %-d")
 

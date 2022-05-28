@@ -3,11 +3,11 @@ import * as d3 from "d3"
 import { getScatterData, getTimelineData, getNumbersData, getUONumData, getBarChartData } from './Data'
 import { userAxisData } from "./EnteredData"
 
-import Timeline from "../Timeline/Timeline" // wrong file path
-import ScatterPlot from "../ScatterPlot/ScatterPlot" // I dont know which scatterplot to pull from
-import Histogram from "../Histogram/Histogram" // wrong file path
-import LineGraph from "../LineGraph/LineGraph" // wrong file path
-import BarChart from "../BarChart/BarChart" // should be fine
+// import Timeline from "../Timeline/Timeline" // wrong file path
+// import ScatterPlot from "../ScatterPlot/ScatterPlot" // I dont know which scatterplot to pull from
+// import Histogram from "../Histogram/Histogram" // wrong file path
+// import LineGraph from "../LineGraph/LineGraph" // wrong file path
+// import BarChart from "../BarChart/BarChart" // should be fine
 //------------------------------------------------------------------
 import Timeline from "../../../ChartComponents/Timeline/Timeline"
 import ScatterPlot from "./ScatterPlot"
