@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import * as d3 from 'd3'
-import { accessorPropsType } from './accessorPropsType'
-import { useAccessor } from './useAccessor'
+import { accessorPropsType } from './Archive/accessorPropsType'
+import { useAccessor } from './Archive/useAccessor'
 
 const Bars = ({ data, keyAccessor, xAccessor, yAccessor, widthAccessor, heightAccessor, ...props }) => (
   <React.Fragment>

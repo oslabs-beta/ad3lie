@@ -7,13 +7,14 @@ import * as d3 from "d3"
 import Chart from '../utilities/Chart'
 import Bars from '../utilities/Bars'
 import Axis from "../utilities/Axis"
-import Gradient from "../utilities/Gradient";
-import { useChartDimensions } from "../utilities/useChartDimensions_comments"
-import { accessorPropsType } from "../utilities/accessorPropsType"
-import { useUniqueId } from "../utilities/useUniqueId"
+import Gradient from "../../components/ChartComponents/JSX/Gradient";
+import { useChartDimensions } from "../utilities/utils"
+import { accessorPropsType } from "../utilities/utils"
+import { useUniqueId } from "../utilities/utils"
 
 const gradientColors = ["#9980FA", "rgb(226, 222, 243)"]
-const Histogram = ({ data, xAccessor, label }) => {
+
+const BarChart = ({ data, xAccessor, label }) => {
   const gradientId = useUniqueId("Histogram-gradient")
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
@@ -24,7 +25,7 @@ const Histogram = ({ data, xAccessor, label }) => {
   const xScale = d3.scaleLinear()
     .domain(d3.extent(data, xAccessor))
     .range([0, dimensions.boundedWidth])
-    .nice(numberOfThresholds)
+    // .nice(numberOfThresholds)
 
   const binsGenerator = d3.histogram()
     .domain(xScale.domain())
@@ -84,15 +85,15 @@ const Histogram = ({ data, xAccessor, label }) => {
   )
 }
 
-Histogram.propTypes = {
+BarChart.propTypes = {
   xAccessor: accessorPropsType,
   yAccessor: accessorPropsType,
   xLabel: PropTypes.string,
   yLabel: PropTypes.string,
 }
 
-Histogram.defaultProps = {
+BarChart.defaultProps = {
   xAccessor: d => d.x,
   yAccessor: d => d.y,
 }
-export default Histogram
+export default BarChart

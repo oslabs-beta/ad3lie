@@ -7,9 +7,9 @@ import Chart from '../utilities/Chart'
 import Line from '../utilities/Line'
 import Axis from "../utilities/Axis"
 import Gradient from "../utilities/Gradient";
-import { useChartDimensions } from "../utilities/useChartDimensions_comments"
-import { accessorPropsType } from "../utilities/accessorPropsType"
-import { useUniqueId } from "../utilities/useUniqueId"
+import { useChartDimensions } from "../utilities/utils"
+import { accessorPropsType } from "../utilities/utils"
+import { useUniqueId } from "../utilities/utils"
 
 const formatDate = d3.timeFormat("%-b %-d")
 const gradientColors = ["rgb(226, 222, 243)", "#f8f9fa"]

@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { accessorPropsType } from './utils'
+import { accessorPropsType } from "../../../utils/utils.js"
 
 const Circles = ({ data, keyAccessor, xAccessor, yAccessor, radius }) => {
 
-  console.log('this is xAccessor', xAccessor)
-  console.log('this is data', data)
+  // console.log('this is xAccessor', xAccessor)
+  // console.log('this is data', data)
   // const check = data.map((d, i) => {
   //   console.log('d, i: ', d, i)
   //   yAccessor(d[humidity], i)

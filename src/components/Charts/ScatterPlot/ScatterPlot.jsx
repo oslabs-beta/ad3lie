@@ -2,20 +2,19 @@ import React from "react"
 import PropTypes from "prop-types"
 import * as d3 from "d3"
 
-import Chart from '../../../ChartComponents/utilities/Chart'
-import Circles from '../../../ChartComponents/utilities/Circles'
-import Axis from "../../../ChartComponents/utilities/Axis"
-import { useChartDimensions } from "../../../ChartComponents/utilities/utils"
-import { accessorPropsType } from "../../../ChartComponents/utilities/utils"
+import Chart from "../../ChartComponents/JSX/Chart"
+import Circles from "../../ChartComponents/JSX/Circles"
+import Axis from "../../ChartComponents/JSX/Axis"
+import { useChartDimensions, accessorPropsType } from "../../../utils/utils.js"
 
 const ScatterPlot = ({ data, xAccessor, yAccessor, xLabel, yLabel }) => {
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
   })
-  const extend = d3.extent(data, xAccessor)
-  console.log('extend: ', extend)
-  console.log("dimensions", dimensions);
-  console.log("dimensions.boundedWidth", dimensions.boundedWidth);
+  // const extend = d3.extent(data, xAccessor)
+  // console.log('extend: ', extend)
+  // console.log("dimensions", dimensions);
+  // console.log("dimensions.boundedWidth", dimensions.boundedWidth);
 
   const xScale = d3
     .scaleLinear() // returns position within domain and range
@@ -28,12 +27,12 @@ const ScatterPlot = ({ data, xAccessor, yAccessor, xLabel, yLabel }) => {
     .range([dimensions.boundedHeight, 0])
     .nice()
 
-  console.log('xAccessor in ScatterPlot: ', xAccessor) // returns humidity of an object
-  const checking = data.map((d, i) => {
-    console.log('d, i: ', d, i)
-    console.log('humidity: ', xAccessor(d))
-    console.log('xScale: ', xScale(xAccessor(d)))
-  })
+  // console.log('xAccessor in ScatterPlot: ', xAccessor) // returns humidity of an object
+  // const checking = data.map((d, i) => {
+  //   console.log('d, i: ', d, i)
+  //   console.log('humidity: ', xAccessor(d))
+  //   console.log('xScale: ', xScale(xAccessor(d)))
+  // })
 
 
   const xAccessorScaled = d => xScale(xAccessor(d)) // returns a position from result of getting humidity in object

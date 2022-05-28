@@ -36,7 +36,20 @@ h1 {
     overflow: hidden;
 }
 
+.BarChart {
+    height: 500px;
+    flex: 1;
+    min-width: 500px;
+    overflow: hidden;
+}
+
 .ScatterPlot {
+    height: 500px;
+    width: 500px;
+    margin-right: 2em;
+}
+
+.LineGraph {
     height: 500px;
     width: 500px;
     margin-right: 2em;
@@ -51,7 +64,9 @@ h1 {
 
 .Timeline,
 .ScatterPlot,
-.Histogram {
+.Histogram,
+.LineGraph,
+.BarChart {
     background: white;
     padding: 0.6em 1em;
     margin: 0.5em;

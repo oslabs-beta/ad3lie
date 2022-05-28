@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import * as d3 from "d3"
-import { accessorPropsType } from "./accessorPropsType";
+import { accessorPropsType } from "../../../ChartComponents/utilities/Archive/accessorPropsType";
 
 const Line = ({ type, data, xAccessor, yAccessor, y0Accessor, interpolation, ...props }) => {
   const lineGenerator = d3[type]()

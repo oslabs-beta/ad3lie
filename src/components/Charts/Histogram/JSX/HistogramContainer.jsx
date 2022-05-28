@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import BarChart from "./BarChart";
-import BarChartForm from "./BarChartForm"
-import BarChartCodePreview from "./BarChartCodePreview"
+import Histogram from "./Histogram";
+import HistogramForm from "./HistogramForm"
+import HistogramCodePreview from "./HistogramCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import * as d3 from "d3"
-import { getScatterData, getTimelineData } from '../../../../utils/parseData'
+import { getScatterData } from "./Histogram";
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -15,7 +15,7 @@ We update state from the form, which the graph reads and re-renders from
     <BarChartCodePreview />
 </BarChartContainer>
 */
-const BarChartContainer = (props) => {
+const HistogramContainer = (props) => {
 const getData = () => ({
   // timeline: getTimelineData(),
   scatter: getScatterData(),
@@ -35,7 +35,7 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
-console.log('You just rerendered the BarChartContainer')
+console.log('You just rerendered the HistogramContainer')
   // // on load or when data changes, reset state
   // useEffect(() => {
   //   setData(getData().scatter);
@@ -83,24 +83,22 @@ const handleHeight = (e) => {
   setHeight(+e.target.value);
 }
 
-console.log(data)
-
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
     <div>
-    <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
+    <h1>This is the HistogramContainer. I serve the Histogram form, graph, and code preview.</h1>
     <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
+        <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
+        handlers={handlers}></HistogramForm>
+        <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></Histogram>
         {/* <BarChartCodePreview /> */}
     </div>
     </div>
   );
 }
 
-export default BarChartContainer
+export default HistogramContainer
 
 
 
