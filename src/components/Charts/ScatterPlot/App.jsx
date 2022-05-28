@@ -8,17 +8,18 @@ import Histogram from "../../../ChartComponents/Histogram/Histogram"
 
 import "./styles.css"
 
-const parseDate = d3.timeParse("%m/%d/%Y")
-const dateAccessor = d => parseDate(d.date)
-const temperatureAccessor = d => d.temperature
-const humidityAccessor = d => d.humidity
+export const parseDate = d3.timeParse("%m/%d/%Y")
+export const dateAccessor = d => parseDate(d.date)
+export const temperatureAccessor = d => d.temperature
+export const humidityAccessor = d => d.humidity
 
 // console.log('humidityAccessor from App.jsx', humidityAccessor)
 
-const getData = () => ({
+export const getData = () => ({
   timeline: getTimelineData(),
   scatter: getScatterData(),
 })
+
 const App = () => {
   const [data, setData] = useState(getData())
 

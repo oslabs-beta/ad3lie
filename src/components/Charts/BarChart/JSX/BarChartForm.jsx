@@ -1,64 +1,118 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from "prop-types"
 
-export default function BarChartForm () {
-  const [data, setData] = useState([]);
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisTitle, setXAxisTitle] = useState('X-axis');
-  const [yAxisTitle, setYAxisTitle] = useState('Y-axis');
-  const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);
-
+const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight } }) => {
+  
   return (
-    <Fragment>
-      <div>Chart Customizer Form</div>
-      <section className="form">
-        <form onSubmit={() => {}}>
-          <input
-            id="set-data"
-            type="array"
-            value={data}
-            onChange={(e) => setData(JSON.parse(e.target.value))}
-          />
-          <input
-            id="set-XKey"
-            type="string"
-            value={xKey}
-            onChange={(e) => setXKey(e.target.value)}
-          />
-          <input
-            id="set-YKey"
-            type="string"
-            value={yKey}
-            onChange={(e) => setYKey(e.target.value)}
-          />
-          <input
-            id="set-XAxisTitle"
-            type="string"
-            value={xAxisTitle}
-            onChange={(e) => setXAxisTitle(e.target.value)}
-          />
-          <input
-            id="set-YAxisTitle"
-            type="string"
-            value={yAxisTitle}
-            onChange={(e) => setYAxisTitle(e.target.value)}
-          />
-          <input
-            id="set-height"
-            type="number"
-            value={height}
-            onChange={(e) => setHeight(+e.target.value)}
-          />
-          <input
-            id="set-width"
-            type="number"
-            value={width}
-            onChange={(e) => setWidth(+e.target.value)}
-          />
+    // <Fragment>
+    //   <div>Chart Customizer Form</div>
+    //   <section className="form">
+        <form class="w-full max-w-lg" onSubmit={() => {}}>
+          <div class="flex flex-wrap -mx-3 mb-6">
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Data: object[]
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="set-data"
+                type="text"
+                placeholder="Data"
+                // value={data}
+                onChange={handleData}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                X Key: string
+              </label>
+              <input
+                id="set-XKey"
+                type="text"
+                placeholder="X Key"
+                // value={xKey}
+                onChange={handleXKey}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+            
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Y Key: string
+              </label>
+              <input
+                id="set-YKey"
+                type="text"
+                placeholder="Y Key"
+                // value={xKey}
+                onChange={handleYKey}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+            
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                X Axis Label: string
+              </label>
+              <input
+                id="set-xAxisLabel"
+                type="text"
+                placeholder="X Axis Label"
+                // value={xAxisLabel}
+                onChange={handleXAxisLabel}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Y Axis Label: string
+              </label>
+              <input
+                id="set-yAxisLabel"
+                type="text"
+                placeholder="Y Axis Label"
+                // value={yAxisLabel}
+                onChange={handleYAxisLabel}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Height: number
+              </label>
+              <input
+                id="set-height"
+                type="number"
+                placeholder="Height"
+                // value={height}
+                onChange={handleHeight}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Width: number
+              </label>
+              <input
+                id="set-width"
+                type="number"
+                placeholder="Width"
+                // value={width}
+                onChange={handleWidth}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+          </div>
         </form>
-      </section>
-    </Fragment>
+    //   </section>
+    // </Fragment>
   );
 }
 
@@ -73,6 +127,7 @@ export default function BarChartForm () {
 //   width: PropTypes.number,
 // }
 
+export default BarChartForm;
 
 // Event Handlers here to update state dynamically, on change
 // Call some fn getData() to import? or pull from whereever we import the data from
@@ -91,14 +146,14 @@ export default function BarChartForm () {
 //   setYKey(event.target.value);
 // }
 
-// const changeXAxisTitle = (event: ChangeEvent<HTMLInputElement>) => {
+// const changexAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
 //   event.preventDefault();
-//   setXAxisTitle(event.target.value);
+//   setxAxisLabel(event.target.value);
 // }
 
-// const changeYAxisTitle = (event: ChangeEvent<HTMLInputElement>) => {
+// const changeyAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
 //   event.preventDefault();
-//   setYAxisTitle(event.target.value);
+//   setyAxisLabel(event.target.value);
 // }
 
 // const changeWidth = (event: ChangeEvent<HTMLInputElement>) => {

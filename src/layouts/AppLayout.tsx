@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 
 export default function AppLayout() {
-  return(
+  return (
     <div id='AppLayoutContainer' className='max-w-full min-w-full max-h-full min-h-full grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2'>
       <NavBar />
       <div id='ChartCustomizerContainer' className="row-start-2 row-span-2 border-2 rounded">Chart Customizer Container</div>

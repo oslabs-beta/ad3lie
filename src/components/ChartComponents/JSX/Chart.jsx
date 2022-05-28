@@ -1,7 +1,8 @@
 import React, { createContext, useContext } from "react"
 import { dimensionsPropsType } from "../../../utils/utils.js"
+import PropTypes from "prop-types"
 
-import "./Chart.css"
+import "../Chart.css"
 
 const ChartContext = createContext()
 export const useChartDimensions = () => useContext(ChartContext)
