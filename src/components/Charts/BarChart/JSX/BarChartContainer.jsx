@@ -35,9 +35,9 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
-useEffect(() => {
-  setData(getBarChartData(xKey, yKey, data));
-}, [data])
+// useEffect(() => {
+//   setData(getBarChartData(xKey, yKey, data));
+// }, [data])
 
 console.log('You just rerendered the BarChartContainer')
   // // on load or when data changes, reset state
