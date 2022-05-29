@@ -16,32 +16,34 @@ We update state from the form, which the graph reads and re-renders from
 </BarChartContainer>
 */
 const BarChartContainer = (props) => {
-const getData = () => ({
-  // timeline: getTimelineData(),
-  scatter: getScatterData(),
-})
+  const getData = () => ({
+    // timeline: getTimelineData(),
+    scatter: getScatterData(),
+  })
 
   const [data, setData] = useState(getData().scatter);
   const [xKey, setXKey] = useState('humidity');
   const [yKey, setYKey] = useState('length');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
-  const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);``
-  // const [xAccessor, setXAccessor] = useState(humidityAccessor)
-  // const [yAccessor, setYAccessor] = useState(temperatureAccessor)
-const parseDate = d3.timeParse("%m/%d/%Y")
-const dateAccessor = d => parseDate(d.date)
-const temperatureAccessor = d => d.temperature
-const humidityAccessor = d => d.humidity
+  const [height, setHeight] = useState(500);
+  const [width, setWidth] = useState(500);
+  const parseDate = d3.timeParse("%m/%d/%Y")
+  const dateAccessor = d => parseDate(d.date)
+  const temperatureAccessor = d => d.temperature
+  const humidityAccessor = d => d.humidity
 
 
-//causes infinite loop lmao
-// useEffect(() => {
-//   setData(getBarChartData(xKey, yKey, data));
-// }, [data])
+  //causes infinite loop lmao
+  // useEffect(() => {
+  //   setData(getBarChartData(xKey, yKey, data));
+  // }, [data])
 
-console.log('You just rerendered the BarChartContainer')
+  useEffect(() => {
+    setData(prevData => getBarChartData(xKey, yKey, data));
+  }, [])
+
+  console.log('You just rerendered the BarChartContainer')
   // // on load or when data changes, reset state
   // useEffect(() => {
   //   setData(getData().scatter);
@@ -99,7 +101,7 @@ const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleY
     <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
         <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
         handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
+        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} setHeight={setHeight} setWidth={setWidth}></BarChart>
         {/* <BarChartCodePreview /> */}
     </div>
     </div>

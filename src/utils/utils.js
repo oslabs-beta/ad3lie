@@ -28,6 +28,8 @@ export const combineChartDimensions = (dimensions) => {
     ...dimensions
   };
 
+  console.log(parsedDimensions);
+
   return {
     ...parsedDimensions,
     boundedHeight: Math.max(

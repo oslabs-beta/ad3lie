@@ -9,16 +9,7 @@ import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 
- const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width}) => {
-  //  const [xAccessor, setXAccessor] = useState(humidityAccessor)
-  //  const [yAccessor, setYAccessor] = useState(temperatureAccessor)
-//   on load or when data changes, reset state
-//   useEffect(() => {
-//     setChartData(data);
-//     setXAccessor(humidityAccessor);
-//     setYAccessor(temperatureAccessor);
-//   }, [data]);
-
+ const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, setHeight, setWidth }) => {
 
 // //Uncomment below for BarChart data
 //   // 1. Process data. Look at the data structure and declare how to access the values we'll need.
@@ -87,24 +78,23 @@ import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData
 //   )
 // }
 
-//Uncomment below to work with current histogram data (working)
+/*
+Using useMemo for referential equality of depedencies: important for React hooks
+2 common use cases of useMemo:
+  1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
+  2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed, you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
+*/
+// Uncomment below to work with current histogram data (working)
   const xAccessor = useMemo(() => (data) => data[xKey]);
   const yAccessor = useMemo(() => (data) => data[yKey]);
-  // const xAccessor = humidityAccessor
-  // const yAccessor = d => d.length
 
-  // const gradientId = useUniqueId("Histogram-gradient")
+ 
+// setState input dimensions from Form -> Container passes down updated dims -> Chart passes dims as new args in useChartDimensions
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
+    height: height,
+    width: width, 
   })
-
-  // useEffect((dimensions) => {
-  //   dimensions.height = height;
-  //   dimensions.width = width;
-  // }, [height, width])
-
-  console.log(dimensions)
-
   const numberOfThresholds = 9
 
   const xScale = d3.scaleLinear()

@@ -21,10 +21,10 @@ export const getScatterData = (count = 100) => (
 
 const Histogram = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
 
+  // Since histograms compare occurences across a population/data, the y-Accessor must be the length of your dataset
+  // const yAccessor = d => d.length
   const xAccessor = useMemo(() => (data) => data[xKey]);
-  // const yAccessor = useMemo(() => (data) => data[yKey]);
-  // const xAccessor = humidityAccessor
-  const yAccessor = d => d.length
+  const yAccessor = useMemo(() => (data) => data.length);
 
   // const gradientId = useUniqueId("Histogram-gradient")
   const [ref, dimensions] = useChartDimensions({
@@ -36,7 +36,7 @@ const Histogram = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
   //   dimensions.width = width;
   // }, [height, width])
 
-  console.log(dimensions)
+  // console.log(dimensions)
 
   const numberOfThresholds = 9
 

@@ -91,7 +91,7 @@ const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleY
     <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
         <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
         handlers={handlers}></HistogramForm>
-        <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></Histogram>
+        <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} handlers={handlers}></Histogram>
         {/* <BarChartCodePreview /> */}
     </div>
     </div>
