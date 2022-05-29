@@ -4,7 +4,7 @@ import BarChartForm from "./BarChartForm"
 import BarChartCodePreview from "./BarChartCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import * as d3 from "d3"
-import { getScatterData, getTimelineData } from '../../../../utils/parseData'
+import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -23,17 +23,23 @@ const getData = () => ({
 
   const [data, setData] = useState(getData().scatter);
   const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('temperature');
+  const [yKey, setYKey] = useState('length');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);
+  const [width, setWidth] = useState(100);``
   // const [xAccessor, setXAccessor] = useState(humidityAccessor)
   // const [yAccessor, setYAccessor] = useState(temperatureAccessor)
 const parseDate = d3.timeParse("%m/%d/%Y")
 const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
+
+
+//causes infinite loop lmao
+// useEffect(() => {
+//   setData(getBarChartData(xKey, yKey, data));
+// }, [data])
 
 console.log('You just rerendered the BarChartContainer')
   // // on load or when data changes, reset state
@@ -83,7 +89,7 @@ const handleHeight = (e) => {
   setHeight(+e.target.value);
 }
 
-console.log(data)
+// console.log(data)
 
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 

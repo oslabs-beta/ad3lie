@@ -37,24 +37,108 @@ export const getScatterData = (count = 100) => (
 import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/EnteredData";
 
 // TYPE: NUMBER/STRING ---- BAR CHART
-export const getBarChartData = (arrOfObj = userEnteredData, userAxis = userAxisData, count = userEnteredData.length) => {
-  const cache = {};
+// export const getBarChartData = (xKey, yKey, arr) => {
+//   //   // Three Steps
+//   //   // 1. Create a Set of Unique Keys
+//   let set = new Set()
+//   for (const obj of arr) {
+//     set.push(obj[xKey]);
+//   }
+//   // 2. Create an Array to hold the Accumulated Results
+//   let aggs = []
+//   // 3. Iterate over the set, and use Map and Reduce to create an obj for each xKey
+//   for (const key of set) {
+//     const agg = arr.map(obj => key === obj[xKey]).reduce((acc, curr) => {
+//       return acc + curr[xKey]
+//     }, 0)
+//     aggs.push(agg);
+//   }
+//   return aggs
+// }
 
-  return () => {
-    const cache = {}
-    const result = arr.reduce((acc, curr) => {
-      if (curr[userAxis["x2"]] in cache) {
-        return acc[cache[userAxis["x2"]]][userAxis["y"]] += curr[userAxis["y"]]
-      }
-      // else add to cache and accumulator
-      cache[curr[userAxis["x2"]]] = Object.keys(cache).length;
-      return acc.push(curr)
-    }, [])
-    return result;
-  };
-}
+  // console.log(getBarChartData("species","body_mass_g",userEnteredData))
 
-console.log(getBarChartData())
+ // REDUCE GOD
+  // const test = (xKey, yKey, data) => {
+  //   const arrOfObj = Array.from(
+  //     data.reduce((m, { xKey, yKey }) =>
+  //         m.set(xKey, (m.get(xKey) || 0) + yKey),
+  //       new Map()
+  //     ),
+  //     ([xKey, yKey]) => ({ xKey, yKey })
+  //   );
+    
+  //   return arrOfObj;
+  // }
+
+  export const getBarChartData = (xKey, yKey, data) => {
+  const arrOfObj = Array.from(
+    data.reduce((acc, { value, ...r }) => {
+        // console.log('value, r', value, r)
+        //                         ^^^^^
+        // value is undefined here
+        const key = JSON.stringify(r);
+        console.log('key', key)
+        // key is an object (stringified???)
+        const current = acc.get(key) || { ...r };
+        // console.log('acc, current', acc, current)
+        return acc.set(key, { ...current });
+      }, new Map())
+      .values()
+  );
+  return arrOfObj;
+};
+
+  console.log("this is reduce BaChartData", getBarChartData("species","body_mass_g",userEnteredData))
+
+//   const penguins = Array.from(
+//   data.reduce(
+//     (m, { species, body_mass_g }) =>
+//       m.set(species, (m.get(species) || 0) + body_mass_g),
+//     new Map()
+//   ),
+//   ([species, body_mass_g]) => ({ species, body_mass_g })
+// );
+
+//   console.log('arr: ', arr)
+//   console.log('xKey ', xKey)
+//   // console.log(' ', )
+//   const cache = {}
+//   const result = arr.reduce((acc, curr) => {
+//     console.log('acc', acc)
+//     if (curr[xKey] in cache) {
+//       return acc[cache[xKey]][yKey] += curr[yKey]
+//     }
+//     // else add to cache and accumulator
+//     // ex) curr[xKey] = "Adelie"
+//     //     cache["Adelie"] = length of cache properties ?????????
+//     cache[curr[xKey]] = Object.keys(cache).length;
+//     return acc.push(curr)
+//   }, [])
+//   return resut;
+// }
+// reached algos part of the project :upside_down_face:. Given an array of objects, how do you find the total for each unique x-value?
+// Result should be [{“species”: “Adelie”, “body_mass_g”: 7200}, {“species”: “Gentoo”, “body_mass_g”: 10950}]
+/*
+[
+  {
+    "species": "Adelie",
+    "body_mass_g": 3750,
+  },
+  {
+    "species": "Adelie",
+    "body_mass_g": 3450,
+},
+    {
+    "species": "Gentoo",
+    "body_mass_g": 5750,
+  },
+  {
+    "species": "Gentoo",
+    "body_mass_g": 5200,
+  }
+]
+  */
 
 // TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 
