@@ -35,6 +35,8 @@ const dateAccessor = d => parseDate(d.date)
 const temperatureAccessor = d => d.temperature
 const humidityAccessor = d => d.humidity
 
+
+//causes infinite loop lmao
 // useEffect(() => {
 //   setData(getBarChartData(xKey, yKey, data));
 // }, [data])
