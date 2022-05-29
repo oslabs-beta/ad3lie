@@ -9,7 +9,7 @@ import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 
- const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, thresholds }) => {
+ const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding }) => {
 
 // //Uncomment below for BarChart data
 //   // 1. Process data. Look at the data structure and declare how to access the values we'll need.
@@ -94,6 +94,8 @@ Using useMemo for referential equality of depedencies: important for React hooks
     height: height,
     width: width, 
   })
+
+  // Thresholds = # scaled bins (user inputs # of bins as thresholds, we scale bins according to their data for them )
   const numberOfThresholds = thresholds;
 
   const xScale = d3.scaleLinear()
@@ -114,7 +116,9 @@ Using useMemo for referential equality of depedencies: important for React hooks
     .range([dimensions.boundedHeight, 0])
     .nice()
 
-  const barPadding = 2
+  // const barPadding = 2;
+
+  console.log(barPadding)
 
   const xAccessorScaled = d => xScale(d.x0) + barPadding
   const yAccessorScaled = d => yScale(yAccessor(d))

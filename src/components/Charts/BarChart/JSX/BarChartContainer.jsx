@@ -29,6 +29,7 @@ const BarChartContainer = (props) => {
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
   const [thresholds, setThresholds] = useState(9);
+  const [barPadding, setBarPadding] = useState(2);
 
 
   const parseDate = d3.timeParse("%m/%d/%Y")
@@ -99,15 +100,20 @@ const handleThresholds = (e) => {
   setThresholds(+e.target.value);
 }
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds };
+const handleBarPadding = (e) => {
+  e.preventDefault();
+  setBarPadding(+e.target.value);
+}
+
+const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
 
   return (
     <div>
     <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
     <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds}
+        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
         handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds}></BarChart>
+        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></BarChart>
         {/* <BarChartCodePreview /> */}
     </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 
-const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds } }) => {
+const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding } }) => {
   
   return (
     // <Fragment>
@@ -118,6 +118,19 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width,
                 type="number"
                 placeholder="Number of Bins"
                 onChange={handleThresholds}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Bar Padding: number
+              </label>
+              <input
+                id="set-thresholds"
+                type="number"
+                placeholder="Bar Padding"
+                onChange={handleBarPadding}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
