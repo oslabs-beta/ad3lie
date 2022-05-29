@@ -28,6 +28,9 @@ const BarChartContainer = (props) => {
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
+  const [thresholds, setThresholds] = useState(9);
+
+
   const parseDate = d3.timeParse("%m/%d/%Y")
   const dateAccessor = d => parseDate(d.date)
   const temperatureAccessor = d => d.temperature
@@ -91,17 +94,20 @@ const handleHeight = (e) => {
   setHeight(+e.target.value);
 }
 
-// console.log(data)
+const handleThresholds = (e) => {
+  e.preventDefault();
+  setThresholds(+e.target.value);
+}
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
+const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds };
 
   return (
     <div>
     <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
     <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
+        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds}
         handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} setHeight={setHeight} setWidth={setWidth}></BarChart>
+        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds}></BarChart>
         {/* <BarChartCodePreview /> */}
     </div>
     </div>
