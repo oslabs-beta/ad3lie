@@ -28,7 +28,7 @@ export const combineChartDimensions = (dimensions) => {
     ...dimensions
   };
 
-  console.log(parsedDimensions);
+  // console.log(parsedDimensions);
 
   return {
     ...parsedDimensions,

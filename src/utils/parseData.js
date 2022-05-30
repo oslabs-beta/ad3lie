@@ -72,12 +72,12 @@ import {
 //   return arrOfObj;
 // }
 
-export const getBarChartData = (xKey, yKey, data) => {
+export const getBarChartData = (data, xKey, yKey) => {
   const arrOfObj = Array.from(
     data
       .reduce((acc, { value, ...r }) => {
         const key = JSON.stringify(r);
-        console.log('key', key);
+        // console.log('key', key);
         const current = acc.get(key) || { ...r };
         return acc.set(key, { ...current });
       }, new Map())
@@ -154,7 +154,7 @@ export const getBarChartData2 = (data, xKey, yKey) => {
   return result;
 };
 
-console.log(getBarChartData2(sampleData, 'species', 'body_mass_g'));
+// console.log(getBarChartData2(sampleData, 'species', 'body_mass_g'));
 
 // console.log(
 //   'this is reduce BarChartData',
@@ -232,7 +232,7 @@ export const getTimelineData3 = (
     [userAxis['y']]: userEnteredData[i][userAxis['y']]
   }));
 };
-console.log('gettimelineData', getTimelineData3());
+// console.log('gettimelineData', getTimelineData3());
 
 // TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 const objectComparisonCallback = (arrayItemA, arrayItemB) => {

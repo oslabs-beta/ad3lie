@@ -46,7 +46,7 @@ const HistogramContainer = (props) => {
   // }, [data])
 
   useEffect(() => {
-    setData(prevData => getBarChartData(xKey, yKey, data));
+    setData(prevData => getBarChartData(data, xKey, yKey));
   }, [])
 
   console.log('You just rerendered the HistogramContainer')
