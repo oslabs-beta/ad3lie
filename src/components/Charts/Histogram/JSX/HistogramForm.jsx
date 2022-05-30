@@ -142,6 +142,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
   );
 }
 
+export default HistogramForm;
+
 //PropTypes does not exist;
 // HistogramForm.propTypes = {
 //   data: PropTypes.array,
@@ -153,7 +155,6 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
 //   width: PropTypes.number,
 // }
 
-export default HistogramForm;
 
 // Event Handlers here to update state dynamically, on change
 // Call some fn getData() to import? or pull from whereever we import the data from

@@ -37,6 +37,8 @@ const HistogramContainer = (props) => {
   const temperatureAccessor = d => d.temperature
   const humidityAccessor = d => d.humidity
 
+  console.log(data)
+
 
   //causes infinite loop lmao
   // useEffect(() => {

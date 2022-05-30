@@ -76,20 +76,85 @@ export const getBarChartData = (xKey, yKey, data) => {
   const arrOfObj = Array.from(
     data
       .reduce((acc, { value, ...r }) => {
-        // console.log('value, r', value, r)
-        //                         ^^^^^
-        // value is undefined here
         const key = JSON.stringify(r);
         console.log('key', key);
-        // key is an object (stringified???)
         const current = acc.get(key) || { ...r };
-        // console.log('acc, current', acc, current)
         return acc.set(key, { ...current });
       }, new Map())
       .values()
   );
   return arrOfObj;
 };
+
+// Works for reducing an array of objects, grouped by two keys
+/** Ex. Group by Species and Body_mass_g
+   * [ { species: 'Gentoo', body_mass_g: 392350 },
+    { species: 'Adelie', body_mass_g: 10100 } ]
+  */
+const sampleData = [
+  {
+    species: 'Adelie',
+    island: 'Torgersen',
+    culmen_length_mm: 39.2,
+    culmen_depth_mm: 19.6,
+    flipper_length_mm: 195,
+    body_mass_g: 4675,
+    sex: 'MALE'
+  },
+  {
+    species: 'Gentoo',
+    island: 'Torgersen',
+    culmen_length_mm: 34.1,
+    culmen_depth_mm: 18.1,
+    flipper_length_mm: 193,
+    body_mass_g: 3475,
+    sex: null
+  },
+  {
+    species: 'Emperor',
+    island: 'Torgersen',
+    culmen_length_mm: 42,
+    culmen_depth_mm: 20.2,
+    flipper_length_mm: 190,
+    body_mass_g: 4250,
+    sex: null
+  },
+  {
+    species: 'fuck',
+    island: 'Torgersen',
+    culmen_length_mm: 37.8,
+    culmen_depth_mm: 17.1,
+    flipper_length_mm: 186,
+    body_mass_g: 3300,
+    sex: null
+  },
+  {
+    species: 'me',
+    island: 'Torgersen',
+    culmen_length_mm: 37.8,
+    culmen_depth_mm: 17.3,
+    flipper_length_mm: 180,
+    body_mass_g: 3700,
+    sex: null
+  }
+];
+
+export const getBarChartData2 = (data, xKey, yKey) => {
+  // const data = JSON.parse(stringifiedData);
+  const result = [];
+  data.reduce(function (acc, curr) {
+    if (!acc[curr[xKey]]) {
+      acc[curr[xKey]] = { [xKey]: curr[xKey], [yKey]: 0 };
+      result.push(acc[curr[xKey]]);
+    }
+    acc[curr[xKey]][yKey] += curr[yKey];
+    return acc;
+  }, []);
+  console.log(result);
+  return result;
+};
+
+console.log(getBarChartData2(sampleData, 'species', 'body_mass_g'));
 
 // console.log(
 //   'this is reduce BarChartData',
