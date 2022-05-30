@@ -1,40 +1,41 @@
-import * as d3 from "d3"
-import PropTypes from "prop-types";
+import * as d3 from 'd3';
+import PropTypes from 'prop-types';
 
-const randomAroundMean = (mean, deviation) => mean + boxMullerRandom() * deviation
-const boxMullerRandom = () => (
-  Math.sqrt(-2.0 * Math.log(Math.random())) * 
-  Math.cos(2.0 * Math.PI * Math.random())
-)
+const randomAroundMean = (mean, deviation) =>
+  mean + boxMullerRandom() * deviation;
+const boxMullerRandom = () =>
+  Math.sqrt(-2.0 * Math.log(Math.random())) *
+  Math.cos(2.0 * Math.PI * Math.random());
 
-const today = new Date()
+const today = new Date();
 
 // TYPE: DATE
-const formatDate = d3.timeFormat("%m/%d/%Y")
+const formatDate = d3.timeFormat('%m/%d/%Y');
 export const getTimelineData = (length = 100) => {
-  let lastTemperature = randomAroundMean(70, 20)
-  const firstTemperature = d3.timeDay.offset(today, -length)
+  let lastTemperature = randomAroundMean(70, 20);
+  const firstTemperature = d3.timeDay.offset(today, -length);
 
   return new Array(length).fill(0).map((d, i) => {
-    lastTemperature += randomAroundMean(0, 2)
+    lastTemperature += randomAroundMean(0, 2);
     return {
       date: formatDate(d3.timeDay.offset(firstTemperature, i)),
-      temperature: lastTemperature,
-    }
-  })
-}
+      temperature: lastTemperature
+    };
+  });
+};
 
 // TYPE: NUMBER
-export const getScatterData = (count = 100) => (
+export const getScatterData = (count = 100) =>
   new Array(count).fill(0).map((d, i) => ({
     temperature: randomAroundMean(70, 20),
-    humidity: randomAroundMean(0.5, 0.1),
-  }))
-)
-
+    humidity: randomAroundMean(0.5, 0.1)
+  }));
 
 // ============================================================================================================= //
-import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/EnteredData";
+import {
+  userEnteredData,
+  userAxisData
+} from '../components/Charts/ScatterPlot/EnteredData.jsx';
 
 // TYPE: NUMBER/STRING ---- BAR CHART
 // export const getBarChartData = (xKey, yKey, arr) => {
@@ -56,29 +57,30 @@ import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/
 //   return aggs
 // }
 
-  // console.log(getBarChartData("species","body_mass_g",userEnteredData))
+// console.log(getBarChartData("species","body_mass_g",userEnteredData))
 
- // REDUCE GOD
-  // const test = (xKey, yKey, data) => {
-  //   const arrOfObj = Array.from(
-  //     data.reduce((m, { xKey, yKey }) =>
-  //         m.set(xKey, (m.get(xKey) || 0) + yKey),
-  //       new Map()
-  //     ),
-  //     ([xKey, yKey]) => ({ xKey, yKey })
-  //   );
-    
-  //   return arrOfObj;
-  // }
+// REDUCE GOD
+// const test = (xKey, yKey, data) => {
+//   const arrOfObj = Array.from(
+//     data.reduce((m, { xKey, yKey }) =>
+//         m.set(xKey, (m.get(xKey) || 0) + yKey),
+//       new Map()
+//     ),
+//     ([xKey, yKey]) => ({ xKey, yKey })
+//   );
 
-  export const getBarChartData = (xKey, yKey, data) => {
+//   return arrOfObj;
+// }
+
+export const getBarChartData = (xKey, yKey, data) => {
   const arrOfObj = Array.from(
-    data.reduce((acc, { value, ...r }) => {
+    data
+      .reduce((acc, { value, ...r }) => {
         // console.log('value, r', value, r)
         //                         ^^^^^
         // value is undefined here
         const key = JSON.stringify(r);
-        console.log('key', key)
+        console.log('key', key);
         // key is an object (stringified???)
         const current = acc.get(key) || { ...r };
         // console.log('acc, current', acc, current)
@@ -89,7 +91,10 @@ import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/
   return arrOfObj;
 };
 
-  console.log("this is reduce BaChartData", getBarChartData("species","body_mass_g",userEnteredData))
+// console.log(
+//   'this is reduce BarChartData',
+//   getBarChartData('species', 'body_mass_g', userEnteredData)
+// );
 
 //   const penguins = Array.from(
 //   data.reduce(
@@ -142,37 +147,42 @@ import { userEnteredData, userAxisData } from "../components/Charts/ScatterPlot/
 
 // TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 
-export const getUONumData = (userAxis = userAxisData, count = userEnteredData.length) => {
-  return (new Array(count).fill({}).map((d, i) => ({
-    [userAxis["x"]]: userEnteredData[i][userAxis["x"]],
-    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
-  }))
-  )
-}
+export const getUONumData = (
+  userAxis = userAxisData,
+  count = userEnteredData.length
+) => {
+  return new Array(count).fill({}).map((d, i) => ({
+    [userAxis['x']]: userEnteredData[i][userAxis['x']],
+    [userAxis['y']]: userEnteredData[i][userAxis['y']]
+  }));
+};
 
 // TYPE: DATE ---- TIMELINE
-export const getTimelineData3 = (length = userEnteredData.length, userAxis = userAxisData) => {
-
-  return (new Array(length).fill({}).map((d, i) => ({
-    [userAxis["x"]]: new Date(userEnteredData[i][userAxis["x"]]),
-    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
-  }))
-  )
-}
-console.log("gettimelineData", getTimelineData3())
+export const getTimelineData3 = (
+  length = userEnteredData.length,
+  userAxis = userAxisData
+) => {
+  return new Array(length).fill({}).map((d, i) => ({
+    [userAxis['x']]: new Date(userEnteredData[i][userAxis['x']]),
+    [userAxis['y']]: userEnteredData[i][userAxis['y']]
+  }));
+};
+console.log('gettimelineData', getTimelineData3());
 
 // TYPE: NUMBERS ---- LINE GRAPHS (ORDERED)
 const objectComparisonCallback = (arrayItemA, arrayItemB) => {
-  if (arrayItemA[userAxisData["x"]] < arrayItemB[userAxisData["x"]]) return -1;
-  if (arrayItemA[userAxisData["x"]] > arrayItemB[userAxisData["x"]]) return 1;
-  return 0
-}
-userEnteredData.sort(objectComparisonCallback)
+  if (arrayItemA[userAxisData['x']] < arrayItemB[userAxisData['x']]) return -1;
+  if (arrayItemA[userAxisData['x']] > arrayItemB[userAxisData['x']]) return 1;
+  return 0;
+};
+userEnteredData.sort(objectComparisonCallback);
 
-export const getNumbersData = (userAxis = userAxisData, count = userEnteredData.length) => {
-  return (new Array(count).fill({}).map((d, i) => ({
-    [userAxis["x"]]: userEnteredData[i][userAxis["x"]],
-    [userAxis["y"]]: userEnteredData[i][userAxis["y"]]
-  }))
-  )
-}
+export const getNumbersData = (
+  userAxis = userAxisData,
+  count = userEnteredData.length
+) => {
+  return new Array(count).fill({}).map((d, i) => ({
+    [userAxis['x']]: userEnteredData[i][userAxis['x']],
+    [userAxis['y']]: userEnteredData[i][userAxis['y']]
+  }));
+};

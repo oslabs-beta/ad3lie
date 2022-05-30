@@ -4,101 +4,112 @@ import HistogramForm from "./HistogramForm"
 import HistogramCodePreview from "./HistogramCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import * as d3 from "d3"
-import { getScatterData } from "./Histogram";
+import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
-<BarChartContainer>
-    <BarChartForm />
-    <BarChartCustomizer />
-    <BarChartCodePreview />
-</BarChartContainer>
+<HistogramContainer>
+    <HistogramForm />
+    <HistogramCustomizer />
+    <HistogramCodePreview />
+</HistogramContainer>
 */
 const HistogramContainer = (props) => {
-const getData = () => ({
-  // timeline: getTimelineData(),
-  scatter: getScatterData(),
-})
+  const getData = () => ({
+    // timeline: getTimelineData(),
+    scatter: getScatterData(),
+  })
 
   const [data, setData] = useState(getData().scatter);
   const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('temperature');
+  const [yKey, setYKey] = useState('length');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
-  const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);
-  // const [xAccessor, setXAccessor] = useState(humidityAccessor)
-  // const [yAccessor, setYAccessor] = useState(temperatureAccessor)
-const parseDate = d3.timeParse("%m/%d/%Y")
-const dateAccessor = d => parseDate(d.date)
-const temperatureAccessor = d => d.temperature
-const humidityAccessor = d => d.humidity
+  const [height, setHeight] = useState(500);
+  const [width, setWidth] = useState(500);
+  const [thresholds, setThresholds] = useState(9);
+  const [barPadding, setBarPadding] = useState(2);
 
-console.log('You just rerendered the HistogramContainer')
-  // // on load or when data changes, reset state
+
+  const parseDate = d3.timeParse("%m/%d/%Y")
+  const dateAccessor = d => parseDate(d.date)
+  const temperatureAccessor = d => d.temperature
+  const humidityAccessor = d => d.humidity
+
+
+  //causes infinite loop lmao
   // useEffect(() => {
-  //   setData(getData().scatter);
-  //   setXKey('humidity');
-  //   setYKey('temperature');
-  //   setXAxisLabel('X-axis: Humidity');
-  //   setYAxisLabel('Y-axis: Temperature');
-  //   setHeight(100);
-  //   setWidth(100);
-  // }, []);
-  // Event Handlers to update
-    // Call some fn getData() to import? or pull from whereever we import the data from
-const handleData = (e) => {
-  e.preventDefault();
-  setData(JSON.parse(e.target.value));
-}
+  //   setData(getHistogramData(xKey, yKey, data));
+  // }, [data])
 
-const handleXKey = (e) => {
-  e.preventDefault();
-  setXKey(e.target.value);
-}
+  useEffect(() => {
+    setData(prevData => getBarChartData(xKey, yKey, data));
+  }, [])
 
-const handleYKey = (e) => {
-  e.preventDefault();
-  setYKey(e.target.value);
-}
+  console.log('You just rerendered the HistogramContainer')
 
-const handleXAxisLabel = (e) => {
-  e.preventDefault();
-  setXAxisLabel(e.target.value);
-}
+  const handleData = (e) => {
+    e.preventDefault();
+    setData(JSON.parse(e.target.value));
+  }
 
-const handleYAxisLabel = (e) => {
-  e.preventDefault();
-  setYAxisLabel(e.target.value);
-}
+  const handleXKey = (e) => {
+    e.preventDefault();
+    setXKey(e.target.value);
+  }
 
-const handleWidth = (e) => {
-  e.preventDefault();
-  setWidth(+e.target.value);
-}
+  const handleYKey = (e) => {
+    e.preventDefault();
+    setYKey(e.target.value);
+  }
 
-const handleHeight = (e) => {
-  e.preventDefault();
-  setHeight(+e.target.value);
-}
+  const handleXAxisLabel = (e) => {
+    e.preventDefault();
+    setXAxisLabel(e.target.value);
+  }
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
+  const handleYAxisLabel = (e) => {
+    e.preventDefault();
+    setYAxisLabel(e.target.value);
+  }
 
-  return (
-    <div>
-    <h1>This is the HistogramContainer. I serve the Histogram form, graph, and code preview.</h1>
-    <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></HistogramForm>
-        <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} handlers={handlers}></Histogram>
-        {/* <BarChartCodePreview /> */}
-    </div>
-    </div>
-  );
-}
+  const handleWidth = (e) => {
+    e.preventDefault();
+    setWidth(+e.target.value);
+  }
 
-export default HistogramContainer
+  const handleHeight = (e) => {
+    e.preventDefault();
+    setHeight(+e.target.value);
+  }
+
+  const handleThresholds = (e) => {
+    e.preventDefault();
+    setThresholds(+e.target.value);
+  }
+
+  const handleBarPadding = (e) => {
+    e.preventDefault();
+    setBarPadding(+e.target.value);
+  }
+
+  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
+
+    return (
+      <div>
+      <h1>This is the HistogramContainer. I serve the Histogram form, graph, and code preview.</h1>
+      <div className="Histogram-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+          <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
+          handlers={handlers}></HistogramForm>
+          <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
+          {/* <HistogramCodePreview /> */}
+      </div>
+      </div>
+    );
+  }
+
+  export default HistogramContainer;
 
 
 
@@ -106,7 +117,7 @@ export default HistogramContainer
 
 
 
-// class BarChartContainer extends Component {
+// class HistogramContainer extends Component {
 //   constructor() {
 //     super(props);
 //     this.state = {
@@ -121,9 +132,9 @@ export default HistogramContainer
 // }
 //     render() {
 //             return (
-//             <div className="barchartcontainer">
-//                 <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChartForm>
-//                 <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></BarChart>
+//             <div className="Histogramcontainer">
+//                 <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></HistogramForm>
+//                 <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></Histogram>
 //             </div>
 //             );
 //         }

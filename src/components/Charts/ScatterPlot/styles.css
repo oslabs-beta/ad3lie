@@ -49,11 +49,11 @@ h1 {
     margin-right: 2em;
 }
 
-.LineGraph {
+/* .LineGraph {
     height: 500px;
     width: 500px;
     margin-right: 2em;
-}
+} */
 
 .App__charts {
     display: flex;
@@ -65,7 +65,7 @@ h1 {
 .Timeline,
 .ScatterPlot,
 .Histogram,
-.LineGraph,
+/* .LineGraph, */
 .BarChart {
     background: white;
     padding: 0.6em 1em;

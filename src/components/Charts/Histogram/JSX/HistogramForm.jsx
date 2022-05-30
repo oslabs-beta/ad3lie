@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 
-const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight } }) => {
+const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding } }) => {
   
   return (
     // <Fragment>
@@ -18,6 +18,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-data"
                 type="text"
                 placeholder="Data"
+                // value={data}
                 onChange={handleData}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
@@ -32,12 +33,25 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-XKey"
                 type="text"
                 placeholder="X Key"
+                // value={xKey}
                 onChange={handleXKey}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
-          
-          <div><p>Histogram compares occurences across a population. The y-key is the length of your dataset.</p></div>
+            
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Y Key: string
+              </label>
+              <input
+                id="set-YKey"
+                type="text"
+                placeholder="Y Key"
+                // value={xKey}
+                onChange={handleYKey}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
             
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -47,6 +61,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-xAxisLabel"
                 type="text"
                 placeholder="X Axis Label"
+                // value={xAxisLabel}
                 onChange={handleXAxisLabel}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
@@ -60,6 +75,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-yAxisLabel"
                 type="text"
                 placeholder="Y Axis Label"
+                // value={yAxisLabel}
                 onChange={handleYAxisLabel}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
@@ -73,6 +89,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-height"
                 type="number"
                 placeholder="Height"
+                // value={height}
                 onChange={handleHeight}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
@@ -86,7 +103,34 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-width"
                 type="number"
                 placeholder="Width"
+                // value={width}
                 onChange={handleWidth}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Bins: number
+              </label>
+              <input
+                id="set-thresholds"
+                type="number"
+                placeholder="Number of Bins"
+                onChange={handleThresholds}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Bar Padding: number
+              </label>
+              <input
+                id="set-thresholds"
+                type="number"
+                placeholder="Bar Padding"
+                onChange={handleBarPadding}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -110,3 +154,46 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
 // }
 
 export default HistogramForm;
+
+// Event Handlers here to update state dynamically, on change
+// Call some fn getData() to import? or pull from whereever we import the data from
+// const changeData = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setData(JSON.parse(event.target.value));
+// }
+
+// const changeXKey = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setXKey(event.target.value);
+// }
+
+// const changeYKey = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setYKey(event.target.value);
+// }
+
+// const changexAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setxAxisLabel(event.target.value);
+// }
+
+// const changeyAxisLabel = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setyAxisLabel(event.target.value);
+// }
+
+// const changeWidth = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setWidth(+event.target.value);
+// }
+
+// const changeHeight = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setHeight(+event.target.value);
+// }
+
+// const changeKeys = (event: ChangeEvent<HTMLInputElement>) => {
+//   event.preventDefault();
+//   setKeys(event.target.value);
+// }
+

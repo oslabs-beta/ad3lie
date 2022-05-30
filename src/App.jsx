@@ -2,10 +2,10 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation, HashRouter } from 'react-router-dom';
 import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
-import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
 import NavBar from './components/NavBar';
 import ScatterPlotContainer from './components/Charts/ScatterPlot/ScatterPlotContainer';
 import HistogramContainer from './components/Charts/Histogram/JSX/HistogramContainer';
+import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
 
 
 export default () => {

@@ -2,9 +2,7 @@ import React, { useState, useEffect, useMemo, Fragment} from 'react';
 import * as d3 from 'd3';
 import PropTypes from "prop-types"
 import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
-import Axis_noticks from "../../../ChartComponents/JSX/Axis_noticks.jsx"
 import Axis from "../../../ChartComponents/JSX/Axis.jsx"
-import Rectangle from "../../../ChartComponents/JSX/Rectangle.jsx"
 import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
@@ -96,7 +94,8 @@ Using useMemo for referential equality of depedencies: important for React hooks
   })
 
   // Thresholds = # scaled bins (user inputs # of bins as thresholds, we scale bins according to their data for them )
-  const numberOfThresholds = thresholds;
+    // defaulted to 9
+  const numberOfThresholds = thresholds; 
 
   const xScale = d3.scaleLinear()
     .domain(d3.extent(data, xAccessor))
@@ -110,16 +109,13 @@ Using useMemo for referential equality of depedencies: important for React hooks
 
   const bins = binsGenerator(data)
 
-  
   const yScale = d3.scaleLinear()
     .domain([0, d3.max(bins, yAccessor)])
     .range([dimensions.boundedHeight, 0])
     .nice()
 
-  // const barPadding = 2;
 
-  console.log(barPadding)
-
+  // Bar padding defaulted to 2
   const xAccessorScaled = d => xScale(d.x0) + barPadding
   const yAccessorScaled = d => yScale(yAccessor(d))
   const widthAccessorScaled = d => xScale(d.x1) - xScale(d.x0) - barPadding

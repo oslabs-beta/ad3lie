@@ -17,7 +17,6 @@ We update state from the form, which the graph reads and re-renders from
 */
 const BarChartContainer = (props) => {
   const getData = () => ({
-    // timeline: getTimelineData(),
     scatter: getScatterData(),
   })
 
@@ -31,13 +30,6 @@ const BarChartContainer = (props) => {
   const [thresholds, setThresholds] = useState(9);
   const [barPadding, setBarPadding] = useState(2);
 
-
-  const parseDate = d3.timeParse("%m/%d/%Y")
-  const dateAccessor = d => parseDate(d.date)
-  const temperatureAccessor = d => d.temperature
-  const humidityAccessor = d => d.humidity
-
-
   //causes infinite loop lmao
   // useEffect(() => {
   //   setData(getBarChartData(xKey, yKey, data));
@@ -48,79 +40,68 @@ const BarChartContainer = (props) => {
   }, [])
 
   console.log('You just rerendered the BarChartContainer')
-  // // on load or when data changes, reset state
-  // useEffect(() => {
-  //   setData(getData().scatter);
-  //   setXKey('humidity');
-  //   setYKey('temperature');
-  //   setXAxisLabel('X-axis: Humidity');
-  //   setYAxisLabel('Y-axis: Temperature');
-  //   setHeight(100);
-  //   setWidth(100);
-  // }, []);
-  // Event Handlers to update
-    // Call some fn getData() to import? or pull from whereever we import the data from
-const handleData = (e) => {
-  e.preventDefault();
-  setData(JSON.parse(e.target.value));
-}
 
-const handleXKey = (e) => {
-  e.preventDefault();
-  setXKey(e.target.value);
-}
+  const handleData = (e) => {
+    e.preventDefault();
+    setData(JSON.parse(e.target.value));
+  }
 
-const handleYKey = (e) => {
-  e.preventDefault();
-  setYKey(e.target.value);
-}
+  const handleXKey = (e) => {
+    e.preventDefault();
+    setXKey(e.target.value);
+  }
 
-const handleXAxisLabel = (e) => {
-  e.preventDefault();
-  setXAxisLabel(e.target.value);
-}
+  const handleYKey = (e) => {
+    e.preventDefault();
+    setYKey(e.target.value);
+  }
 
-const handleYAxisLabel = (e) => {
-  e.preventDefault();
-  setYAxisLabel(e.target.value);
-}
+  const handleXAxisLabel = (e) => {
+    e.preventDefault();
+    setXAxisLabel(e.target.value);
+  }
 
-const handleWidth = (e) => {
-  e.preventDefault();
-  setWidth(+e.target.value);
-}
+  const handleYAxisLabel = (e) => {
+    e.preventDefault();
+    setYAxisLabel(e.target.value);
+  }
 
-const handleHeight = (e) => {
-  e.preventDefault();
-  setHeight(+e.target.value);
-}
+  const handleWidth = (e) => {
+    e.preventDefault();
+    setWidth(+e.target.value);
+  }
 
-const handleThresholds = (e) => {
-  e.preventDefault();
-  setThresholds(+e.target.value);
-}
+  const handleHeight = (e) => {
+    e.preventDefault();
+    setHeight(+e.target.value);
+  }
 
-const handleBarPadding = (e) => {
-  e.preventDefault();
-  setBarPadding(+e.target.value);
-}
+  const handleThresholds = (e) => {
+    e.preventDefault();
+    setThresholds(+e.target.value);
+  }
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
+  const handleBarPadding = (e) => {
+    e.preventDefault();
+    setBarPadding(+e.target.value);
+  }
 
-  return (
-    <div>
-    <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
-    <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
-        handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></BarChart>
-        {/* <BarChartCodePreview /> */}
-    </div>
-    </div>
-  );
-}
+  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
 
-export default BarChartContainer
+    return (
+      <div>
+      <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
+      <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+          <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
+          handlers={handlers}></BarChartForm>
+          <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></BarChart>
+          {/* <BarChartCodePreview /> */}
+      </div>
+      </div>
+    );
+  }
+
+  export default BarChartContainer;
 
 
 
