@@ -66,6 +66,7 @@ We update state from the form, which the graph reads and re-renders from
 */
 const BarChartContainer = (props) => {
   // const [data, setData] = useState(JSON.parse(JSON.stringify(userEnteredData)));
+  //sampleData in Javascript format - see dummypenguinsdata.js
   const [data, setData] = useState(sampleData)
   const [xKey, setXKey] = useState('');
   const [yKey, setYKey] = useState('');
@@ -88,10 +89,8 @@ const BarChartContainer = (props) => {
   //inputting custom data -> data.map is not a function
   const handleData = (e) => {
     e.preventDefault();
-    //input data in json format
-    console.log(JSON.parse(e.target.value))
+    //Input data works for JSON format - see jsonpenguins
     setData(JSON.parse(e.target.value));
-    // setData(JSON.parse(JSON.stringify(e.target.value)));
   }
 
   // Data needs to be re-input as key changes, since grouped data is already set in state
