@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 
-const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight } }) => {
+const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding } }) => {
   
   return (
     // <Fragment>
@@ -109,12 +109,40 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
 
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Bins: number
+              </label>
+              <input
+                id="set-thresholds"
+                type="number"
+                placeholder="Number of Bins"
+                onChange={handleThresholds}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Bar Padding: number
+              </label>
+              <input
+                id="set-thresholds"
+                type="number"
+                placeholder="Bar Padding"
+                onChange={handleBarPadding}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
           </div>
         </form>
     //   </section>
     // </Fragment>
   );
 }
+
+export default HistogramForm;
 
 //PropTypes does not exist;
 // HistogramForm.propTypes = {
@@ -127,7 +155,6 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
 //   width: PropTypes.number,
 // }
 
-export default HistogramForm;
 
 // Event Handlers here to update state dynamically, on change
 // Call some fn getData() to import? or pull from whereever we import the data from

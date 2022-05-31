@@ -10,10 +10,10 @@ import { userAxisData } from "./EnteredData"
 // import BarChart from "../BarChart/BarChart" // should be fine
 //------------------------------------------------------------------
 // import Timeline from "../../../ChartComponents/Timeline/Timeline"
-import ScatterPlot from "./ScatterPlot"
+import ScatterPlot from "./JSX/ScatterPlot"
 // import Histogram from "../../../ChartComponents/Histogram/Histogram"
 
-import "./styles.css"
+// import "./styles.css"
 
 export const parseDate = d3.timeParse("%m/%d/%Y")
 export const dateAccessor = d => parseDate(d.date)

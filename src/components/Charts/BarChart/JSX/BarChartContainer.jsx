@@ -4,8 +4,10 @@ import BarChartForm from "./BarChartForm"
 import BarChartCodePreview from "./BarChartCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
-
+import { getScatterData, getTimelineData, getBarChartData2 } from '../../../../utils/parseData'
+import { userEnteredData } from '../../ScatterPlot/EnteredData';
+import { sampleData } from '../../../../utils/dummypenguinsdata';
+import "../../../ChartComponents/styles.css"
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -16,97 +18,86 @@ We update state from the form, which the graph reads and re-renders from
 </BarChartContainer>
 */
 const BarChartContainer = (props) => {
-const getData = () => ({
-  // timeline: getTimelineData(),
-  scatter: getScatterData(),
-})
+  // const [data, setData] = useState(JSON.parse(JSON.stringify(userEnteredData)));
+  // sampleData in Javascript format - see dummypenguinsdata.js
+  const [data, setData] = useState(sampleData)
+  const [xKey, setXKey] = useState('');
+  const [yKey, setYKey] = useState('');
+  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Species');
+  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
+  const [height, setHeight] = useState(500);
+  const [width, setWidth] = useState(500);
 
-  const [data, setData] = useState(getData().scatter);
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('length');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
-  const [height, setHeight] = useState(100);
-  const [width, setWidth] = useState(100);``
-  // const [xAccessor, setXAccessor] = useState(humidityAccessor)
-  // const [yAccessor, setYAccessor] = useState(temperatureAccessor)
-const parseDate = d3.timeParse("%m/%d/%Y")
-const dateAccessor = d => parseDate(d.date)
-const temperatureAccessor = d => d.temperature
-const humidityAccessor = d => d.humidity
+  // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
+    // ex. can't change keys after getBarChartData2 since data is already filtered
+  // do we want to use this to return a filtered/grouped data set for something else ?
+  useEffect(() => {
+    console.log('New set data is:')
+    console.log(getBarChartData2(data, xKey, yKey))
+    setData(prevData => getBarChartData2(data, xKey, yKey));
+  }, []);
 
+  //currently taking form input as string
+  console.log('Data is:')
+  console.log(typeof data)
+  console.log(data)
+  console.log('You just rerendered the BarChartContainer')
 
-//causes infinite loop lmao
-// useEffect(() => {
-//   setData(getBarChartData(xKey, yKey, data));
-// }, [data])
+  // What format is data going to be input? Currently Javascript object[], or if JSON format, we have to JSON parse/stringify input before setting state
+  //inputting custom data -> data.map is not a function
+  const handleData = (e) => {
+    e.preventDefault();
+    //Input data works for JSON format - see jsonpenguins.txt
+    setData(JSON.parse(e.target.value));
+  }
 
-console.log('You just rerendered the BarChartContainer')
-  // // on load or when data changes, reset state
-  // useEffect(() => {
-  //   setData(getData().scatter);
-  //   setXKey('humidity');
-  //   setYKey('temperature');
-  //   setXAxisLabel('X-axis: Humidity');
-  //   setYAxisLabel('Y-axis: Temperature');
-  //   setHeight(100);
-  //   setWidth(100);
-  // }, []);
-  // Event Handlers to update
-    // Call some fn getData() to import? or pull from whereever we import the data from
-const handleData = (e) => {
-  e.preventDefault();
-  setData(JSON.parse(e.target.value));
-}
+  // Data needs to be re-input as key changes, since grouped data is already set in state
+  const handleXKey = (e) => {
+    e.preventDefault();
+    setXKey(e.target.value);
+  }
 
-const handleXKey = (e) => {
-  e.preventDefault();
-  setXKey(e.target.value);
-}
+  const handleYKey = (e) => {
+    e.preventDefault();
+    setYKey(e.target.value);
+  }
 
-const handleYKey = (e) => {
-  e.preventDefault();
-  setYKey(e.target.value);
-}
+  const handleXAxisLabel = (e) => {
+    e.preventDefault();
+    setXAxisLabel(e.target.value);
+  }
 
-const handleXAxisLabel = (e) => {
-  e.preventDefault();
-  setXAxisLabel(e.target.value);
-}
+  const handleYAxisLabel = (e) => {
+    e.preventDefault();
+    setYAxisLabel(e.target.value);
+  }
 
-const handleYAxisLabel = (e) => {
-  e.preventDefault();
-  setYAxisLabel(e.target.value);
-}
+  const handleWidth = (e) => {
+    e.preventDefault();
+    setWidth(+e.target.value);
+  }
 
-const handleWidth = (e) => {
-  e.preventDefault();
-  setWidth(+e.target.value);
-}
+  const handleHeight = (e) => {
+    e.preventDefault();
+    setHeight(+e.target.value);
+  }
 
-const handleHeight = (e) => {
-  e.preventDefault();
-  setHeight(+e.target.value);
-}
+  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight};
 
-// console.log(data)
+    return (
+      <div className='ChartContainer'>
+      <h1>This is the BarChartContainer.</h1>
+      <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+          <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
+          handlers={handlers}></BarChartForm>
+          <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
+          {/* <BarChartCodePreview /> */}
+      </div>
+      </div>
+    );
+  }
 
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
-
-  return (
-    <div>
-    <h1>This is the BarChartContainer. I serve the BarChart form, graph, and code preview.</h1>
-    <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></BarChartForm>
-        <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
-        {/* <BarChartCodePreview /> */}
-    </div>
-    </div>
-  );
-}
-
-export default BarChartContainer
+  export default BarChartContainer;
 
 
 
