@@ -37,9 +37,15 @@ Using useMemo for referential equality of depedencies: important for React hooks
         .domain(data.map(xAccessor))
         .range([0, dimensions.boundedWidth])
 
+
+// Need to fix and set some minimum y so one of the bar doesn't show up as 0
+  // quick fix for bar issue - user input to change y-scale min needed? 
+  let yMax = d3.max(data, yAccessor);
+  let yMin = Math.min(0, d3.min(data, yAccessor));
   const yScale = d3
         .scaleLinear()
-        .domain(d3.extent(data, yAccessor))
+        // .domain(d3.extent(data, yAccessor))
+        .domain([yMin, yMax])
         .range([dimensions.boundedHeight, 0])
         .nice()
 
@@ -54,6 +60,10 @@ const Bars = data.map((d, i) => {
       height={dimensions.boundedHeight - yScale(yAccessor(d))}
     />
 )})
+console.log('Data in barchart is:')
+console.log(data)
+console.log('Bars data is:')
+console.log(Bars)
 
   return (
     <Fragment>

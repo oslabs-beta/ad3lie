@@ -6,55 +6,8 @@ import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData
 import * as d3 from "d3"
 import { getScatterData, getTimelineData, getBarChartData2 } from '../../../../utils/parseData'
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
+import { sampleData } from '../../../../utils/dummypenguinsdata';
 
-const sampleData = 
-[
-  {
-    species: "Adelie",
-    island: "Torgersen",
-    culmen_length_mm: 39.2,
-    culmen_depth_mm: 19.6,
-    flipper_length_mm: 195,
-    body_mass_g: 4675,
-    sex: "MALE",
-  },
-  {
-    species: "Gentoo",
-    island: "Torgersen",
-    culmen_length_mm: 34.1,
-    culmen_depth_mm: 18.1,
-    flipper_length_mm: 193,
-    body_mass_g: 3475,
-    sex: null,
-  },
-  {
-    species: "Emperor",
-    island: "Torgersen",
-    culmen_length_mm: 42,
-    culmen_depth_mm: 20.2,
-    flipper_length_mm: 190,
-    body_mass_g: 4250,
-    sex: null,
-  },
-  {
-    species: "fuck",
-    island: "Torgersen",
-    culmen_length_mm: 37.8,
-    culmen_depth_mm: 17.1,
-    flipper_length_mm: 186,
-    body_mass_g: 3300,
-    sex: null,
-  },
-  {
-    species: "me",
-    island: "Torgersen",
-    culmen_length_mm: 37.8,
-    culmen_depth_mm: 17.3,
-    flipper_length_mm: 180,
-    body_mass_g: 3700,
-    sex: null,
-  }
-]
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -66,7 +19,7 @@ We update state from the form, which the graph reads and re-renders from
 */
 const BarChartContainer = (props) => {
   // const [data, setData] = useState(JSON.parse(JSON.stringify(userEnteredData)));
-  //sampleData in Javascript format - see dummypenguinsdata.js
+  // sampleData in Javascript format - see dummypenguinsdata.js
   const [data, setData] = useState(sampleData)
   const [xKey, setXKey] = useState('');
   const [yKey, setYKey] = useState('');
@@ -75,21 +28,26 @@ const BarChartContainer = (props) => {
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
+  // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
+    // ex. can't change keys after getBarChartData2 since data is already filtered
+  // do we want to use this to return a filtered/grouped data set for something else ?
   useEffect(() => {
+    console.log('New set data is:')
+    console.log(getBarChartData2(data, xKey, yKey))
     setData(prevData => getBarChartData2(data, xKey, yKey));
   }, []);
 
   //currently taking form input as string
-  console.log('First data')
+  console.log('Data is:')
   console.log(typeof data)
-
-  // console.log('You just rerendered the BarChartContainer')
+  console.log(data)
+  console.log('You just rerendered the BarChartContainer')
 
   // What format is data going to be input? Currently Javascript object[], or if JSON format, we have to JSON parse/stringify input before setting state
   //inputting custom data -> data.map is not a function
   const handleData = (e) => {
     e.preventDefault();
-    //Input data works for JSON format - see jsonpenguins
+    //Input data works for JSON format - see jsonpenguins.txt
     setData(JSON.parse(e.target.value));
   }
 

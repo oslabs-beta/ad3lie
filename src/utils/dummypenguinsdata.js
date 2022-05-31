@@ -1,6 +1,6 @@
 //convert this to json
 
-const penguins = [
+export const sampleData = [
   {
     species: 'Adelie',
     island: 'Torgersen',
@@ -102,4 +102,4 @@ const getLineChartData = (data, xKey, yKey) => {
   }, []);
   return result;
 };
-console.log(getLineChartData(penguins, 'species', 'body_mass_g'));
+// console.log(getLineChartData(penguins, 'species', 'body_mass_g'));
