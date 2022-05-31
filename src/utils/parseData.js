@@ -120,7 +120,7 @@ const sampleData = [
     sex: null
   },
   {
-    species: 'fuck',
+    species: 'Chinstrap',
     island: 'Torgersen',
     culmen_length_mm: 37.8,
     culmen_depth_mm: 17.1,
@@ -129,7 +129,7 @@ const sampleData = [
     sex: null
   },
   {
-    species: 'me',
+    species: 'Emperor',
     island: 'Torgersen',
     culmen_length_mm: 37.8,
     culmen_depth_mm: 17.3,
