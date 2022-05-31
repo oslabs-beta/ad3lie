@@ -7,7 +7,7 @@ import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 
-const Histogram = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding }) => {
+const Histogram = ({ data, xKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding }) => {
 
   // Since histograms compare occurences across a population/data, the y-Accessor must be the length of your dataset
   // const yAccessor = d => d.length

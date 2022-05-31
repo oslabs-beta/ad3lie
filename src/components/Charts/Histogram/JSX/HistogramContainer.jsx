@@ -60,11 +60,6 @@ const HistogramContainer = (props) => {
     setXKey(e.target.value);
   }
 
-  const handleYKey = (e) => {
-    e.preventDefault();
-    setYKey(e.target.value);
-  }
-
   const handleXAxisLabel = (e) => {
     e.preventDefault();
     setXAxisLabel(e.target.value);
@@ -95,15 +90,15 @@ const HistogramContainer = (props) => {
     setBarPadding(+e.target.value);
   }
 
-  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
+  const handlers = { handleData, handleXKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
 
     return (
       <div className='ChartContainer'>
       <h1>This is the HistogramContainer</h1>
       <div className="Histogram-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-          <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
+          <HistogramForm data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
           handlers={handlers}></HistogramForm>
-          <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
+          <Histogram data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
           {/* <HistogramCodePreview /> */}
       </div>
       </div>
