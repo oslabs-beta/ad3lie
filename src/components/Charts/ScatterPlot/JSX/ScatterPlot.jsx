@@ -1,21 +1,24 @@
-import React from "react"
+import React, { useState, useEffect, useMemo, Fragment} from 'react';
+import * as d3 from 'd3';
 import PropTypes from "prop-types"
-import * as d3 from "d3"
+import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
+import Axis from "../../../ChartComponents/JSX/Axis.jsx"
+import Circles from "../../../ChartComponents/JSX/Circles.jsx"
+import Chart from "../../../ChartComponents/JSX/Chart.jsx"
+import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
+import "../../../ChartComponents/styles.css"
 
-import Chart from "../../ChartComponents/JSX/Chart"
-import Circles from "../../ChartComponents/JSX/Circles"
-import Axis from "../../ChartComponents/JSX/Axis"
-import { useChartDimensions, accessorPropsType } from "../../../utils/utils.js"
+const ScatterPlot = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, radius }) => {
+  const xAccessor = (data) => data[xKey];
+  const yAccessor = (data) => data[yKey];
 
-const ScatterPlot = ({ data, xAccessor, yAccessor, xLabel, yLabel }) => {
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
+    height: height,
+    width: width, 
   })
-  // const extend = d3.extent(data, xAccessor)
-  // console.log('extend: ', extend)
-  // console.log("dimensions", dimensions);
-  // console.log("dimensions.boundedWidth", dimensions.boundedWidth);
-
+  
+  //Scatterplot x-range data must be numeric
   const xScale = d3
     .scaleLinear() // returns position within domain and range
     .domain(d3.extent(data, xAccessor)) // sets domain with an array [0.2693916329035372, 0.7248443066197088]
@@ -27,55 +30,47 @@ const ScatterPlot = ({ data, xAccessor, yAccessor, xLabel, yLabel }) => {
     .range([dimensions.boundedHeight, 0])
     .nice()
 
-  // console.log('xAccessor in ScatterPlot: ', xAccessor) // returns humidity of an object
-  // const checking = data.map((d, i) => {
-  //   console.log('d, i: ', d, i)
-  //   console.log('humidity: ', xAccessor(d))
-  //   console.log('xScale: ', xScale(xAccessor(d)))
-  // })
-
-
   const xAccessorScaled = d => xScale(xAccessor(d)) // returns a position from result of getting humidity in object
   const yAccessorScaled = d => yScale(yAccessor(d))
   const keyAccessor = (d, i) => i
 
   return (
     <div className="ScatterPlot" ref={ref}>
-      <h1>FROM SCATTERPLOT.JSX</h1>
       <Chart dimensions={dimensions}>
         <Axis
           dimensions={dimensions}
           dimension="x"
           scale={xScale}
-          label={xLabel}
+          label={xAxisLabel}
         />
         <Axis
           dimensions={dimensions}
           dimension="y"
           scale={yScale}
-          label={yLabel}
+          label={yAxisLabel}
         />
         <Circles
           data={data}
           keyAccessor={keyAccessor}
           xAccessor={xAccessorScaled}
           yAccessor={yAccessorScaled}
-          radius={5}
+          radius={radius}
         />
       </Chart>
     </div>
   )
 }
 
-ScatterPlot.propTypes = {
-  xAccessor: accessorPropsType,
-  yAccessor: accessorPropsType,
-  xLabel: PropTypes.string,
-  yLabel: PropTypes.string,
-}
+// ScatterPlot.propTypes = {
+//   xAccessor: accessorPropsType,
+//   yAccessor: accessorPropsType,
+//   xLabel: PropTypes.string,
+//   yLabel: PropTypes.string,
+// }
 
-ScatterPlot.defaultProps = {
-  xAccessor: d => d.x,
-  yAccessor: d => d.y,
-}
+// ScatterPlot.defaultProps = {
+//   xAccessor: d => d.x,
+//   yAccessor: d => d.y,
+// }
+
 export default ScatterPlot

@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 import "../../../ChartComponents/styles.css"
 
-const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleHeight, handleWidth } }) => {
+const ScatterPlotForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, radius, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleHeight, handleWidth, handleRadius } }) => {
   
   return (
     // <Fragment>
@@ -32,7 +32,7 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width,
               <input
                 id="set-XKey"
                 type="text"
-                placeholder="X Key"
+                placeholder="X Key. Numeric data only."
                 onChange={handleXKey}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
@@ -103,6 +103,19 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width,
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
 
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Circle Radius: number
+              </label>
+              <input
+                id="set-radius"
+                type="number"
+                placeholder="Radius"
+                onChange={handleRadius}
+              />
+              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            </div>
+
           </div>
         </form>
     //   </section>
@@ -110,9 +123,9 @@ const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width,
   );
 }
 
-export default BarChartForm;
+export default ScatterPlotForm;
 //PropTypes does not exist;
-// BarChartForm.propTypes = {
+// ScatterPlotForm.propTypes = {
 //   data: PropTypes.array,
 //   xKey: PropTypes.string,
 //   yKey: PropTypes.string,

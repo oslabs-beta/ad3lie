@@ -8,6 +8,7 @@ import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Rectangle from "../../../ChartComponents/JSX/Rectangle.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
+import "../../../ChartComponents/styles.css"
 
  const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
 
@@ -36,7 +37,6 @@ Using useMemo for referential equality of depedencies: important for React hooks
         .paddingOuter(0.1)
         .domain(data.map(xAccessor))
         .range([0, dimensions.boundedWidth])
-
 
 // Need to fix and set some minimum y so one of the bar doesn't show up as 0
   // quick fix for bar issue - user input to change y-scale min needed? 

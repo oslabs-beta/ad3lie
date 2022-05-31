@@ -17,7 +17,6 @@ We update state from the form, which the graph reads and re-renders from
 */
 const HistogramContainer = (props) => {
   const getData = () => ({
-    // timeline: getTimelineData(),
     scatter: getScatterData(),
   })
 
@@ -99,8 +98,8 @@ const HistogramContainer = (props) => {
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
 
     return (
-      <div>
-      <h1>This is the HistogramContainer. I serve the Histogram form, graph, and code preview.</h1>
+      <div className='ChartContainer'>
+      <h1>This is the HistogramContainer</h1>
       <div className="Histogram-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
           <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
           handlers={handlers}></HistogramForm>

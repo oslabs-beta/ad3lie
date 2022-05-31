@@ -9,19 +9,6 @@ import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData
 
 const Histogram = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding }) => {
 
-// const randomAroundMean = (mean, deviation) => mean + boxMullerRandom() * deviation
-// const boxMullerRandom = () => (
-//   Math.sqrt(-2.0 * Math.log(Math.random())) * 
-//   Math.cos(2.0 * Math.PI * Math.random())
-// )
-
-// export const getScatterData = (count = 100) => (
-//   new Array(count).fill(0).map((d, i) => ({
-//     temperature: randomAroundMean(70, 20),
-//     humidity: randomAroundMean(0.5, 0.1),
-//   }))
-// )
-
   // Since histograms compare occurences across a population/data, the y-Accessor must be the length of your dataset
   // const yAccessor = d => d.length
   const xAccessor = useMemo(() => (data) => data[xKey]);

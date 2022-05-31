@@ -7,7 +7,7 @@ import * as d3 from "d3"
 import { getScatterData, getTimelineData, getBarChartData2 } from '../../../../utils/parseData'
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
-
+import "../../../ChartComponents/styles.css"
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -85,7 +85,7 @@ const BarChartContainer = (props) => {
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight};
 
     return (
-      <div>
+      <div className='ChartContainer'>
       <h1>This is the BarChartContainer.</h1>
       <div className="barchart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
           <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
