@@ -100,9 +100,7 @@ const My${name} = (${args}) => (
 )`;
 };
 
-// background-color: ${({ theme }) => theme.highlight.plain.backgroundColor};
-//   color: ${({ theme }) => theme.highlight.plain.color};
-
+//just using styled components here only for testing html preview
 export const CodeBlock = styled.pre`
   margin: 0;
   font-size: 0.8rem;
