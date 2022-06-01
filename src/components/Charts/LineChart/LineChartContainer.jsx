@@ -82,10 +82,10 @@ const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleY
     <div>
     <h1>This is the LineChartContainer. I serve the LineChart form, graph, and code preview.</h1>
     <div className="LineChart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-        {/* <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></LineChartForm> */}
+        <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
+        handlers={handlers}></LineChartForm>
         <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
-        {/* <LineChartCodePreview /> */}
+        <LineChartCodePreview />
     </div>
     </div>
   );

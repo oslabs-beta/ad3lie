@@ -7,7 +7,7 @@ import * as d3 from "d3"
 import { getScatterData, getTimelineData } from '../../../../utils/parseData'
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
-import "../../../ChartComponents/styles.css"
+import "../../../ChartComponents/chartstyles.css"
 
 // const getData = () => ({
 //   timeline: getTimelineData(),

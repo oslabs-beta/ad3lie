@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
+import { generateChartCode, CodeBlock, Code } from '../../../../utils/CodePreview';
 
-const BarChartCodePreview = (props) => {
-    return (
-        <div className="barchart codepreview">
-            <h1>This is the BarChart CodePreview.</h1>
-        </div>
+const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
+
+  const code = generateChartCode(`${name}`, codeProps, {
+      dataKey: data !== undefined ? 'data' : undefined,
+      children: children,
+      defaults: {},
+      pkg: 'barchart',
+  })
+
+  return (
+          <CodeBlock>
+            {code}
+          </CodeBlock>
     )
 }
 
