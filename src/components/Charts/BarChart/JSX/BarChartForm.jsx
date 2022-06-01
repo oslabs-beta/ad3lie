@@ -2,8 +2,8 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 import "../../../ChartComponents/styles.css"
 
+
 const BarChartForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleHeight, handleWidth } }) => {
-  
   return (
     // <Fragment>
     //   <div>Chart Customizer Form</div>

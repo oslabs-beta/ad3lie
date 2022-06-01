@@ -5,7 +5,8 @@
 }
 
 .Chart text {
-    fill: #95a5a6;
+    /* fill: #95a5a6; */
+    fill: #FFFFFF;
 }
 
 .Line {
@@ -14,7 +15,8 @@
 
 .Line--type-line {
     fill: none;
-    stroke: #9980FA;
+    /* stroke: #9980FA; */
+    stroke: #44D7A8;
     stroke-width: 3px;
     stroke-linecap: round;
 }
@@ -25,7 +27,8 @@
 }
 
 .Axis__line {
-    stroke: #bdc3c7;
+    /* stroke: #bdc3c7; */
+    stroke: #FFFFFF;
 }
 
 .Axis__label {
@@ -49,16 +52,19 @@
 }
 
 .Circles__circle {
-    fill: #9980FA;
+    /* fill: #9980FA; */
+    fill: #44D7A8;
     transition: all 0.3s ease-out;
 }
 
 .Bars__rect {
-    fill: #9980FA;
+    /* fill: #9980FA; */
+    fill: #44D7A8;
     transition: all 0.3s ease-out;
 }
 
 .domain,
 .tick line {
-    stroke: #dadada;
+    /* stroke: #dadada; */
+    stroke: #FFFFFF;
 }

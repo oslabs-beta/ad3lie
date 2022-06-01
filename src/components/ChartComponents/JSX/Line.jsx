@@ -8,12 +8,12 @@ const Line = ({ type, data, xAccessor, yAccessor, y0Accessor, interpolation, ...
     .x(xAccessor)
     .y(yAccessor)
     .curve(interpolation)
-
-  if (type == "area") {
-    lineGenerator
-      .y0(y0Accessor)
-      .y1(yAccessor)
-  }
+  
+  // if (type == "area") {
+  //   lineGenerator
+  //     .y0(y0Accessor)
+  //     .y1(yAccessor)
+  // }
 
   return (
     <path {...props}

@@ -1,3 +1,10 @@
+/* commenting out for now 
+To use tailwind, this should be imported into any .css file that uses it
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
 body {
     padding: 1.6em 2em 4em;
     letter-spacing: -0.011em;
