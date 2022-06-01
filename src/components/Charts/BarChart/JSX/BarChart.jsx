@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
 import Axis from "../../../ChartComponents/JSX/Axis.jsx"
 import Axis_noticks from "../../../ChartComponents/JSX/Axis_noticks.jsx"
-import Bars from "../../../ChartComponents/JSX/Bars.jsx"
 import Rectangle from "../../../ChartComponents/JSX/Rectangle.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
@@ -13,7 +12,7 @@ import "../../../ChartComponents/styles.css"
 // fs.writeFile data to BarChartData.txt
 // import {data, xKey, yKey} from "./BarChartData"
 
-const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
+const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }, ...props) => {
 
 /*
 Using useMemo for referential equality of depedencies: important for React hooks
@@ -72,10 +71,22 @@ const Bars = data.map((d, i) => {
     />
 )})
 
+// const BarChartChildren = React.Children.map(children[0].props.children, (child) => child);
+// console.log(React.Children.count(children))
+
+// React.Children -> children are Chart, Axis_noticks, Axis, Fragment ?
+
+// const childrenProps = React.Children.map(children[0].props.children,
+//  (child) => React.cloneElement(child, {
+//     data : data,
+//     // properties: properties
+//  }));
+
+//  console.log(childrenProps)
+
+  // to access you can use this.props.data or this.props.method in child component
+
   return (
-    <Fragment>
-      <h1>This is the height: {height}</h1>
-      <h1>This is the width: {width}</h1>
     <div className="BarChart" ref={ref}>
       <Chart dimensions={dimensions}>
         <Axis_noticks
@@ -93,7 +104,6 @@ const Bars = data.map((d, i) => {
         {Bars}
       </Chart>
     </div>
-    </Fragment>
   )
 }
 

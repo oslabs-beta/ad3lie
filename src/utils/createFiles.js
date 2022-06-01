@@ -1,21 +1,21 @@
 // Creates all component files (but not the full application files) and places them in a "components" directory
 const createFiles = () => {
   let dir = path;
-  if (exportAppBool === false) {
-    if (!dir.match(/components|\*$/)) {
-      if (window.api.existsSync(`${dir}/src`)) {
-        dir = `${dir}/src`;
-      }
-      dir = `${dir}/components`;
-      if (!window.api.existsSync(dir)) {
-        window.api.mkdirSync(dir);
-      }
-    }
-  } else if (exportAppBool) {
-    if (!dir.match(/${appName}|\*$/)) {
-      dir = `${dir}/${appName}/src/components`;
-    }
-  }
+  // if (exportAppBool === false) {
+  //   if (!dir.match(/components|\*$/)) {
+  //     if (window.api.existsSync(`${dir}/src`)) {
+  //       dir = `${dir}/src`;
+  //     }
+  //     dir = `${dir}/components`;
+  //     if (!window.api.existsSync(dir)) {
+  //       window.api.mkdirSync(dir);
+  //     }
+  //   }
+  // } else if (exportAppBool) {
+  //   if (!dir.match(/${appName}|\*$/)) {
+  //     dir = `${dir}/${appName}/src/components`;
+  //   }
+  // }
   const promises = [];
   components.forEach((component) => {
     const newPromise = new Promise((resolve, reject) => {

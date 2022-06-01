@@ -8,6 +8,7 @@ import { getScatterData, getTimelineData, getBarChartData2 } from '../../../../u
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
 import "../../../ChartComponents/styles.css"
+import { generateChartCode } from '../../../../utils/CodePreview';
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -31,17 +32,13 @@ const BarChartContainer = (props) => {
   // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
     // ex. can't change keys after getBarChartData2 since data is already filtered
   // do we want to use this to return a filtered/grouped data set for something else ?
-  useEffect(() => {
-    console.log('New set data is:')
-    console.log(getBarChartData2(data, xKey, yKey))
-    setData(prevData => getBarChartData2(data, xKey, yKey));
-  }, []);
+  // useEffect(() => {
+  //   console.log('New set data is:')
+  //   console.log(getBarChartData2(data, xKey, yKey))
+  //   setData(prevData => getBarChartData2(data, xKey, yKey));
+  // }, []);
 
-  //currently taking form input as string
-  console.log('Data is:')
-  console.log(typeof data)
-  console.log(data)
-  console.log('You just rerendered the BarChartContainer')
+  // console.log('You just rerendered the BarChartContainer')
 
   // What format is data going to be input? Currently Javascript object[], or if JSON format, we have to JSON parse/stringify input before setting state
   //inputting custom data -> data.map is not a function
@@ -84,6 +81,12 @@ const BarChartContainer = (props) => {
 
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight};
 
+  const name = 'BarChart';
+  const children = ['Chart', 'Axis_noticks', 'Axis', 'Rectangle'];
+  // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ] 
+  // everything placed between opening/closing tags is considered children
+  
+
     return (
       <div className='ChartContainer'>
       <h1>This is the BarChartContainer.</h1>
@@ -91,7 +94,7 @@ const BarChartContainer = (props) => {
           <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
           handlers={handlers}></BarChartForm>
           <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChart>
-          {/* <BarChartCodePreview /> */}
+          <BarChartCodePreview name={name} data={data} children={children} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}/>
       </div>
       </div>
     );
