@@ -7,7 +7,8 @@ import Axis_noticks from "../../../ChartComponents/JSX/Axis_noticks.jsx"
 import Rectangle from "../../../ChartComponents/JSX/Rectangle.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
-import "../../../ChartComponents/styles.css"
+import "../../../ChartComponents/chartstyles.css"
+import "../../../../styles.css"
 
 // fs.writeFile data to BarChartData.txt
 // import {data, xKey, yKey} from "./BarChartData"

@@ -7,7 +7,7 @@ import * as d3 from "d3"
 import { getScatterData, getTimelineData, getBarChartData2 } from '../../../../utils/parseData'
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
-import "../../../ChartComponents/styles.css"
+import "../../../ChartComponents/chartstyles.css"
 import { generateChartCode } from '../../../../utils/CodePreview';
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
