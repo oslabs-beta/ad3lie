@@ -74,7 +74,5 @@ h1 {
 .Histogram,
 /* .LineGraph, */
 .BarChart {
-    background: white;
-    padding: 0.6em 1em;
-    margin: 0.5em;
+    /* background: rgb(255,255,255); */
 }

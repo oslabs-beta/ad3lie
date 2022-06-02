@@ -122,6 +122,8 @@ export const CodeBlock = styled.pre`
   font-size: 0.8rem;
   line-height: 1.7;
   padding: 12px 20px;
+  overflow: scroll;
+  height: 100%;
 `;
 
 export const Code = styled.div`

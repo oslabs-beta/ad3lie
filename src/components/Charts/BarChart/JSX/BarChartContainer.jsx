@@ -107,19 +107,9 @@ const BarChartContainer = (props) => {
   // everything placed between opening/closing tags is considered children
 
   return (
-    <div className="ChartContainer">
-      <h1>This is the BarChartContainer.</h1>
-      <div
-        className="barchart-container"
-        class="block p-6 rounded-lg shadow-lg bg-white max-w-md"
-      >
-        {/* <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          onClick={() => download(`${name}Data.txt`, JSON.stringify(data))}
-        >
-          Export
-        </button> */}
-        <ExportDataButton/>
+    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      
         <BarChartForm
           data={data}
           xKey={xKey}
@@ -130,6 +120,8 @@ const BarChartContainer = (props) => {
           width={width}
           handlers={handlers}
         ></BarChartForm>
+      </div>
+      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
         <BarChart
           data={data}
           xKey={xKey}
@@ -139,6 +131,8 @@ const BarChartContainer = (props) => {
           height={height}
           width={width}
         ></BarChart>
+      </div>
+      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
         <BarChartCodePreview
           name={name}
           data={data}
@@ -150,6 +144,10 @@ const BarChartContainer = (props) => {
           height={height}
           width={width}
         />
+      </div>
+      <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+        <button class="glass w-32 text-white">Import</button>
+        <ExportDataButton/>
       </div>
     </div>
   );
