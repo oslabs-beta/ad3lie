@@ -8,6 +8,7 @@ import { getScatterData, getTimelineData, getNumbersData, getUONumData } from '.
 import Line from '../../ChartComponents/JSX/Line.jsx'
 import Axis from '../../ChartComponents/JSX/Axis.jsx'
 import Chart from '../../ChartComponents/JSX/Chart.jsx'
+import { ExportDataButton } from '../../ChartComponents/JSX/ExportDataButton';
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -23,8 +24,6 @@ const LineChartContainer = (props) => {
     line: getNumbersData(), // see ScatterPlot/App.jsx
   })
 
-  
-
   const [data, setData] = useState(getData().line);
   const [xKey, setXKey] = useState('species');
   const [yKey, setYKey] = useState('body_mass_g');
@@ -32,9 +31,6 @@ const LineChartContainer = (props) => {
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
-
-  console.log('Data is')
-   console.log (data)
 
   useEffect(() => {
     setData(prevData => getNumbersData());
@@ -79,8 +75,15 @@ const handleHeight = (e) => {
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
+<<<<<<< HEAD
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
       <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+=======
+    <div>
+    <h1>This is the LineChartContainer. I serve the LineChart form, graph, and code preview.</h1>
+      <div className="LineChart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+        <ExportDataButton></ExportDataButton>
+>>>>>>> dev
         <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
         handlers={handlers}></LineChartForm>
       </div>

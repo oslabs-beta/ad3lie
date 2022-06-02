@@ -13,7 +13,9 @@ import * as d3 from 'd3';
 import { getScatterData, getTimelineData } from '../../../../utils/parseData';
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
-import '../../../ChartComponents/chartstyles.css';
+import "../../../ChartComponents/chartstyles.css"
+import { download } from '../../../../utils/ExportData';
+import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 
 // const getData = () => ({
 //   timeline: getTimelineData(),
@@ -89,10 +91,13 @@ function ScatterPlotContainer(props) {
     handleHeight,
     handleRadius
   };
-
+  const name = 'ScatterPlot';
+  const children = ['Chart', 'Axis', 'Circles'];
   return (
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
       <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      <ExportDataButton></ExportDataButton>
+
         <ScatterPlotForm
           data={data}
           xKey={xKey}

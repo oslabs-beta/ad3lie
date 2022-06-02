@@ -1,6 +1,6 @@
 node_modules
-package-lock.jsondist
 package-lock.json
 ignore.tsx
 *.tsx
 *.ts
+dist

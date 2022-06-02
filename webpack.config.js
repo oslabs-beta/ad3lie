@@ -1,9 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+// const io = require('socket.io-client');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.jsx',
+  // target: 'electron-renderer',
+  // target: 'node',
+  // resolve: {
+  //   fallback: {
+  //     fs: false
+  //   }
+  // },
+  // node: 'empty',
+  // type: 'module',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -88,5 +98,11 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
+    // static: {
+    //   // match the output path
+    //   directory: path.resolve(__dirname, 'dist'),
+    //   // match the output 'publicPath'
+    //   publicPath: '/'
+    // }
   }
 };

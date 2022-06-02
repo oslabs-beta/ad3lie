@@ -19,6 +19,8 @@ import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
 import '../../../ChartComponents/chartstyles.css';
 import { generateChartCode } from '../../../../utils/CodePreview';
+import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -107,6 +109,7 @@ const BarChartContainer = (props) => {
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      <ExportDataButton/>
         <BarChartForm
           data={data}
           xKey={xKey}

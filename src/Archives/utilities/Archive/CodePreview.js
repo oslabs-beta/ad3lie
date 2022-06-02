@@ -100,30 +100,12 @@ const My${name} = (${args}) => (
 )`;
 };
 
-function download(filename, text) {
-  let element = document.createElement('a');
-  element.setAttribute(
-    'href',
-    'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-  );
-  element.setAttribute('download', filename);
-
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
-}
-
 //just using styled components here only for testing html preview
 export const CodeBlock = styled.pre`
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.7;
   padding: 12px 20px;
-  overflow: scroll;
-  height: 100%;
 `;
 
 export const Code = styled.div`

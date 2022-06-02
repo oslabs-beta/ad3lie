@@ -5,6 +5,8 @@ import HistogramCodePreview from "./HistogramCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import * as d3 from "d3"
 import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
+import { download } from '../../../../utils/ExportData';
+import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -92,7 +94,11 @@ const HistogramContainer = (props) => {
 
   const handlers = { handleData, handleXKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
 
+  const name = 'Histogram';
+  const children = ['Chart', 'Axis', 'Bars'];
+
     return (
+<<<<<<< HEAD
       <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
       <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <HistogramForm data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
@@ -103,6 +109,16 @@ const HistogramContainer = (props) => {
       </div>
       <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
         {/* <HistogramCodePreview /> */}
+=======
+      <div className='ChartContainer'>
+      <h1>This is the HistogramContainer</h1>
+        <div className="Histogram-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+          <ExportDataButton></ExportDataButton>
+          <HistogramForm data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
+          handlers={handlers}></HistogramForm>
+          <Histogram data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
+          <HistogramCodePreview name={name} data={data} children={children} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}/>
+>>>>>>> dev
       </div>
       </div>
     );

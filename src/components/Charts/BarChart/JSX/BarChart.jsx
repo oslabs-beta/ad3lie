@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, Fragment } from 'react';
 import * as d3 from 'd3';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import {
   useChartDimensions,
@@ -18,15 +19,50 @@ import {
 } from '../../ScatterPlot/App';
 import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
+=======
+import PropTypes from "prop-types"
+import { useChartDimensions, accessorPropsType } from '../../../../utils/utils.js';
+import Axis from "../../../ChartComponents/JSX/Axis.jsx"
+import Axis_noticks from "../../../ChartComponents/JSX/Axis_noticks.jsx"
+import Rectangle from "../../../ChartComponents/JSX/Rectangle.jsx"
+import Chart from "../../../ChartComponents/JSX/Chart.jsx"
+import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
+import "../../../ChartComponents/chartstyles.css"
+import "../../../../styles.css"
+// import createFiles from '../../../../utils/createFiles.js';
+// import * as fs from 'fs';
+// const fs = require('fs');
+// import { io } from "socket.io-client";
+>>>>>>> dev
 
-// fs.writeFile data to BarChartData.txt
-// import {data, xKey, yKey} from "./BarChartData"
 
+<<<<<<< HEAD
 const BarChart = (
   { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width },
   ...props
 ) => {
   /*
+=======
+const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }, ...props) => {
+
+//   function download(filename, text) {
+//   var element = document.createElement('a');
+//   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//   element.setAttribute('download', filename);
+
+//   element.style.display = 'none';
+//   document.body.appendChild(element);
+
+//   element.click();
+
+//   document.body.removeChild(element);
+// }
+
+// // Start file download.
+// download("hello.json","File content");
+
+/*
+>>>>>>> dev
 Using useMemo for referential equality of depedencies: important for React hooks
 2 common use cases of useMemo:
   1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
@@ -116,6 +152,8 @@ Using useMemo for referential equality of depedencies: important for React hooks
         />
         {Bars}
       </Chart>
+      
+     
     </div>
   );
 };
