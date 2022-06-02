@@ -9,11 +9,29 @@ import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import "../../../ChartComponents/chartstyles.css"
 import "../../../../styles.css"
+// import createFiles from '../../../../utils/createFiles.js';
+// import * as fs from 'fs';
+// const fs = require('fs');
+// import { io } from "socket.io-client";
 
-// fs.writeFile data to BarChartData.txt
-// import {data, xKey, yKey} from "./BarChartData"
 
 const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }, ...props) => {
+
+//   function download(filename, text) {
+//   var element = document.createElement('a');
+//   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//   element.setAttribute('download', filename);
+
+//   element.style.display = 'none';
+//   document.body.appendChild(element);
+
+//   element.click();
+
+//   document.body.removeChild(element);
+// }
+
+// // Start file download.
+// download("hello.json","File content");
 
 /*
 Using useMemo for referential equality of depedencies: important for React hooks
@@ -104,6 +122,8 @@ const Bars = data.map((d, i) => {
         />
         {Bars}
       </Chart>
+      
+     
     </div>
   )
 }
