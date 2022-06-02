@@ -17,6 +17,22 @@ import createFiles from '../../../../utils/createFiles.js';
 
 const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }, ...props) => {
 
+//   function download(filename, text) {
+//   var element = document.createElement('a');
+//   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//   element.setAttribute('download', filename);
+
+//   element.style.display = 'none';
+//   document.body.appendChild(element);
+
+//   element.click();
+
+//   document.body.removeChild(element);
+// }
+
+// // Start file download.
+// download("hello.json","File content");
+
 /*
 Using useMemo for referential equality of depedencies: important for React hooks
 2 common use cases of useMemo:
@@ -106,6 +122,8 @@ const Bars = data.map((d, i) => {
         />
         {Bars}
       </Chart>
+      
+     
     </div>
   )
 }
