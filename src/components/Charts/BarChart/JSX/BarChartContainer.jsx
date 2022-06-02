@@ -19,6 +19,8 @@ import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
 import '../../../ChartComponents/chartstyles.css';
 import { generateChartCode } from '../../../../utils/CodePreview';
+import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
@@ -89,36 +91,6 @@ const BarChartContainer = (props) => {
     setHeight(+e.target.value);
   };
 
-  function save(filename, data) {
-    const blob = new Blob([data], { type: 'text/txt' });
-    if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveBlob(blob, filename);
-    } else {
-      const elem = window.document.createElement('a');
-      elem.href = window.URL.createObjectURL(blob);
-      elem.download = filename;
-      document.body.appendChild(elem);
-      elem.click();
-      document.body.removeChild(elem);
-    }
-  }
-
-  function download(filename, text) {
-  let element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
-
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
-}
-
-// Start file download.
-// download("BarChartData.txt", JSON.stringify(data));
-
   const handlers = {
     handleData,
     handleXKey,
@@ -141,12 +113,13 @@ const BarChartContainer = (props) => {
         className="barchart-container"
         class="block p-6 rounded-lg shadow-lg bg-white max-w-md"
       >
-        <button
+        {/* <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          onClick={() => download('BarChartData.txt', JSON.stringify(data))}
+          onClick={() => download(`${name}Data.txt`, JSON.stringify(data))}
         >
           Export
-        </button>
+        </button> */}
+        <ExportDataButton/>
         <BarChartForm
           data={data}
           xKey={xKey}

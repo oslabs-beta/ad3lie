@@ -8,6 +8,8 @@ import { getScatterData, getTimelineData } from '../../../../utils/parseData'
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
 import "../../../ChartComponents/chartstyles.css"
+import { download } from '../../../../utils/ExportData';
+import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 
 // const getData = () => ({
 //   timeline: getTimelineData(),
@@ -83,6 +85,7 @@ function ScatterPlotContainer(props) {
     <div className='ChartContainer'>
       <h1>This is the ScatterPlotContainer.</h1>
       <div className="scatterplot-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+          <ExportDataButton></ExportDataButton>
           <ScatterPlotForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}
           handlers={handlers}></ScatterPlotForm>
           <ScatterPlot data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}></ScatterPlot>
