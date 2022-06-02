@@ -1,22 +1,27 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
-import ScatterPlot from "./ScatterPlot";
-import ScatterPlotForm from "./ScatterPlotForm"
-import ScatterPlotCodePreview from "./ScatterPlotCodePreview"
-import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
-import * as d3 from "d3"
-import { getScatterData, getTimelineData } from '../../../../utils/parseData'
+import ScatterPlot from './ScatterPlot';
+import ScatterPlotForm from './ScatterPlotForm';
+import ScatterPlotCodePreview from './ScatterPlotCodePreview';
+import {
+  parseDate,
+  dateAccessor,
+  temperatureAccessor,
+  humidityAccessor,
+  getData
+} from '../../ScatterPlot/App';
+import * as d3 from 'd3';
+import { getScatterData, getTimelineData } from '../../../../utils/parseData';
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
-import "../../../ChartComponents/chartstyles.css"
+import '../../../ChartComponents/chartstyles.css';
 
 // const getData = () => ({
 //   timeline: getTimelineData(),
 //   scatter: getScatterData(),
 // })
 
-
 function ScatterPlotContainer(props) {
-  const [data, setData] = useState(getScatterData())
+  const [data, setData] = useState(getScatterData());
   const [xKey, setXKey] = useState('humidity');
   const [yKey, setYKey] = useState('temperature');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
@@ -33,61 +38,88 @@ function ScatterPlotContainer(props) {
   // useEffect(() => {
   //   setData(prevData => getBarChartData2(data, xKey, yKey));
   // }, []);
-  
+
   const handleData = (e) => {
-  e.preventDefault();
-  setData(JSON.parse(e.target.value));
-  }
+    e.preventDefault();
+    setData(JSON.parse(e.target.value));
+  };
 
   const handleXKey = (e) => {
     e.preventDefault();
     setXKey(e.target.value);
-  }
+  };
 
   const handleYKey = (e) => {
     e.preventDefault();
     setYKey(e.target.value);
-  }
+  };
 
   const handleXAxisLabel = (e) => {
     e.preventDefault();
     setXAxisLabel(e.target.value);
-  }
+  };
 
   const handleYAxisLabel = (e) => {
     e.preventDefault();
     setYAxisLabel(e.target.value);
-  }
+  };
 
   const handleWidth = (e) => {
     e.preventDefault();
     setWidth(+e.target.value);
-  }
+  };
 
   const handleHeight = (e) => {
     e.preventDefault();
     setHeight(+e.target.value);
-  }
+  };
 
-   const handleRadius = (e) => {
+  const handleRadius = (e) => {
     e.preventDefault();
     setRadius(+e.target.value);
-  }
+  };
 
-  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleRadius};
+  const handlers = {
+    handleData,
+    handleXKey,
+    handleYKey,
+    handleXAxisLabel,
+    handleYAxisLabel,
+    handleWidth,
+    handleHeight,
+    handleRadius
+  };
 
-
-  return(
-    <div className='ChartContainer'>
-      <h1>This is the ScatterPlotContainer.</h1>
-      <div className="scatterplot-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-          <ScatterPlotForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}
-          handlers={handlers}></ScatterPlotForm>
-          <ScatterPlot data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}></ScatterPlot>
-          {/* <ScatterPlotCodePreview /> */}
+  return (
+    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
+      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+        <ScatterPlotForm
+          data={data}
+          xKey={xKey}
+          yKey={yKey}
+          xAxisLabel={xAxisLabel}
+          yAxisLabel={yAxisLabel}
+          height={height}
+          width={width}
+          radius={radius}
+          handlers={handlers}
+        ></ScatterPlotForm>
       </div>
+      <div className="col-start-2 col-span-1 row-span-1">
+        <ScatterPlot
+          data={data}
+          xKey={xKey}
+          yKey={yKey}
+          xAxisLabel={xAxisLabel}
+          yAxisLabel={yAxisLabel}
+          height={height}
+          width={width}
+          radius={radius}
+        ></ScatterPlot>
       </div>
-  )
+      {/* <ScatterPlotCodePreview /> */}
+    </div>
+  );
 }
 
 function useInterval(callback, delay) {

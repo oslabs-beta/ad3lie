@@ -43,7 +43,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width}) =
   console.log("yAccessor", yAccessorScaled(data[0]))
 
   return (
-    <div className="LineChart" ref={ref}>
+    <div className="LineChart w-full top-0 left-0 h-full" ref={ref}>
       <Chart dimensions={dimensions}>
         <Axis
           dimensions={dimensions}
