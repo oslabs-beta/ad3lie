@@ -76,6 +76,8 @@ function ScatterPlotContainer(props) {
 
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleRadius};
 
+  const name = 'ScatterPlot';
+  const children = ['Chart', 'Axis', 'Circles'];
 
   return(
     <div className='ChartContainer'>
@@ -84,7 +86,7 @@ function ScatterPlotContainer(props) {
           <ScatterPlotForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}
           handlers={handlers}></ScatterPlotForm>
           <ScatterPlot data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius}></ScatterPlot>
-          {/* <ScatterPlotCodePreview /> */}
+          <ScatterPlotCodePreview name={name} data={data} children={children} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} radius={radius} />
       </div>
       </div>
   )

@@ -9,9 +9,11 @@ import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 import "../../../ChartComponents/chartstyles.css"
 import "../../../../styles.css"
+import createFiles from '../../../../utils/createFiles.js';
+// import * as fs from 'fs';
+// const fs = require('fs');
+// import { io } from "socket.io-client";
 
-// fs.writeFile data to BarChartData.txt
-// import {data, xKey, yKey} from "./BarChartData"
 
 const BarChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }, ...props) => {
 
