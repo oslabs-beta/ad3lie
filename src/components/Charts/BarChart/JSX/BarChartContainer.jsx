@@ -113,7 +113,7 @@ const BarChartContainer = (props) => {
         className="barchart-container"
         class="block p-6 rounded-lg shadow-lg bg-white max-w-md"
       >
-        {/* <ExportDataButton/> */}
+        <ExportDataButton/>
         <BarChartForm
           data={data}
           xKey={xKey}

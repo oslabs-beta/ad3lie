@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
+// import fs from 'fs';
+// import path from 'path';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
@@ -10,22 +12,26 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
       pkg: 'barchart',
   })
 
+  writeFileSync(
+    `BarChartData.txt`,
+    JSON.stringify(data));
 
-const useCodeRef = (processNode) => {
-  const [node, setNode] = useState(null);
-  const setCodeRef = useCallback(newNode => {
-    if (newNode) {
-        console.log("ref", node); // node = codeRef.current // <code> 
-        setNode(processNode(newNode));
-    }
-  }, []);
-  return [node, setCodeRef]
-}
+  const useCodeRef = (processNode) => {
+    const [node, setNode] = useState(null);
+    const setCodeRef = useCallback(newNode => {
+      if (newNode) {
+          console.log("ref", node); // node = codeRef.current // <code> 
+          setNode(processNode(newNode));
+      }
+    }, []);
+    return [node, setCodeRef]
+  }
 
-const [codeRef, setCodeRef] = useCodeRef(node => node)
+  const [codeRef, setCodeRef] = useCodeRef(node => node)
 
   useEffect(() => {
-    console.log(`The new code is: ${codeRef}`)
+    console.log(`UseEffect here to force reassignment of new ref on rerender. The new codeRef is:`)
+    console.log(codeRef)
   }, [codeRef]);
 
   return (
@@ -42,15 +48,11 @@ const [codeRef, setCodeRef] = useCodeRef(node => node)
           onClick={ 
             async () => {
               try {
-                console.log(`Set code ref is ${setCodeRef}`)
-                console.log(`Code ref is ${codeRef}`)
-                console.log(codeRef)
-                console.log(`Format code ref is ${formatCode(codeRef)}`)
                 const formattedCode = await formatCode(codeRef)
-                console.log(formattedCode)
               }
               catch(err) {
                 console.log(err.message)
+                console.log(`Oops this button doesn\'t work because prettier requires node :)`)
                 console.log('fork ma lyfe')
                 return err
               }

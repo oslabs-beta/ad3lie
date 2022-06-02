@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+
 const path = require('path');
 // const io = require('socket.io-client');
 
@@ -20,7 +22,10 @@ module.exports = {
   },
   // devtool: "source-map",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx']
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    fallback: {
+      path: require.resolve('path-browserify')
+    }
   },
 
   module: {
@@ -83,7 +88,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new NodePolyfillPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),
