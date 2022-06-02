@@ -96,7 +96,7 @@ function ScatterPlotContainer(props) {
   return (
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
       <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-      <ExportDataButton></ExportDataButton>
+        <ExportDataButton></ExportDataButton>
 
         <ScatterPlotForm
           data={data}
@@ -122,7 +122,18 @@ function ScatterPlotContainer(props) {
           radius={radius}
         ></ScatterPlot>
       </div>
-      {/* <ScatterPlotCodePreview /> */}
+      <ScatterPlotCodePreview
+        name={name}
+        data={data}
+        children={children}
+        xKey={xKey}
+        yKey={yKey}
+        xAxisLabel={xAxisLabel}
+        yAxisLabel={yAxisLabel}
+        height={height}
+        width={width}
+        radius={radius}
+      />
     </div>
   );
 }

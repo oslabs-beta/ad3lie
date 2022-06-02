@@ -98,28 +98,47 @@ const HistogramContainer = (props) => {
   const children = ['Chart', 'Axis', 'Bars'];
 
     return (
-<<<<<<< HEAD
       <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-        <HistogramForm data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
-        handlers={handlers}></HistogramForm>
-      </div>
-      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
-        <Histogram data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
-      </div>
-      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
-        {/* <HistogramCodePreview /> */}
-=======
-      <div className='ChartContainer'>
-      <h1>This is the HistogramContainer</h1>
-        <div className="Histogram-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+        <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
           <ExportDataButton></ExportDataButton>
-          <HistogramForm data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}
-          handlers={handlers}></HistogramForm>
-          <Histogram data={data} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}></Histogram>
-          <HistogramCodePreview name={name} data={data} children={children} xKey={xKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} thresholds={thresholds} barPadding={barPadding}/>
->>>>>>> dev
-      </div>
+          <HistogramForm
+            data={data}
+            xKey={xKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            thresholds={thresholds}
+            barPadding={barPadding}
+            handlers={handlers}
+          ></HistogramForm>
+        </div>
+        <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
+          <Histogram
+            data={data}
+            xKey={xKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            thresholds={thresholds}
+            barPadding={barPadding}
+          ></Histogram>
+        </div>
+        <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
+          <HistogramCodePreview
+            name={name}
+            data={data}
+            children={children}
+            xKey={xKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            thresholds={thresholds}
+            barPadding={barPadding}
+          />
+        </div>
       </div>
     );
   }

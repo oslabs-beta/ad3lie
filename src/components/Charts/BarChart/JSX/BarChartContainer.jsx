@@ -109,7 +109,7 @@ const BarChartContainer = (props) => {
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-      <ExportDataButton/>
+      
         <BarChartForm
           data={data}
           xKey={xKey}
@@ -147,7 +147,7 @@ const BarChartContainer = (props) => {
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>
-        <button class="glass w-32 text-white">Export</button>
+        <ExportDataButton/>
       </div>
     </div>
   );
