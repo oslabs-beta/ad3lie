@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .gradient {
+    background-image: linear-gradient (#070bb4,#61eff4);
+} */
+
+.glass {
+	/* From https://css.glass */
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(249, 243, 243, 0.19);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+
+/* Glassmorphism card effect */
+.card {
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(250, 250, 250, 0.19);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* .background {
+	background-image: url('./background.svg');
+	background-position: fill
+} */
+
+
+.background {
+	background-image: url('./topy.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/* .caro {
+	background-image: url('./topy.png')
+} */
+
+.slides {
+	background-size: 50% 50%
+}
+
+.menu-icon,
+.fa-regular span {
+    font-size: 18px;
+}
