@@ -10,8 +10,7 @@
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "postinstall": "node_modules/.bin/rn-nodeify -- install fs --hack"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {
     "type": "git",
@@ -80,7 +79,6 @@
     "express": "^4.17.3",
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
-    "nodeify": "^1.0.1",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.3.0",
     "resize-observer-polyfill": "^1.5.1",
