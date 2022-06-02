@@ -1,8 +1,10 @@
 import React from 'react';
 import { download } from "../../../utils/ExportData"
-import { myComp } from "../../../utils/CodePreview"
+// import { myComp } from "../../../utils/CodePreview"
 
-export const ExportDataButton = (name, data) => {
+export const ExportDataButton = ({ name, data } ) => {
+  console.log(name)
+  console.log(data)
     return (
     <button
       className="export-data button"

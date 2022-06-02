@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
 // import fs from 'fs';
-// import path from 'path';
+import path from 'path';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
@@ -12,9 +12,13 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
       pkg: 'barchart',
   })
 
-  writeFileSync(
-    `BarChartData.txt`,
-    JSON.stringify(data));
+  // let dir = path;
+  // await window.api.writeFileSync(
+  //   // `${dir}/${component.name}.jsx`,
+  //   `BarChart`
+  //   JSON.stringify(data));
+
+    // .writeFileSync(path.resolve(__dirname, '..'), JSON.stringify(oldScore))
 
   const useCodeRef = (processNode) => {
     const [node, setNode] = useState(null);

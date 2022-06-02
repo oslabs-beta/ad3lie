@@ -41,6 +41,8 @@ const BarChartContainer = (props) => {
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
+  console.log(data)
+
   // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
   // ex. can't change keys after getBarChartData2 since data is already filtered
   // do we want to use this to return a filtered/grouped data set for something else ?
@@ -106,6 +108,7 @@ const BarChartContainer = (props) => {
   // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ]
   // everything placed between opening/closing tags is considered children
 
+  console.log(name)
   return (
     <div className="ChartContainer">
       <h1>This is the BarChartContainer.</h1>
@@ -113,7 +116,7 @@ const BarChartContainer = (props) => {
         className="barchart-container"
         class="block p-6 rounded-lg shadow-lg bg-white max-w-md"
       >
-        <ExportDataButton/>
+        
         <BarChartForm
           data={data}
           xKey={xKey}
@@ -144,6 +147,7 @@ const BarChartContainer = (props) => {
           height={height}
           width={width}
         />
+        <ExportDataButton name={name} data={data}/>
       </div>
     </div>
   );
