@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { generateChartCode, CodeBlock, Code } from '../../../../utils/CodePreview';
+import React, { useState, useEffect, useRef, useCallback, Fragment } from 'react';
+import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
@@ -10,11 +10,57 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
       pkg: 'barchart',
   })
 
+
+const useCodeRef = (processNode) => {
+  const [node, setNode] = useState(null);
+  const setCodeRef = useCallback(newNode => {
+    if (newNode) {
+        console.log("ref", node); // node = codeRef.current // <code> 
+        setNode(processNode(newNode));
+    }
+  }, []);
+  return [node, setCodeRef]
+}
+
+const [codeRef, setCodeRef] = useCodeRef(node => node)
+
+  useEffect(() => {
+    console.log(`The new code is: ${codeRef}`)
+  }, [codeRef]);
+
   return (
-    
-          <CodeBlock>
+   (<Fragment>
+        <CodeBlock >
+          <CodeText ref={setCodeRef} formatCode={formatCode}>
             {code}
-          </CodeBlock>
+            </CodeText>
+        </CodeBlock>
+          
+        <button
+          className="export-comp button"
+          class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={ 
+            async () => {
+              try {
+                console.log(`Set code ref is ${setCodeRef}`)
+                console.log(`Code ref is ${codeRef}`)
+                console.log(codeRef)
+                console.log(`Format code ref is ${formatCode(codeRef)}`)
+                const formattedCode = await formatCode(codeRef)
+                console.log(formattedCode)
+              }
+              catch(err) {
+                console.log(err.message)
+                console.log('fork ma lyfe')
+                return err
+              }
+          }}
+          >
+          Export Code
+        </button>
+
+    </Fragment>)
+          
     )
 }
 

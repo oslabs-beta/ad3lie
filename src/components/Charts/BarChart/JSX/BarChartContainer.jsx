@@ -113,13 +113,7 @@ const BarChartContainer = (props) => {
         className="barchart-container"
         class="block p-6 rounded-lg shadow-lg bg-white max-w-md"
       >
-        {/* <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          onClick={() => download(`${name}Data.txt`, JSON.stringify(data))}
-        >
-          Export
-        </button> */}
-        <ExportDataButton/>
+        {/* <ExportDataButton/> */}
         <BarChartForm
           data={data}
           xKey={xKey}

@@ -100,7 +100,25 @@ const My${name} = (${args}) => (
 )`;
 };
 
-function download(filename, text) {
+// This function is placed on the ExportCompButton and returns the JSX code for your component
+// export const myComp = (filename, text) => {
+//   let element = document.createElement('a');
+//   element.setAttribute(
+//     'href',
+//     'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
+//   );
+//   element.setAttribute('download', filename);
+
+//   element.style.display = 'none';
+//   document.body.appendChild(element);
+
+//   element.click();
+
+//   document.body.removeChild(element);
+// };
+
+export const myComp = (props, filename, text) => {
+  console.log(props.children);
   let element = document.createElement('a');
   element.setAttribute(
     'href',
@@ -114,9 +132,43 @@ function download(filename, text) {
   element.click();
 
   document.body.removeChild(element);
-}
+  // React.createElement(type, [props], [...children]);
+};
+
+// import format from 'prettier-format';
+// import parserBabel from 'prettier/parser-babel';
+
+export const formatCode = (code) => {
+  return format(code, {
+    singleQuote: true,
+    trailingComma: 'es6',
+    bracketSpacing: true,
+    jsxBracketSameLine: true,
+    parser: 'babel',
+    plugins: [parserBabel],
+    languages: 'javascript'
+  });
+};
+
+// const promises: Array<any> = [];
+// components.forEach((component: any) => {
+//   const newPromise = new Promise((resolve, reject) => {
+//     window.api.writeFileSync(
+//       `${dir}/${component.name}.tsx`,
+//       window.api.formatCode(component.code),
+//       (err: any) => {
+//         if (err) return reject(err.message);
+//         return resolve(path);
+//       }
+//     );
+//   });
+//   promises.push(newPromise);
+// });
+// return Promise.all(promises);
 
 //just using styled components here only for testing html preview
+export const CodeText = styled.code``;
+
 export const CodeBlock = styled.pre`
   margin: 0;
   font-size: 0.8rem;

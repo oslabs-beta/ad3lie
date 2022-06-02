@@ -1,3 +1,4 @@
+// This function is placed on the ExportDataButton and returns the JavaScript code for your data
 export const download = (filename, text) => {
   let element = document.createElement('a');
   element.setAttribute(
