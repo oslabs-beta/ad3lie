@@ -1,9 +1,12 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
 
 /* .gradient {
     background-image: linear-gradient (#070bb4,#61eff4);
+} */
+/* .Chart {
+  background-image: url(./Chart2.svg);
 } */
 
 .glass {
@@ -31,10 +34,12 @@
 } */
 
 
-.background {
+body {
 	background-image: url('./topy.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+	height: 100vh;
+	width: 100vw;
 }
 
 /* .caro {
@@ -49,3 +54,5 @@
 .fa-regular span {
     font-size: 18px;
 }
+
+@tailwind utilities;

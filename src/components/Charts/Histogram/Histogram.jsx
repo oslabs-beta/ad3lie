@@ -15,16 +15,6 @@ import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
 
 const Histogram = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
-
-  // import Chart from "./Chart/Chart"
-  import Chart from '../utilities/Chart'
-  import Bars from '../utilities/Bars'
-  import Axis from "../utilities/Axis"
-  import Gradient from "../utilities/Gradient";
-  import { useChartDimensions } from "../utilities/utils"
-  import { accessorPropsType } from "../utilities/utils"
-  import { useUniqueId } from "../utilities/utils"
-
   const gradientColors = ["#9980FA", "rgb(226, 222, 243)"]
   const Histogram = ({ data, xAccessor, label }) => {
     const gradientId = useUniqueId("Histogram-gradient")
