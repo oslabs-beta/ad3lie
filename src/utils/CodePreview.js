@@ -6,6 +6,7 @@ import isNumber from 'lodash/isNumber';
 import isBoolean from 'lodash/isBoolean';
 import dedent from 'dedent-js';
 import styled from 'styled-components';
+const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
 
 export const indent = (content, spaces = 8) =>
   content
@@ -125,28 +126,26 @@ export const myComp = (props, filename, text) => {
     'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
   );
   element.setAttribute('download', filename);
-
   element.style.display = 'none';
   document.body.appendChild(element);
-
   element.click();
-
   document.body.removeChild(element);
   // React.createElement(type, [props], [...children]);
 };
 
 // import format from 'prettier-format';
-// import parserBabel from 'prettier/parser-babel';
+const prettier = require('prettier/standalone');
+import parserBabel from 'prettier/parser-babel';
 
 export const formatCode = (code) => {
-  return format(code, {
+  // console.log(code.innerText);
+  return prettier.format(code.innerText, {
     singleQuote: true,
-    trailingComma: 'es6',
+    trailingComma: 'es5',
     bracketSpacing: true,
     jsxBracketSameLine: true,
     parser: 'babel',
-    plugins: [parserBabel],
-    languages: 'javascript'
+    plugins: [parserBabel]
   });
 };
 

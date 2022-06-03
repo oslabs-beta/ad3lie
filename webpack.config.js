@@ -8,21 +8,16 @@ module.exports = {
   entry: './src/index.jsx',
   // target: 'electron-renderer',
   // target: 'node',
-  // resolve: {
-  //   fallback: {
-  //     fs: false
-  //   }
-  // },
-  // node: 'empty',
-  // type: 'module',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   // devtool: "source-map",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.css', '.scss'],
+    modules: ['src', 'node_modules'],
     fallback: {
+      fs: false,
       path: require.resolve('path-browserify')
     }
   },

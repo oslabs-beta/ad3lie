@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
-// import fs from 'fs';
+import { writeFileSync } from 'fs';
+// const fs = require('browserify-fs')
 import path from 'path';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
@@ -12,19 +13,11 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
       pkg: 'barchart',
   })
 
-  // let dir = path;
-  // await window.api.writeFileSync(
-  //   // `${dir}/${component.name}.jsx`,
-  //   `BarChart`
-  //   JSON.stringify(data));
-
-    // .writeFileSync(path.resolve(__dirname, '..'), JSON.stringify(oldScore))
-
   const useCodeRef = (processNode) => {
     const [node, setNode] = useState(null);
     const setCodeRef = useCallback(newNode => {
       if (newNode) {
-          console.log("ref", node); // node = codeRef.current // <code> 
+          // console.log("ref", node); // node = codeRef.current // <code> 
           setNode(processNode(newNode));
       }
     }, []);
@@ -34,7 +27,7 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
   const [codeRef, setCodeRef] = useCodeRef(node => node)
 
   useEffect(() => {
-    console.log(`UseEffect here to force reassignment of new ref on rerender. The new codeRef is:`)
+    // console.log(`UseEffect here to force reassignment of new ref on rerender. The new codeRef is:`)
     console.log(codeRef)
   }, [codeRef]);
 
@@ -45,6 +38,8 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
             {code}
             </CodeText>
         </CodeBlock>
+
+        
           
         <button
           className="export-comp button"
@@ -52,11 +47,14 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
           onClick={ 
             async () => {
               try {
-                const formattedCode = await formatCode(codeRef)
+                // const formattedCode = await formatCode(codeRef)
+                // window.api not defined in dev test env
+                // let api = window.api;
+                await writeFileSync(path.resolve(__dirname, `./My${name}.jsx`), formatCode(codeRef))
               }
               catch(err) {
                 console.log(err.message)
-                console.log(`Oops this button doesn\'t work because prettier requires node :)`)
+                console.log(`Oops this button doesn\'t work because writeFileSync requires node :)`)
                 console.log('fork ma lyfe')
                 return err
               }
