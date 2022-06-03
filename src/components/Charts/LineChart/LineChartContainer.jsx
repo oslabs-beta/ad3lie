@@ -24,9 +24,9 @@ const LineChartContainer = (props) => {
     line: getNumbersData(), // see ScatterPlot/App.jsx
   })
 
-  const [data, setData] = useState(getData().line);
-  const [xKey, setXKey] = useState('species');
-  const [yKey, setYKey] = useState('body_mass_g');
+  const [data, setData] = useState(getNumbersData());
+  const [xKey, setXKey] = useState('humidity');
+  const [yKey, setYKey] = useState('temperature');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(500);
@@ -38,55 +38,56 @@ const LineChartContainer = (props) => {
 
   console.log('You just rerendered the LineChartContainer')
 
-const handleData = (e) => {
-  e.preventDefault();
-  setData(JSON.parse(e.target.value));
-}
+  const handleData = (e) => {
+    e.preventDefault();
+    setData(JSON.parse(e.target.value));
+  }
 
-const handleXKey = (e) => {
-  e.preventDefault();
-  setXKey(e.target.value);
-}
+  const handleXKey = (e) => {
+    e.preventDefault();
+    setXKey(e.target.value);
+  }
 
-const handleYKey = (e) => {
-  e.preventDefault();
-  setYKey(e.target.value);
-}
+  const handleYKey = (e) => {
+    e.preventDefault();
+    setYKey(e.target.value);
+  }
 
-const handleXAxisLabel = (e) => {
-  e.preventDefault();
-  setXAxisLabel(e.target.value);
-}
+  const handleXAxisLabel = (e) => {
+    e.preventDefault();
+    setXAxisLabel(e.target.value);
+  }
 
-const handleYAxisLabel = (e) => {
-  e.preventDefault();
-  setYAxisLabel(e.target.value);
-}
+  const handleYAxisLabel = (e) => {
+    e.preventDefault();
+    setYAxisLabel(e.target.value);
+  }
 
-const handleWidth = (e) => {
-  e.preventDefault();
-  setWidth(+e.target.value);
-}
+  const handleWidth = (e) => {
+    e.preventDefault();
+    setWidth(+e.target.value);
+  }
 
-const handleHeight = (e) => {
-  e.preventDefault();
-  setHeight(+e.target.value);
-}
-const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
+  const handleHeight = (e) => {
+    e.preventDefault();
+    setHeight(+e.target.value);
+  }
+  const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      <h1>Rendering Line Chart Container</h1>
+      {/* <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <ExportDataButton></ExportDataButton>
-        <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
-        handlers={handlers}></LineChartForm>
-      </div>
+        <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
+          handlers={handlers}></LineChartForm>
+      </div> */}
       <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
         <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
       </div>
-      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
+      {/* <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
         <LineChartCodePreview />
-      </div>
+      </div> */}
     </div>
   );
 }
