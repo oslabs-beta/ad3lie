@@ -1,9 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, ipcRenderer, BrowserWindow } = require('electron');
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      devTools: true
+    }
   });
 
   // Uses Webpack Dev Server in Development

@@ -40,9 +40,7 @@ const BarChartContainer = (props) => {
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
-
-  // //set data as json data
-  // const [myData, setMyData] = useState(`data = ${JSON.stringify(sampleData)}`)
+  // const [stateCodeRef, setStateCodeRef] = useState(null);
 
   // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
   // ex. can't change keys after getBarChartData2 since data is already filtered
@@ -55,8 +53,7 @@ const BarChartContainer = (props) => {
 
   // console.log('You just rerendered the BarChartContainer')
 
-  // What format is data going to be input? Currently Javascript object[], or if JSON format, we have to JSON parse/stringify input before setting state
-  //inputting custom data -> data.map is not a function
+  // Data must be input in JSON format
   const handleData = (e) => {
     e.preventDefault();
     //Input data works for JSON format - see jsonpenguins.txt
@@ -113,7 +110,6 @@ const BarChartContainer = (props) => {
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-      
         <BarChartForm
           data={data}
           xKey={xKey}
@@ -158,26 +154,3 @@ const BarChartContainer = (props) => {
 };
 
 export default BarChartContainer;
-
-// class BarChartContainer extends Component {
-//   constructor() {
-//     super(props);
-//     this.state = {
-//       data: [],
-//       xKey: 'xKey',
-//       yKey: 'yKey',
-//       xAxisLabel: 'xAxisLabel',
-//       yAxisLabel: 'yAxisLabel',
-//       height: '100',
-//       width: '100'
-//     }
-// }
-//     render() {
-//             return (
-//             <div className="barchartcontainer">
-//                 <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChartForm>
-//                 <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></BarChart>
-//             </div>
-//             );
-//         }
-// }

@@ -1,6 +1,9 @@
-// This function is placed on the ExportDataButton and returns the JavaScript code for your data
+// ExportData is our current workaround to not being able to use node's fs module
+// (cannot run node from a browser)
+
+// converts array of Javascript objects to a string
+// downloadable as a .js file
 export const download = (filename, arr) => {
-  //convert JS obj (text) to string
   let text = `data = [${arr
     .reduce((str, obj) => {
       return (str +=
@@ -22,6 +25,8 @@ export const download = (filename, arr) => {
   element.click();
   document.body.removeChild(element);
 };
+
+// general function to download a file (taking in plain text)
 
 export const downloadCode = (filename, text) => {
   let element = document.createElement('a');

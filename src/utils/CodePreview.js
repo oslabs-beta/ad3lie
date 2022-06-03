@@ -6,7 +6,9 @@ import isNumber from 'lodash/isNumber';
 import isBoolean from 'lodash/isBoolean';
 import dedent from 'dedent-js';
 import styled from 'styled-components';
-const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babel';
+// const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
 
 export const indent = (content, spaces = 8) =>
   content
@@ -77,6 +79,7 @@ export const generateChartCode = (
   const imports = [name, ...children.map((c) => c)].map(
     (i) => `import { ${i} } from 'd3act/components'`
   );
+  const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
   let warning = '';
   if (name) {
@@ -102,12 +105,7 @@ const My${name} = (${args}) => (
 )`;
 };
 
-// import format from 'prettier-format';
-const prettier = require('prettier/standalone');
-import parserBabel from 'prettier/parser-babel';
-
 export const formatCode = (code) => {
-  console.log(code.innerText);
   return prettier.format(code.innerText, {
     singleQuote: true,
     jsxSingleQuote: true,
@@ -119,7 +117,8 @@ export const formatCode = (code) => {
   });
 };
 
-//just using styled components here only for testing html preview
+// just using styled components here only for testing html preview
+// our code is enclosed in an HTML <code> tag
 export const CodeText = styled.code``;
 
 export const CodeBlock = styled.pre`
