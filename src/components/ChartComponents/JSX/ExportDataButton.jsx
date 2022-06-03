@@ -5,7 +5,7 @@ export const ExportDataButton = (name, data) => {
   return (
     <button
       class="glass w-32 text-white"
-      onClick={() => download(`${name}Data.txt`, JSON.stringify(data))}
+      onClick={() => window.electron.helloWorld('Sophia')}
     >
       Export Data
     </button>
