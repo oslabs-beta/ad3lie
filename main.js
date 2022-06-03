@@ -8,7 +8,8 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.resolve(__dirname, 'electron-scripts', 'preload.js')
-    }
+    },
+    devTools: true
   });
 
   // Uses Webpack Dev Server in Development
