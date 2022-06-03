@@ -42,7 +42,7 @@ export const generateChartCode = (
 
   if (dataKey !== undefined) {
     properties.push(`${dataKey}={${dataKey}}`);
-    args = `{ ${dataKey} /* see ${dataKey} from PropsData file */ }`;
+    args = `{ ${dataKey} /* see ${dataKey} from your Javascript data file */ }`;
   }
 
   forOwn(props, (_value, key) => {
@@ -86,12 +86,13 @@ export const generateChartCode = (
       `// and the @d3act component library to use your charts,`,
       `// otherwise, no charts will be rendered.`,
       `// Copy the following code to your component file`,
-      `// along with your PropsData.txt file .`
+      `// along with your Javascript data file.`
     ].join('\n');
   }
 
   return `// install (please make sure versions match peerDependencies)
 ${install}
+${importData}
 ${imports.join('\n')}
 ${warning}
 const My${name} = (${args}) => (
@@ -101,69 +102,22 @@ const My${name} = (${args}) => (
 )`;
 };
 
-// This function is placed on the ExportCompButton and returns the JSX code for your component
-// export const myComp = (filename, text) => {
-//   let element = document.createElement('a');
-//   element.setAttribute(
-//     'href',
-//     'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-//   );
-//   element.setAttribute('download', filename);
-
-//   element.style.display = 'none';
-//   document.body.appendChild(element);
-
-//   element.click();
-
-//   document.body.removeChild(element);
-// };
-
-export const myComp = (props, filename, text) => {
-  console.log(props.children);
-  let element = document.createElement('a');
-  element.setAttribute(
-    'href',
-    'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-  );
-  element.setAttribute('download', filename);
-  element.style.display = 'none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-  // React.createElement(type, [props], [...children]);
-};
-
 // import format from 'prettier-format';
 const prettier = require('prettier/standalone');
 import parserBabel from 'prettier/parser-babel';
 
 export const formatCode = (code) => {
-  // console.log(code.innerText);
+  console.log(code.innerText);
   return prettier.format(code.innerText, {
     singleQuote: true,
+    jsxSingleQuote: true,
     trailingComma: 'es5',
     bracketSpacing: true,
-    jsxBracketSameLine: true,
+    bracketSameLine: true,
     parser: 'babel',
     plugins: [parserBabel]
   });
 };
-
-// const promises: Array<any> = [];
-// components.forEach((component: any) => {
-//   const newPromise = new Promise((resolve, reject) => {
-//     window.api.writeFileSync(
-//       `${dir}/${component.name}.tsx`,
-//       window.api.formatCode(component.code),
-//       (err: any) => {
-//         if (err) return reject(err.message);
-//         return resolve(path);
-//       }
-//     );
-//   });
-//   promises.push(newPromise);
-// });
-// return Promise.all(promises);
 
 //just using styled components here only for testing html preview
 export const CodeText = styled.code``;

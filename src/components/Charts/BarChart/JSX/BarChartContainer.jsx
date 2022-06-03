@@ -41,7 +41,8 @@ const BarChartContainer = (props) => {
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
-  console.log(data)
+  // //set data as json data
+  // const [myData, setMyData] = useState(`data = ${JSON.stringify(sampleData)}`)
 
   // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
   // ex. can't change keys after getBarChartData2 since data is already filtered
@@ -151,7 +152,6 @@ const BarChartContainer = (props) => {
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>
-        <ExportDataButton/>
       </div>
     </div>
   );

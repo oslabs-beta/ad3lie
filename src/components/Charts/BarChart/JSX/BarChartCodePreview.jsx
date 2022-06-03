@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
-import { writeFileSync } from 'fs';
-// const fs = require('browserify-fs')
+import { downloadCode} from '../../../../utils/ExportData';
 import path from 'path';
+import { writeFileSync } from 'fs';
+import { ExportCodeButton } from '../../../ChartComponents/JSX/ExportCodeButton';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
@@ -32,38 +33,40 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
   }, [codeRef]);
 
   return (
-   (<Fragment>
+    <Fragment>
         <CodeBlock >
           <CodeText ref={setCodeRef} formatCode={formatCode}>
             {code}
             </CodeText>
         </CodeBlock>
 
-        
+    
+        {/* Something weird happening when putting export button here.
+        Think it's setting codeRef in an infinite loop which leads to stack overflow lol
+        <ExportCodeButton name={name} codeRef={codeRef}></ExportCodeButton> 
+        */}
           
         <button
-          className="export-comp button"
-          class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          onClick={ 
-            async () => {
-              try {
-                // const formattedCode = await formatCode(codeRef)
-                // window.api not defined in dev test env
-                // let api = window.api;
-                await writeFileSync(path.resolve(__dirname, `./My${name}.jsx`), formatCode(codeRef))
-              }
-              catch(err) {
-                console.log(err.message)
-                console.log(`Oops this button doesn\'t work because writeFileSync requires node :)`)
-                console.log('fork ma lyfe')
-                return err
+        className="export-comp button"
+        class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        onClick={ 
+          async () => {
+            try {
+              console.log(codeRef)
+              const formattedCode = await formatCode(codeRef)
+              downloadCode(`My${name}.jsx`, formattedCode)
+            }
+            catch(err) {
+              console.log(err.message)
+              console.log(`no code for you :)`)
+              console.log('fork ma lyfe')
+              return err
               }
           }}
-          >
+        >
           Export Code
         </button>
-
-    </Fragment>)
+    </Fragment>
           
     )
 }
