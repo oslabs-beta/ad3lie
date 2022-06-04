@@ -75,15 +75,18 @@ const handleHeight = (e) => {
 const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
   return (
-    <div>
-    <h1>This is the LineChartContainer. I serve the LineChart form, graph, and code preview.</h1>
-      <div className="LineChart-container" class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
+      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <ExportDataButton></ExportDataButton>
         <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width} 
         handlers={handlers}></LineChartForm>
+      </div>
+      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
         <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
+      </div>
+      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
         <LineChartCodePreview />
-    </div>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export const useChartDimensions = () => useContext(ChartContext)
 
 const Chart = ({ dimensions, children }) => (
   <ChartContext.Provider value={dimensions}>
-    <svg className="Chart" width={dimensions.width} height={dimensions.height}>
+    <svg className="Chart rounded" width='100%' height='100%' viewBox={'0 0 ' + dimensions.width + ' ' + dimensions.height}>
       <g transform={`translate(${dimensions.marginLeft}, ${dimensions.marginTop})`}>
         { children }
       </g>

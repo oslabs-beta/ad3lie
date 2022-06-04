@@ -6,6 +6,9 @@ import isNumber from 'lodash/isNumber';
 import isBoolean from 'lodash/isBoolean';
 import dedent from 'dedent-js';
 import styled from 'styled-components';
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babel';
+// const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
 
 export const indent = (content, spaces = 8) =>
   content
@@ -41,7 +44,7 @@ export const generateChartCode = (
 
   if (dataKey !== undefined) {
     properties.push(`${dataKey}={${dataKey}}`);
-    args = `{ ${dataKey} /* see ${dataKey} from PropsData file */ }`;
+    args = `{ ${dataKey} /* see ${dataKey} from your Javascript data file */ }`;
   }
 
   forOwn(props, (_value, key) => {
@@ -76,6 +79,7 @@ export const generateChartCode = (
   const imports = [name, ...children.map((c) => c)].map(
     (i) => `import { ${i} } from 'd3act/components'`
   );
+  const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
   let warning = '';
   if (name) {
@@ -85,12 +89,13 @@ export const generateChartCode = (
       `// and the @d3act component library to use your charts,`,
       `// otherwise, no charts will be rendered.`,
       `// Copy the following code to your component file`,
-      `// along with your PropsData.txt file .`
+      `// along with your Javascript data file.`
     ].join('\n');
   }
 
   return `// install (please make sure versions match peerDependencies)
 ${install}
+${importData}
 ${imports.join('\n')}
 ${warning}
 const My${name} = (${args}) => (
@@ -100,28 +105,29 @@ const My${name} = (${args}) => (
 )`;
 };
 
-function download(filename, text) {
-  let element = document.createElement('a');
-  element.setAttribute(
-    'href',
-    'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-  );
-  element.setAttribute('download', filename);
+export const formatCode = (code) => {
+  return prettier.format(code.innerText, {
+    singleQuote: true,
+    jsxSingleQuote: true,
+    trailingComma: 'es5',
+    bracketSpacing: true,
+    bracketSameLine: true,
+    parser: 'babel',
+    plugins: [parserBabel]
+  });
+};
 
-  element.style.display = 'none';
-  document.body.appendChild(element);
+// just using styled components here only for testing html preview
+// our code is enclosed in an HTML <code> tag
+export const CodeText = styled.code``;
 
-  element.click();
-
-  document.body.removeChild(element);
-}
-
-//just using styled components here only for testing html preview
 export const CodeBlock = styled.pre`
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.7;
   padding: 12px 20px;
+  overflow: scroll;
+  height: 100%;
 `;
 
 export const Code = styled.div`
