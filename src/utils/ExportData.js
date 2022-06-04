@@ -4,7 +4,7 @@
 // converts array of Javascript objects to a string
 // downloadable as a .js file
 export const download = (filename, arr) => {
-  let text = `data = [${arr
+  let text = `export const data = [${arr
     .reduce((str, obj) => {
       return (str +=
         '{' + Object.keys(obj).map((key) => `'${key}': ${obj[key]}`) + `}, \n`);

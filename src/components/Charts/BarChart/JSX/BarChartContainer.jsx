@@ -144,7 +144,7 @@ const BarChartContainer = (props) => {
           height={height}
           width={width}
         />
-        <ExportDataButton name={name} data={data}/>
+        {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>

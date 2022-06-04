@@ -14,6 +14,9 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
       pkg: 'barchart',
   })
 
+  // References created by useRef itself do not trigger component rerenders, and at the start of the first render, it will be null
+  // State must be modified to trigger any rerenders, so we use a callback ref to run some code 
+  // when React attaches or detaches a ref to a DOM node (<code>)
   const useCodeRef = (processNode) => {
     const [node, setNode] = useState(null);
     const setCodeRef = useCallback(newNode => {
@@ -27,8 +30,8 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
   const [codeRef, setCodeRef] = useCodeRef(node => node)
 
+  // To reflect on every code change, we use useEffect to reassign the new codeRef on rerender
   useEffect(() => {
-    // console.log(`UseEffect here to force reassignment of new ref on rerender. The new codeRef is:`)
     console.log(codeRef)
   }, [codeRef]);
 
@@ -46,15 +49,30 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
         <ExportCodeButton name={name} codeRef={codeRef}></ExportCodeButton> 
         */}
           
-        <button
+      <button
         className="export-comp button"
         class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={ 
           async () => {
             try {
+              console.log(window.electron.dialog);
+              const saveLocation = window.electron.showSaveDialogSync();
+              console.log(saveLocation)
               console.log(codeRef)
               const formattedCode = await formatCode(codeRef)
-              downloadCode(`My${name}.jsx`, formattedCode)
+              const formattedData = `export const data = [${data
+                .reduce((str, obj) => {
+                  return (str +=
+                    '{' + Object.keys(obj).map((key) => `'${key}': ${obj[key]}`) + `}, \n`);
+                }, '')
+                .trim()
+                .slice(0, -1)}]`;
+                
+              // downloadCode(`My${name}.jsx`, formattedCode)
+              console.log(window.electron.__dirname)
+              window.electron.mkdirSync(window.electron.path.resolve('temp'));
+              window.electron.writeFileSync(window.electron.path.resolve( 'temp', 'data.js'), formattedData)
+              window.electron.writeFileSync(window.electron.path.resolve('temp', 'code.js'), formattedCode)
             }
             catch(err) {
               console.log(err.message)
@@ -64,7 +82,7 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
               }
           }}
         >
-          Export Code
+          Export Chart
         </button>
     </Fragment>
           

@@ -1,4 +1,4 @@
-const { app, contextBridge, BrowserWindow, ipcMain } = require('electron');
+const { app, contextBridge, BrowserWindow, ipcMain, dialog } = require('electron');
 const fs = require('fs');
 const path = require('path');
 
@@ -7,9 +7,9 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.resolve(__dirname, 'electron-scripts', 'preload.js')
-    },
-    devTools: true
+      preload: path.resolve(__dirname, 'electron-scripts', 'preload.js'),
+      devTools: true
+    }
   });
 
   // Uses Webpack Dev Server in Development
@@ -21,7 +21,16 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  ipcMain.on('hello-world', (event, name) => fs.writeFileSync('hello.json', 'Hello ' + name))
+  // Setup an Event listener to listen on the 'export-chart' channel.
+  // ipcMain.on('export-chart', (event, code, data) => {
+  //   // Make a Direcotry
+  //   // Write the Data file in directory
+  //   // Write the Code as a File in the Directory
+  //   fs.mkdirSync(path.resolve(__dirname, 'temp'));
+  //   fs.writeFileSync(path.resolve(__dirname, 'temp', 'data.json'), data)
+  //   fs.writeFileSync(path.resolve(__dirname, 'temp', 'code.js'), code)
+  // })
+  ipcMain.on('show-save-dialog', (event) => dialog.showSaveDialogSync());
   createWindow();
 });
 
