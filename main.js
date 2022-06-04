@@ -14,8 +14,8 @@ const createWindow = () => {
 
   // Uses Webpack Dev Server in Development
   // Must open 
-  win.loadURL('http://localhost:8080/index.html');
-  // win.loadFile('./dist/index.html');
+  // win.loadURL('http://localhost:8080/index.html');
+  win.loadFile('./dist/index.html');
   // const contents = win.webContents
   // console.log(contents)
 };
@@ -30,7 +30,29 @@ app.whenReady().then(() => {
   //   fs.writeFileSync(path.resolve(__dirname, 'temp', 'data.json'), data)
   //   fs.writeFileSync(path.resolve(__dirname, 'temp', 'code.js'), code)
   // })
-  ipcMain.on('show-save-dialog', (event) => dialog.showSaveDialogSync());
+  // EXPORT FUNCTIONALITY
+  // ipcMain.handle & ipcRenderer.invoke allows for a two-way communication between renderer and main
+  // BarChartCodePreview > ipcMain.handle > > .then( {canceled, filePaths})
+  ipcMain.handle('show-save-dialog', (event) => {
+    const saveDialogPromise = dialog.showOpenDialog({
+      properties: ['openDirectory'],
+      buttonLabel: 'Export'
+    })
+    .then(({ canceled, filePaths }) => {
+      if (canceled) {
+        console.log('Request Canceled')
+        return
+      } else {
+        console.log('File Selected:', filePaths)
+        return filePaths[0]
+      }
+    })
+    .catch(err => console.log('ERROR on "show-save-dialog" event: ', err))
+    
+    // return promise
+    return saveDialogPromise
+  });
+  
   createWindow();
 });
 
