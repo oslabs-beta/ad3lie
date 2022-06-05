@@ -12,6 +12,6 @@ contextBridge.exposeInMainWorld(
     path,
     __dirname,
     // dialog
-    showSaveDialogSync: () => ipcRenderer.send('show-save-dialog')
+    showSaveDialog: () => ipcRenderer.invoke('show-save-dialog')
   }
 )

@@ -55,10 +55,7 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
         onClick={ 
           async () => {
             try {
-              console.log(window.electron.dialog);
-              const saveLocation = window.electron.showSaveDialogSync();
-              console.log(saveLocation)
-              console.log(codeRef)
+
               const formattedCode = await formatCode(codeRef)
               const formattedData = `export const data = [${data
                 .reduce((str, obj) => {
@@ -67,12 +64,15 @@ const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
                 }, '')
                 .trim()
                 .slice(0, -1)}]`;
-                
+              
+              const saveLocation = await window.electron.showSaveDialog();
+              console.log('saveDialogPromise - saveLocation', saveLocation, new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''))
+              // console.log('save location', saveLocation)
+
               // downloadCode(`My${name}.jsx`, formattedCode)
-              console.log(window.electron.__dirname)
-              window.electron.mkdirSync(window.electron.path.resolve('temp'));
-              window.electron.writeFileSync(window.electron.path.resolve( 'temp', 'data.js'), formattedData)
-              window.electron.writeFileSync(window.electron.path.resolve('temp', 'code.js'), formattedCode)
+              window.electron.mkdirSync(window.electron.path.resolve(saveLocation, 'BarChart'));
+              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, 'BarChart', 'data.js'), formattedData)
+              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, 'BarChart', 'code.js'), formattedCode)
             }
             catch(err) {
               console.log(err.message)
