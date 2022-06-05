@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron . && webpack serve",
+    "start": "webpack && electron . ",
     "build": "webpack",
     "start-dev-server": "webpack serve",
     "tsc": "tsc",
