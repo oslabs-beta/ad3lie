@@ -74,10 +74,10 @@ export const generateChartCode = (
     properties.push(`${key}=${value}`);
   });
 
-  const install = `// npm install @d3act @d3act/${pkg}`;
+  const install = `// npm install @d3act`;
 
   const imports = [name, ...children.map((c) => c)].map(
-    (i) => `import { ${i} } from 'd3act/components'`
+    (i) => `import { ${i} } from 'd3act'`
   );
   const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
