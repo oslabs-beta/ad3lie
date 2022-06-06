@@ -3,16 +3,17 @@ import React from "react"
 import * as d3 from "d3"
 import { accessorPropsType, useAccessor } from "../../../utils/utils";
 
-const Line = ({ data, xAccessor, yAccessor, /* y0Accessor, interpolation, ...props */ }) => {
+const Line = ({ data, xAccessor, yAccessor, y0Accessor, /* type, interpolation, ...props */ }) => {
+  // const lineGenerator = d3[type]()
   const lineGenerator = d3.line()
-    .x((d) => xAccessor(d.x))
-    .y((d) => yAccessor(d.y))
-    .curve(d3.curveMonotoneX);
+    .x(xAccessor)
+    .y(yAccessor)
+    .curve(d3.curveMonotoneX)
 
-  // x = { useAccessor(xAccessor, d, i) }
-  // y = { useAccessor(yAccessor, d, i) }
-  // width = { d3.max([useAccessor(widthAccessor, d, i), 0]) }
-  // height = { d3.max([useAccessor(heightAccessor, d, i), 0]) }
+  // console.log(lineGenerator)
+  // console.log(data)
+  // console.log(xAccessor)
+  // console.log(yAccessor)
 
   // if (type == "area") {
   //   lineGenerator
@@ -21,15 +22,13 @@ const Line = ({ data, xAccessor, yAccessor, /* y0Accessor, interpolation, ...pro
   // }
 
   return (
-    <h1>Rendering from Line</h1>
-
-
-    // <path /* {...props} */
-    //   className={`Line Line--type-${type}`}
-    //   d={lineGenerator(data)}
-    // />
+    <path /* {...props} */
+      // className={`Line Line--type-${type}`}
+      d={lineGenerator(data)}
+    />
   )
 }
+
 
 // Line.propTypes = {
 //   type: PropTypes.oneOf(["line", "area"]),

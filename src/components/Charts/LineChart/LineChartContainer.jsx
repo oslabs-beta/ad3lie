@@ -90,7 +90,6 @@ const LineChartContainer = (props) => {
 
   return (
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-      <h1>Rendering Line Chart Container</h1>
       <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <ExportDataButton></ExportDataButton>
         <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
@@ -99,9 +98,9 @@ const LineChartContainer = (props) => {
       <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
         <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
       </div>
-      {/* <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
+      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
         <LineChartCodePreview />
-      </div> */}
+      </div>
     </div>
   );
 }
