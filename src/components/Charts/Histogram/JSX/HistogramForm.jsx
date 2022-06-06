@@ -39,7 +39,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            {/* <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                 Y Key: string
               </label>
@@ -51,7 +51,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 onChange={handleYKey}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-            </div>
+            </div> */}
             
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -74,7 +74,7 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
               <input
                 id="set-yAxisLabel"
                 type="text"
-                placeholder="Y Axis Label"
+                placeholder="Y Axis Label: Data Length"
                 // value={yAxisLabel}
                 onChange={handleYAxisLabel}
               />

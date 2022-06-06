@@ -53,6 +53,7 @@ const BarChartContainer = (props) => {
 
   // console.log('You just rerendered the BarChartContainer')
 
+  
   // Data must be input in JSON format
   const handleData = (e) => {
     e.preventDefault();
@@ -83,13 +84,24 @@ const BarChartContainer = (props) => {
 
   const handleWidth = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setWidth(500);
+      return;
+    }
     setWidth(+e.target.value);
   };
 
   const handleHeight = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setHeight(500);
+      return;
+    }
     setHeight(+e.target.value);
   };
+ 
 
   const handlers = {
     handleData,
@@ -106,7 +118,7 @@ const BarChartContainer = (props) => {
   // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ]
   // everything placed between opening/closing tags is considered children
 
-  console.log(name)
+
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
