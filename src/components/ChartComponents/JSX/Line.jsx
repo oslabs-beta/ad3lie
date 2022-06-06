@@ -4,12 +4,10 @@ import * as d3 from "d3"
 import { accessorPropsType, useAccessor } from "../../../utils/utils";
 
 const Line = ({ data, xAccessor, yAccessor, /* y0Accessor, interpolation, ...props */ }) => {
-  const lineGenerator = d3
-    .x((d) => xScale(xAccessor(d)))
-    .y((d) => {
-      return d[yKey] ? yScale(yAccessor(d)) : yScale(0);
-    })
-    .curve(interpolation)
+  const lineGenerator = d3.line()
+    .x((d) => xAccessor(d.x))
+    .y((d) => yAccessor(d.y))
+    .curve(d3.curveMonotoneX);
 
   // x = { useAccessor(xAccessor, d, i) }
   // y = { useAccessor(yAccessor, d, i) }

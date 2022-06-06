@@ -20,24 +20,24 @@ We update state from the form, which the graph reads and re-renders from
 </LineChartContainer>
 */
 const LineChartContainer = (props) => {
-  const getData = () => ({
-    line: getNumbersData(), // see ScatterPlot/App.jsx
-  })
+  // const getData = () => ({
+  //   line: getNumbersData(), // see ScatterPlot/App.jsx
+  // })
 
   const [data, setData] = useState(getNumbersData());
   console.log(data)
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('temperature');
+  const [xKey, setXKey] = useState('');
+  const [yKey, setYKey] = useState('');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
-  useEffect(() => {
-    setData(prevData => getNumbersData());
-  }, [])
+  // useEffect(() => {
+  //   setData(prevData => getNumbersData());
+  // }, [])
 
-  console.log('You just rerendered the LineChartContainer')
+  // console.log('You just rerendered the LineChartContainer')
 
   const handleData = (e) => {
     e.preventDefault();
@@ -66,23 +66,36 @@ const LineChartContainer = (props) => {
 
   const handleWidth = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setWidth(500);
+      return;
+    }
     setWidth(+e.target.value);
   }
 
   const handleHeight = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setHeight(500);
+      return;
+    }
     setHeight(+e.target.value);
   }
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
+  const name = 'BarChart';
+  const children = ['Chart', 'Axis', 'Line'];
+
   return (
     <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
       <h1>Rendering Line Chart Container</h1>
-      {/* <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <ExportDataButton></ExportDataButton>
         <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
           handlers={handlers}></LineChartForm>
-      </div> */}
+      </div>
       <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
         <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
       </div>
