@@ -2,24 +2,36 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../ChartComponents/chartstyles.css';
 
+import { useSelector, useDispatch } from 'react-redux'
+import { changeData } from '../../../../features/chart/dataSlice'
+import { changeXKey } from '../../../../features/chart/xKeySlice';
+import { changeYKey } from '../../../../features/chart/yKeySlice';
+import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
+import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
+import { changeHeight } from '../../../../features/chart/heightSlice';
+import { changeWidth } from '../../../../features/chart/widthSlice';
+
 const BarChartForm = ({
-  data,
-  xKey,
-  yKey,
-  xAxisLabel,
-  yAxisLabel,
-  height,
-  width,
-  handlers: {
-    handleData,
-    handleXKey,
-    handleYKey,
-    handleXAxisLabel,
-    handleYAxisLabel,
-    handleHeight,
-    handleWidth
-  }
+  // data,
+  // xKey,
+  // yKey,
+  // xAxisLabel,
+  // yAxisLabel,
+  // height,
+  // width,
+  // handlers: {
+  //   handleData,
+  //   handleXKey,
+  //   handleYKey,
+  //   handleXAxisLabel,
+  //   handleYAxisLabel,
+  //   handleHeight,
+  //   handleWidth
+  // }
 }) => {
+
+  const dispatch = useDispatch()
+
   return (
     // <Fragment>
     //   <div>Chart Customizer Form</div>
@@ -38,7 +50,8 @@ const BarChartForm = ({
             id="set-data"
             type="text"
             placeholder="Data"
-            onChange={handleData}
+            // onChange={handleData}
+            onChange={(e) => dispatch(changeData(e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -55,7 +68,8 @@ const BarChartForm = ({
             id="set-XKey"
             type="text"
             placeholder="X Key"
-            onChange={handleXKey}
+            // onChange={handleXKey}
+            onChange={(e) => dispatch(changeXKey(e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -72,7 +86,8 @@ const BarChartForm = ({
             id="set-YKey"
             type="text"
             placeholder="Y Key"
-            onChange={handleYKey}
+            // onChange={handleYKey}
+            onChange={(e) => dispatch(changeYKey(e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -89,7 +104,8 @@ const BarChartForm = ({
             id="set-xAxisLabel"
             type="text"
             placeholder="X Axis Label"
-            onChange={handleXAxisLabel}
+            // onChange={handleXAxisLabel}
+            onChange={(e) => dispatch(changeXAxisLabel(e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -106,7 +122,8 @@ const BarChartForm = ({
             id="set-yAxisLabel"
             type="text"
             placeholder="Y Axis Label"
-            onChange={handleYAxisLabel}
+            // onChange={handleYAxisLabel}
+            onChange={(e) => dispatch(changeYAxisLabel(e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -123,7 +140,8 @@ const BarChartForm = ({
             id="set-height"
             type="number"
             placeholder="Height"
-            onChange={handleHeight}
+            // onChange={handleHeight}
+            onChange={(e) => dispatch(changeHeight(+e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -140,7 +158,8 @@ const BarChartForm = ({
             id="set-width"
             type="number"
             placeholder="Width"
-            onChange={handleWidth}
+            // onChange={handleWidth}
+            onChange={(e) => dispatch(changeWidth(+e.target.value))}
           />
           {/* <p class="text-white text-xs italic">Please fill out this field.</p> */}
         </div>

@@ -20,6 +20,7 @@ import { sampleData } from '../../../../utils/dummypenguinsdata';
 import '../../../ChartComponents/chartstyles.css';
 import { generateChartCode } from '../../../../utils/CodePreview';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+import { useSelector, useDispatch } from 'react-redux'
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -31,27 +32,22 @@ We update state from the form, which the graph reads and re-renders from
 </BarChartContainer>
 */
 const BarChartContainer = (props) => {
-  // const [data, setData] = useState(JSON.parse(JSON.stringify(userEnteredData)));
-  // sampleData in Javascript format - see dummypenguinsdata.js
-  const [data, setData] = useState(sampleData);
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Species');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
+  // const [data, setData] = useState(sampleData);
+  // const [xKey, setXKey] = useState('');
+  // const [yKey, setYKey] = useState('');
+  // const [xAxisLabel, setXAxisLabel] = useState('X-axis: Species');
+  // const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
+  // const [height, setHeight] = useState(500);
+  // const [width, setWidth] = useState(500);
   // const [stateCodeRef, setStateCodeRef] = useState(null);
 
-  // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
-  // ex. can't change keys after getBarChartData2 since data is already filtered
-  // do we want to use this to return a filtered/grouped data set for something else ?
-  // useEffect(() => {
-  //   console.log('New set data is:')
-  //   console.log(getBarChartData2(data, xKey, yKey))
-  //   setData(prevData => getBarChartData2(data, xKey, yKey));
-  // }, []);
-
-  // console.log('You just rerendered the BarChartContainer')
+  const data = useSelector((state) => state.data.value);
+  const xKey = useSelector((state) => state.xKey.value);
+  const yKey = useSelector((state) => state.yKey.value);
+  const xAxisLabel = useSelector((state) => state.xAxisLabel.value);
+  const yAxisLabel = useSelector((state) => state.yAxisLabel.value);
+  const height = useSelector((state) => state.height.value);
+  const width = useSelector((state) => state.width.value);
 
   
   // Data must be input in JSON format
@@ -60,7 +56,6 @@ const BarChartContainer = (props) => {
     //Input data works for JSON format - see jsonpenguins.txt
     setData(JSON.parse(e.target.value));
   };
-
   // Data needs to be re-input as key changes, since grouped data is already set in state
   const handleXKey = (e) => {
     e.preventDefault();
@@ -114,7 +109,7 @@ const BarChartContainer = (props) => {
   };
 
   const name = 'BarChart';
-  const children = ['Chart', 'Axis_noticks', 'Axis', 'Rectangle'];
+  const children = ['Chart', 'Axis', 'Rectangle'];
   // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ]
   // everything placed between opening/closing tags is considered children
 
