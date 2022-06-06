@@ -25,7 +25,7 @@ const BarChartForm = ({
     //   <div>Chart Customizer Form</div>
     //   <section className="form">
     <form class=" w-full max-w-lg" onSubmit={() => {}}>
-      <div class="rounded flex flex-col flex-wrap -mx-3 mb-6 rounded ">
+      <div class="rounded flex flex-col flex-wrap -mx-3 mb-6">
         <div class="w-full px-3 mb-6 md:mb-0 rounded">
           <label
             class="block uppercase tracking-wide text-white text-xs font-bold mb-2 rounded"
