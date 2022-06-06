@@ -7,6 +7,7 @@ import { useChartDimensions } from "./Chart.jsx";
 const axisComponentsByDimension = {
   x: AxisHorizontal,
   y: AxisVertical,
+  xB: AxisBand,
 }
 const Axis = ({ dimension, ...props }) => {
   const dimensions = useChartDimensions()
@@ -101,6 +102,42 @@ function AxisVertical ({ dimensions, label, formatTick, scale, ...props }) {
           style={{
             transform: `translate(-56px, ${dimensions.boundedHeight / 2}px) rotate(-90deg)`
           }}
+        >
+          { label }
+        </text>
+      )}
+    </g>
+  )
+}
+
+function AxisBand ({ dimensions, label, formatTick, scale, data, ...props }) {
+  const numberOfTicks = dimensions.boundedWidth < 600
+        ? dimensions.boundedWidth / 100
+        : dimensions.boundedWidth / 250
+
+  const ticks = scale.domain();
+
+  return (
+    <g className="Axis AxisHorizontal" transform={`translate(0, ${dimensions.boundedHeight})`} {...props}>
+      <line
+        className="Axis__line"
+        x2={dimensions.boundedWidth}
+      />
+
+      {ticks.map((tick, i) => (
+        <text
+          key={tick}
+          className="Axis__tick"
+          transform={`translate(${scale(tick) + scale.bandwidth()/2 }, 25)`}
+        >
+          { (tick) }
+        </text>
+      ))}
+
+      {label && (
+        <text
+          className="Axis__label"
+          transform={`translate(${dimensions.boundedWidth / 2}, 60)`}
         >
           { label }
         </text>

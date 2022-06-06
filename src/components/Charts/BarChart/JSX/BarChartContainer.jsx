@@ -40,6 +40,7 @@ const BarChartContainer = (props) => {
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
+  // const [stateCodeRef, setStateCodeRef] = useState(null);
 
   // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
   // ex. can't change keys after getBarChartData2 since data is already filtered
@@ -52,8 +53,8 @@ const BarChartContainer = (props) => {
 
   // console.log('You just rerendered the BarChartContainer')
 
-  // What format is data going to be input? Currently Javascript object[], or if JSON format, we have to JSON parse/stringify input before setting state
-  //inputting custom data -> data.map is not a function
+  
+  // Data must be input in JSON format
   const handleData = (e) => {
     e.preventDefault();
     //Input data works for JSON format - see jsonpenguins.txt
@@ -83,13 +84,24 @@ const BarChartContainer = (props) => {
 
   const handleWidth = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setWidth(500);
+      return;
+    }
     setWidth(+e.target.value);
   };
 
   const handleHeight = (e) => {
     e.preventDefault();
+    if (+e.target.value < 100) {
+      console.log('Value must not be less than 100 px. Resetting to default.');
+      setHeight(500);
+      return;
+    }
     setHeight(+e.target.value);
   };
+ 
 
   const handlers = {
     handleData,
@@ -106,10 +118,10 @@ const BarChartContainer = (props) => {
   // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ]
   // everything placed between opening/closing tags is considered children
 
+
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-      
         <BarChartForm
           data={data}
           xKey={xKey}
@@ -144,36 +156,13 @@ const BarChartContainer = (props) => {
           height={height}
           width={width}
         />
+        {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>
-        <ExportDataButton/>
       </div>
     </div>
   );
 };
 
 export default BarChartContainer;
-
-// class BarChartContainer extends Component {
-//   constructor() {
-//     super(props);
-//     this.state = {
-//       data: [],
-//       xKey: 'xKey',
-//       yKey: 'yKey',
-//       xAxisLabel: 'xAxisLabel',
-//       yAxisLabel: 'yAxisLabel',
-//       height: '100',
-//       width: '100'
-//     }
-// }
-//     render() {
-//             return (
-//             <div className="barchartcontainer">
-//                 <BarChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></BarChartForm>
-//                 <BarChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></BarChart>
-//             </div>
-//             );
-//         }
-// }

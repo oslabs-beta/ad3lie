@@ -26,7 +26,7 @@ const HistogramContainer = (props) => {
   const [xKey, setXKey] = useState('humidity');
   const [yKey, setYKey] = useState('length');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
+  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Data Length');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
   const [thresholds, setThresholds] = useState(9);
@@ -37,8 +37,6 @@ const HistogramContainer = (props) => {
   const dateAccessor = d => parseDate(d.date)
   const temperatureAccessor = d => d.temperature
   const humidityAccessor = d => d.humidity
-
-  console.log(data)
 
 
   //causes infinite loop lmao
