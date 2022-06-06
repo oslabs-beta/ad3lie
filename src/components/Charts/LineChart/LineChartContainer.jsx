@@ -25,6 +25,7 @@ const LineChartContainer = (props) => {
   })
 
   const [data, setData] = useState(getNumbersData());
+  console.log(data)
   const [xKey, setXKey] = useState('humidity');
   const [yKey, setYKey] = useState('temperature');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
