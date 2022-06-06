@@ -10,7 +10,8 @@ contextBridge.exposeInMainWorld('electron', {
   path,
   __dirname,
   // dialog
-  showSaveDialogSync: () => ipcRenderer.send('show-save-dialog')
+  //difference between .send and .invoke?
+  showSaveDialog: () => ipcRenderer.invoke('show-save-dialog')
 });
 
 /* 
