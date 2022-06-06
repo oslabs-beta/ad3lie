@@ -45,3 +45,13 @@ export const handleHeight = (e) => {
   }
   setHeight(+e.target.value);
 };
+
+export const handleThresholds = (e) => {
+  e.preventDefault();
+  setThresholds(+e.target.value);
+};
+
+export const handleBarPadding = (e) => {
+  e.preventDefault();
+  setBarPadding(+e.target.value);
+};

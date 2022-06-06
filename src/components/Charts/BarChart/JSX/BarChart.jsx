@@ -81,18 +81,6 @@ Using useMemo for **referential equality** of depedencies: important for React h
     );
   });
 
-  // const BarChartChildren = React.Children.map(children[0].props.children, (child) => child);
-  // console.log(React.Children.count(children))
-
-  // React.Children -> children are Chart, Axis_noticks, Axis, Fragment ?
-
-  // const childrenProps = React.Children.map(children[0].props.children,
-  //  (child) => React.cloneElement(child, {
-  //     data : data,
-  //     // properties: properties
-  //  }));
-  //  console.log(childrenProps)
-  // to access you can use this.props.data or this.props.method in child component
 
   return (
     <div className="BarChart w-full top-0 left-0 h-full rounded" ref={ref}>
@@ -135,3 +123,17 @@ export default BarChart;
 //   xAccessor: d => d.x,
 //   yAccessor: d => d.y,
 // }
+
+
+  // const BarChartChildren = React.Children.map(children[0].props.children, (child) => child);
+  // console.log(React.Children.count(children))
+
+  // React.Children -> children are Chart, Axis_noticks, Axis, Fragment ?
+
+  // const childrenProps = React.Children.map(children[0].props.children,
+  //  (child) => React.cloneElement(child, {
+  //     data : data,
+  //     // properties: properties
+  //  }));
+  //  console.log(childrenProps)
+  // to access you can use this.props.data or this.props.method in child component

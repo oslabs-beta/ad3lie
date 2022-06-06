@@ -6,6 +6,8 @@ import xAxisLabelReducer from '../features/chart/xAxisLabelSlice';
 import yAxisLabelReducer from '../features/chart/yAxisLabelSlice';
 import heightReducer from '../features/chart/heightSlice';
 import widthReducer from '../features/chart/widthSlice';
+import thresholdsReducer from '../features/chart/thresholdsSlice';
+import barPaddingReducer from '../features/chart/barPaddingSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
     xAxisLabel: xAxisLabelReducer,
     yAxisLabel: yAxisLabelReducer,
     height: heightReducer,
-    width: widthReducer
+    width: widthReducer,
+    thresholds: thresholdsReducer,
+    barPadding: barPaddingReducer
   }
 });

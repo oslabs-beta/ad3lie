@@ -1,7 +1,22 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from "prop-types"
 
-const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding } }) => {
+import { useSelector, useDispatch } from 'react-redux'
+import { changeData } from '../../../../features/chart/dataSlice'
+import { changeXKey } from '../../../../features/chart/xKeySlice';
+import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
+import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
+import { changeHeight } from '../../../../features/chart/heightSlice';
+import { changeWidth } from '../../../../features/chart/widthSlice';
+import { changeThresholds } from '../../../../features/chart/thresholdsSlice';
+import { changeBarPadding } from '../../../../features/chart/barPaddingSlice';
+
+const HistogramForm = ({ 
+  // data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, 
+  // handlers: { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding } 
+}) => {
+
+  const dispatch = useDispatch()
   
   return (
     // <Fragment>
@@ -19,7 +34,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 type="text"
                 placeholder="Data"
                 // value={data}
-                onChange={handleData}
+                // onChange={handleData}
+                onChange={(e) => dispatch(changeData(e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -32,14 +48,16 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
               <input
                 id="set-XKey"
                 type="text"
-                placeholder="X Key"
+                placeholder="X Key: Numeric data"
                 // value={xKey}
-                onChange={handleXKey}
+                // onChange={handleXKey}
+                onChange={(e) => dispatch(changeXKey(e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             
-            {/* <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            {/* Y-Key removed since it will always be length for Histograms
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                 Y Key: string
               </label>
@@ -62,7 +80,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 type="text"
                 placeholder="X Axis Label"
                 // value={xAxisLabel}
-                onChange={handleXAxisLabel}
+                // onChange={handleXAxisLabel}
+                onChange={(e) => dispatch(changeXAxisLabel(e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -76,7 +95,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 type="text"
                 placeholder="Y Axis Label: Data Length"
                 // value={yAxisLabel}
-                onChange={handleYAxisLabel}
+                // onChange={handleYAxisLabel}
+                onChange={(e) => dispatch(changeYAxisLabel(e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -90,7 +110,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 type="number"
                 placeholder="Height"
                 // value={height}
-                onChange={handleHeight}
+                // onChange={handleHeight}
+                onChange={(e) => dispatch(changeHeight(+e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -104,7 +125,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 type="number"
                 placeholder="Width"
                 // value={width}
-                onChange={handleWidth}
+                // onChange={handleWidth}
+                onChange={(e) => dispatch(changeWidth(+e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -117,7 +139,8 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 id="set-thresholds"
                 type="number"
                 placeholder="Number of Bins"
-                onChange={handleThresholds}
+                // onChange={handleThresholds}
+                onChange={(e) => dispatch(changeThresholds(+e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -127,10 +150,11 @@ const HistogramForm = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width
                 Bar Padding: number
               </label>
               <input
-                id="set-thresholds"
+                id="set-barPadding"
                 type="number"
                 placeholder="Bar Padding"
-                onChange={handleBarPadding}
+                // onChange={handleBarPadding}
+                onChange={(e) => dispatch(changeBarPadding(+e.target.value))}
               />
               <p class="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>

@@ -7,6 +7,7 @@ import * as d3 from "d3"
 import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
 import { download } from '../../../../utils/ExportData';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+import { useSelector, useDispatch } from 'react-redux'
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -18,37 +19,33 @@ We update state from the form, which the graph reads and re-renders from
 </HistogramContainer>
 */
 const HistogramContainer = (props) => {
-  const getData = () => ({
-    scatter: getScatterData(),
-  })
+  // const getData = () => ({
+  //   scatter: getScatterData(),
+  // })
 
-  const [data, setData] = useState(getData().scatter);
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('length');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Data Length');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
-  const [thresholds, setThresholds] = useState(9);
-  const [barPadding, setBarPadding] = useState(2);
+  // const [data, setData] = useState(getData().scatter);
+  // const [xKey, setXKey] = useState('humidity');
+  // const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
+  // const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Data Length');
+  // const [height, setHeight] = useState(500);
+  // const [width, setWidth] = useState(500);
+  // const [thresholds, setThresholds] = useState(9);
+  // const [barPadding, setBarPadding] = useState(2);
 
+  const data = useSelector((state) => state.data.value);
+  const xKey = useSelector((state) => state.xKey.value);
+  const xAxisLabel = useSelector((state) => state.xAxisLabel.value);
+  const yAxisLabel = useSelector((state) => state.yAxisLabel.value);
+  const height = useSelector((state) => state.height.value);
+  const width = useSelector((state) => state.width.value);
+  const thresholds = useSelector((state) => state.thresholds.value);
+  const barPadding = useSelector((state) => state.barPadding.value);
 
-  const parseDate = d3.timeParse("%m/%d/%Y")
-  const dateAccessor = d => parseDate(d.date)
-  const temperatureAccessor = d => d.temperature
-  const humidityAccessor = d => d.humidity
-
-
-  //causes infinite loop lmao
   // useEffect(() => {
-  //   setData(getHistogramData(xKey, yKey, data));
-  // }, [data])
+  //   setData(prevData => getBarChartData(data, xKey, yKey));
+  // }, [])
 
-  useEffect(() => {
-    setData(prevData => getBarChartData(data, xKey, yKey));
-  }, [])
-
-  console.log('You just rerendered the HistogramContainer')
+  // console.log('You just rerendered the HistogramContainer')
 
   const handleData = (e) => {
     e.preventDefault();
