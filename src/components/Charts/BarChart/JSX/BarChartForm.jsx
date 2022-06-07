@@ -2,15 +2,25 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../ChartComponents/chartstyles.css';
 
+// import { useDispatch } from 'react-redux'
+// import { changeData } from '../../../../features/chart/dataSlice'
+// import { changeXKey } from '../../../../features/chart/xKeySlice';
+// import { changeYKey } from '../../../../features/chart/yKeySlice';
+// import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
+// import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
+// import { changeHeight } from '../../../../features/chart/heightSlice';
+// import { changeWidth } from '../../../../features/chart/widthSlice';
+
 import { useDispatch } from 'react-redux'
-import { changeData } from '../../../../features/chart/dataSlice'
-import { changeXKey } from '../../../../features/chart/xKeySlice';
-import { changeYKey } from '../../../../features/chart/yKeySlice';
-import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
-import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
-import { changeHeight } from '../../../../features/chart/heightSlice';
-import { changeWidth } from '../../../../features/chart/widthSlice';
-// import * from '../../../../features/chart';
+import { 
+changeData,
+changeXKey,
+changeYKey,
+changeXAxisLabel,
+changeYAxisLabel,
+changeHeight,
+changeWidth
+} from '../../../../features/chart/propsSlice'
 
 const Form = (props) => {
 
