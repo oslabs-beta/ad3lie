@@ -4,7 +4,7 @@ import LineChartForm from "./LineChartForm"
 import LineChartCodePreview from "./LineChartCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../Charts/ScatterPlot/App'
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getNumbersData, getUONumData } from '../../../utils/parseData.js'
+import { getScatterData, getTimelineData, getNumbersData, getLineData } from '../../../utils/parseData.js'
 import Line from '../../ChartComponents/JSX/Line.jsx'
 import Axis from '../../ChartComponents/JSX/Axis.jsx'
 import Chart from '../../ChartComponents/JSX/Chart.jsx'
@@ -24,7 +24,8 @@ const LineChartContainer = (props) => {
   //   line: getNumbersData(), // see ScatterPlot/App.jsx
   // })
 
-  const [data, setData] = useState(getNumbersData());
+  const [data, setData] = useState(getTimelineData());
+  // const [data, setData] = useState(getNumbersData());
   console.log(data)
   const [xKey, setXKey] = useState('');
   const [yKey, setYKey] = useState('');
@@ -41,7 +42,9 @@ const LineChartContainer = (props) => {
 
   const handleData = (e) => {
     e.preventDefault();
-    setData(JSON.parse(e.target.value));
+    // console.log('handleData: e.target.value: ', e.target.value)
+    setData(e.target.value);
+    // setData(JSON.parse(e.target.value));
   }
 
   const handleXKey = (e) => {
@@ -89,16 +92,32 @@ const LineChartContainer = (props) => {
   const children = ['Chart', 'Axis', 'Line'];
 
   return (
-    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
         <ExportDataButton></ExportDataButton>
-        <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}
-          handlers={handlers}></LineChartForm>
+        <LineChartForm
+          data={data}
+          xKey={xKey}
+          yKey={yKey}
+          xAxisLabel={xAxisLabel}
+          yAxisLabel={yAxisLabel}
+          height={height}
+          width={width}
+          handlers={handlers}
+        ></LineChartForm>
       </div>
-      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
-        <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChart>
+      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+        <LineChart
+          data={data}
+          xKey={xKey}
+          yKey={yKey}
+          xAxisLabel={xAxisLabel}
+          yAxisLabel={yAxisLabel}
+          height={height}
+          width={width}
+        ></LineChart>
       </div>
-      <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
+      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
         <LineChartCodePreview />
       </div>
     </div>

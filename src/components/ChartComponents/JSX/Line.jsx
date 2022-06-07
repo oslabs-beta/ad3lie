@@ -5,10 +5,31 @@ import { accessorPropsType, useAccessor } from "../../../utils/utils";
 
 const Line = ({ data, xAccessor, yAccessor, y0Accessor, /* type, interpolation, ...props */ }) => {
   // const lineGenerator = d3[type]()
-  const lineGenerator = d3.line()
-    .x(xAccessor)
-    .y(yAccessor)
-    .curve(d3.curveMonotoneX)
+
+  const info = []
+  for (let i = 0, v = 2; i < 50; ++i) {
+    v += Math.random() - 0.5;
+    v = Math.max(Math.min(v, 4), 0);
+    info.push({ step: i, value: v });
+  }
+  // console.log('info', info)
+
+  const walkX = d3.scaleLinear()
+    .domain([0, 49])
+    .range([10, 500 - 10])
+
+  const walkY = d3.scaleLinear()
+    .domain([0, 4])
+    .range([200 - 10, 10])
+
+  const line = d3.line()
+    .x(d => walkX(d.step))
+    .y(d => walkY(d.value))
+
+  // const lineGenerator = d3.line()
+  //   .x(xAccessor)
+  //   .y(yAccessor)
+  //   .curve(d3.curveMonotoneX)
 
   // console.log(lineGenerator)
   // console.log(data)
@@ -21,10 +42,25 @@ const Line = ({ data, xAccessor, yAccessor, y0Accessor, /* type, interpolation, 
   //     .y1(yAccessor)
   // }
 
+  // const line = d3.line()
+  //   .x(function (d) { return xScale(d[0]); })
+  //   .y(function (d) { return yScale(d[1]); })
+  //   .curve(d3.curveMonotoneX)
+
+  // svg.append("path")
+  //   .datum(dataset1)
+  // .attr("class", "line")
+  // .attr("transform", "translate(" + 100 + "," + 100 + ")")
+  // .attr("d", line)
+  // .style("fill", "none")
+  // .style("stroke", "#CC0000")
+  // .style("stroke-width", "2");
+
   return (
     <path /* {...props} */
       // className={`Line Line--type-${type}`}
-      d={lineGenerator(data)}
+      // className={`Line `}
+      d={line(data)}
     />
   )
 }
