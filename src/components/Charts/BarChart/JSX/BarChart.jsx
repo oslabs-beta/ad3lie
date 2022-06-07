@@ -8,17 +8,15 @@ import {
 import Axis from '../../../ChartComponents/JSX/Axis.jsx';
 import Rectangle from '../../../ChartComponents/JSX/Rectangle.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
-import {
-  parseDate,
-  dateAccessor,
-  temperatureAccessor,
-  humidityAccessor,
-  getData
-} from '../../ScatterPlot/App';
 import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
 
 
+/**
+ * Because of the way the user will import data in their customized code
+ *    ex. <BarChart data={data} xKey={xKey}.../>
+ * the base component template has to be able to take props supplied from MyBarChart.jsx
+ */
 
 const BarChart = (
   { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width },

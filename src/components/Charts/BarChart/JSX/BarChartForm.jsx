@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../ChartComponents/chartstyles.css';
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { changeData } from '../../../../features/chart/dataSlice'
 import { changeXKey } from '../../../../features/chart/xKeySlice';
 import { changeYKey } from '../../../../features/chart/yKeySlice';
@@ -10,25 +10,9 @@ import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
 import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
 import { changeHeight } from '../../../../features/chart/heightSlice';
 import { changeWidth } from '../../../../features/chart/widthSlice';
+// import * from '../../../../features/chart';
 
-const BarChartForm = ({
-  // data,
-  // xKey,
-  // yKey,
-  // xAxisLabel,
-  // yAxisLabel,
-  // height,
-  // width,
-  // handlers: {
-  //   handleData,
-  //   handleXKey,
-  //   handleYKey,
-  //   handleXAxisLabel,
-  //   handleYAxisLabel,
-  //   handleHeight,
-  //   handleWidth
-  // }
-}) => {
+const Form = (props) => {
 
   const dispatch = useDispatch()
 
@@ -181,6 +165,23 @@ export default BarChartForm;
 //   height: PropTypes.number,
 //   width: PropTypes.number,
 // }
+
+  // data,
+  // xKey,
+  // yKey,
+  // xAxisLabel,
+  // yAxisLabel,
+  // height,
+  // width,
+  // handlers: {
+  //   handleData,
+  //   handleXKey,
+  //   handleYKey,
+  //   handleXAxisLabel,
+  //   handleYAxisLabel,
+  //   handleHeight,
+  //   handleWidth
+  // }
 
 // Event Handlers here to update state dynamically, on change
 // Call some fn getData() to import? or pull from whereever we import the data from

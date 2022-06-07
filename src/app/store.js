@@ -8,9 +8,12 @@ import heightReducer from '../features/chart/heightSlice';
 import widthReducer from '../features/chart/widthSlice';
 import thresholdsReducer from '../features/chart/thresholdsSlice';
 import barPaddingReducer from '../features/chart/barPaddingSlice';
+import radiusReducer from '../features/chart/radiusSlice';
+import nameReducer from '../features/chart/nameSlice';
 
 export const store = configureStore({
   reducer: {
+    name: nameReducer,
     data: dataReducer,
     xKey: xKeyReducer,
     yKey: yKeyReducer,
@@ -19,6 +22,7 @@ export const store = configureStore({
     height: heightReducer,
     width: widthReducer,
     thresholds: thresholdsReducer,
-    barPadding: barPaddingReducer
+    barPadding: barPaddingReducer,
+    radius: radiusReducer
   }
 });

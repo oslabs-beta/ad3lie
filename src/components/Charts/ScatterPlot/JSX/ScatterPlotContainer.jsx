@@ -16,6 +16,7 @@ import { sampleData } from '../../../../utils/dummypenguinsdata';
 import "../../../ChartComponents/chartstyles.css"
 import { download } from '../../../../utils/ExportData';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+import { useSelector, useDispatch } from 'react-redux'
 
 // const getData = () => ({
 //   timeline: getTimelineData(),
@@ -23,14 +24,22 @@ import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton'
 // })
 
 function ScatterPlotContainer(props) {
-  const [data, setData] = useState(getScatterData());
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('temperature');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
-  const [radius, setRadius] = useState(5);
+  // const [data, setData] = useState(getScatterData());
+  // const [xKey, setXKey] = useState('humidity');
+  // const [yKey, setYKey] = useState('temperature');
+  // const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
+  // const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
+  // const [height, setHeight] = useState(500);
+  // const [width, setWidth] = useState(500);
+  // const [radius, setRadius] = useState(5);
+  const data = useSelector((state) => state.data.value);
+  const xKey = useSelector((state) => state.xKey.value);
+  const yKey = useSelector((state) => state.yKey.value);
+  const xAxisLabel = useSelector((state) => state.xAxisLabel.value);
+  const yAxisLabel = useSelector((state) => state.yAxisLabel.value);
+  const height = useSelector((state) => state.height.value);
+  const width = useSelector((state) => state.width.value);
+  const radius = useSelector((state) => state.radius.value);
 
   // useInterval(() => {
   //   setData(getScatterData())

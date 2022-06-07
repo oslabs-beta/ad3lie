@@ -2,26 +2,39 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../ChartComponents/chartstyles.css';
 
+import { useDispatch } from 'react-redux'
+import { changeData } from '../../../../features/chart/dataSlice'
+import { changeXKey } from '../../../../features/chart/xKeySlice';
+import { changeYKey } from '../../../../features/chart/yKeySlice';
+import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
+import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
+import { changeHeight } from '../../../../features/chart/heightSlice';
+import { changeWidth } from '../../../../features/chart/widthSlice';
+import { changeRadius } from '../../../../features/chart/radiusSlice';
+
 const ScatterPlotForm = ({
-  data,
-  xKey,
-  yKey,
-  xAxisLabel,
-  yAxisLabel,
-  height,
-  width,
-  radius,
-  handlers: {
-    handleData,
-    handleXKey,
-    handleYKey,
-    handleXAxisLabel,
-    handleYAxisLabel,
-    handleHeight,
-    handleWidth,
-    handleRadius
-  }
+  // data,
+  // xKey,
+  // yKey,
+  // xAxisLabel,
+  // yAxisLabel,
+  // height,
+  // width,
+  // radius,
+  // handlers: {
+  //   handleData,
+  //   handleXKey,
+  //   handleYKey,
+  //   handleXAxisLabel,
+  //   handleYAxisLabel,
+  //   handleHeight,
+  //   handleWidth,
+  //   handleRadius
+  // }
 }) => {
+
+  const dispatch = useDispatch()
+
   return (
     // <Fragment>
     //   <div>Chart Customizer Form</div>
@@ -40,7 +53,7 @@ const ScatterPlotForm = ({
             id="set-data"
             type="text"
             placeholder="Data"
-            onChange={handleData}
+            onChange={(e) => dispatch(changeData(e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -56,7 +69,8 @@ const ScatterPlotForm = ({
             id="set-XKey"
             type="text"
             placeholder="X Key. Numeric data only."
-            onChange={handleXKey}
+            onChange={(e) => dispatch(changeXKey(e.target.value))}
+
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -72,7 +86,7 @@ const ScatterPlotForm = ({
             id="set-YKey"
             type="text"
             placeholder="Y Key"
-            onChange={handleYKey}
+            onChange={(e) => dispatch(changeYKey(e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -88,7 +102,7 @@ const ScatterPlotForm = ({
             id="set-xAxisLabel"
             type="text"
             placeholder="X Axis Label"
-            onChange={handleXAxisLabel}
+            onChange={(e) => dispatch(changeXAxisLabel(e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -104,7 +118,7 @@ const ScatterPlotForm = ({
             id="set-yAxisLabel"
             type="text"
             placeholder="Y Axis Label"
-            onChange={handleYAxisLabel}
+            onChange={(e) => dispatch(changeYAxisLabel(e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -120,7 +134,7 @@ const ScatterPlotForm = ({
             id="set-height"
             type="number"
             placeholder="Height"
-            onChange={handleHeight}
+            onChange={(e) => dispatch(changeHeight(+e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -136,7 +150,7 @@ const ScatterPlotForm = ({
             id="set-width"
             type="number"
             placeholder="Width"
-            onChange={handleWidth}
+            onChange={(e) => dispatch(changeWidth(+e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
@@ -152,7 +166,7 @@ const ScatterPlotForm = ({
             id="set-radius"
             type="number"
             placeholder="Radius"
-            onChange={handleRadius}
+            onChange={(e) => dispatch(changeRadius(+e.target.value))}
           />
           {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
         </div>
