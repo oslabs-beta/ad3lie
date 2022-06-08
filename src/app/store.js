@@ -10,9 +10,13 @@ import thresholdsReducer from '../features/chart/thresholdsSlice';
 import barPaddingReducer from '../features/chart/barPaddingSlice';
 import radiusReducer from '../features/chart/radiusSlice';
 import nameReducer from '../features/chart/nameSlice';
+import chartsReducer from '../features/chart/chartsSlice';
+import propsReducer from '../features/chart/propsSlice';
 
 export const store = configureStore({
   reducer: {
+    charts: chartsReducer,
+    props: propsReducer,
     name: nameReducer,
     data: dataReducer,
     xKey: xKeyReducer,

@@ -10,6 +10,7 @@ import '../../../ChartComponents/chartstyles.css';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { changeName } from '../../../../features/chart/nameSlice';
 import { useSelector, useDispatch } from 'react-redux'
+import Form from '../../../ChartComponents/JSX/Form';
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -42,23 +43,14 @@ const BarChartContainer = () => {
   const name = 'BarChart';
   const children = ['Chart', 'Axis', 'Rectangle'];
 
-  dispatch(changeName(name))
+  // dispatch(changeName(name))
 
 
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-         <ChartForm
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-          handlers={handlers}
-        ></ChartForm>
-        <BarChartForm />
+         <Form />
+        {/* <BarChartForm /> */}
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 rounded">
         <BarChart
@@ -72,7 +64,7 @@ const BarChartContainer = () => {
         ></BarChart>
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-        <BarChartCodePreview
+        {/* <BarChartCodePreview
           name={name}
           data={data}
           children={children}
@@ -82,7 +74,7 @@ const BarChartContainer = () => {
           yAxisLabel={yAxisLabel}
           height={height}
           width={width}
-        />
+        /> */}
         {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">

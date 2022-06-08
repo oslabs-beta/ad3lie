@@ -22,7 +22,7 @@ changeHeight,
 changeWidth
 } from '../../../../features/chart/propsSlice'
 
-const Form = (props) => {
+const BarChartForm = (props) => {
 
   const dispatch = useDispatch()
 

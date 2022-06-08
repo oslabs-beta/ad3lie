@@ -24,13 +24,13 @@ export const chartsSlice = createSlice({
       state.type = 'barchart';
       state.children = ['Chart, Axis, Rectangle'];
       state.properties = [
-        data,
-        xKey,
-        yKey,
-        xAxisLabel,
-        yAxisLabel,
-        height,
-        width
+        'data',
+        'xKey',
+        'yKey',
+        'xAxisLabel',
+        'yAxisLabel',
+        'height',
+        'width'
       ];
     },
 
@@ -69,6 +69,6 @@ export const chartsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { changeCharts } = chartsSlice.actions;
+export const { barchart, scatterplot, histogram } = chartsSlice.actions;
 
 export default chartsSlice.reducer;

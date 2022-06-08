@@ -32,10 +32,22 @@ so you may also use Immer to write "mutating" immutable updates:
 action type: props/change*** 
 */
 
+// Technically I would have done like a changeProps on submit and then done
+// state.name = action.payload.name?
+// state.data = action.payload.data?
+// for each of the
+
 export const propsSlice = createSlice({
   name: 'props',
   initialState,
   reducers: {
+    changeProps: (state, action) => {
+      // state[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
+      const { name, value } = action.payload;
+      console.log(`Updating ${name}`);
+      state[name] = value;
+    },
+
     changeName: (state, action) => {
       console.log('Changing Chart name');
       state.name = action.payload;
@@ -111,6 +123,19 @@ export const propsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { changeProps } = propsSlice.actions;
+export const {
+  changeProps,
+  changeName,
+  changeData,
+  changeXKey,
+  changeYKey,
+  changeXAxisLabel,
+  changeYAxisLabel,
+  changeHeight,
+  changeWidth,
+  changeThresholds,
+  changeBarPadding,
+  changeRadius
+} = propsSlice.actions;
 
 export default propsSlice.reducer;
