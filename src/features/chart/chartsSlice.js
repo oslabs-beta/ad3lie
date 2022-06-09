@@ -39,14 +39,15 @@ export const chartsSlice = createSlice({
       state.type = 'histogram';
       state.children = ['Chart, Axis, Bars'];
       state.properties = [
-        data,
-        xKey,
-        xAxisLabel,
-        yAxisLabel,
-        height,
-        width,
-        thresholds,
-        barPadding
+        'data',
+        'xKey',
+        'yKey',
+        'xAxisLabel',
+        'yAxisLabel',
+        'height',
+        'width',
+        'thresholds',
+        'barPadding'
       ];
     },
 
@@ -55,14 +56,14 @@ export const chartsSlice = createSlice({
       state.type = 'scatterplot';
       state.children = ['Chart, Axis, Circles'];
       state.properties = [
-        data,
-        xKey,
-        yKey,
-        xAxisLabel,
-        yAxisLabel,
-        height,
-        width,
-        radius
+        'data',
+        'xKey',
+        'yKey',
+        'xAxisLabel',
+        'yAxisLabel',
+        'height',
+        'width',
+        'radius'
       ];
     }
   }

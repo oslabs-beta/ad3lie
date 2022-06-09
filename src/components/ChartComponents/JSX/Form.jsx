@@ -1,43 +1,12 @@
 import React, { Fragment, useState, useEffect, useCallback } from 'react';
-// import '../../../ChartComponents/chartstyles.css';
 import '../../ChartComponents/chartstyles.css'
-import { upperFirst } from 'lodash';
+import { snakeCase, upperFirst, camelCase, startCase } from 'lodash';
+import { useParams, useLocation } from "react-router";
 import { useSelector, useDispatch } from 'react-redux'
 
-// import { changeData } from '../../../../features/chart/dataSlice'
-// import { changeXKey } from '../../../../features/chart/xKeySlice';
-// import { changeYKey } from '../../../../features/chart/yKeySlice';
-// import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
-// import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
-// import { changeHeight } from '../../../../features/chart/heightSlice';
-// import { changeWidth } from '../../../../features/chart/widthSlice';
-// import * from '../../../../features/chart'; --> how to import all chart form input-specific reducers?
-// or if form is generic just import all reducers individually here lol
 
-  // const handleChange = useCallback(
-  //     value => {
-  //         onChange({
-  //             ...state.props,
-  //             state.props.p: e.target.value,
-  //         })
-  //     },
-  //     [onChange, state.props, p]
-  // );
 
-import { 
-changeProps,
-changeName,
-changeData,
-changeXKey,
-changeYKey,
-changeXAxisLabel,
-changeYAxisLabel,
-changeHeight,
-changeWidth,
-changeThresholds,
-changeBarPadding,
-changeRadius,
-} from '../../../features/chart/propsSlice';
+import { changeProps } from '../../../features/chart/propsSlice';
 
 import {
   barchart,
@@ -45,81 +14,58 @@ import {
   histogram,
 } from '../../../features/chart/chartsSlice';
 
+// Use of eval is discouraged because of XSS attacks. Using property accessors are faster and safer:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#accessing_member_properties
+  // // Stuff that didn't work w/ global eval: 
+  // window.$eval = eval;
+  // (function findChart() {
+  //   dispatch(window.$eval(`${name}`))
+  //   })(); 
+  // dispatch(window.$eval(`${name}()`)) // ReferenceError: Can't find variable: barchart
+ 
+
 
 const Form = () => {
-  // const id = `${snakeCase(groupName)}-${property.name}`
-  // const value = get(settings, property.name)
-  const type = useSelector((state) => state.charts.type);
-  // const controlConfig = 'control' in property ? property.control : undefined
-  // const properties = useSelector((state) => state.charts.properties);
-  // const children = useSelector((state) => state.charts.children);
+  const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
+
   const dispatch = useDispatch();
+  const { pathname } = useLocation(); // "/barchart" // useParams();
+  const name = pathname.slice(1); // "barchart"
 
-// useEffect = () => {
-//   console.log('Dispatching barchart1')
-  // dispatch(barchart());
-//   console.log('Dispatching barchart2')
-// , []}
+  dispatch(charts[name]());
+  const { type, children, properties }= useSelector((state) => state.charts)
 
-// const name = 'barchart';
-// const children = ['Chart', 'Axis', 'Rectangle'];
+  //Option 1: dispatch different types of actions to reducer (makes our reducer boilerplate-y)
+    // also it doesn't work lol
+    // onChange={(e) => {
+      //   e.preventDefault();
+      //   dispatch(eval(`change${upperFirst(p)}(${e.target.value})`)) //TypeError: 'changeXKey is not defined' even if we import the fn
+      // }}
+  //Option 2: let our reducer handle what gets updated
+  // pass input name/value to our single props reducer, which updates the props in state.props
 
-  // dispatch(changeName(name))
-
-
-    // const handleChange = useCallback(
-    //         e => {
-    //             e.preventDefault();
-    //             // onChange(e.target.value)
-    //             dispatch(change`${upperFirst(p)}`(e.target.value))
-    //         },
-    //         [onChange]
-        // )
-
-    const handleChange = useCallback (
-      (e) => {
-        e.preventDefault();
-        dispatch(changeProps({ name: e.target.name, value: e.target.value }))
-      },
-      [dispatch]
-    )
-
-    //Option 1: dispatch different types of actions to reducer (makes our reducer boilerplate-y)
-      //also it doesn't work lol
-      // const handleChange = event => ({
-      //   type: `change${upperFirst(p)}`,
-      //   value: event.target.value
-      // })
-    //Option 2: let our reducer handle what gets updated
-    // pass name/value to our reducer, which updates the props in state
-
-  
-const properties = ['data', 'xKey', 'yKey', 'xAxisLabel', 'yAxisLabel', 'height', 'width'];
+  const handleChange = useCallback ((e) => {
+      e.preventDefault();
+      dispatch(changeProps({ name: e.target.name, value: e.target.value }))
+    }, [dispatch]
+  )
 
   const inputs = properties.map((p) => (
     <div>
       <label>
         {/* `${type-p}` */}
-        {p}
+        {startCase(p)}
       </label>
       <textarea
         id={`set-${p}`}
         name={`${p}`}
-        placeholder={`${p}`}
-        //Option 1:
-        // onChange={(e) => {
-        //   e.preventDefault();
-        //   dispatch(eval(`change${upperFirst(p)}(${e.target.value})`)) //TypeError: 'changeXKey is not defined'
-        // }}
-        //Option2:
+        placeholder={`${startCase(p)}`}
         onChange={handleChange}
         > 
       </textarea>
     </div>
     )
   )
-
-  console.log(inputs)
 
   return (
     <form class=" w-full max-w-lg" onSubmit={() => {}}>
@@ -133,3 +79,34 @@ const properties = ['data', 'xKey', 'yKey', 'xAxisLabel', 'yAxisLabel', 'height'
 };
 
 export default Form;
+
+
+
+// import { 
+// changeProps,
+// changeName,
+// changeData,
+// changeXKey,
+// changeYKey,
+// changeXAxisLabel,
+// changeYAxisLabel,
+// changeHeight,
+// changeWidth,
+// changeThresholds,
+// changeBarPadding,
+// changeRadius,
+// } from '../../../features/chart/propsSlice';
+
+// import { changeData } from '../../../../features/chart/dataSlice'
+// import { changeXKey } from '../../../../features/chart/xKeySlice';
+// import { changeYKey } from '../../../../features/chart/yKeySlice';
+// import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
+// import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
+// import { changeHeight } from '../../../../features/chart/heightSlice';
+// import { changeWidth } from '../../../../features/chart/widthSlice';
+// import * from '../../../../features/chart'; --> how to import all chart form input-specific reducers?
+// or if form is generic just import all reducers individually here lol
+
+  // const type = useSelector((state) => state.charts.type);
+  // const properties = useSelector((state) => state.charts.properties);
+  // const children = useSelector((state) => state.charts.children);

@@ -3,6 +3,19 @@ import { sampleData } from '../../utils/dummypenguinsdata';
 //this slice/reducer should be the same as what handler fns do
 
 const initialState = {
+  props: {
+    data: sampleData,
+    xKey: '',
+    yKey: '',
+    xAxisLabel: 'X-axis: Species',
+    yAxisLabel: 'Y-axis: Body Mass',
+    height: 500,
+    width: 500,
+    thresholds: 9,
+    barPadding: 2,
+    radius: 5
+  },
+  name: '',
   data: sampleData,
   xKey: '',
   yKey: '',
@@ -35,12 +48,13 @@ action type: props/change***
 // Technically I would have done like a changeProps on submit and then done
 // state.name = action.payload.name?
 // state.data = action.payload.data?
-// for each of the
+// for each of the reducers, but this makes it hella boilerplate-y
 
 export const propsSlice = createSlice({
   name: 'props',
   initialState,
   reducers: {
+    //Values accessible by state.props.[name]
     changeProps: (state, action) => {
       // state[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
       const { name, value } = action.payload;

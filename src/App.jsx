@@ -23,13 +23,13 @@ export default () => {
         <div>
           <Routes>
             <Route path="/" element={ <Homepage />} />
-            <Route path="bar-chart" element={<BarChartContainer />} />
-            <Route path="line-chart" element={<LineChartContainer />} />
+            <Route path="barchart" element={<BarChartContainer />} />
+            <Route path="linechart" element={<LineChartContainer />} />
             <Route
-              path="scatter-plot-chart"
+              path="scatterplot"
               element={<ScatterPlotContainer />}
             />
-            <Route path="histogram-chart" element={<HistogramContainer />} />
+            <Route path="histogram" element={<HistogramContainer />} />
           </Routes>
         </div>
       </HashRouter>
