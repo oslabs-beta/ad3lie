@@ -28,7 +28,7 @@ const LineChartContainer = (props) => {
 
   const [data, setData] = useState(fakeTimelineData());
   // const [data, setData] = useState(getNumbersData());
-  console.log('data in linechart container: ', data)
+  // console.log('data in linechart container: ', data)
   const [xKey, setXKey] = useState('x');
   const [yKey, setYKey] = useState('y');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Days of Walking');
