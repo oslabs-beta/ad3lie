@@ -2,13 +2,13 @@ import React, { useState, useEffect, Fragment } from 'react';
 import LineChart from './LineChart';
 import LineChartForm from "./LineChartForm"
 import LineChartCodePreview from "./LineChartCodePreview"
-import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../Charts/ScatterPlot/App'
-import * as d3 from "d3"
-import { getScatterData, getTimelineData, getNumbersData, getLineData } from '../../../utils/parseData.js'
+// import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../Charts/ScatterPlot/App'
+// import * as d3 from "d3"
+// import { getScatterData, getTimelineData, getNumbersData, getLineData } from '../../../utils/parseData.js'
 import fakeTimelineData from '../../../utils/dummyTimelineData'
-import Line from '../../ChartComponents/JSX/Line.jsx'
-import Axis from '../../ChartComponents/JSX/Axis.jsx'
-import Chart from '../../ChartComponents/JSX/Chart.jsx'
+// import Line from '../../ChartComponents/JSX/Line.jsx'
+// import Axis from '../../ChartComponents/JSX/Axis.jsx'
+// import Chart from '../../ChartComponents/JSX/Chart.jsx'
 import { ExportDataButton } from '../../ChartComponents/JSX/ExportDataButton';
 
 /*
@@ -22,13 +22,7 @@ We update state from the form, which the graph reads and re-renders from
 */
 
 const LineChartContainer = (props) => {
-  // const getData = () => ({
-  //   line: getNumbersData(), // see ScatterPlot/App.jsx
-  // })
-
   const [data, setData] = useState(fakeTimelineData());
-  // const [data, setData] = useState(getNumbersData());
-  // console.log('data in linechart container: ', data)
   const [xKey, setXKey] = useState('x');
   const [yKey, setYKey] = useState('y');
   const [xAxisLabel, setXAxisLabel] = useState('X-axis: Days of Walking');
@@ -36,17 +30,9 @@ const LineChartContainer = (props) => {
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
-  // useEffect(() => {
-  //   setData(prevData => getNumbersData());
-  // }, [])
-
-  // console.log('You just rerendered the LineChartContainer')
-
   const handleData = (e) => {
     e.preventDefault();
-    // console.log('handleData: e.target.value: ', e.target.value)
     setData(e.target.value);
-    // setData(JSON.parse(e.target.value));
   }
 
   const handleXKey = (e) => {
@@ -127,32 +113,3 @@ const LineChartContainer = (props) => {
 }
 
 export default LineChartContainer
-
-
-
-
-
-
-
-// class LineChartContainer extends Component {
-//   constructor() {
-//     super(props);
-//     this.state = {
-//       data: [],
-//       xKey: 'xKey',
-//       yKey: 'yKey',
-//       xAxisLabel: 'xAxisLabel',
-//       yAxisLabel: 'yAxisLabel',
-//       height: '100',
-//       width: '100'
-//     }
-// }
-//     render() {
-//             return (
-//             <div className="LineChartcontainer">
-//                 <LineChartForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></LineChartForm>
-//                 <LineChart data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></LineChart>
-//             </div>
-//             );
-//         }
-// }

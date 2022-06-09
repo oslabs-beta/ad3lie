@@ -1,4 +1,4 @@
-//convert this to json
+// This generates random fake data to show for linechart
 const fakeTimelineData = () => {
   const timelineData = []
   for (let i = 0; i < 50; i++) {
