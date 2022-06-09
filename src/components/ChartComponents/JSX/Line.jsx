@@ -6,30 +6,23 @@ import { accessorPropsType, useAccessor } from "../../../utils/utils";
 const Line = ({ data, xAccessor, yAccessor, y0Accessor, width, height, /* type, interpolation, ...props */ }) => {
   // const lineGenerator = d3[type]()
 
-  const info = []
-  for (let i = 0, v = 2; i < 50; ++i) {
-    v += Math.random() - 0.5;
-    v = Math.max(Math.min(v, 4), 0);
-    info.push({ step: i, value: v });
-  }
-  // console.log('info', info)
+  // const walkX = d3.scaleLinear()
+  //   .domain([0, 49])
+  //   .range([0, width])
 
-  const walkX = d3.scaleLinear()
-    .domain([0, 49])
-    .range([0, width])
+  // const walkY = d3.scaleLinear()
+  //   .domain([0, 1])
+  //   .range([height, 0])
 
-  const walkY = d3.scaleLinear()
-    .domain([0, 1])
-    .range([height, 0])
+  // const line = d3.line()
+  //   .x(d => walkX(d.step))
+  //   .y(d => walkY(d.value))
 
-  const line = d3.line()
-    .x(d => walkX(d.step))
-    .y(d => walkY(d.value))
 
-  // const lineGenerator = d3.line()
-  //   .x(xAccessor)
-  //   .y(yAccessor)
-  //   .curve(d3.curveMonotoneX)
+  const lineGenerator = d3.line()
+    .x(xAccessor)
+    .y(yAccessor)
+    .curve(d3.curveMonotoneX)
 
   // console.log(lineGenerator)
   // console.log(data)
@@ -60,7 +53,7 @@ const Line = ({ data, xAccessor, yAccessor, y0Accessor, width, height, /* type, 
     <path /* {...props} */
       // className={`Line Line--type-${type}`}
       // className={`Line `}
-      d={line(data)}
+      d={lineGenerator(data)}
     />
   )
 }

@@ -5,6 +5,7 @@ import LineChartCodePreview from "./LineChartCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../Charts/ScatterPlot/App'
 import * as d3 from "d3"
 import { getScatterData, getTimelineData, getNumbersData, getLineData } from '../../../utils/parseData.js'
+import fakeTimelineData from '../../../utils/dummyTimelineData'
 import Line from '../../ChartComponents/JSX/Line.jsx'
 import Axis from '../../ChartComponents/JSX/Axis.jsx'
 import Chart from '../../ChartComponents/JSX/Chart.jsx'
@@ -19,18 +20,19 @@ We update state from the form, which the graph reads and re-renders from
     <LineChartCodePreview />
 </LineChartContainer>
 */
+
 const LineChartContainer = (props) => {
   // const getData = () => ({
   //   line: getNumbersData(), // see ScatterPlot/App.jsx
   // })
 
-  const [data, setData] = useState(getTimelineData());
+  const [data, setData] = useState(fakeTimelineData());
   // const [data, setData] = useState(getNumbersData());
-  console.log(data)
-  const [xKey, setXKey] = useState('date');
-  const [yKey, setYKey] = useState('temperature');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Date');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
+  console.log('data in linechart container: ', data)
+  const [xKey, setXKey] = useState('x');
+  const [yKey, setYKey] = useState('y');
+  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Days of Walking');
+  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Steps');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
 
@@ -88,7 +90,7 @@ const LineChartContainer = (props) => {
   }
   const handlers = { handleData, handleXKey, handleYKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight };
 
-  const name = 'BarChart';
+  const name = 'LineChart';
   const children = ['Chart', 'Axis', 'Line'];
 
   return (

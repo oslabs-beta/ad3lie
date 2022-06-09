@@ -13,11 +13,8 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
   // const xAccessor = useMemo(() =>(data) => data[xKey]);
   // const yAccessor = useMemo(() => (data) => data[yKey]);
 
-  // console.log('data in linechart: ', data)
   const xAccessor = (data) => data[xKey];
   const yAccessor = (data) => data[yKey];
-  // console.log('xAccessor in linechart: ', data[xKey])
-  // console.log('yAccessor in linechart: ', data[yKey])
 
   // const [ref, dimensions] = useChartDimensions()
   // const [ref, dimensions] = useChartDimensions({
@@ -43,7 +40,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
     .range([0, dimensions.boundedWidth])
     .nice();
 
-  // console.log('xScale: ', xScale)
+  // console.log('d3.extent(data, xAccessor): ', d3.extent(data, xAccessor))
 
   // const yScale = d3.scaleLinear()
   //   .domain(d3.extent(data, yAccessor))
@@ -55,6 +52,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
     .range([dimensions.boundedHeight, 0])
     .nice()
 
+  // console.log('d3.extent(data, yAccessor): ', d3.extent(data, yAccessor))
 
   const xAccessorScaled = d => xScale(xAccessor(d))
   const yAccessorScaled = d => yScale(yAccessor(d))
@@ -84,6 +82,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
           data={data}
           xAccessor={xAccessorScaled}
           yAccessor={yAccessorScaled}
+          y0Accessor={y0AccessorScaled}
           width={width}
           height={height}
         />

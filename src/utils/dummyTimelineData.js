@@ -1,12 +1,14 @@
 //convert this to json
-
-const timelineData = []
-for (let i = 0; i < 50; i++) {
-  const obj = {
-    x: i,
-    y: Math.random() * 100
+const fakeTimelineData = () => {
+  const timelineData = []
+  for (let i = 0; i < 50; i++) {
+    const obj = {
+      x: i,
+      y: Math.random() * 100
+    }
+    timelineData.push(obj)
   }
-  timelineData.push(obj)
+  return timelineData
 }
 
-export default timelineData
+export default fakeTimelineData
