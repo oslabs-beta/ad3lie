@@ -20,16 +20,18 @@ When we chooose a chart, we should go to each chart's container.
 The container specifies which props the generic components (Form, CodeRender) need to correctly generate the specific chart's components.
 
 <BarChartContainer>
-    <BarChartForm /> - does not need any props. can be accessed in store OR <ChartForm /> (generic) that we specify which props to pass in -> map out form inputs for each prop?
+    <Form /> - does not need any props. can be accessed in store OR <ChartForm /> (generic) that we specify which props to pass in -> map out form inputs for each prop?
     <BarChart /> needs to take in props
     <CodeRender /> - generic comp. needs to take in the specific props SPECIFIED by each chart's container. otherwise, the CodePreview will print out statements for every prop, which wouldn't make sense for <BarChart radius={radius} thresholds={thresholds}...etc.
 </BarChartContainer>
 */
 
 const BarChartContainer = () => {
-  // access store here if we want to use container to pass down props.
-  // or have each comp separately access state
-
+  // We select the props we need in each chart's container to specify which props to format/import for CodeRender,
+  // and due to the way each chart's component imports props
+      // Ex. we shouldn't pass down all of state.props to CodeRender b/c barchart doesn't use thresholds/barpadding/radius
+  const name = useSelector((state) => state.charts.type);
+  const children = useSelector((state) => state.charts.children);
   const data = useSelector((state) => state.props.data);
   const xKey = useSelector((state) => state.props.xKey);
   const yKey = useSelector((state) => state.props.yKey);
@@ -37,8 +39,25 @@ const BarChartContainer = () => {
   const yAxisLabel = useSelector((state) => state.props.yAxisLabel);
   const height = useSelector((state) => state.props.height);
   const width = useSelector((state) => state.props.width);
-  const name = useSelector((state) => state.charts.type);
-  const children = useSelector((state) => state.charts.children);
+
+  const props =  useSelector((state) => state.props); // object of all current props
+  const chartProps = useSelector((state) => state.charts.properties); // array of props<string[]> unique to current chart
+
+  console.log('All props:')
+  console.log(props)
+
+  console.log('Barchart props:')
+  console.log(chartProps)
+
+  //filtered prop object unique to each chart
+  const currProps = chartProps.reduce((acc, curr) => {
+    acc[curr] = props[curr];
+    return acc;
+  }, {});
+
+  console.log('Barchart current props:')
+  console.log(currProps)
+  
 
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
@@ -58,7 +77,19 @@ const BarChartContainer = () => {
         ></BarChart>
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-        <BarChartCodePreview
+        <CodeRender
+          name={name}
+          children={children}
+          // data={data}
+          // xKey={xKey}
+          // yKey={yKey}
+          // xAxisLabel={xAxisLabel}
+          // yAxisLabel={yAxisLabel}
+          // height={height}
+          // width={width}
+          currProps={currProps}
+        />
+        {/* <BarChartCodePreview
           name={name}
           data={data}
           children={children}
@@ -68,8 +99,7 @@ const BarChartContainer = () => {
           yAxisLabel={yAxisLabel}
           height={height}
           width={width}
-        />
-        {/* <CodeRender></CodeRender> */}
+        /> */}
         {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
