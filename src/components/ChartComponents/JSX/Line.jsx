@@ -23,6 +23,11 @@ const Line = ({ data, xAccessor, yAccessor, y0Accessor, width, height, /* type, 
     .x(xAccessor)
     .y(yAccessor)
     .curve(d3.curveMonotoneX)
+  // .attr('fill', 'transparent')
+
+  // const line = d3.line()
+  //   .x(d => x(d.x))
+  //   .y(d => y(d.y));
 
   // console.log(lineGenerator)
   // console.log(data)
@@ -53,6 +58,7 @@ const Line = ({ data, xAccessor, yAccessor, y0Accessor, width, height, /* type, 
     <path /* {...props} */
       // className={`Line Line--type-${type}`}
       // className={`Line `}
+      className="Line--type-line"
       d={lineGenerator(data)}
     />
   )
