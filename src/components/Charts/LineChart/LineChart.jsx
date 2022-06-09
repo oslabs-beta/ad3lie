@@ -62,8 +62,8 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
 
   // currently showing as undefined
   // console.log('data in linechart: ', data)
-  // console.log("xAccessor", xAccessorScaled)
-  // console.log("yAccessor", yAccessorScaled)
+  console.log("xAccessor", xAccessorScaled)
+  console.log("yAccessor", yAccessorScaled)
 
   return (
     <div className="LineChart w-full top-0 left-0 h-full" ref={ref}>
@@ -84,6 +84,8 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
           data={data}
           xAccessor={xAccessorScaled}
           yAccessor={yAccessorScaled}
+          width={width}
+          height={height}
         />
       </Chart>
     </div>

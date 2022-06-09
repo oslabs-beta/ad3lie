@@ -3,7 +3,7 @@ import React from "react"
 import * as d3 from "d3"
 import { accessorPropsType, useAccessor } from "../../../utils/utils";
 
-const Line = ({ data, xAccessor, yAccessor, y0Accessor, /* type, interpolation, ...props */ }) => {
+const Line = ({ data, xAccessor, yAccessor, y0Accessor, width, height, /* type, interpolation, ...props */ }) => {
   // const lineGenerator = d3[type]()
 
   const info = []
@@ -16,11 +16,11 @@ const Line = ({ data, xAccessor, yAccessor, y0Accessor, /* type, interpolation, 
 
   const walkX = d3.scaleLinear()
     .domain([0, 49])
-    .range([10, 500 - 10])
+    .range([0, width])
 
   const walkY = d3.scaleLinear()
-    .domain([0, 4])
-    .range([200 - 10, 10])
+    .domain([0, 1])
+    .range([height, 0])
 
   const line = d3.line()
     .x(d => walkX(d.step))

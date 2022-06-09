@@ -27,9 +27,9 @@ const LineChartContainer = (props) => {
   const [data, setData] = useState(getTimelineData());
   // const [data, setData] = useState(getNumbersData());
   console.log(data)
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
+  const [xKey, setXKey] = useState('date');
+  const [yKey, setYKey] = useState('temperature');
+  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Date');
   const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
