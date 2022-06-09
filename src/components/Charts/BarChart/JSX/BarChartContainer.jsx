@@ -25,26 +25,20 @@ The container specifies which props the generic components (Form, CodeRender) ne
     <CodeRender /> - generic comp. needs to take in the specific props SPECIFIED by each chart's container. otherwise, the CodePreview will print out statements for every prop, which wouldn't make sense for <BarChart radius={radius} thresholds={thresholds}...etc.
 </BarChartContainer>
 */
+
 const BarChartContainer = () => {
   // access store here if we want to use container to pass down props.
   // or have each comp separately access state
-  const data = useSelector((state) => state.data.value);
-  const xKey = useSelector((state) => state.xKey.value);
-  const yKey = useSelector((state) => state.yKey.value);
-  const xAxisLabel = useSelector((state) => state.xAxisLabel.value);
-  const yAxisLabel = useSelector((state) => state.yAxisLabel.value);
-  const height = useSelector((state) => state.height.value);
-  const width = useSelector((state) => state.width.value);
 
-  const dispatch = useDispatch()
-
-  // Name and children should only be changed when we navigate to a certain chart.
-  // So if we go nav to barchart, these values would be updated in state (tho i don't think we need to now)
-  const name = 'BarChart';
-  const children = ['Chart', 'Axis', 'Rectangle'];
-
-  // dispatch(changeName(name))
-
+  const data = useSelector((state) => state.props.data);
+  const xKey = useSelector((state) => state.props.xKey);
+  const yKey = useSelector((state) => state.props.yKey);
+  const xAxisLabel = useSelector((state) => state.props.xAxisLabel);
+  const yAxisLabel = useSelector((state) => state.props.yAxisLabel);
+  const height = useSelector((state) => state.props.height);
+  const width = useSelector((state) => state.props.width);
+  const name = useSelector((state) => state.charts.type);
+  const children = useSelector((state) => state.charts.children);
 
   return (
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
@@ -64,7 +58,7 @@ const BarChartContainer = () => {
         ></BarChart>
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-        {/* <BarChartCodePreview
+        <BarChartCodePreview
           name={name}
           data={data}
           children={children}
@@ -74,7 +68,8 @@ const BarChartContainer = () => {
           yAxisLabel={yAxisLabel}
           height={height}
           width={width}
-        /> */}
+        />
+        {/* <CodeRender></CodeRender> */}
         {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">

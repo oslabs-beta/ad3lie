@@ -4,8 +4,6 @@ import { snakeCase, upperFirst, camelCase, startCase } from 'lodash';
 import { useParams, useLocation } from "react-router";
 import { useSelector, useDispatch } from 'react-redux'
 
-
-
 import { changeProps } from '../../../features/chart/propsSlice';
 
 import {
@@ -14,35 +12,24 @@ import {
   histogram,
 } from '../../../features/chart/chartsSlice';
 
-// Use of eval is discouraged because of XSS attacks. Using property accessors are faster and safer:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#accessing_member_properties
-  // // Stuff that didn't work w/ global eval: 
-  // window.$eval = eval;
-  // (function findChart() {
-  //   dispatch(window.$eval(`${name}`))
-  //   })(); 
-  // dispatch(window.$eval(`${name}()`)) // ReferenceError: Can't find variable: barchart
- 
 
+// See below explanation on why we don't dynamically use eval() and instead use property accessors to send the correct payload instead
+ //Option 2: let our reducer handle what gets updated
+  // pass input name/value to our single props reducer, which updates the props in state.props
 
 const Form = () => {
+  // Using property accessors for our dispatch
   const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
 
   const dispatch = useDispatch();
   const { pathname } = useLocation(); // "/barchart" // useParams();
   const name = pathname.slice(1); // "barchart"
 
-  dispatch(charts[name]());
-  const { type, children, properties }= useSelector((state) => state.charts)
+  useEffect(() => {
+    dispatch(charts[name]());
+  }, [dispatch]);
 
-  //Option 1: dispatch different types of actions to reducer (makes our reducer boilerplate-y)
-    // also it doesn't work lol
-    // onChange={(e) => {
-      //   e.preventDefault();
-      //   dispatch(eval(`change${upperFirst(p)}(${e.target.value})`)) //TypeError: 'changeXKey is not defined' even if we import the fn
-      // }}
-  //Option 2: let our reducer handle what gets updated
-  // pass input name/value to our single props reducer, which updates the props in state.props
+  const { type, children, properties } = useSelector((state) => state.charts);
 
   const handleChange = useCallback ((e) => {
       e.preventDefault();
@@ -79,6 +66,23 @@ const Form = () => {
 };
 
 export default Form;
+
+// Use of eval is discouraged because of XSS attacks. Using property accessors are faster and safer:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#accessing_member_properties
+  // // Stuff that didn't work w/ global eval: 
+  // window.$eval = eval;
+  // Charts:
+    // (function findChart() {
+    //   dispatch(window.$eval(`${name}`))
+    //   })(); 
+    // dispatch(window.$eval(`${name}()`)) // ReferenceError: Can't find variable: barchart
+  // Props: 
+    //Option 1: dispatch different types of actions to reducer (makes our reducer boilerplate-y)
+    // also it doesn't work lol
+    // onChange={(e) => {
+      //   e.preventDefault();
+      //   dispatch(eval(`change${upperFirst(p)}(${e.target.value})`)) //TypeError: 'changeXKey is not defined' even if we import the fn
+      // }}
 
 
 

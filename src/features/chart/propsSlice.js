@@ -69,7 +69,7 @@ export const propsSlice = createSlice({
         numVal = +value < 100 ? 500 : parseInt(value);
       else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);
 
-      state[name] = dataVal || numVal || value;
+      state[name] = numVal || dataVal || value;
     },
 
     changeName: (state, action) => {

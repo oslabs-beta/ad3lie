@@ -1,13 +1,23 @@
 import React, { useState, useEffect, useCallback, Fragment } from 'react';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../utils/CodePreview';
 
+  // name={name}
+  //         data={data}
+  //         children={children}
+  //         xKey={xKey}
+  //         yKey={yKey}
+  //         xAxisLabel={xAxisLabel}
+  //         yAxisLabel={yAxisLabel}
+  //         height={height}
+  //         width={width}
+
 const CodeRender = ({ name, data, children, ...codeProps }) => {
 
   const code = generateChartCode(`${name}`, codeProps, {
       dataKey: data !== undefined ? 'data' : undefined,
       children: children,
       defaults: {},
-    //   pkg: 'barchart',
+      // pkg: 'barchart',
   })
 
   // References created by useRef itself do not trigger component rerenders, and at the start of the first render, it will be null

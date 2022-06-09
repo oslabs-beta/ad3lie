@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback, Fragment } from 'react';
+import { upperFirst } from 'lodash';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../../utils/CodePreview';
 
 const BarChartCodePreview = ({ name, data, children, ...codeProps }) => {
 
-  const code = generateChartCode(`${name}`, codeProps, {
+  const code = generateChartCode(`${upperFirst(name)}`, codeProps, {
       dataKey: data !== undefined ? 'data' : undefined,
       children: children,
       defaults: {},
