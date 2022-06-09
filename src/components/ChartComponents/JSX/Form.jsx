@@ -1,44 +1,24 @@
-import React, { Fragment, useState, useEffect, useCallback } from 'react';
+import React, { Fragment, useEffect, useCallback } from 'react';
 import '../../ChartComponents/chartstyles.css'
-import { snakeCase, upperFirst, camelCase, startCase } from 'lodash';
-import { useParams, useLocation } from "react-router";
-import { useSelector, useDispatch } from 'react-redux'
-
+import { startCase } from 'lodash';
+import { useDispatch } from 'react-redux'
 import { changeProps } from '../../../features/chart/propsSlice';
-
-import {
-  barchart,
-  scatterplot,
-  histogram,
-} from '../../../features/chart/chartsSlice';
-
 
 // See below explanation on why we don't dynamically use eval() and instead use property accessors to send the correct payload instead
  //Option 2: let our reducer handle what gets updated
   // pass input name/value to our single props reducer, which updates the props in state.props
 
-const Form = () => {
-  // // Using property accessors for our dispatch
-  // const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
-
+const Form = ({ properties }) => {
   const dispatch = useDispatch();
-  // const { pathname } = useLocation(); // "/barchart" // useParams();
-  // const name = pathname.slice(1); // "barchart"
-
-  // useEffect(() => {
-  //   dispatch(charts[name]());
-  // }, [dispatch]);
-
-  const { type, children, properties } = useSelector((state) => state.charts);
-
+  
   const handleChange = useCallback ((e) => {
       e.preventDefault();
       dispatch(changeProps({ name: e.target.name, value: e.target.value }))
     }, [dispatch]
   )
 
-  const inputs = properties.map((p) => (
-    <div>
+  const inputs = properties.map((p,i) => (
+    <div key={i}>
       <label>
         {/* `${type-p}` */}
         {startCase(p)}

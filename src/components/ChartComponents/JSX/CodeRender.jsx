@@ -2,12 +2,9 @@ import React, { useState, useEffect, useCallback, Fragment } from 'react';
 import { upperFirst } from 'lodash';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../utils/CodePreview';
 
-const CodeRender = ({ name, children, currProps, currProps: { data }, ...codeProps }) => {
+const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
 
-  console.log("currProps in CodeRender is:")
-  console.log(data)
-
-delete currProps.data; // otherwise the entire dataset will be printed to the screen 
+  delete currProps.data; // otherwise the entire dataset will be printed to the screen 
 
   const code = generateChartCode(`${upperFirst(name)}`, currProps, {
       dataKey: data !== undefined ? 'data' : undefined,
@@ -29,7 +26,6 @@ delete currProps.data; // otherwise the entire dataset will be printed to the sc
     }, []);
     return [node, setCodeRef]
   }
-
   const [codeRef, setCodeRef] = useCodeRef(node => node)
 
   // To reflect on every code change, we use useEffect to reassign the new codeRef on rerender

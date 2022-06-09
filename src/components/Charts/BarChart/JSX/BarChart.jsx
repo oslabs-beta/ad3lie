@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useMemo, Fragment } from 'react';
 import * as d3 from 'd3';
-import PropTypes from 'prop-types';
-import {
-  useChartDimensions,
-  accessorPropsType
+import { useChartDimensions,
 } from '../../../../utils/utils.js';
 import Axis from '../../../ChartComponents/JSX/Axis.jsx';
 import Rectangle from '../../../ChartComponents/JSX/Rectangle.jsx';
@@ -12,18 +9,16 @@ import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
 import { sampleData } from '../../../../utils/dummypenguinsdata.js';
 
-
 /**
  * Because of the way the user will import data in their customized code
  *    ex. <BarChart data={data} xKey={xKey}.../>
  * the base component template has to be able to take props supplied from MyBarChart.jsx
  */
 
-// = ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
-
 const BarChart 
-= ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, currProps }, ...props) => {
-  // = ({ data, currProps, currProps: { xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
+  = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
+  // = ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
+
 /*
 Using useMemo for **referential equality** of depedencies: important for React hooks
 2 common use cases of useMemo:
@@ -104,23 +99,6 @@ Using useMemo for **referential equality** of depedencies: important for React h
 };
 
 export default BarChart;
-
-// BarChart.propTypes = {
-//   data: PropTypes.array,
-//   xKey: PropTypes.string,
-//   yKey: PropTypes.string,
-//   xAxisLabel: PropTypes.string,
-//   yAxisLabel: PropTypes.string,
-//   height: PropTypes.number,
-//   width: PropTypes.number,
-//   xAccessor: accessorPropsType,
-//   yAccessor: accessorPropsType,
-// }
-
-// BarChart.defaultProps = {
-//   xAccessor: d => d.x,
-//   yAccessor: d => d.y,
-// }
 
 
   // const BarChartChildren = React.Children.map(children[0].props.children, (child) => child);
