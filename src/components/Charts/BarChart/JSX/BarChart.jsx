@@ -10,6 +10,7 @@ import Rectangle from '../../../ChartComponents/JSX/Rectangle.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
+import { sampleData } from '../../../../utils/dummypenguinsdata.js';
 
 
 /**
@@ -18,11 +19,11 @@ import '../../../../styles.css';
  * the base component template has to be able to take props supplied from MyBarChart.jsx
  */
 
-const BarChart = (
-  { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width },
-  ...props
-) => {
+// = ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
 
+const BarChart 
+= ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, currProps }, ...props) => {
+  // = ({ data, currProps, currProps: { xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
 /*
 Using useMemo for **referential equality** of depedencies: important for React hooks
 2 common use cases of useMemo:
@@ -78,7 +79,6 @@ Using useMemo for **referential equality** of depedencies: important for React h
       />
     );
   });
-
 
   return (
     <div className="BarChart w-full top-0 left-0 h-full rounded" ref={ref}>

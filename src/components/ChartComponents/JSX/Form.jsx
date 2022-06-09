@@ -18,16 +18,16 @@ import {
   // pass input name/value to our single props reducer, which updates the props in state.props
 
 const Form = () => {
-  // Using property accessors for our dispatch
-  const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
+  // // Using property accessors for our dispatch
+  // const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
 
   const dispatch = useDispatch();
-  const { pathname } = useLocation(); // "/barchart" // useParams();
-  const name = pathname.slice(1); // "barchart"
+  // const { pathname } = useLocation(); // "/barchart" // useParams();
+  // const name = pathname.slice(1); // "barchart"
 
-  useEffect(() => {
-    dispatch(charts[name]());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(charts[name]());
+  // }, [dispatch]);
 
   const { type, children, properties } = useSelector((state) => state.charts);
 

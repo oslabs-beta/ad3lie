@@ -1,4 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
+import chartsReducer from '../features/chart/chartsSlice';
+import propsReducer from '../features/chart/propsSlice';
+
+export const store = configureStore({
+  reducer: {
+    charts: chartsReducer,
+    props: propsReducer
+  }
+});
+
+// import { configureStore } from '@reduxjs/toolkit';
 // import dataReducer from '../features/chart/dataSlice';
 // import xKeyReducer from '../features/chart/xKeySlice';
 // import yKeyReducer from '../features/chart/yKeySlice';
@@ -10,15 +21,8 @@ import { configureStore } from '@reduxjs/toolkit';
 // import barPaddingReducer from '../features/chart/barPaddingSlice';
 // import radiusReducer from '../features/chart/radiusSlice';
 // import nameReducer from '../features/chart/nameSlice';
-import chartsReducer from '../features/chart/chartsSlice';
-import propsReducer from '../features/chart/propsSlice';
-
-export const store = configureStore({
-  reducer: {
-    charts: chartsReducer,
-    props: propsReducer
-  }
-});
+// import chartsReducer from '../features/chart/chartsSlice';
+// import propsReducer from '../features/chart/propsSlice';
 
 // export const store = configureStore({
 //   reducer: {

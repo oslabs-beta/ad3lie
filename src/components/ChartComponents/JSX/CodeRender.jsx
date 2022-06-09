@@ -4,7 +4,11 @@ import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../.
 
 const CodeRender = ({ name, children, currProps, currProps: { data }, ...codeProps }) => {
 
-console.log(typeof currProps)
+  console.log("currProps in CodeRender is:")
+  console.log(data)
+
+delete currProps.data; // otherwise the entire dataset will be printed to the screen 
+
   const code = generateChartCode(`${upperFirst(name)}`, currProps, {
       dataKey: data !== undefined ? 'data' : undefined,
       children: children,

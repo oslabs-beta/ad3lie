@@ -12,15 +12,15 @@ import '../../../ChartComponents/chartstyles.css';
 // import { changeWidth } from '../../../../features/chart/widthSlice';
 
 import { useDispatch } from 'react-redux'
-import { 
-changeData,
-changeXKey,
-changeYKey,
-changeXAxisLabel,
-changeYAxisLabel,
-changeHeight,
-changeWidth
-} from '../../../../features/chart/propsSlice'
+// import { 
+// changeData,
+// changeXKey,
+// changeYKey,
+// changeXAxisLabel,
+// changeYAxisLabel,
+// changeHeight,
+// changeWidth
+// } from '../../../../features/chart/propsSlice'
 
 const BarChartForm = (props) => {
 

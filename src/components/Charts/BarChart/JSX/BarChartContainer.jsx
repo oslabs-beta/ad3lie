@@ -1,8 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import * as d3 from 'd3';
 import BarChart from './BarChart';
-import BarChartForm from './BarChartForm';
-import BarChartCodePreview from './BarChartCodePreview';
+import Form from '../../../ChartComponents/JSX/Form';
 import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import { userEnteredData } from '../../ScatterPlot/EnteredData';
 import { sampleData } from '../../../../utils/dummypenguinsdata';
@@ -10,7 +9,15 @@ import '../../../ChartComponents/chartstyles.css';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { changeName } from '../../../../features/chart/nameSlice';
 import { useSelector, useDispatch } from 'react-redux'
-import Form from '../../../ChartComponents/JSX/Form';
+import { useParams, useLocation } from "react-router";
+
+import {
+  barchart,
+  scatterplot,
+  histogram,
+} from "../../../../features/chart/chartsSlice"
+
+
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -27,11 +34,30 @@ The container specifies which props the generic components (Form, CodeRender) ne
 */
 
 const BarChartContainer = () => {
+
+  // Using property accessors for our dispatch
+  const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
+
+  const dispatch = useDispatch();
+  const { pathname } = useLocation(); // "/barchart" // useParams();
+  const name = pathname.slice(1); // "barchart"
+  console.log(name)
+
+  useEffect(() => {
+    console.log("dispatching chart")
+    dispatch(charts[name]());
+  }, [dispatch]);
+
+  const { type, children, properties } = useSelector((state) => state.charts);
+
+
+
   // We select the props we need in each chart's container to specify which props to format/import for CodeRender,
   // and due to the way each chart's component imports props
       // Ex. we shouldn't pass down all of state.props to CodeRender b/c barchart doesn't use thresholds/barpadding/radius
-  const name = useSelector((state) => state.charts.type);
-  const children = useSelector((state) => state.charts.children);
+  const chart = useSelector((state) => state.charts);
+  // const name = useSelector((state) => state.charts.type);
+  // const children = useSelector((state) => state.charts.children);
   const data = useSelector((state) => state.props.data);
   const xKey = useSelector((state) => state.props.xKey);
   const yKey = useSelector((state) => state.props.yKey);
@@ -60,6 +86,8 @@ const BarChartContainer = () => {
   
 
   return (
+<Fragment>
+  {chart && currProps && 
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
          <Form />
@@ -67,6 +95,8 @@ const BarChartContainer = () => {
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 rounded">
         <BarChart
+          // pass down currProps, destructure needed vars in BarChart component?
+          // currProps={currProps} // barchart action not dispatched? 
           data={data}
           xKey={xKey}
           yKey={yKey}
@@ -80,6 +110,7 @@ const BarChartContainer = () => {
         <CodeRender
           name={name}
           children={children}
+          currProps={currProps}
           // data={data}
           // xKey={xKey}
           // yKey={yKey}
@@ -87,25 +118,15 @@ const BarChartContainer = () => {
           // yAxisLabel={yAxisLabel}
           // height={height}
           // width={width}
-          currProps={currProps}
         />
-        {/* <BarChartCodePreview
-          name={name}
-          data={data}
-          children={children}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-        /> */}
         {/* <ExportDataButton data={data} name={name}/> */}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>
       </div>
     </div>
+    }
+    </Fragment>
   );
 };
 
