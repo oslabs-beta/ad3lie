@@ -9,18 +9,8 @@ import { useChartDimensions, accessorPropsType } from '../../../utils/utils.js';
 // const formatDate = d3.timeFormat("%-b %-d")
 
 const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
-  // const xAccessor = useMemo(() => (data) => data[xKey]);
-  // const xAccessor = useMemo(() =>(data) => data[xKey]);
-  // const yAccessor = useMemo(() => (data) => data[yKey]);
-
   const xAccessor = (data) => data[xKey];
   const yAccessor = (data) => data[yKey];
-
-  // const [ref, dimensions] = useChartDimensions()
-  // const [ref, dimensions] = useChartDimensions({
-  //   height: height,
-  //   width: width,
-  // })
 
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
@@ -28,40 +18,20 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
     width: width,
   })
 
-  // For data on x-scale.
-  // const xScale = d3.scaleLinear()
-  //   .domain(d3.extent(data, xAccessor))
-  //   .range([0, dimensions.boundedWidth])
-  //   .nice()
-
   const xScale = d3
     .scaleLinear() // returns position within domain and range
     .domain(d3.extent(data, xAccessor)) // sets domain with an array [0.2693916329035372, 0.7248443066197088]
     .range([0, dimensions.boundedWidth])
     .nice();
 
-  // console.log('d3.extent(data, xAccessor): ', d3.extent(data, xAccessor))
-
-  // const yScale = d3.scaleLinear()
-  //   .domain(d3.extent(data, yAccessor))
-  //   .range([dimensions.boundedHeight, 0])
-  //   .nice()
-
   const yScale = d3.scaleLinear()
     .domain(d3.extent(data, yAccessor))
     .range([dimensions.boundedHeight, 0])
     .nice()
 
-  // console.log('d3.extent(data, yAccessor): ', d3.extent(data, yAccessor))
-
   const xAccessorScaled = d => xScale(xAccessor(d))
   const yAccessorScaled = d => yScale(yAccessor(d))
   const y0AccessorScaled = yScale(yScale.domain()[0])
-
-  // currently showing as undefined
-  // console.log('data in linechart: ', data)
-  // console.log("xAccessor", xAccessorScaled)
-  // console.log("yAccessor", yAccessorScaled)
 
   return (
     <div className="LineChart w-full top-0 left-0 h-full" ref={ref}>

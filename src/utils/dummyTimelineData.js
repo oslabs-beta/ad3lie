@@ -1,5 +1,5 @@
-//convert this to json
-const fakeTimelineData = () => {
+// This generates random fake data to show for linechart
+const fakelineData = () => {
   const timelineData = []
   for (let i = 0; i < 50; i++) {
     const obj = {
