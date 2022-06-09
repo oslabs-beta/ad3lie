@@ -3,18 +3,18 @@ import { sampleData } from '../../utils/dummypenguinsdata';
 //this slice/reducer should be the same as what handler fns do
 
 const initialState = {
-  props: {
-    data: sampleData,
-    xKey: '',
-    yKey: '',
-    xAxisLabel: 'X-axis: Species',
-    yAxisLabel: 'Y-axis: Body Mass',
-    height: 500,
-    width: 500,
-    thresholds: 9,
-    barPadding: 2,
-    radius: 5
-  },
+  // props: {
+  //   data: sampleData,
+  //   xKey: '',
+  //   yKey: '',
+  //   xAxisLabel: 'X-axis: Species',
+  //   yAxisLabel: 'Y-axis: Body Mass',
+  //   height: 500,
+  //   width: 500,
+  //   thresholds: 9,
+  //   barPadding: 2,
+  //   radius: 5
+  // },
   name: '',
   data: sampleData,
   xKey: '',
@@ -57,9 +57,19 @@ export const propsSlice = createSlice({
     //Values accessible by state.props.[name]
     changeProps: (state, action) => {
       // state[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
+      let dataVal;
+      let numVal;
       const { name, value } = action.payload;
+      console.log(typeof name);
       console.log(`Updating ${name}`);
-      state[name] = value;
+
+      if (name === 'data') dataVal = JSON.parse(value);
+
+      if (name === 'height' || 'width' || 'thresholds' || 'barPadding')
+        numVal = +value < 100 ? 500 : parseInt(value);
+      else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);
+
+      state[name] = dataVal || numVal || value;
     },
 
     changeName: (state, action) => {
