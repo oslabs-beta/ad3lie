@@ -6,6 +6,7 @@ import { accessorPropsType } from "../../../utils/utils.js";
 const Line = ({ type, data, xAccessor, yAccessor, y0Accessor, interpolation, ...props }) => {
   const lineGenerator = d3[type]()
     .x(xAccessor)
+    .y0(d=> Math.min(0, yscale(yAccessor)))
     .y(yAccessor)
     .curve(interpolation)
   
