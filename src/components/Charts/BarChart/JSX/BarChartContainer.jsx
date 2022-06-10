@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import BarChart from './BarChart';
 import BarChartForm from './BarChartForm';
 import BarChartCodePreview from './BarChartCodePreview';
+import { Link } from 'react-router-dom';
 import {
   parseDate,
   dateAccessor,
@@ -119,48 +120,51 @@ const BarChartContainer = (props) => {
 
 
   return (
-    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
-      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-        <BarChartForm
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-          handlers={handlers}
-        ></BarChartForm>
+    <Fragment>
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+        <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <BarChartForm
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            handlers={handlers}
+          ></BarChartForm>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+          <BarChart
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+          ></BarChart>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+          <BarChartCodePreview
+            name={name}
+            data={data}
+            children={children}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+          />
+          {/* <ExportDataButton data={data} name={name}/> */}
+        </div>
+        <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+          <button class="glass w-32 text-white">Import</button>
+        </div>
       </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
-        <BarChart
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-        ></BarChart>
-      </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-        <BarChartCodePreview
-          name={name}
-          data={data}
-          children={children}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-        />
-        {/* <ExportDataButton data={data} name={name}/> */}
-      </div>
-      <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
-        <button class="glass w-32 text-white">Import</button>
-      </div>
-    </div>
+    </Fragment>
   );
 };
 

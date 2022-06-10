@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import LineChart from './LineChart';
 import LineChartForm from "./LineChartForm"
 import LineChartCodePreview from "./LineChartCodePreview"
@@ -80,35 +81,38 @@ const LineChartContainer = (props) => {
   const children = ['Chart', 'Axis', 'Line'];
 
   return (
-    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
-      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-        <ExportDataButton></ExportDataButton>
-        <LineChartForm
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-          handlers={handlers}
-        ></LineChartForm>
+    <Fragment>
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+      <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+        <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <ExportDataButton></ExportDataButton>
+          <LineChartForm
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            handlers={handlers}
+          ></LineChartForm>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+          <LineChart
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+          ></LineChart>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+          <LineChartCodePreview />
+        </div>
       </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
-        <LineChart
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-        ></LineChart>
-      </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-        <LineChartCodePreview />
-      </div>
-    </div>
+    </Fragment>
   );
 }
 
