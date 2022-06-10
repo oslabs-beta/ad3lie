@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sampleData } from '../../utils/dummypenguinsdata';
+import { sampleFruitData } from '../../utils/dummyfruitsdata';
 //this slice/reducer is the functionality of our generic handleChange
 
 /* Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -30,7 +31,11 @@ const initialState = {
   width: 500,
   thresholds: 9,
   barPadding: 2,
-  radius: 5
+  radius: 5,
+  innerRadius: 0,
+  outerRadius: 100,
+  label: '',
+  pieValue: ''
 };
 
 export const propsSlice = createSlice({
@@ -48,6 +53,10 @@ export const propsSlice = createSlice({
       if (name === 'height' || name === 'width')
         numVal = +value < 100 ? 500 : parseInt(value);
       else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);
+      else if (name === 'outerRadius')
+        numVal = +value > 100 ? 100 : parseInt(value);
+      else if (name === 'innerRadius')
+        numVal = +value > state.outerRadius ? 0 : parseInt(value);
       else if (name === 'barPadding' || name === 'thresholds') numVal = +value;
 
       state[name] = dataVal || numVal || value;

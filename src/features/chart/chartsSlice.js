@@ -64,11 +64,25 @@ export const chartsSlice = createSlice({
         'width',
         'radius'
       ];
+    },
+
+    piechart: (state, action) => {
+      console.log('Selecting piechart type, children, and properties');
+      state.type = 'piechart';
+      state.children = ['Pie'];
+      state.properties = [
+        'data',
+        'innerRadius',
+        'outerRadius',
+        'label',
+        'pieValue'
+      ];
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { barchart, scatterplot, histogram } = chartsSlice.actions;
+export const { barchart, scatterplot, histogram, piechart } =
+  chartsSlice.actions;
 
 export default chartsSlice.reducer;

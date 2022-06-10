@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import LineChart from './LineChart';
-import LineChartForm from "./LineChartForm"
-import LineChartCodePreview from "./LineChartCodePreview"
+// import LineChartForm from "./LineChartForm"
+// import LineChartCodePreview from "./LineChartCodePreview"
 import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../Charts/ScatterPlot/App'
 import * as d3 from "d3"
 import { getScatterData, getTimelineData, getNumbersData, getUONumData } from '../../../utils/parseData.js'

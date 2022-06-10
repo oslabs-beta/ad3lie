@@ -7,8 +7,8 @@ import {
   useLocation,
   HashRouter
 } from 'react-router-dom';
-import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
 import NavBar from './components/NavBar';
+import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
 import ScatterPlotContainer from './components/Charts/ScatterPlot/JSX/ScatterPlotContainer';
 import HistogramContainer from './components/Charts/Histogram/JSX/HistogramContainer';
 import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
@@ -31,7 +31,7 @@ export default () => {
               element={<ScatterPlotContainer />}
             />
             <Route path="histogram" element={<HistogramContainer />} />
-            <Route path="pie-chart" element={<PieChartContainer />} />
+            <Route path="piechart" element={<PieChartContainer />} />
           </Routes>
         </div>
       </HashRouter>

@@ -66,7 +66,7 @@ function ChartCards() {
           <div className="flex font-bold text-xl mb-2 indent-10 text-white p-2">
         
 						<i class="fa-solid fa-chart-pie fa-xl"></i>
-            <Link to="pie-chart" className="p-2">
+            <Link to="piechart" className="p-2">
               Pie Chart
             </Link>
           </div>
