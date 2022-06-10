@@ -32,10 +32,8 @@ export const getScatterData = (count = 100) =>
   }));
 
 // ============================================================================================================= //
-import {
-  userEnteredData,
-  userAxisData
-} from '../components/Charts/ScatterPlot/EnteredData.jsx';
+
+import { userEnteredData, userAxisData } from './EnteredData.jsx';
 
 // TYPE: NUMBER/STRING ---- BAR CHART
 // export const getBarChartData = (xKey, yKey, arr) => {

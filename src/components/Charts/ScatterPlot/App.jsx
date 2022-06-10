@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import * as d3 from "d3"
 import { getScatterData, getTimelineData, getNumbersData, getUONumData, getBarChartData } from '../../../utils/parseData'
-import { userAxisData } from "./EnteredData"
+import { userAxisData } from "../../../utils/EnteredData"
 
 // import Timeline from "../Timeline/Timeline" // wrong file path
 // import ScatterPlot from "../ScatterPlot/ScatterPlot" // I dont know which scatterplot to pull from

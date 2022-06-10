@@ -1,10 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import * as d3 from 'd3';
 import BarChart from './BarChart';
 import Form from '../../../ChartComponents/JSX/Form';
 import CodeRender from '../../../ChartComponents/JSX/CodeRender';
-import { userEnteredData } from '../../ScatterPlot/EnteredData';
-import { sampleData } from '../../../../utils/dummypenguinsdata';
 import '../../../ChartComponents/chartstyles.css';
 import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,6 +12,7 @@ import {
   scatterplot,
   histogram,
 } from "../../../../features/chart/chartsSlice"
+import "../../../ChartComponents/chartstyles.css"
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
@@ -31,7 +30,7 @@ The container specifies which props the generic components (Form, CodeRender) ne
 
 const BarChartContainer = () => {
   // Using property accessors for our dispatch
-  const charts = { "barchart": barchart, "scatterplot": scatterplot, "histogram": histogram };
+  const charts = { "barchart": barchart };
 
   const dispatch = useDispatch();
   const { pathname } = useLocation(); // "/barchart" // useParams();
@@ -61,7 +60,7 @@ const BarChartContainer = () => {
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
          <Form 
-         properties={properties}/>
+          properties={properties}/>
       </div>
       <div className="glass col-start-2 col-span-1 row-span-1 rounded">
         <BarChart
@@ -94,24 +93,3 @@ const BarChartContainer = () => {
 };
 
 export default BarChartContainer;
-
-
-  // const [data, setData] = useState(sampleData);
-  // const [xKey, setXKey] = useState('');
-  // const [yKey, setYKey] = useState('');
-  // const [xAxisLabel, setXAxisLabel] = useState('X-axis: Species');
-  // const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
-  // const [height, setHeight] = useState(500);
-  // const [width, setWidth] = useState(500);
-  // const [stateCodeRef, setStateCodeRef] = useState(null);
-
-  // <BarChartForm
-          // data={data}
-          // xKey={xKey}
-          // yKey={yKey}
-          // xAxisLabel={xAxisLabel}
-          // yAxisLabel={yAxisLabel}
-          // height={height}
-          // width={width}
-          // handlers={handlers}
-        // ></BarChartForm>

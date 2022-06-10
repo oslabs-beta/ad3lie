@@ -39,6 +39,7 @@ export const propsSlice = createSlice({
   reducers: {
     // Values accessible by state.props.[name]
     changeProps: (state, action) => {
+      // state[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
       let dataVal;
       let numVal;
       const { name, value } = action.payload;
@@ -47,11 +48,12 @@ export const propsSlice = createSlice({
 
       if (name === 'data') dataVal = JSON.parse(value);
 
-      if (name === 'height' || 'width' || 'thresholds' || 'barPadding')
+      if (name === 'height' || name === 'width')
         numVal = +value < 100 ? 500 : parseInt(value);
       else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);
+      else if (name === 'barPadding' || name === 'thresholds') numVal = +value;
 
-      state[name] = numVal || dataVal || value;
+      state[name] = dataVal || numVal || value;
     }
   }
 });
