@@ -40,12 +40,6 @@ const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
             {code}
           </CodeText>
         </CodeBlock>
-
-    
-        {/* Something weird happening when putting export button here.
-        Think it's setting codeRef in an infinite loop which leads to stack overflow lol
-        <ExportCodeButton name={name} codeRef={codeRef}></ExportCodeButton> 
-        */}
           
       <button
         className="export-comp button"
@@ -53,7 +47,6 @@ const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
         onClick={ 
           async () => {
             try {
-
               const formattedCode = await formatCode(codeRef)
               const formattedData = `export const data = [${data
                 .reduce((str, obj) => {
@@ -68,9 +61,9 @@ const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
               // console.log('save location', saveLocation)
 
               // downloadCode(`My${name}.jsx`, formattedCode)
-              window.electron.mkdirSync(window.electron.path.resolve(saveLocation, 'BarChart'));
-              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, 'BarChart', 'data.js'), formattedData)
-              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, 'BarChart', 'code.js'), formattedCode)
+              window.electron.mkdirSync(window.electron.path.resolve(saveLocation, `${upperFirst(name)}`));
+              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, `${upperFirst(name)}`, 'Data.js'), formattedData)
+              window.electron.writeFileSync(window.electron.path.resolve(saveLocation, `${upperFirst(name)}`, '.jsx'), formattedCode)
             }
             catch(err) {
               console.log(err.message)
@@ -80,7 +73,7 @@ const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
               }
           }}
         >
-          Export Chart
+          Export Chart and Data
         </button>
     </Fragment>
           

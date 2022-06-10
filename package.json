@@ -101,6 +101,7 @@
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "ts-node": "^10.4.0",
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha12",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }

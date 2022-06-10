@@ -4,14 +4,9 @@ import ScatterPlot from './ScatterPlot';
 import Form from '../../../ChartComponents/JSX/Form';
 import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import '../../../ChartComponents/chartstyles.css';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
-import {
-  barchart,
-  scatterplot,
-  histogram,
-} from "../../../../features/chart/chartsSlice"
+import { scatterplot } from "../../../../features/chart/chartsSlice"
 import "../../../ChartComponents/chartstyles.css"
 
 const ScatterPlotContainer = () => {
@@ -65,7 +60,6 @@ const ScatterPlotContainer = () => {
           children={children}
           currProps={currProps}
           />
-          {/* <ExportDataButton data={data} name={name}/> */}
         </div>
         <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
           <button class="glass w-32 text-white">Import</button>
@@ -77,25 +71,5 @@ const ScatterPlotContainer = () => {
   }
 
 export default ScatterPlotContainer;
-
-// function useInterval(callback, delay) {
-//   const savedCallback = useRef();
-
-//   // Remember the latest callback.
-//   useEffect(() => {
-//     savedCallback.current = callback;
-//   });
-
-//   // Set up the interval.
-//   useEffect(() => {
-//     function tick() {
-//       savedCallback.current();
-//     }
-//     if (delay !== null) {
-//       let id = setInterval(tick, delay);
-//       return () => clearInterval(id);
-//     }
-//   }, [delay]);
-// }
 
 

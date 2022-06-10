@@ -4,9 +4,9 @@ import BarChart from './BarChart';
 import Form from '../../../ChartComponents/JSX/Form';
 import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import '../../../ChartComponents/chartstyles.css';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
+// you should import your specific chart from the chartsSlice here
 import {
   barchart,
   scatterplot,
@@ -25,6 +25,7 @@ The container specifies which props the generic components (Form, CodeRender) ne
     <Form /> - does not need any props. can be accessed in store OR <ChartForm /> (generic) that we specify which props to pass in -> map out form inputs for each prop?
     <BarChart /> needs to take in props
     <CodeRender /> - generic comp. needs to take in the specific props SPECIFIED by each chart's container. otherwise, the CodePreview will print out statements for every prop, which wouldn't make sense for <BarChart radius={radius} thresholds={thresholds}...etc.
+      // Also, ExportDataButton deprecated, now code/data download functionality bundled together in CodeRender's single button 
 </BarChartContainer>
 */
 
@@ -81,7 +82,7 @@ const BarChartContainer = () => {
           children={children}
           currProps={currProps} // currProps to pass only Barchart-specific props to be printed
         />
-        {/* <ExportDataButton data={data} name={name}/> */}
+        {/* <ExportDataButton name={name} data={data} />*/}
       </div>
       <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
         <button class="glass w-32 text-white">Import</button>

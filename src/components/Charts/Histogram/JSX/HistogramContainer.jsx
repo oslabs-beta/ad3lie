@@ -3,15 +3,11 @@ import * as d3 from "d3"
 import Histogram from "./Histogram";
 import Form from '../../../ChartComponents/JSX/Form';
 import CodeRender from '../../../ChartComponents/JSX/CodeRender';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
-import {
-  barchart,
-  scatterplot,
-  histogram,
-} from "../../../../features/chart/chartsSlice"
+import { histogram } from "../../../../features/chart/chartsSlice"
 import "../../../ChartComponents/chartstyles.css"
+
 
 const HistogramContainer = () => {
   const charts = { "histogram": histogram };
@@ -63,7 +59,6 @@ const HistogramContainer = () => {
           children={children}
           currProps={currProps}
           />
-          {/* <ExportDataButton data={data} name={name}/> */}
         </div>
         <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
           <button class="glass w-32 text-white">Import</button>
