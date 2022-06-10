@@ -12,6 +12,7 @@ import NavBar from './components/NavBar';
 import ScatterPlotContainer from './components/Charts/ScatterPlot/JSX/ScatterPlotContainer';
 import HistogramContainer from './components/Charts/Histogram/JSX/HistogramContainer';
 import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
+import PieChartContainer from './components/Charts/PieChart/JSX/PieChartContainer';
 import Homepage from './components/pages/Homepage';
 import CarouselComponent from './components/pages/TheCarousel';
 
@@ -30,6 +31,7 @@ export default () => {
               element={<ScatterPlotContainer />}
             />
             <Route path="histogram" element={<HistogramContainer />} />
+            <Route path="pie-chart" element={<PieChartContainer />} />
           </Routes>
         </div>
       </HashRouter>
