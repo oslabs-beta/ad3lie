@@ -1,177 +1,72 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import Histogram from "./Histogram";
-import HistogramForm from "./HistogramForm"
-import HistogramCodePreview from "./HistogramCodePreview"
-import { parseDate, dateAccessor, temperatureAccessor, humidityAccessor, getData } from '../../ScatterPlot/App'
+import React, { useEffect, Fragment } from 'react';
 import * as d3 from "d3"
-import { getScatterData, getTimelineData, getBarChartData } from '../../../../utils/parseData'
-import { download } from '../../../../utils/ExportData';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
-
-/*
-This is the generic classful parent component that hosts the chart-specific form and graph 
-We update state from the form, which the graph reads and re-renders from
-<HistogramContainer>
-    <HistogramForm />
-    <HistogramCustomizer />
-    <HistogramCodePreview />
-</HistogramContainer>
-*/
-const HistogramContainer = (props) => {
-  const getData = () => ({
-    scatter: getScatterData(),
-  })
-
-  const [data, setData] = useState(getData().scatter);
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('length');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Data Length');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
-  const [thresholds, setThresholds] = useState(9);
-  const [barPadding, setBarPadding] = useState(2);
+import Histogram from "./Histogram";
+import Form from '../../../ChartComponents/JSX/Form';
+import CodeRender from '../../../ChartComponents/JSX/CodeRender';
+import { useSelector, useDispatch } from 'react-redux'
+import { useLocation } from "react-router";
+import { Link } from 'react-router-dom';
+import { histogram } from "../../../../features/chart/chartsSlice"
+import "../../../ChartComponents/chartstyles.css"
 
 
-  const parseDate = d3.timeParse("%m/%d/%Y")
-  const dateAccessor = d => parseDate(d.date)
-  const temperatureAccessor = d => d.temperature
-  const humidityAccessor = d => d.humidity
+const HistogramContainer = () => {
+  const charts = { "histogram": histogram };
 
-
-  //causes infinite loop lmao
-  // useEffect(() => {
-  //   setData(getHistogramData(xKey, yKey, data));
-  // }, [data])
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const name = pathname.slice(1); 
 
   useEffect(() => {
-    setData(prevData => getBarChartData(data, xKey, yKey));
-  }, [])
+    console.log("dispatching chart")
+    dispatch(charts[name]());
+  }, [dispatch]);
+  
+  const { type, children, properties } = useSelector((state) => state.charts);
+  const { data, xKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding } = useSelector((state) => state.props);
+  const props = useSelector((state) => state.props);
 
-  console.log('You just rerendered the HistogramContainer')
-
-  const handleData = (e) => {
-    e.preventDefault();
-    setData(JSON.parse(e.target.value));
-  }
-
-  const handleXKey = (e) => {
-    e.preventDefault();
-    setXKey(e.target.value);
-  }
-
-  const handleXAxisLabel = (e) => {
-    e.preventDefault();
-    setXAxisLabel(e.target.value);
-  }
-
-  const handleYAxisLabel = (e) => {
-    e.preventDefault();
-    setYAxisLabel(e.target.value);
-  }
-
-  const handleWidth = (e) => {
-    e.preventDefault();
-    setWidth(+e.target.value);
-  }
-
-  const handleHeight = (e) => {
-    e.preventDefault();
-    setHeight(+e.target.value);
-  }
-
-  const handleThresholds = (e) => {
-    e.preventDefault();
-    setThresholds(+e.target.value);
-  }
-
-  const handleBarPadding = (e) => {
-    e.preventDefault();
-    setBarPadding(+e.target.value);
-  }
-
-  const handlers = { handleData, handleXKey, handleXAxisLabel, handleYAxisLabel, handleWidth, handleHeight, handleThresholds, handleBarPadding };
-
-  const name = 'Histogram';
-  const children = ['Chart', 'Axis', 'Bars'];
+  const currProps = properties.reduce((acc, curr) => {
+    acc[curr] = props[curr];
+    return acc;
+  }, {});
+    console.log(currProps)
 
     return (
       <Fragment>
-        <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
-        <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-          <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-            <ExportDataButton></ExportDataButton>
-            <HistogramForm
-              data={data}
-              xKey={xKey}
-              xAxisLabel={xAxisLabel}
-              yAxisLabel={yAxisLabel}
-              height={height}
-              width={width}
-              thresholds={thresholds}
-              barPadding={barPadding}
-              handlers={handlers}
-            ></HistogramForm>
-          </div>
-          <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded">
-            <Histogram
-              data={data}
-              xKey={xKey}
-              xAxisLabel={xAxisLabel}
-              yAxisLabel={yAxisLabel}
-              height={height}
-              width={width}
-              thresholds={thresholds}
-              barPadding={barPadding}
-            ></Histogram>
-          </div>
-          <div className="col-start-2 col-span-1 row-span-1 p-2 border-2 rounded text-slate-100">
-            <HistogramCodePreview
-              name={name}
-              data={data}
-              children={children}
-              xKey={xKey}
-              xAxisLabel={xAxisLabel}
-              yAxisLabel={yAxisLabel}
-              height={height}
-              width={width}
-              thresholds={thresholds}
-              barPadding={barPadding}
-            />
-          </div>
+  {/* {currProps &&  */}
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <Form 
+            properties={properties}/>
         </div>
-      </Fragment>
+        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+          <Histogram
+            data={data}
+            xKey={xKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            thresholds={thresholds}
+            barPadding={barPadding}
+          ></Histogram>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+          <CodeRender
+          name={name}
+          children={children}
+          currProps={currProps}
+          />
+        </div>
+        <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+          <button class="glass w-32 text-white">Import</button>
+        </div>
+      </div>
+      {/* } */}
+    </Fragment>
     );
   }
 
   export default HistogramContainer;
-
-
-
-
-
-
-
-// class HistogramContainer extends Component {
-//   constructor() {
-//     super(props);
-//     this.state = {
-//       data: [],
-//       xKey: 'xKey',
-//       yKey: 'yKey',
-//       xAxisLabel: 'xAxisLabel',
-//       yAxisLabel: 'yAxisLabel',
-//       height: '100',
-//       width: '100'
-//     }
-// }
-//     render() {
-//             return (
-//             <div className="Histogramcontainer">
-//                 <HistogramForm data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel} height={height} width={width}></HistogramForm>
-//                 <Histogram data={data} xKey={xKey} yKey={yKey} xAxisLabel={xAxisLabel} yAxisLabel={yAxisLabel}></Histogram>
-//             </div>
-//             );
-//         }
-// }

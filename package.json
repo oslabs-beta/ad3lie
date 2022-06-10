@@ -83,6 +83,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "babel-plugin-macros": "^3.1.0",
     "babel-prettier-parser": "^0.10.8",
     "eslint-config-airbnb": "^19.0.4",
@@ -93,12 +94,14 @@
     "nodeify": "^1.0.1",
     "prettier-format": "^3.1.0",
     "prop-types": "^15.8.1",
+    "react-redux": "^8.0.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "resize-observer-polyfill": "^1.5.1",
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "ts-node": "^10.4.0",
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha12",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }

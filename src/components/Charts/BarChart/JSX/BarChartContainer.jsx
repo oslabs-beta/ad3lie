@@ -1,169 +1,96 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import BarChart from './BarChart';
-import BarChartForm from './BarChartForm';
-import BarChartCodePreview from './BarChartCodePreview';
-import { Link } from 'react-router-dom';
-import {
-  parseDate,
-  dateAccessor,
-  temperatureAccessor,
-  humidityAccessor,
-  getData
-} from '../../ScatterPlot/App';
+import React, { useEffect, Fragment } from 'react';
 import * as d3 from 'd3';
-import {
-  getScatterData,
-  getTimelineData,
-  getBarChartData2
-} from '../../../../utils/parseData';
-import { userEnteredData } from '../../ScatterPlot/EnteredData';
-import { sampleData } from '../../../../utils/dummypenguinsdata';
+import BarChart from './BarChart';
+import Form from '../../../ChartComponents/JSX/Form';
+import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import '../../../ChartComponents/chartstyles.css';
-import { generateChartCode } from '../../../../utils/CodePreview';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
+import { useSelector, useDispatch } from 'react-redux'
+import { useLocation } from "react-router";
+import { Link } from 'react-router-dom';
+// you should import your specific chart from the chartsSlice here
+import {
+  barchart,
+  scatterplot,
+  histogram,
+} from "../../../../features/chart/chartsSlice"
+import "../../../ChartComponents/chartstyles.css"
 
 /*
 This is the generic classful parent component that hosts the chart-specific form and graph 
 We update state from the form, which the graph reads and re-renders from
+
+When we chooose a chart, we should go to each chart's container.
+The container specifies which props the generic components (Form, CodeRender) need to correctly generate the specific chart's components.
+
 <BarChartContainer>
-    <BarChartForm />
-    <BarChartCustomizer />
-    <BarChartCodePreview />
+    <Form /> - does not need any props. can be accessed in store OR <ChartForm /> (generic) that we specify which props to pass in -> map out form inputs for each prop?
+    <BarChart /> needs to take in props
+    <CodeRender /> - generic comp. needs to take in the specific props SPECIFIED by each chart's container. otherwise, the CodePreview will print out statements for every prop, which wouldn't make sense for <BarChart radius={radius} thresholds={thresholds}...etc.
+      // Also, ExportDataButton deprecated, now code/data download functionality bundled together in CodeRender's single button 
 </BarChartContainer>
 */
-const BarChartContainer = (props) => {
-  // const [data, setData] = useState(JSON.parse(JSON.stringify(userEnteredData)));
-  // sampleData in Javascript format - see dummypenguinsdata.js
-  const [data, setData] = useState(sampleData);
-  const [xKey, setXKey] = useState('');
-  const [yKey, setYKey] = useState('');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Species');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Body Mass');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
-  // const [stateCodeRef, setStateCodeRef] = useState(null);
 
-  // useEffect not currently utilized - input data is kept the same so that changes in xkey/ykey can access whole original dataset
-  // ex. can't change keys after getBarChartData2 since data is already filtered
-  // do we want to use this to return a filtered/grouped data set for something else ?
-  // useEffect(() => {
-  //   console.log('New set data is:')
-  //   console.log(getBarChartData2(data, xKey, yKey))
-  //   setData(prevData => getBarChartData2(data, xKey, yKey));
-  // }, []);
+const BarChartContainer = () => {
+  // Using property accessors for our dispatch
+  const charts = { "barchart": barchart };
 
-  // console.log('You just rerendered the BarChartContainer')
+  const dispatch = useDispatch();
+  const { pathname } = useLocation(); // "/barchart" // useParams();
+  const name = pathname.slice(1); // "barchart"
 
-  // Data must be input in JSON format
-  const handleData = (e) => {
-    e.preventDefault();
-    //Input data works for JSON format - see jsonpenguins.txt
-    setData(JSON.parse(e.target.value));
-  };
+  useEffect(() => {
+    console.log("dispatching chart")
+    dispatch(charts[name]());
+  }, [dispatch]);
 
-  // Data needs to be re-input as key changes, since grouped data is already set in state
-  const handleXKey = (e) => {
-    e.preventDefault();
-    setXKey(e.target.value);
-  };
+  // We select the props we need in each chart's container to specify which props to format/import for CodeRender,
+  // and due to the way each chart's component imports props
+      // Ex. we shouldn't pass down all of state.props to CodeRender b/c barchart doesn't use thresholds/barpadding/radius
+  const { type, children, properties } = useSelector((state) => state.charts);
+  const { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width } = useSelector((state) => state.props);
+  const props = useSelector((state) => state.props); // object of all current props
 
-  const handleYKey = (e) => {
-    e.preventDefault();
-    setYKey(e.target.value);
-  };
-
-  const handleXAxisLabel = (e) => {
-    e.preventDefault();
-    setXAxisLabel(e.target.value);
-  };
-
-  const handleYAxisLabel = (e) => {
-    e.preventDefault();
-    setYAxisLabel(e.target.value);
-  };
-
-  const handleWidth = (e) => {
-    e.preventDefault();
-    if (+e.target.value < 100) {
-      console.log('Value must not be less than 100 px. Resetting to default.');
-      setWidth(500);
-      return;
-    }
-    setWidth(+e.target.value);
-  };
-
-  const handleHeight = (e) => {
-    e.preventDefault();
-    if (+e.target.value < 100) {
-      console.log('Value must not be less than 100 px. Resetting to default.');
-      setHeight(500);
-      return;
-    }
-    setHeight(+e.target.value);
-  };
- 
-
-  const handlers = {
-    handleData,
-    handleXKey,
-    handleYKey,
-    handleXAxisLabel,
-    handleYAxisLabel,
-    handleWidth,
-    handleHeight
-  };
-
-  const name = 'BarChart';
-  const children = ['Chart', 'Axis_noticks', 'Axis', 'Rectangle'];
-  // const codeProperties=[ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width ]
-  // everything placed between opening/closing tags is considered children
-
+  //filtered prop object unique to each chart
+  const currProps = properties.reduce((acc, curr) => {
+    acc[curr] = props[curr];
+    return acc;
+  }, {});
 
   return (
-    <Fragment>
-      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
-      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
-        <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-          <BarChartForm
-            data={data}
-            xKey={xKey}
-            yKey={yKey}
-            xAxisLabel={xAxisLabel}
-            yAxisLabel={yAxisLabel}
-            height={height}
-            width={width}
-            handlers={handlers}
-          ></BarChartForm>
-        </div>
-        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
-          <BarChart
-            data={data}
-            xKey={xKey}
-            yKey={yKey}
-            xAxisLabel={xAxisLabel}
-            yAxisLabel={yAxisLabel}
-            height={height}
-            width={width}
-          ></BarChart>
-        </div>
-        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-          <BarChartCodePreview
-            name={name}
-            data={data}
-            children={children}
-            xKey={xKey}
-            yKey={yKey}
-            xAxisLabel={xAxisLabel}
-            yAxisLabel={yAxisLabel}
-            height={height}
-            width={width}
-          />
-          {/* <ExportDataButton data={data} name={name}/> */}
-        </div>
-        <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
-          <button class="glass w-32 text-white">Import</button>
-        </div>
+<Fragment>
+  {/* {currProps &&  */}
+  <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+         <Form 
+          properties={properties}/>
       </div>
+      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+        <BarChart
+          // pass down currProps, destructure needed vars in BarChart component?
+          // currProps={currProps} // barchart action not dispatched? 
+          data={data}
+          xKey={xKey}
+          yKey={yKey}
+          xAxisLabel={xAxisLabel}
+          yAxisLabel={yAxisLabel}
+          height={height}
+          width={width}
+        ></BarChart>
+      </div>
+      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+        <CodeRender
+          name={name}
+          children={children}
+          currProps={currProps} // currProps to pass only Barchart-specific props to be printed
+        />
+        {/* <ExportDataButton name={name} data={data} />*/}
+      </div>
+      <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+        <button class="glass w-32 text-white">Import</button>
+      </div>
+    </div>
+    {/* } */}
     </Fragment>
   );
 };

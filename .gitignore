@@ -5,3 +5,5 @@ ignore.tsx
 *.ts
 dist
 dist
+LibrarySample.jsx
+archives

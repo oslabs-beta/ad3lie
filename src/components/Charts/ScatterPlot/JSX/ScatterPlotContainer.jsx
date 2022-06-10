@@ -1,134 +1,52 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import ScatterPlot from './ScatterPlot';
-import ScatterPlotForm from './ScatterPlotForm';
-import ScatterPlotCodePreview from './ScatterPlotCodePreview';
-import {
-  parseDate,
-  dateAccessor,
-  temperatureAccessor,
-  humidityAccessor,
-  getData
-} from '../../ScatterPlot/App';
+import React, { useEffect, useRef, Fragment } from 'react';
 import * as d3 from 'd3';
-import { getScatterData, getTimelineData } from '../../../../utils/parseData';
-import { userEnteredData } from '../../ScatterPlot/EnteredData';
-import { sampleData } from '../../../../utils/dummypenguinsdata';
+import ScatterPlot from './ScatterPlot';
+import Form from '../../../ChartComponents/JSX/Form';
+import CodeRender from '../../../ChartComponents/JSX/CodeRender';
+import '../../../ChartComponents/chartstyles.css';
+import { useSelector, useDispatch } from 'react-redux'
+import { useLocation } from "react-router";
+import { Link } from 'react-router-dom';
+import { scatterplot } from "../../../../features/chart/chartsSlice"
 import "../../../ChartComponents/chartstyles.css"
-import { download } from '../../../../utils/ExportData';
-import { ExportDataButton } from '../../../ChartComponents/JSX/ExportDataButton';
 
-// const getData = () => ({
-//   timeline: getTimelineData(),
-//   scatter: getScatterData(),
-// })
+const ScatterPlotContainer = () => {
+  const charts = { "scatterplot": scatterplot };
 
-function ScatterPlotContainer(props) {
-  const [data, setData] = useState(getScatterData());
-  const [xKey, setXKey] = useState('humidity');
-  const [yKey, setYKey] = useState('temperature');
-  const [xAxisLabel, setXAxisLabel] = useState('X-axis: Humidity');
-  const [yAxisLabel, setYAxisLabel] = useState('Y-axis: Temperature');
-  const [height, setHeight] = useState(500);
-  const [width, setWidth] = useState(500);
-  const [radius, setRadius] = useState(5);
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const name = pathname.slice(1); 
+  // console.log(name)
 
-  // useInterval(() => {
-  //   setData(getScatterData())
-  // }, 4000)
+  useEffect(() => {
+    console.log("dispatching chart")
+    dispatch(charts[name]());
+  }, [dispatch]);
 
-  // Leaving useEffect in here in case we want to add any more/do anything with data-parsing algos in state
-  // useEffect(() => {
-  //   setData(prevData => getBarChartData2(data, xKey, yKey));
-  // }, []);
+    const { type, children, properties } = useSelector((state) => state.charts);
+    console.log(properties)
+    const { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, radius } = useSelector((state) => state.props);
+    const props = useSelector((state) => state.props);
 
-  const handleData = (e) => {
-    e.preventDefault();
-    setData(JSON.parse(e.target.value));
-  };
+  //filtered prop object unique to each chart
+  const currProps = properties.reduce((acc, curr) => {
+    acc[curr] = props[curr];
+    return acc;
+  }, {});
+  console.log(currProps)
 
-  const handleXKey = (e) => {
-    e.preventDefault();
-    setXKey(e.target.value);
-  };
-
-  const handleYKey = (e) => {
-    e.preventDefault();
-    setYKey(e.target.value);
-  };
-
-  const handleXAxisLabel = (e) => {
-    e.preventDefault();
-    setXAxisLabel(e.target.value);
-  };
-
-  const handleYAxisLabel = (e) => {
-    e.preventDefault();
-    setYAxisLabel(e.target.value);
-  };
-
-  const handleWidth = (e) => {
-    e.preventDefault();
-    setWidth(+e.target.value);
-  };
-
-  const handleHeight = (e) => {
-    e.preventDefault();
-    setHeight(+e.target.value);
-  };
-
-  const handleRadius = (e) => {
-    e.preventDefault();
-    setRadius(+e.target.value);
-  };
-
-  const handlers = {
-    handleData,
-    handleXKey,
-    handleYKey,
-    handleXAxisLabel,
-    handleYAxisLabel,
-    handleWidth,
-    handleHeight,
-    handleRadius
-  };
-  const name = 'ScatterPlot';
-  const children = ['Chart', 'Axis', 'Circles'];
   return (
     <Fragment>
+  {/* {currProps &&  */}
       <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
-      <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-        <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-          <ExportDataButton></ExportDataButton>
-
-          <ScatterPlotForm
-            data={data}
-            xKey={xKey}
-            yKey={yKey}
-            xAxisLabel={xAxisLabel}
-            yAxisLabel={yAxisLabel}
-            height={height}
-            width={width}
-            radius={radius}
-            handlers={handlers}
-          ></ScatterPlotForm>
+      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <Form 
+            properties={properties}/>
         </div>
-        <div className="col-start-2 col-span-1 row-span-1">
-          <ScatterPlot
-            data={data}
-            xKey={xKey}
-            yKey={yKey}
-            xAxisLabel={xAxisLabel}
-            yAxisLabel={yAxisLabel}
-            height={height}
-            width={width}
-            radius={radius}
-          ></ScatterPlot>
-        </div>
-        <ScatterPlotCodePreview
-          name={name}
+        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+        <ScatterPlot
           data={data}
-          children={children}
           xKey={xKey}
           yKey={yKey}
           xAxisLabel={xAxisLabel}
@@ -136,30 +54,24 @@ function ScatterPlotContainer(props) {
           height={height}
           width={width}
           radius={radius}
-        />
+        ></ScatterPlot>
       </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+          <CodeRender
+          name={name}
+          children={children}
+          currProps={currProps}
+          />
+        </div>
+        <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+          <button class="glass w-32 text-white">Import</button>
+        </div>
+      </div>
+      {/* } */}
     </Fragment>
-  );
-}
-
-function useInterval(callback, delay) {
-  const savedCallback = useRef();
-
-  // Remember the latest callback.
-  useEffect(() => {
-    savedCallback.current = callback;
-  });
-
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-}
+    );
+  }
 
 export default ScatterPlotContainer;
+
+

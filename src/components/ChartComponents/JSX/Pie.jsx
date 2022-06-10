@@ -12,7 +12,7 @@ const Pie = ({
   innerRadius,
   outerRadius,
   label,
-  value
+  pieValue
 
 }) => {
     d3.select('#pie-container')
@@ -41,7 +41,7 @@ const Pie = ({
   const pieGenerator = d3
     .pie()
     .padAngle(0)
-    .value((d) => d[value]);
+    .value((d) => d[pieValue]);
 
     const arc = svg
       .selectAll()
@@ -63,7 +63,7 @@ const Pie = ({
     .attr('alignment-baseline', 'middle')
     .text((d) => {
       if (!d.data[label]) return ``
-      if (d.data[label]) return `${d.data[label]} ${d.data[value]}`
+      if (d.data[label]) return `${d.data[label]} ${d.data[pieValue]}`
     })
     .style('fill', 'black')
     .style('font-size', 10)

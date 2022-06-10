@@ -20,7 +20,7 @@ function ChartCards() {
                 d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
               />
             </svg>
-            <Link to="/bar-chart" className="p-2">
+            <Link to="/barchart" className="p-2">
               BarChart
             </Link>
           </div>
@@ -31,7 +31,7 @@ function ChartCards() {
         <div className="glass text-white max-w-sm rounded-md  shadow-lg p-2">
           <div className="flex font-bold text-xl mb-2 items-center indent-10">
 						<i class="fa-solid fa-chart-line fa-xl"></i> 
-            <Link to="/line-chart" className="p-2">
+            <Link to="/linechart" className="p-2">
               Line Chart
             </Link>
           </div>
@@ -43,7 +43,7 @@ function ChartCards() {
         <div className="glass max-w-sm rounded-md overflow-hidden shadow-lg text-white p-2">
           <div className="flex font-bold text-xl mb-2 items-center indent-10">
 					<i class="fa-solid fa-chart-gantt fa-xl"></i>
-					  <Link to="/scatter-plot-chart" className="p-2">
+					  <Link to="/scatterplot" className="p-2">
               ScatterPlot
             </Link>
           </div>
@@ -54,7 +54,7 @@ function ChartCards() {
         <div className="max-w-sm rounded-md overflow-hidden shadow-lg glass text-white p-2 ">
           <div className="flex font-bold text-xl mb-2 items-center indent-10">
             <i class="fa-solid fa-chart-gantt fa-xl"></i>
-            <Link to="histogram-chart" className="p-2">
+            <Link to="/histogram" className="p-2">
               Histogram
             </Link>
           </div>
@@ -66,7 +66,7 @@ function ChartCards() {
           <div className="flex font-bold text-xl mb-2 indent-10 text-white p-2">
         
 						<i class="fa-solid fa-chart-pie fa-xl"></i>
-            <Link to="pie-chart" className="p-2">
+            <Link to="piechart" className="p-2">
               Pie Chart
             </Link>
           </div>

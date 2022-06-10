@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useMemo, Fragment } from 'react';
+import React, { useMemo, Fragment } from 'react';
 import * as d3 from 'd3';
-// import PropTypes from "prop-types"
+import { useChartDimensions } from '../../../utils/utils.js';
 import Chart from '../../ChartComponents/JSX/Chart'
 import Line from '../../ChartComponents/JSX/Line'
 import Axis from '../../ChartComponents/JSX/Axis'
-import { useChartDimensions, accessorPropsType } from '../../../utils/utils.js';
-
-// const formatDate = d3.timeFormat("%-b %-d")
+import '../../ChartComponents/chartstyles.css';
+import '../../../styles.css';
 
 const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
   const xAccessor = (data) => data[xKey];
@@ -34,6 +33,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
   const y0AccessorScaled = yScale(yScale.domain()[0])
 
   return (
+  <Fragment>
     <div className="LineChart w-full top-0 left-0 h-full" ref={ref}>
       <Chart dimensions={dimensions}>
         <Axis
@@ -58,6 +58,7 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
         />
       </Chart>
     </div>
+  </Fragment>
   )
 }
 

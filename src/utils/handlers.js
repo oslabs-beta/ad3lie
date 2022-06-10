@@ -45,3 +45,47 @@ export const handleHeight = (e) => {
   }
   setHeight(+e.target.value);
 };
+
+export const handleThresholds = (e) => {
+  e.preventDefault();
+  setThresholds(+e.target.value);
+};
+
+export const handleBarPadding = (e) => {
+  e.preventDefault();
+  setBarPadding(+e.target.value);
+};
+
+//below are unique to pie chart
+export const handleOuter = (e) => {
+  if (+e.target.value > 100) {
+    console.log(
+      'Value must not be greater than or equal to 100. Resetting to default.'
+    );
+    setOuter(100);
+    return;
+  }
+  setOuter(+e.target.value);
+};
+
+export const handleInner = (e) => {
+  if (+e.target.value > outerRadius) {
+    console.log(
+      'Value must not be greater than or equal to size of piechart. Resetting to default.'
+    );
+    setInner(0);
+    return;
+  }
+  setInner(+e.target.value);
+};
+
+// Data needs to be re-input as key changes, since grouped data is already set in state
+export const handleLabel = (e) => {
+  e.preventDefault();
+  setLabel(e.target.value);
+};
+
+export const handleValue = (e) => {
+  e.preventDefault();
+  setValue(e.target.value);
+};

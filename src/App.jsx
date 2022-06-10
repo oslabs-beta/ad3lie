@@ -7,15 +7,14 @@ import {
   useLocation,
   HashRouter
 } from 'react-router-dom';
-import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
 import NavBar from './components/NavBar';
+import BarChartContainer from './components/Charts/BarChart/JSX/BarChartContainer';
 import ScatterPlotContainer from './components/Charts/ScatterPlot/JSX/ScatterPlotContainer';
 import HistogramContainer from './components/Charts/Histogram/JSX/HistogramContainer';
 import LineChartContainer from './components/Charts/LineChart/LineChartContainer';
 import PieChartContainer from './components/Charts/PieChart/JSX/PieChartContainer';
 import Homepage from './components/pages/Homepage';
 import CarouselComponent from './components/pages/TheCarousel';
-
 
 export default () => {
   return (
@@ -24,14 +23,14 @@ export default () => {
         <div>
           <Routes>
             <Route path="/" element={ <Homepage />} />
-            <Route path="bar-chart" element={<BarChartContainer />} />
-            <Route path="line-chart" element={<LineChartContainer />} />
+            <Route path="barchart" element={<BarChartContainer />} />
+            <Route path="linechart" element={<LineChartContainer />} />
             <Route
-              path="scatter-plot-chart"
+              path="scatterplot"
               element={<ScatterPlotContainer />}
             />
-            <Route path="histogram-chart" element={<HistogramContainer />} />
-            <Route path="pie-chart" element={<PieChartContainer />} />
+            <Route path="histogram" element={<HistogramContainer />} />
+            <Route path="piechart" element={<PieChartContainer />} />
           </Routes>
         </div>
       </HashRouter>

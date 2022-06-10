@@ -76,9 +76,12 @@ export const generateChartCode = (
 
   const install = `// npm install @d3act`;
 
-  const imports = [name, ...children.map((c) => c)].map(
-    (i) => `import { ${i} } from 'd3act'`
-  );
+  // Currently removed children imports as the user should only be importing the required chart template (ex. BarChart.jsx) and their custom data file (MyBarChart.js) in order to use the customized component (MyBarChart.jsx)
+  // const imports = [name, ...children.map((c) => c)].map(
+  //   (i) => `import { ${i} } from 'd3act'`
+  // );
+  const imports = [name].map((i) => `import { ${i} } from 'd3act'`);
+
   const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
   let warning = '';

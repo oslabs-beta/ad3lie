@@ -1,13 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
-// const io = require('socket.io-client');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.jsx',
-  // target: 'electron-renderer',
-  // target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -93,16 +92,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new NodePolyfillPlugin()
+    new NodePolyfillPlugin(),
+    new BundleAnalyzerPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
-    // static: {
-    //   // match the output path
-    //   directory: path.resolve(__dirname, 'dist'),
-    //   // match the output 'publicPath'
-    //   publicPath: '/'
-    // }
   }
 };
