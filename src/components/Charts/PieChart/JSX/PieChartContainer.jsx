@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import PieChart from './PieChart';
 import PieChartForm from './PieChartForm';
+import { Link } from 'react-router-dom';
 import PieChartCodePreview from './PieChartCodePreview';
 import { sampleData } from '../../../../utils/dummyfruitsdata';
 import '../../../ChartComponents/chartstyles.css';
@@ -60,32 +61,35 @@ const PieChartContainer = (props) => {
   };
 
   return (
-    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
-      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-        <PieChartForm
-          data={data}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          label={label}
-          value={value}
-          handlers={handlers}
-        ></PieChartForm>
+    <Fragment>
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+        <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <PieChartForm
+            data={data}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
+            label={label}
+            value={value}
+            handlers={handlers}
+          ></PieChartForm>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+          <PieChart
+            data={data}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
+            label={label}
+            value={value}
+          ></PieChart>
+        </div>
+        <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
+        </div>
+        <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+          {/* <button class="glass w-32 text-white">Import</button> */}
+        </div>
       </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
-        <PieChart
-          data={data}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          label={label}
-          value={value}
-        ></PieChart>
-      </div>
-      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
-      </div>
-      <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
-        {/* <button class="glass w-32 text-white">Import</button> */}
-      </div>
-    </div>
+    </Fragment>
   );
 };
 

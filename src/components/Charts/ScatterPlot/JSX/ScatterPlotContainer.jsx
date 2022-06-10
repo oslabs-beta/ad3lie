@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import ScatterPlot from './ScatterPlot';
 import ScatterPlotForm from './ScatterPlotForm';
 import ScatterPlotCodePreview from './ScatterPlotCodePreview';
@@ -94,12 +95,40 @@ function ScatterPlotContainer(props) {
   const name = 'ScatterPlot';
   const children = ['Chart', 'Axis', 'Circles'];
   return (
-    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
-      <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
-        <ExportDataButton></ExportDataButton>
+    <Fragment>
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+      <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main border-2 rounded  gap-2 p-2">
+        <div className="col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+          <ExportDataButton></ExportDataButton>
 
-        <ScatterPlotForm
+          <ScatterPlotForm
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            radius={radius}
+            handlers={handlers}
+          ></ScatterPlotForm>
+        </div>
+        <div className="col-start-2 col-span-1 row-span-1">
+          <ScatterPlot
+            data={data}
+            xKey={xKey}
+            yKey={yKey}
+            xAxisLabel={xAxisLabel}
+            yAxisLabel={yAxisLabel}
+            height={height}
+            width={width}
+            radius={radius}
+          ></ScatterPlot>
+        </div>
+        <ScatterPlotCodePreview
+          name={name}
           data={data}
+          children={children}
           xKey={xKey}
           yKey={yKey}
           xAxisLabel={xAxisLabel}
@@ -107,34 +136,9 @@ function ScatterPlotContainer(props) {
           height={height}
           width={width}
           radius={radius}
-          handlers={handlers}
-        ></ScatterPlotForm>
+        />
       </div>
-      <div className="col-start-2 col-span-1 row-span-1">
-        <ScatterPlot
-          data={data}
-          xKey={xKey}
-          yKey={yKey}
-          xAxisLabel={xAxisLabel}
-          yAxisLabel={yAxisLabel}
-          height={height}
-          width={width}
-          radius={radius}
-        ></ScatterPlot>
-      </div>
-      <ScatterPlotCodePreview
-        name={name}
-        data={data}
-        children={children}
-        xKey={xKey}
-        yKey={yKey}
-        xAxisLabel={xAxisLabel}
-        yAxisLabel={yAxisLabel}
-        height={height}
-        width={width}
-        radius={radius}
-      />
-    </div>
+    </Fragment>
   );
 }
 
