@@ -77,12 +77,27 @@ export const chartsSlice = createSlice({
         'label',
         'pieValue'
       ];
+    },
+
+    linechart: (state, action) => {
+      console.log('Selecting linechart type, children, and properties');
+      state.type = 'linechart';
+      state.children = ['Chart, Axis, Line'];
+      state.properties = [
+        'data',
+        'xKey',
+        'yKey',
+        'xAxisLabel',
+        'yAxisLabel',
+        'height',
+        'width'
+      ];
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { barchart, scatterplot, histogram, piechart } =
+export const { barchart, scatterplot, histogram, piechart, linechart } =
   chartsSlice.actions;
 
 export default chartsSlice.reducer;
