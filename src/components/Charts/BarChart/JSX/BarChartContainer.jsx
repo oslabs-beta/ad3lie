@@ -53,7 +53,6 @@ const BarChartContainer = (props) => {
 
   // console.log('You just rerendered the BarChartContainer')
 
-  
   // Data must be input in JSON format
   const handleData = (e) => {
     e.preventDefault();
