@@ -18,6 +18,11 @@
 }
 
 .Line--type-area {
+    fill: none;
+    stroke-width: 0;
+}
+
+.Line--type-area {
     fill: rgba(152, 128, 250, 0.185);
     stroke-width: 0;
 }
