@@ -6,6 +6,7 @@ import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import '../../../ChartComponents/chartstyles.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
+import { Link } from 'react-router-dom';
 import { scatterplot } from "../../../../features/chart/chartsSlice"
 import "../../../ChartComponents/chartstyles.css"
 
@@ -35,8 +36,9 @@ const ScatterPlotContainer = () => {
   console.log(currProps)
 
   return (
-      <Fragment>
+    <Fragment>
   {/* {currProps &&  */}
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
       <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
           <Form 

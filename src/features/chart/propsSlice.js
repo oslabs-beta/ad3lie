@@ -56,7 +56,7 @@ export const propsSlice = createSlice({
       else if (name === 'outerRadius')
         numVal = +value > 100 ? 100 : parseInt(value);
       else if (name === 'innerRadius')
-        numVal = +value > state.outerRadius ? 0 : parseInt(value);
+        numVal = +value > outerRadius ? 0 : parseInt(value);
       else if (name === 'barPadding' || name === 'thresholds') numVal = +value;
 
       state[name] = dataVal || numVal || value;
