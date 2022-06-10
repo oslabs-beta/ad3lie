@@ -15,7 +15,6 @@ const HistogramContainer = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const name = pathname.slice(1); 
-  // console.log(name)
 
   useEffect(() => {
     console.log("dispatching chart")
@@ -26,7 +25,6 @@ const HistogramContainer = () => {
   const { data, xKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding } = useSelector((state) => state.props);
   const props = useSelector((state) => state.props);
 
-  //filtered prop object unique to each chart
   const currProps = properties.reduce((acc, curr) => {
     acc[curr] = props[curr];
     return acc;
