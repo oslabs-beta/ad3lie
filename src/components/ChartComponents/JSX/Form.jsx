@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import '../../ChartComponents/chartstyles.css'
 import { startCase } from 'lodash';
 import { useDispatch } from 'react-redux'
@@ -26,7 +26,7 @@ const Form = ({ properties }) => {
             {startCase(p)}
           </label>
           <textarea
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id={`set-${p}`}
             name={`${p}`}
             placeholder={`${startCase(p)}`}

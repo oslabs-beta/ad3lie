@@ -16,7 +16,6 @@ import PieChartContainer from './components/Charts/PieChart/JSX/PieChartContaine
 import Homepage from './components/pages/Homepage';
 import CarouselComponent from './components/pages/TheCarousel';
 
-
 export default () => {
   return (
     <Fragment>
