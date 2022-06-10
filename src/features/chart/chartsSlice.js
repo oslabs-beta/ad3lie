@@ -41,7 +41,6 @@ export const chartsSlice = createSlice({
       state.properties = [
         'data',
         'xKey',
-        'yKey',
         'xAxisLabel',
         'yAxisLabel',
         'height',

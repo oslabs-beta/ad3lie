@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import '../../../ChartComponents/chartstyles.css';
 
 import { useDispatch } from 'react-redux'
-import { changeData } from '../../../../features/chart/dataSlice'
-import { changeXKey } from '../../../../features/chart/xKeySlice';
-import { changeYKey } from '../../../../features/chart/yKeySlice';
-import { changeXAxisLabel } from '../../../../features/chart/xAxisLabelSlice';
-import { changeYAxisLabel } from '../../../../features/chart/yAxisLabelSlice';
-import { changeHeight } from '../../../../features/chart/heightSlice';
-import { changeWidth } from '../../../../features/chart/widthSlice';
-import { changeRadius } from '../../../../features/chart/radiusSlice';
+import { changeData } from '../../features/chart/dataSlice'
+import { changeXKey } from '../../features/chart/xKeySlice';
+import { changeYKey } from '../../features/chart/yKeySlice';
+import { changeXAxisLabel } from '../../features/chart/xAxisLabelSlice';
+import { changeYAxisLabel } from '../../features/chart/yAxisLabelSlice';
+import { changeHeight } from '../../features/chart/heightSlice';
+import { changeWidth } from '../../features/chart/widthSlice';
+import { changeRadius } from '../../features/chart/radiusSlice';
 
 const ScatterPlotForm = ({
   // data,

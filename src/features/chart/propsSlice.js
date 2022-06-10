@@ -37,17 +37,14 @@ export const propsSlice = createSlice({
   name: 'props',
   initialState,
   reducers: {
-    // Values accessible by state.props.[name]
     changeProps: (state, action) => {
-      // state[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
       let dataVal;
       let numVal;
       const { name, value } = action.payload;
-      console.log(typeof name);
-      console.log(`Updating ${name}`);
+      // console.log(typeof name);
+      // console.log(`Updating ${name}`);
 
       if (name === 'data') dataVal = JSON.parse(value);
-
       if (name === 'height' || name === 'width')
         numVal = +value < 100 ? 500 : parseInt(value);
       else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);

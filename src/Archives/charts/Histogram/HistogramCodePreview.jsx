@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateChartCode, CodeBlock, Code } from '../../../../utils/CodePreview';
+import { generateChartCode, CodeBlock, Code } from '../../utils/CodePreview';
 
 const HistogramCodePreview = ({ name, data, children, ...codeProps }) => {
 

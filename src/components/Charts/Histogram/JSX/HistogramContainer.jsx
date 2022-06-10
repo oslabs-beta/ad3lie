@@ -30,16 +30,12 @@ const HistogramContainer = () => {
   const { data, xKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding } = useSelector((state) => state.props);
   const props = useSelector((state) => state.props);
 
-  // const currProps = properties.reduce((acc, curr) => {
-  //   if (props[curr]) acc[curr] = props[curr];
-  //   return acc;
-  // }, {});
-
-   const currProps = properties.reduce((acc, curr) => {
+  //filtered prop object unique to each chart
+  const currProps = properties.reduce((acc, curr) => {
     acc[curr] = props[curr];
     return acc;
   }, {});
-    delete currProps.yKey
+    console.log(currProps)
 
     return (
       <Fragment>

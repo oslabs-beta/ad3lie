@@ -6,6 +6,8 @@ import Rectangle from '../../../ChartComponents/JSX/Rectangle.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
+import { useUniqueId } from '../../../../utils/utils.js';
+import Gradient from "../../../ChartComponents/JSX/Gradient"
 
 /**
  * Because of the way the user will import data in their customized code
@@ -30,6 +32,9 @@ Using useMemo for **referential equality** of depedencies: important for React h
   // const yAccessor = useMemo(() => (data) => data[yKey], []);
   const xAccessor = (data) => data[xKey];
   const yAccessor = (data) => data[yKey];
+
+  const gradientId = useUniqueId("Histogram-gradient")
+  const gradientColors = ["#9980FA", "rgb(226, 222, 243)"]
 
   // setState input dimensions from Form -> Container passes down updated dims -> Chart passes dims as new args in useChartDimensions
   const [ref, dimensions] = useChartDimensions({
@@ -70,13 +75,24 @@ Using useMemo for **referential equality** of depedencies: important for React h
         y={yScale(yAccessor(d))}
         width={xScale.bandwidth()}
         height={dimensions.boundedHeight - yScale(yAccessor(d))}
+        style={{fill: `url(#${gradientId})`}}
       />
     );
   });
 
+
+
   return (
     <div className="BarChart w-full top-0 left-0 h-full rounded" ref={ref}>
       <Chart dimensions={dimensions}>
+        <defs>
+          <Gradient
+            id={gradientId}
+            colors={gradientColors}
+            x2="0"
+            y2="100%"
+          />
+        </defs>
         <Axis
           dimensions={dimensions}
           dimension="xB"

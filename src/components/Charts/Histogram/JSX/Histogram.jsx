@@ -6,6 +6,8 @@ import Bars from '../../../ChartComponents/JSX/Bars.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import '../../../ChartComponents/chartstyles.css';
 import '../../../../styles.css';
+import { useUniqueId } from '../../../../utils/utils.js';
+import Gradient from "../../../ChartComponents/JSX/Gradient"
 
 const Histogram = ({ data, xKey, xAxisLabel, yAxisLabel, height, width, thresholds, barPadding }) => {
   // Since histograms compare occurences across a population/data, the y-Accessor must be the length of your dataset
@@ -13,7 +15,8 @@ const Histogram = ({ data, xKey, xAxisLabel, yAxisLabel, height, width, threshol
   const xAccessor = useMemo(() => (data) => data[xKey]);
   const yAccessor = useMemo(() => (data) => data.length);
 
-  // const gradientId = useUniqueId("Histogram-gradient")
+  const gradientId = useUniqueId("Histogram-gradient")
+  const gradientColors = ["#9980FA", "rgb(226, 222, 243)"]
 
   // setState input dimensions from Form -> Container passes down updated dims -> Chart passes dims as new args in useChartDimensions
   const [ref, dimensions] = useChartDimensions({
@@ -56,14 +59,14 @@ const Histogram = ({ data, xKey, xAxisLabel, yAxisLabel, height, width, threshol
     <Fragment>
       <div className="Histogram w-full top-0 left-0 h-full" ref={ref}>
         <Chart dimensions={dimensions}>
-          {/* <defs>
+          <defs>
           <Gradient
             id={gradientId}
             colors={gradientColors}
             x2="0"
             y2="100%"
           />
-        </defs> */}
+        </defs>
           <Axis
             dimensions={dimensions}
             dimension="x"
@@ -83,7 +86,7 @@ const Histogram = ({ data, xKey, xAxisLabel, yAxisLabel, height, width, threshol
             yAccessor={yAccessorScaled}
             widthAccessor={widthAccessorScaled}
             heightAccessor={heightAccessorScaled}
-            // style={{fill: `url(#${gradientId})`}}
+            style={{fill: `url(#${gradientId})`}}
           />
         </Chart>
       </div>

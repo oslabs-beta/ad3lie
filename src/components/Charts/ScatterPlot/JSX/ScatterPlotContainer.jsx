@@ -32,10 +32,12 @@ const ScatterPlotContainer = () => {
     const { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, radius } = useSelector((state) => state.props);
     const props = useSelector((state) => state.props);
 
+  //filtered prop object unique to each chart
   const currProps = properties.reduce((acc, curr) => {
-    if (props[curr]) acc[curr] = props[curr];
+    acc[curr] = props[curr];
     return acc;
   }, {});
+  console.log(currProps)
 
   return (
       <Fragment>
