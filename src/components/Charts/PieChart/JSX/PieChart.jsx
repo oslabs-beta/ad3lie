@@ -8,15 +8,26 @@ import '../../../../styles.css';
 
 const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
 
+  // we can over-write the default values set in useChartDimensions by passing them in as props
   const [ref, dimensions] = useChartDimensions({
-    marginTop: 50,
-    marginBottom: 50,
-    marginLeft: 50,
-    marginRight: 50
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10
   });
+  // const width = 2 * outerRadius + dimensions.marginLeft + dimensions.marginRight;
+  // const height = 2 * outerRadius + dimensions.marginTop + dimensions.marginBottom;
 
-  const width = 2 * outerRadius + dimensions.marginLeft + dimensions.marginRight;
-  const height = 2 * outerRadius + dimensions.marginTop + dimensions.marginBottom;
+  console.log(dimensions)
+
+  const margin = {
+    top: 30, right: 30, bottom: 30, left: 30,
+  };
+  const width = 2 * outerRadius + margin.left + margin.right;
+  const height = 2 * outerRadius + margin.top + margin.bottom;
+
+  console.log(width)
+  console.log(height)
 
   return (
     <Fragment>
@@ -24,8 +35,8 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
         <Chart dimensions={dimensions}>
           <Pie
               data={data}
-              width={width}
               height={height}
+              width={width}
               innerRadius={innerRadius}
               outerRadius={outerRadius}
               label={label}
