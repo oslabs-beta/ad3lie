@@ -4,6 +4,6 @@ ignore.tsx
 *.tsx
 *.ts
 dist
-dist
 LibrarySample.jsx
 archives
+compilation-stats.json

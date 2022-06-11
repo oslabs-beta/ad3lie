@@ -11,6 +11,15 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  optimization: {
+    usedExports: true,
+  },
+  // optimization: {
+  //   runtimeChunk: true,
+  //   removeAvailableModules: false,
+  //   removeEmptyChunks: false,
+  //   splitChunks: false,
+  // },
   // devtool: "source-map",
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.css', '.scss'],
