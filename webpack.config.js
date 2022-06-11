@@ -14,6 +14,7 @@ module.exports = {
   optimization: {
     usedExports: true,
   },
+  stats: 'verbose',
   // optimization: {
   //   runtimeChunk: true,
   //   removeAvailableModules: false,
