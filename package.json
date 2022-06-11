@@ -4,9 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "webpack && electron . ",
+    "start": "webpack && electron .",
     "build": "webpack",
     "start-dev-server": "webpack serve",
+    "mac:installer": "electron-builder --mac",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
@@ -15,6 +16,36 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oslabs-beta/D3ACT.git"
+  },
+  "build": {
+    "appId": "com.electron.d3act",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "penguin-icon.png"
+    },
+    "dmg": {
+      "title": "D3ACT",
+      "backgroundColor": "#ffffff",
+      "window": {
+        "width": "400",
+        "height": "300"
+      },
+      "contents": [
+        {
+          "x": 100,
+          "y": 100
+        },
+        {
+          "x": 300,
+          "y": 100,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "directories": {
+      "output": "installer"
+    }
   },
   "keywords": [],
   "author": "",
@@ -41,6 +72,7 @@
     "d3": "^7.4.4",
     "dedent-js": "^1.0.1",
     "electron": "^18.2.4",
+    "electron-builder": "^23.0.3",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -101,7 +133,6 @@
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "ts-node": "^10.4.0",
-    "tw-elements": "^1.0.0-alpha12",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "tw-elements": "^1.0.0-alpha12"
   }
 }
