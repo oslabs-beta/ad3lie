@@ -7,3 +7,6 @@ dist
 dist
 LibrarySample.jsx
 archives
+.tsx
+src/components/Charts/LineGraph/**/*.tsx.jsx
+src/components/Charts/Timeline/**/*.tsx.jsx

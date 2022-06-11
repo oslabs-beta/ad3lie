@@ -16,7 +16,7 @@ import Gradient from "../../../ChartComponents/JSX/Gradient"
  */
 
 const BarChart 
-  = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
+  = ({ currProps, currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }  }) => {
   // = ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) => {
 
 /*

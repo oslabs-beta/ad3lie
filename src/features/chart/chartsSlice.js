@@ -2,8 +2,26 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   type: '', //barchart, scatterplot, etc.
+  name: '',
   children: [], // what child elements/comps are needed to build chart (idk if we need this), string[]
-  properties: [] //required properties for each chart, string[]
+  properties: [] //required properties for each chart, string[],
+  // charts: [
+  //   barchart: (state, action) => {
+  //     console.log('Selecting barchart type, children, and properties');
+  //     state.type = 'barchart';
+  //     state.name = 'BarChart';
+  //     state.children = ['Chart, Axis, Rectangle'];
+  //     state.properties = [
+  //       'data',
+  //       'xKey',
+  //       'yKey',
+  //       'xAxisLabel',
+  //       'yAxisLabel',
+  //       'height',
+  //       'width'
+  //     ];
+  //   },
+  // ]
 };
 
 //make switch case based on action/chart type (action = barchart, no payload), or use switch case within the payload/reducer? (if payload = barchart)

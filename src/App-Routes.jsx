@@ -1,14 +1,17 @@
+import React, { Fragment } from 'react'
 import { HashRouter } from "react-router-dom";
-import Routes from "./Routes";
+import AllRoutes from "./AllRoutes";
 // import NavBar from './components/NavBar';
 
 export default () => (
-  <HashRouter>
-    <div>
-        {/* <Navbar /> */}
-        <Routes />
-    </div>
-  </HashRouter>
+  <Fragment>
+    <HashRouter>
+      <div>
+          {/* <Navbar /> */}
+          <AllRoutes />
+      </div>
+    </HashRouter>
+  </Fragment>
 );
 
 
