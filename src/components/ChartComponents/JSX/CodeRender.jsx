@@ -3,9 +3,7 @@ import { upperFirst } from 'lodash';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../utils/CodePreview';
 
 const CodeRender = ({ name, children, data, ...currProps }) => {
-  // console.log(name)
-  // console.log(children)
-  console.log(data)
+
   // delete currProps.data; // otherwise the entire dataset will be printed to the screen 
 
   const code = generateChartCode(`${upperFirst(name)}`, currProps, {

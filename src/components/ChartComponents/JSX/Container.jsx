@@ -15,7 +15,11 @@ import {
   linechart,
 } from "../../../features/chart/chartsSlice"
 
-// const MyChart = lazy(() => import(`../../Charts/${name}/JSX/${name}Test.jsx`));
+  const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
+  const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
+  const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
+  const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
+  const PieChart = lazy(() => import('../../Charts/PieChart/JSX/PieChart.jsx'))
 
   // Upon navigation to specified route, we first identify our chart using useLocation, then, we will dispatch action using specified chart
     // Can we do this with useParams as well? --> grab name direclty without slicing and reassigning weirdly
@@ -29,12 +33,11 @@ const Container = ({ type, name, children, properties }) => {
     "piechart": piechart,
     "linechart": linechart,
   } 
-  const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
-  const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
-  const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
-  const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
-  const PieChart = lazy(() => import('../../Charts/PieChart/JSX/PieChart.jsx'))
 
+  // const MyChart = useCallback(() => {
+  //   console.log('hi from mychart')
+  //   lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
+  // }, [dispatch])
   const MyChart = lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
 
   //Dispatching chart sets the chart type, props, children, and default props in state
@@ -44,7 +47,6 @@ const Container = ({ type, name, children, properties }) => {
     dispatch(charts[type]());
   }, [dispatch]);
 
-
   // const { children, properties } = useSelector((state) => state.charts);
   const props = useSelector((state) => state.props); // object of all current props
 
@@ -52,9 +54,6 @@ const Container = ({ type, name, children, properties }) => {
     acc[curr] = props[curr];
     return acc;
   }, {});
-
-  // console.log(name)
-  console.log(currProps)
 
 return (
   <Fragment>

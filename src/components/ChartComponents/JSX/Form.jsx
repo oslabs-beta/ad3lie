@@ -9,6 +9,8 @@ import { changeProps } from '../../../features/chart/propsSlice';
   // pass input name/value to our single props reducer, which updates the props in state.props
 
 const Form = ({ properties }) => {
+console.log('hi from form')
+
   const dispatch = useDispatch();
   
   const handleChange = useCallback ((e) => {
