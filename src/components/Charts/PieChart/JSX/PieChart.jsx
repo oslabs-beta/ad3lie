@@ -31,10 +31,15 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
   // console.log(width)
   // console.log(height)
 
+  /**
+   * Currently the PieChart does not work when placed into <Chart/>
+   * Because Pie directly returns an svg, instead of ind. svg elements? (rect, circle, etc)
+   */
+
   return (
     <Fragment>
       <div className="Pie w-full top-0 left-0 h-full" ref={ref}>
-        <Chart dimensions={dimensions}>
+        {/* <Chart dimensions={dimensions}> */}
           <Pie
               data={data}
               height={height}
@@ -44,7 +49,7 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
               label={label}
               pieValue={pieValue}
             />
-        </Chart>
+        {/* </Chart> */}
       </div>
     </Fragment>
   );

@@ -1,13 +1,13 @@
 import React, { useMemo, Fragment } from 'react';
 import * as d3 from 'd3';
-import { useChartDimensions } from '../../../utils/utils.js';
-import Chart from '../../ChartComponents/JSX/Chart'
-import Line from '../../ChartComponents/JSX/Line'
-import Axis from '../../ChartComponents/JSX/Axis'
-import '../../ChartComponents/chartstyles.css';
-import '../../../styles.css';
+import { useChartDimensions } from '../../../../utils/utils.js';
+import Chart from '../../../ChartComponents/JSX/Chart.jsx';
+import Line from '../../../ChartComponents/JSX/Line.jsx';
+import Axis from '../../../ChartComponents/JSX/Axis.jsx';
+import '../../../ChartComponents/chartstyles.css';
+import '../../../../styles.css';
 
-const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) => {
+export default function LineChart ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) {
   const xAccessor = (data) => data[xKey];
   const yAccessor = (data) => data[yKey];
 
@@ -72,4 +72,4 @@ const LineChart = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) 
 //     xAccessor: d => d.x,
 //     yAccessor: d => d.y,
 // }
-export default LineChart
+// export default LineChart
