@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useCallback, Fragment } from 'react';
+import React, { lazy, Suspense, useEffect, useMemo, useLayoutEffect, useCallback, Fragment } from 'react';
 import * as d3 from 'd3';
 import Form from './Form.jsx'
 import CodeRender from './CodeRender.jsx'
@@ -34,12 +34,6 @@ const Container = ({ type, name, children, properties }) => {
     "linechart": linechart,
   } 
 
-  // const MyChart = useCallback(() => {
-  //   console.log('hi from mychart')
-  //   lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
-  // }, [dispatch])
-  const MyChart = lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
-
   //Dispatching chart sets the chart type, props, children, and default props in state
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,14 +41,21 @@ const Container = ({ type, name, children, properties }) => {
     dispatch(charts[type]());
   }, [dispatch]);
 
-  // const { children, properties } = useSelector((state) => state.charts);
-  const props = useSelector((state) => state.props); // object of all current props
 
+  const props = useSelector((state) => state.props); // object of all current props
   const currProps = properties.reduce((acc, curr) => {
     acc[curr] = props[curr];
     return acc;
   }, {});
 
+  // Memoizing the import
+  // We want to rerender of chart as state props changes, but import the actual component only once (unless type change during dispatch)
+    const MyChart = useMemo(() => lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`)), [dispatch]);
+  // const MyChart = useCallback(() => {
+  //   console.log('hi from mychart')
+  //   lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
+  // }, [currProps]);
+  // const MyChart = lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
 return (
   <Fragment>
     {/* <Suspense fallback={<h1> </h1>}> */}
