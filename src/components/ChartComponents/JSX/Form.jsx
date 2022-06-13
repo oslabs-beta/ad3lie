@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, Fragment } from 'react';
 import '../../ChartComponents/chartstyles.css'
 import { startCase } from 'lodash';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { changeProps } from '../../../features/chart/propsSlice';
 
 // See below explanation on why we don't dynamically use eval() and instead use property accessors to send the correct payload instead
@@ -9,6 +9,8 @@ import { changeProps } from '../../../features/chart/propsSlice';
   // pass input name/value to our single props reducer, which updates the props in state.props
 
 const Form = ({ properties }) => {
+console.log('hi from form')
+
   const dispatch = useDispatch();
   
   const handleChange = useCallback ((e) => {
@@ -58,13 +60,18 @@ const Form = ({ properties }) => {
     )
   )
 
+  // How to prevent 50 form rerenders on initial load? 
+  // const { type } = useSelector((state) => state.charts.type);
   return (
+    <Fragment>
+    {/* {type &&  */}
     <form class=" w-full max-w-lg" onSubmit={() => {}}>
       <div class="rounded flex flex-col flex-wrap mx-6">
         {inputs}
       </div>
     </form>
-
+    {/* } */}
+  </Fragment>
   );
 };
 

@@ -6,4 +6,6 @@ ignore.tsx
 dist
 LibrarySample.jsx
 archives
-compilation-stats.json
+.tsx
+src/components/Charts/LineGraph/**/*.tsx.jsx
+src/components/Charts/Timeline/**/*.tsx.jsx
