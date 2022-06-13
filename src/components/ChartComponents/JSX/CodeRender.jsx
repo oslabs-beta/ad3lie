@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback, Fragment } from 'react';
 import { upperFirst } from 'lodash';
 import { generateChartCode, CodeBlock, Code, CodeText, formatCode} from '../../../utils/CodePreview';
 
-const CodeRender = ({ name, children, currProps, currProps: { data }}) => {
+const CodeRender = ({ name, children, data, ...currProps }) => {
 
-  delete currProps.data; // otherwise the entire dataset will be printed to the screen 
+  // delete currProps.data; // otherwise the entire dataset will be printed to the screen 
 
   const code = generateChartCode(`${upperFirst(name)}`, currProps, {
       dataKey: data !== undefined ? 'data' : undefined,

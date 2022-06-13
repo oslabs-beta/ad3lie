@@ -1,13 +1,13 @@
 import React, { useEffect, Fragment } from 'react';
 import * as d3 from "d3"
 import LineChart from './LineChart';
-import Form from '../../ChartComponents/JSX/Form';
-import CodeRender from '../../ChartComponents/JSX/CodeRender';
+import Form from '../../../ChartComponents/JSX/Form';
+import CodeRender from '../../../ChartComponents/JSX/CodeRender';
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
 import { Link } from 'react-router-dom';
-import { linechart } from "../../../features/chart/chartsSlice"
-import "../../ChartComponents/chartstyles.css"
+import { linechart } from "../../../../features/chart/chartsSlice"
+import "../../../ChartComponents/chartstyles.css"
 
 const LineChartContainer = () => {
   const charts = { "linechart": linechart };
