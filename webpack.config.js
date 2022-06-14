@@ -65,12 +65,8 @@ module.exports = {
         type: 'asset/resource'
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
-        test: /\/src\/.+\.css$/i,
-        exclude: /node_modules/,
+        test: /.+\.css$/i,
+        // exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',
