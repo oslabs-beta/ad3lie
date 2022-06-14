@@ -1,14 +1,6 @@
 # D3ACT
 
-npm i d3act
-
-import * from d3act
-
-BarChart.jsx
-
-<BarChart></BarChart># D3ACT
-
-An open-source application for creating elegant and responsive data visualizations built with React and D3.
+D3ACT is an open-source application and package for creating elegant and responsive data visualizations built with React and D3.
 
 The focus of this application is to generate user customized charts that can be used in any React project.
 
@@ -16,17 +8,17 @@ The focus of this application is to generate user customized charts that can be 
 
 ## Download D3ACT Application
 
-Download the applciation [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ). (CHANGE THIS LINK)
+Begin by downloading the app [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ). (CHANGE THIS LINK)
 
 After opening the app, choose which graph to create.
 
 * GIF of selecting which graph to create and going back to home button and choosing another graph
 
-Input the required fields and adjust the graph based on the input fields.
+Input the required fields - such as Data, X-Axis, and Y-Axis - and adjust the graph based on the inputs given
 
 * GIF of modifying the graph
 
-If you decide to chose another graph, simply click on the home button and choose another graph. All of your input data will be saved for the duration of the application's life.
+If you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
 * GIF of going back and choosing another graph
 
@@ -35,6 +27,10 @@ Click the export button and select the file directory of your project for both t
 * GIF of selecting export and choosing file directory of project
 
 ## Install D3ACT Package
+
+Downloading D3ACT will include other necessary dependencies in order to generate your data visualizations. This allows for the use of the React component exported from the D3ACT application.
+
+Simply download the npm package
 
 ```
 npm i d3act
@@ -49,8 +45,12 @@ yarn add d3act
 From here, import the React component as a child component.
 
 ```
-import BarChart from "./file/path/to/component"
+import Chart from "./file/path/to/component"
 ```
+
+From here, simply use the componet as you would any other child component in your React app.
+
+Happy visualizing!
 
 # Documentation
 
