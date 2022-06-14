@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack && electron . ",
     "build": "webpack",
-    "test": "webpack —- profile —- json > stats.json",
     "start-dev-server": "webpack serve",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
@@ -23,12 +22,6 @@
   "bugs": {
     "url": "https://github.com/oslabs-beta/D3ACT/issues"
   },
-  "sideEffects": [
-    "**/*.css",
-    "**/*.scss",
-    "./esnext/index.js",
-    "./esnext/configure.js"
-  ],
   "homepage": "https://github.com/oslabs-beta/D3ACT#readme",
   "devDependencies": {
     "@babel/core": "^7.18.0",
@@ -110,7 +103,6 @@
     "styled-components": "^5.3.5",
     "ts-node": "^10.4.0",
     "tw-elements": "^1.0.0-alpha12",
-    "webpack-analyse": "^0.0.1",
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
