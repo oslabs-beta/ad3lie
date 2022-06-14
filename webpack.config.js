@@ -20,7 +20,9 @@ module.exports = {
       path: require.resolve('path-browserify')
     }
   },
-
+  optimization: {
+    usedExports: true,
+  },
   module: {
     rules: [
       {
@@ -92,7 +94,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new NodePolyfillPlugin()
+    new NodePolyfillPlugin(),
     // new BundleAnalyzerPlugin()
   ],
   devServer: {
