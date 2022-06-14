@@ -63,10 +63,12 @@ return (
 
     <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
 
-      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
+      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded overflow-scroll h-full">
          <Form 
           key={`Form-${name}`}
-          properties={properties}/>
+          properties={properties}
+          data={currProps.data} 
+          currProps={currProps} />
       </div>
       
       <div className="glass col-start-2 col-span-1 row-span-1 rounded">
@@ -77,16 +79,14 @@ return (
         </Suspense>
       </div>
 
-      <div className="glass col-start-2 col-span-1 row-span-1 p-2 rounded text-slate-100">
         <CodeRender
           key={`CodeRender-${name}`}
           name={name}
           children={children}
           {...currProps}
         />
-      </div>
 
-      <div class=" flex justify-between col-start-1 col-span-2 row-start-3 row-span-3">
+      <div class=" flex justify-start col-start-1 col-span-1 row-start-3 row-span-1">
         <button class="glass w-32 text-white">Import</button>
       </div>
 
