@@ -12,19 +12,19 @@ Begin by downloading the app [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 After opening the app, choose which graph to create.
 
-* GIF of selecting which graph to create and going back to home button and choosing another graph
+> **GIF of selecting which graph to create and going back to home button and choosing another graph**
 
 Input the required fields - such as Data, X-Axis, and Y-Axis - and adjust the graph based on the inputs given
 
-* GIF of modifying the graph
+> **GIF of modifying the graph**
 
 If you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
-* GIF of going back and choosing another graph
+> **GIF of going back and choosing another graph**
 
 Click the export button and select the file directory of your project for both the data file and React component.
 
-* GIF of selecting export and choosing file directory of project
+> **GIF of selecting export and choosing file directory of project**
 
 ## Install D3ACT Package
 
@@ -50,7 +50,7 @@ import Chart from "./file/path/to/component"
 
 From here, simply use the componet as you would any other child component in your React app.
 
-Happy visualizing!
+## Happy visualizing! <|^o^|>
 
 # Documentation
 
