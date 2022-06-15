@@ -50,12 +50,10 @@ import Chart from "./file/path/to/component"
 
 From here, simply use the componet as you would any other child component in your React app.
 
-## Happy visualizing! <|^o^|>
+### Happy visualizing! <|^o^|>
 
 # Documentation
 
-For more detailed information, please check the related package documentation [here](https://www.npmjs.com/package/ad3lie).
-
-> **Change hyperlink**
+For more detailed information, please check the related package documentation [here](https://docs.ad3lie.dev/) or go directly to our npm package [here](https://www.npmjs.com/package/ad3lie).
 
 Also checkout our [website](https://ad3lie.dev/) to see incoming features, how to get involved, and meet our team!
