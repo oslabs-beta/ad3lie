@@ -1,12 +1,12 @@
-# AD3LIE
+# ad3lie
 
-AD3LIE is an open-source application and package for creating elegant and responsive data visualizations built with React and D3.
+ad3lie is an open-source application and package for creating elegant and responsive data visualizations built with React and D3.
 
 The focus of this application is to generate user customized charts that can be used in any React project.
 
 # Installation
 
-## Download AD3LIE Application
+## Download ad3lie Application
 
 Begin by downloading the app [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ). (CHANGE THIS LINK)
 
@@ -26,9 +26,9 @@ Click the export button and select the file directory of your project for both t
 
 > **GIF of selecting export and choosing file directory of project**
 
-## Install AD3LIE Package
+## Install ad3lie Package
 
-Downloading AD3LIE will include other necessary dependencies in order to generate your data visualizations. This allows for the use of the React component exported from the AD3LIE application.
+Downloading ad3lie will include other necessary dependencies in order to generate your data visualizations. This allows for the use of the React component exported from the ad3lie application.
 
 Simply download the npm package
 
