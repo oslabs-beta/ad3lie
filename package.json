@@ -8,8 +8,7 @@
   },
   "scripts": {
     "start": "webpack && electron . ",
-    "build": "webpack && cp npm-module.package.json bundled-npm-package/package.json",
-    "build-npm-package": "babel src/components/Charts/ --presets @babel/preset-react -d babel-npm-build  && cp npm-module.package.json babel-npm-build/package.json",
+    "build": "webpack",
     "start-dev-server": "webpack serve",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
