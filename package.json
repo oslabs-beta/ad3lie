@@ -11,6 +11,8 @@
     "build": "webpack",
     "start-dev-server": "webpack serve",
     "mac:installer": "electron-builder --mac",
+    "win:installer": "electron-builder --win",
+    "linux:installer": "electron-builder --linux",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
@@ -27,7 +29,7 @@
       "icon": "penguin-icon.png"
     },
     "dmg": {
-      "title": "D3ACT",
+      "title": "ad3lie",
       "backgroundColor": "#ffffff",
       "window": {
         "width": "400",
@@ -45,6 +47,19 @@
           "path": "/Applications"
         }
       ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "penguin-icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "penguin-icon.png",
+      "uninstallerIcon": "penguin-icon.png",
+      "uninstallDisplayName": "ad3lie-uninstaller",
+      "allowToChangeInstallationDirectory": true
     },
     "directories": {
       "output": "installer"
