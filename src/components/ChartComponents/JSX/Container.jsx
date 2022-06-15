@@ -71,7 +71,7 @@ return (
           currProps={currProps} />
       </div>
       
-      <div className="glass col-start-2 col-span-1 row-span-1 rounded">
+      <div className="glass33 col-start-2 col-span-1 row-span-1 rounded">
         <Suspense fallback={<h1> </h1>}>
         <MyChart 
         key={`Chart-${name}`}
@@ -87,7 +87,7 @@ return (
         />
 
       <div class=" flex justify-start col-start-1 col-span-1 row-start-3 row-span-1">
-        <button class="glass w-32 text-white">Import</button>
+        <button class="glass glassglow w-32 text-white">Import</button>
       </div>
 
     </div>
