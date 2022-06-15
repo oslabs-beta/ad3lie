@@ -22,6 +22,7 @@ action type: props/changeProps
 
 const initialState = {
   name: '',
+  dataString: JSON.stringify(sampleData),
   data: sampleData,
   xKey: '',
   yKey: '',
@@ -48,8 +49,19 @@ export const propsSlice = createSlice({
       const { name, value } = action.payload;
       // console.log(typeof name);
       // console.log(`Updating ${name}`);
-
-      if (name === 'data') dataVal = JSON.parse(value);
+      
+      // Need to keep a seperate dataString property to handle cases where the JSON.Parse is invalid.
+      // When the dataString changes it should also try to update the dataVal
+      if (name === 'dataString') {
+        
+        try{
+          state['data'] = JSON.parse(value)
+          console.log(dataVal, 'StateSet')
+        } catch (error) {
+          console.log(error, 'error occured')
+          state['data'] = undefined;
+        }
+      }
       if (name === 'height' || name === 'width')
         numVal = +value < 100 ? 500 : parseInt(value);
       else if (name === 'radius') numVal = +value < 1 ? 5 : parseInt(value);
@@ -59,7 +71,7 @@ export const propsSlice = createSlice({
         numVal = +value > outerRadius ? 0 : parseInt(value);
       else if (name === 'barPadding' || name === 'thresholds') numVal = +value;
 
-      state[name] = dataVal || numVal || value;
+      state[name] = numVal || value;
     }
   }
 });

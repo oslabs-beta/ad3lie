@@ -1,50 +1,85 @@
+@tailwind utilities;
 @tailwind base;
 @tailwind components;
 
-
-/* .gradient {
-    background-image: linear-gradient (#070bb4,#61eff4);
-} */
-/* .Chart {
-  background-image: url(./Chart2.svg);
-} */
-
-.glass {
-	/* From https://css.glass */
-	backdrop-filter: blur(16px) saturate(180%);
-	-webkit-backdrop-filter: blur(16px) saturate(180%);
-	background-color: rgba(249, 243, 243, 0.19);
-	border-radius: 12px;
-	border: 1px solid rgba(255, 255, 255, 0.125);
+.AxisLine {
+	stroke: #858687;
 }
 
 
+.glassglow:hover {
+	color: rgb(255, 255, 255);
+	text-shadow: 0 0 10px #fff;
+	text-shadow: 0 0 20px #fff;
+	text-shadow: 0 0 40px #fff;
+	text-shadow: 0 0 80px #fff;
+	box-shadow: 0 0 40px #fff;
+	transform: translate(0px, -2.5%);
+}
+ 
+
+.glass {
+	/* From https://css.glass */
+	backdrop-filter: blur(8px) saturate(190%);
+	-webkit-backdrop-filter: blur(20px) saturate(190%);
+	background-color: rgba(249, 243, 243, 0.124);
+	border-radius: 10px;
+	border: 8px solid rgba(6, 6, 6, 0);
+}
+.glass2 {
+	/* From https://css.glass */
+	backdrop-filter: blur(5px) saturate(190%);
+	-webkit-backdrop-filter: blur(20px) saturate(190%);
+	background-color: rgba(249, 243, 243, 0.19);
+	border-radius: 22px;
+	border: 8px solid rgba(6, 6, 6, 0);
+}
+
+/* Glassmorphism Carousel container effect */
+.glass33 {
+	/* From https://css.glass */
+	backdrop-filter: blur(20px) saturate(190%);
+	-webkit-backdrop-filter: blur(20px) saturate(190%);
+	background-color: rgba(243, 245, 248, 0.761);
+	border-radius: 10px;
+	border: 1px solid rgba(37, 21, 255, 0);
+}
+
+.glass3 {
+	background: rgb(252, 252, 252);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 /* Glassmorphism card effect */
 .card {
 	backdrop-filter: blur(16px) saturate(180%);
 	-webkit-backdrop-filter: blur(16px) saturate(180%);
 	background-color: rgba(250, 250, 250, 0.19);
 	border-radius: 12px;
-	border: 1px solid rgba(255, 255, 255, 0.125);
+	border: 1px solid rgba(32, 31, 31, 0);
 }
 
-/* .background {
-	background-image: url('./background.svg');
-	background-position: fill
-} */
-
+.glow-on-hover {
+	width: 220px;
+	height: 50px;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #111;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+}
 
 body {
 	background-image: url('./topy.png');
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	height: 100vh;
-	width: 100vw;
+	background-size: 100% 100%;	
 }
-
-/* .caro {
-	background-image: url('./topy.png')
-} */
 
 .slides {
 	background-size: 50% 50%
@@ -52,7 +87,130 @@ body {
 
 .menu-icon,
 .fa-regular span {
-    font-size: 18px;
+	font-size: 18px;
 }
 
-@tailwind utilities;
+
+
+/* KEEP THESE COMMENTED OUT SECTIONS HERE
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	min-height:100vh;
+	background: #212534
+} */
+/* 
+.main{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.card{
+	position: relative;
+	display:flex;
+	height:100px;
+	width: 250px;
+	background-color:  #0f16e969;
+	border-radius: 15px;
+	justify-content: center;
+align-items: center;
+flex-wrap: nowrap;
+	flex-direction:column;
+	text-align:center;
+	border:2px solid  rgba(99, 230, 6, 0.195);
+	overflow:hidden;
+	transition:.6s;
+		box-shadow:0px 0px  100px rgba(8, 118, 128, 0.15);
+ }
+ 
+.text1{
+position:relative;
+font-size:33px;
+font-family:roboto;
+color: rgb(88 199 250);
+font-weight:100;
+letter-spacing:1px;
+transition:.7s;
+transform:translateY(110px);
+}
+
+.card:hover .text1{transform:translateY(-150px);opacity:0}
+.text2{color:#dbf9ff;
+font-family:roboto;
+font-weight:100;
+font-size:14px;
+width:100px;
+line-height:25px;
+transform:translateY(200px);
+transition:.7s;
+opacity:0
+}
+
+.hover{}
+h2{
+font-size:38px;
+font-family:roboto;
+color:rgb(88 199 250);
+font-weight:400;
+margin:0;
+padding:0;
+transform:translateY(200px);
+opacity:1;
+transition:.6s;
+opacity:0
+}
+
+button{
+transform:translatey(200px);
+transition:.88s;
+opacity:0;
+width:110px;
+height:38px;
+border-radius:40px;
+font-size:12px;
+font-family:roboto;
+text-transform:uppercase;
+font-weight:300;
+letter-spacing:1px;
+color:white;
+background-color: #0beef9;
+background-image: linear-gradient(315deg, #0beef9 0%, #48a9fe 74%);
+border:none;
+cursor:pointer
+}
+.card:hover .hover{display:block}
+.card:hover h2{transform:translatey(-38px);opacity:1}
+.card:hover .text2{transform:translatey(-20px);
+opacity:1}
+.card:hover button{transform:translatey(5px);opacity:1}
+.card:hover{
+transform:scale(110%);
+box-shadow:0px 0px  100px  rgb(88 199 250);
+}
+
+button:active{
+	/* .glass333 {
+		/* From https://css.glass */
+		/* backdrop-filter: blur(20px) saturate(190%);
+		-webkit-backdrop-filter: blur(20px) saturate(190%);
+		background-color: rgb(255, 255, 255);
+		border-radius: 22px;
+		border: 8px solid rgba(6, 6, 6, 0);
+	} */ 
+	
+	
+	/* .glass455{ */
+		/* From https://css.glass */
+		/* backdrop-filter: blur(8px) saturate(190%); */
+		/* -webkit-backdrop-filter: blur(20px) saturate(190%); */
+		/* background-color: rgba(0, 253, 253, 0.585); */
+		/* border-radius: 22px; */
+		/* border: 8px solid rgba(6, 6, 6, 0); */
+	/* } 
+/* color:#0beef9 */
+/* }  */

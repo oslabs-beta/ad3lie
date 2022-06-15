@@ -3,8 +3,11 @@ package-lock.json
 ignore.tsx
 *.tsx
 *.ts
-dist
-dist
 LibrarySample.jsx
-archivesinstaller
+archives
+.tsx
+src/components/Charts/LineGraph/**/*.tsx.jsx
+src/components/Charts/Timeline/**/*.tsx.jsx
 installer
+dist
+.DS_Store

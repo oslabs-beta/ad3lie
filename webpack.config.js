@@ -4,7 +4,7 @@ const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
-module.exports = {
+module.exports = [{
   mode: 'development',
   entry: './src/index.jsx',
   output: {
@@ -20,7 +20,9 @@ module.exports = {
       path: require.resolve('path-browserify')
     }
   },
-
+  optimization: {
+    usedExports: true,
+  },
   module: {
     rules: [
       {
@@ -63,12 +65,8 @@ module.exports = {
         type: 'asset/resource'
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
-        test: /\/src\/.+\.css$/i,
-        exclude: /node_modules/,
+        test: /.+\.css$/i,
+        // exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',
@@ -98,4 +96,4 @@ module.exports = {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
   }
-};
+}]
