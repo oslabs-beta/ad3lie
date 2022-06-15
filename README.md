@@ -52,6 +52,6 @@ From here, simply use the componet as you would any other child component in you
 
 # Documentation
 
-For more detailed information, please check the related package documentation [here](https://docs.ad3lie.dev/) or go directly to our npm package [here](https://www.npmjs.com/package/ad3lie).
+For more detailed information, please check the related package [documentation](https://docs.ad3lie.dev/) or go directly to our [npm package](https://www.npmjs.com/package/ad3lie).
 
 Checkout our [website](https://ad3lie.dev/) to see incoming features, how to get involved, and meet our team!
