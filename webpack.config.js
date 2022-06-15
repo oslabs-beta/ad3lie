@@ -4,7 +4,7 @@ const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
-module.exports = {
+module.exports = [{
   mode: 'development',
   entry: './src/index.jsx',
   output: {
@@ -97,4 +97,4 @@ module.exports = {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
   }
-};
+}]

@@ -1,11 +1,15 @@
 {
-  "name": "d3act",
+  "name": "ad3lie",
   "version": "0.0.1",
   "description": "",
   "main": "main.js",
+  "exports": {
+    ".": "./npm_package_entry.js"
+  },
   "scripts": {
     "start": "webpack && electron . ",
-    "build": "webpack",
+    "build": "webpack && cp npm-module.package.json bundled-npm-package/package.json",
+    "build-npm-package": "babel src/components/Charts/ --presets @babel/preset-react -d babel-npm-build  && cp npm-module.package.json babel-npm-build/package.json",
     "start-dev-server": "webpack serve",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
@@ -24,7 +28,8 @@
   },
   "homepage": "https://github.com/oslabs-beta/D3ACT#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.0",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
