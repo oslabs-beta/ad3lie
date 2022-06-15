@@ -101,12 +101,21 @@ module.exports = [{
 {
   mode: 'development',
   entry: {
-    bundle: { import: './npm_package_entry.js', filename: 'bundle.js' },
-    about: { import: './npm-module.package.json', filename: 'package.json' },
+    bundle: { import: './npm_package_entry.js', filename: 'bundle.js' }
+    // about: { import: './npm-module.package.json', filename: 'package.json' },
   },
   output: {
     path: path.resolve(__dirname, 'bundled-npm-package')
   },
+  // externals: {
+
+  //   'react': 'react',
+  //   'react-dom': 'react-dom',
+  //   'd3': 'd3',
+  //   'prop-types': 'prop-types',
+  //   'styled-components': 'styled-components',
+  //   'resize-observer-polyfill': 'resize-observer-polyfill'
+  // },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.css', '.scss'],
     modules: ['src', 'node_modules'],

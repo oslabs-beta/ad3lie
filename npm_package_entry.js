@@ -1,5 +1,7 @@
-export {default as BarChart} from './src/components/Charts/BarChart/JSX/BarChart'
-export {default as Histogram} from './src/components/Charts/BarChart/JSX/Histogram'
-export {default as LineChart} from './src/components/Charts/BarChart/JSX/LineChart'
-export {default as PieChart} from './src/components/Charts/BarChart/JSX/PieChart'
-export {default as ScatterPlot} from './src/components/Charts/BarChart/JSX/ScatterPlot'
+import BarChart from './src/components/Charts/BarChart/JSX/BarChart'
+import Histogram from './src/components/Charts/Histogram/JSX/Histogram'
+import LineChart from './src/components/Charts/LineChart/JSX/LineChart'
+import PieChart from './src/components/Charts/PieChart/JSX/PieChart'
+import ScatterPlot from './src/components/Charts/ScatterPlot/JSX/ScatterPlot'
+
+export {BarChart, Histogram, LineChart, PieChart, ScatterPlot}
