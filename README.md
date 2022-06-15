@@ -10,15 +10,13 @@ The focus of this application is to generate user customized charts that can be 
 
 Begin by downloading the app from our [website](https://ad3lie.dev/).
 
-After opening the app, choose which graph to create.
+After opening the app, choose which graph to create. Don't worry, if you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
 ![](choose-chart.gif)
 
-Input the required fields (i.e. Data, X-Axis, and Y-Axis) and adjust the graph based on the inputs given
+Input the required fields (i.e. Data, xKey, and yKey) and adjust the graph based on the inputs given
 
 ![](select-properties.gif)
-
-If you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
 ![](axes-size.gif)
 
