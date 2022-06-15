@@ -1,6 +1,6 @@
 {
   "name": "ad3lie",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "main.js",
   "exports": {
@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/D3ACT.git"
+    "url": "git+https://github.com/oslabs-beta/ad3lie.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oslabs-beta/D3ACT/issues"
+    "url": "https://github.com/oslabs-beta/ad3lie/issues"
   },
-  "homepage": "https://github.com/oslabs-beta/D3ACT#readme",
+  "homepage": "https://github.com/oslabs-beta/ad3lie#readme",
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.5",
