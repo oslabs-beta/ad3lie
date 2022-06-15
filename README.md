@@ -54,6 +54,8 @@ From here, simply use the componet as you would any other child component in you
 
 # Documentation
 
-For more detailed information, please check the related package documentation [here](https://www.npmjs.com/package/d3act-lib).
+For more detailed information, please check the related package documentation [here](https://www.npmjs.com/package/ad3lie).
 
 > **Change hyperlink**
+
+Also checkout our [website](https://ad3lie.dev/) to see incoming features, how to get involved, and meet our team!
