@@ -8,23 +8,23 @@ The focus of this application is to generate user customized charts that can be 
 
 ## Download ad3lie Application
 
-Begin by downloading the app [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ). (CHANGE THIS LINK)
+Begin by downloading the app from our [website](https://docs.ad3lie.dev/).
 
 After opening the app, choose which graph to create.
 
-> **GIF of selecting which graph to create and going back to home button and choosing another graph**
+![](choose-chart.gif)
 
 Input the required fields (i.e. Data, X-Axis, and Y-Axis) and adjust the graph based on the inputs given
 
-> **GIF of modifying the graph**
+![](select-properties.gif)
 
 If you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
-> **GIF of going back and choosing another graph**
+![](axes-size.gif)
 
 Click the export button and select the file directory of your project for both the data file and React component.
 
-> **GIF of selecting export and choosing file directory of project**
+![](export.gif)
 
 ## Install ad3lie Package
 
