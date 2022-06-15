@@ -50,7 +50,7 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
       <div class="flex justify-end col-start-2 col-span-1 row-start-3 row-span-1">
         <button
           className="export-comp button"
-          class="glass w-32 text-white"
+          class="glass glassglow w-32 text-white"
           onClick={
             async () => {
             try {
