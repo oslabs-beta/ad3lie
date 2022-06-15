@@ -26,7 +26,8 @@
     "appId": "com.electron.d3act",
     "mac": {
       "category": "public.app-category.developer-tools",
-      "icon": "penguin-icon.png"
+      "icon": "penguin-icon.png",
+      "target": ["dmg"]
     },
     "dmg": {
       "title": "ad3lie",
@@ -56,10 +57,11 @@
     },
     "nsis": {
       "oneClick": false,
-      "installerIcon": "penguin-icon.png",
-      "uninstallerIcon": "penguin-icon.png",
       "uninstallDisplayName": "ad3lie-uninstaller",
       "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": ["Appimage"]
     },
     "directories": {
       "output": "installer"
