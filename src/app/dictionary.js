@@ -9,6 +9,7 @@ export const dictionary = {
     children: ['Chart, Axis, Rectangle'],
     properties: [
       'data',
+      'dataString',
       'xKey',
       'yKey',
       'xAxisLabel',
@@ -23,6 +24,7 @@ export const dictionary = {
     children: ['Chart, Axis, Bars'],
     properties: [
       'data',
+      'dataString',
       'xKey',
       'xAxisLabel',
       'yAxisLabel',
@@ -39,6 +41,7 @@ export const dictionary = {
     children: ['Chart, Axis, Circles'],
     properties: [
       'data',
+      'dataString',
       'xKey',
       'yKey',
       'xAxisLabel',
@@ -53,7 +56,7 @@ export const dictionary = {
     type: 'piechart',
     name: 'PieChart',
     children: ['Pie'],
-    properties: ['data', 'innerRadius', 'outerRadius', 'label', 'pieValue']
+    properties: ['data', 'dataString', 'innerRadius', 'outerRadius', 'label', 'pieValue']
   },
 
   linechart: {
@@ -62,6 +65,7 @@ export const dictionary = {
     children: ['Chart, Axis, Line'],
     properties: [
       'data',
+      'dataString',
       'xKey',
       'yKey',
       'xAxisLabel',
