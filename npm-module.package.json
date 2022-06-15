@@ -1,0 +1,13 @@
+{
+  "name": "d3act-charts-mt",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bundle.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/D3ACT/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/D3ACT#readme"
+}
