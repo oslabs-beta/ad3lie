@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import '../../ChartComponents/chartstyles.css';
 import { startCase } from 'lodash';
 import { useDispatch } from 'react-redux';
@@ -22,9 +22,12 @@ const Form = ({ properties, data, currProps }) => {
     [dispatch]
   );
 
+  const [invalidJSON, setInvalidJSON] = useState(false);
+
   const inputs = properties.map((p, i) => {
     //If Property is xKey or yKey then do a form
     if (p === 'xKey' || p === 'yKey') {
+      console.log('has Data Changed to undefined?', data)
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -59,13 +62,49 @@ const Form = ({ properties, data, currProps }) => {
               id={`set-${p}`}
               name={`${p}`}
               placeholder={currProps[p]}
-              value={p === 'data' ? JSON.stringify(currProps[p]) : currProps[p]}
+              value={currProps[p]}
               onChange={handleChange}
             ></input>
           </div>
         </div>
       );
-    } else {
+    } else if (p === 'data') {
+      //Data needs to be a current property, but doesn't require it's own form field.
+      return null
+    }
+    
+    else if (p === 'dataString') {
+      //Otherwise do a TextArea
+      return (
+        <div key={i} class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              {/* `${type-p}` */}
+              {startCase(p)}
+            </label>
+            <textarea
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id={`set-${p}`}
+              name={`${p}`}
+              placeholder={currProps[p]}
+              value={currProps[p]}
+              onChange={(e) => {
+                try {
+                  JSON.parse(e.target.value)
+                  handleChange(e)
+                  setInvalidJSON(false);
+                } catch (error) {
+                  handleChange(e)
+                  setInvalidJSON(true);
+                }
+              }
+              }
+            ></textarea>
+            {invalidJSON ? <p className='text-red-400'>Invalid JSON</p>: ''}
+          </div>
+        </div>
+      );
+      } else {
       //Otherwise do a TextArea
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
