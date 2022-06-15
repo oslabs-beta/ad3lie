@@ -9,7 +9,7 @@ import {
 } from '../../../utils/CodePreview';
 
 const CodeRender = ({ name, children, data, ...currProps }) => {
-  // delete currProps.data; // otherwise the entire dataset will be printed to the screen 
+  delete currProps.dataString; // otherwise the entire dataset will be printed to the screen 
 
   const code = generateChartCode(`${upperFirst(name)}`, currProps, {
     dataKey: data !== undefined ? 'data' : undefined,

@@ -22,7 +22,7 @@ export default function LineChart ({ data, xKey, yKey, xAxisLabel, yAxisLabel, h
     .domain(d3.extent(data, xAccessor)) // sets domain with an array [0.2693916329035372, 0.7248443066197088]
     .range([0, dimensions.boundedWidth])
     .nice();
-
+  
   const yScale = d3.scaleLinear()
     .domain(d3.extent(data, yAccessor))
     .range([dimensions.boundedHeight, 0])
