@@ -18,7 +18,7 @@ import Gradient from "../../../ChartComponents/JSX/Gradient"
 export default function BarChart ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) {
 // export default function BarChart ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) {
 
-if(!data) data = [];
+// if(!data) data = [];
 /*
 Using useMemo for **referential equality** of depedencies: important for React hooks
 2 common use cases of useMemo:

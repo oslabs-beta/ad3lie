@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useMemo, useLayoutEffect, useCallback, Fragment } from 'react';
+import React, { lazy, Suspense, useEffect, useMemo, useLayoutEffect, useCallback, Fragment, useState } from 'react';
 import * as d3 from 'd3';
 import Form from './Form.jsx'
 import CodeRender from './CodeRender.jsx'
@@ -14,6 +14,7 @@ import {
   piechart,
   linechart,
 } from "../../../features/chart/chartsSlice"
+import ErrorBoundary from './ErrorBoundary.jsx';
 
   const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
   const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
@@ -48,6 +49,14 @@ const Container = ({ type, name, children, properties }) => {
     return acc;
   }, {});
 
+  // Need to implement a unique key that increases every time state changes. 
+  // This is then passed to error boundary so that it rerenders when state chagnes.
+  // This is necessary in order to recover from errors. Without Changing the error boundaries key won't reset. 
+  const [errorKey, setErrorKey] = useState(0);
+  useEffect(() => {
+    setErrorKey(Date.now());
+  }, [currProps.data])
+
   // Memoizing the import
   // We want to rerender of chart as state props changes, but import the actual component only once (unless type change during dispatch)
     const MyChart = useMemo(() => lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`)), [dispatch]);
@@ -72,11 +81,13 @@ return (
       </div>
       
       <div className="glass33 col-start-2 col-span-1 row-span-1 rounded">
-        <Suspense fallback={<h1> </h1>}>
-        <MyChart 
-        key={`Chart-${name}`}
-        {...currProps} />      
-        </Suspense>
+        <ErrorBoundary key={errorKey}>
+          <Suspense fallback={<h1> </h1>}>
+            <MyChart 
+            key={`Chart-${name}`}
+            {...currProps} />      
+          </Suspense>
+        </ErrorBoundary>
       </div>
 
         <CodeRender
