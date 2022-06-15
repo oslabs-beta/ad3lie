@@ -60,7 +60,7 @@ const BarChartContainer = () => {
 <Fragment>
   {/* {currProps &&  */}
   <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
-    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+    <div className="ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
       <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded">
          <Form 
           properties={properties}/>
