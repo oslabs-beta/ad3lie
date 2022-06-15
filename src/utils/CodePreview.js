@@ -74,13 +74,13 @@ export const generateChartCode = (
     properties.push(`${key}=${value}`);
   });
 
-  const install = `// npm install @d3act`;
+  const install = `// npm install @ad3lie`;
 
   // Currently removed children imports as the user should only be importing the required chart template (ex. BarChart.jsx) and their custom data file (MyBarChart.js) in order to use the customized component (MyBarChart.jsx)
   // const imports = [name, ...children.map((c) => c)].map(
-  //   (i) => `import { ${i} } from 'd3act'`
+  //   (i) => `import { ${i} } from 'ad3lie'`
   // );
-  const imports = [name].map((i) => `import { ${i} } from 'd3act'`);
+  const imports = [name].map((i) => `import { ${i} } from 'ad3lie'`);
 
   const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
@@ -89,7 +89,7 @@ export const generateChartCode = (
     warning = [
       ``,
       `// Before use, remember to npm i all dependencies`,
-      `// and the @d3act component library to use your charts,`,
+      `// and the @ad3lie component library to use your charts,`,
       `// otherwise, no charts will be rendered.`,
       `// Copy the following code to your component file`,
       `// along with your Javascript data file.`
