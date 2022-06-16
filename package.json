@@ -20,14 +20,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/D3ACT.git"
+    "url": "git+https://github.com/oslabs-beta/ad3lie.git"
   },
   "build": {
     "appId": "com.electron.d3act",
     "mac": {
       "category": "public.app-category.developer-tools",
       "icon": "penguin-icon.png",
-      "target": ["dmg"]
+      "target": [
+        "dmg"
+      ]
     },
     "dmg": {
       "title": "ad3lie",
@@ -61,7 +63,9 @@
       "allowToChangeInstallationDirectory": true
     },
     "linux": {
-      "target": ["Appimage"]
+      "target": [
+        "Appimage"
+      ]
     },
     "directories": {
       "output": "installer"
@@ -136,6 +140,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
+    "asar": "^3.1.0",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-prettier-parser": "^0.10.8",
