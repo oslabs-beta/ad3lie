@@ -1,34 +1,32 @@
-# AD3LIE
+# ad3lie
 
-AD3LIE is an open-source application and package for creating elegant and responsive data visualizations built with React and D3.
+ad3lie is an open-source application and package for creating elegant and responsive data visualizations built with React and D3.
 
 The focus of this application is to generate user customized charts that can be used in any React project.
 
 # Installation
 
-## Download AD3LIE Application
+## Download ad3lie Application
 
-Begin by downloading the app [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ). (CHANGE THIS LINK)
+Begin by downloading the app from our [website](https://ad3lie.dev/).
 
-After opening the app, choose which graph to create.
+After opening the app, choose which graph to create. Don't worry, if you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
 
-> **GIF of selecting which graph to create and going back to home button and choosing another graph**
+![](choose-chart.gif)
 
-Input the required fields (i.e. Data, X-Axis, and Y-Axis) and adjust the graph based on the inputs given
+Input the required fields (i.e. Data, xKey, and yKey) and adjust the graph based on the inputs given
 
-> **GIF of modifying the graph**
+![](select-properties.gif)
 
-If you decide to chose another graph, simply click on the home button and choose another graph from the home page. All of your input data will be saved for the duration of the application's life span.
-
-> **GIF of going back and choosing another graph**
+![](axes-size.gif)
 
 Click the export button and select the file directory of your project for both the data file and React component.
 
-> **GIF of selecting export and choosing file directory of project**
+![](export.gif)
 
-## Install AD3LIE Package
+## Install ad3lie Package
 
-Downloading AD3LIE will include other necessary dependencies in order to generate your data visualizations. This allows for the use of the React component exported from the AD3LIE application.
+Downloading ad3lie will include other necessary dependencies in order to generate your data visualizations. This allows for the use of the React component exported from the ad3lie application.
 
 Simply download the npm package
 
@@ -50,10 +48,10 @@ import Chart from "./file/path/to/component"
 
 From here, simply use the componet as you would any other child component in your React app.
 
-## Happy visualizing! <|^o^|>
+### Happy visualizing! <|^o^|>
 
 # Documentation
 
-For more detailed information, please check the related package documentation [here](https://www.npmjs.com/package/d3act-lib).
+For more detailed information, please check the related package [documentation](https://docs.ad3lie.dev/) or go directly to our [npm package](https://www.npmjs.com/package/ad3lie).
 
-> **Change hyperlink**
+Checkout our [website](https://ad3lie.dev/) to see incoming features, how to get involved, and meet our team!
