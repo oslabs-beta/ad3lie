@@ -1,28 +1,28 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+// const BundleAnalyzerPlugin =
+//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
-// const io = require('socket.io-client');
 
-module.exports = {
+module.exports = [{
   mode: 'development',
   entry: './src/index.jsx',
-  // target: 'electron-renderer',
-  // target: 'node',
-  // resolve: {
-  //   fallback: {
-  //     fs: false
-  //   }
-  // },
-  // node: 'empty',
-  // type: 'module',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   // devtool: "source-map",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx']
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.css', '.scss'],
+    modules: ['src', 'node_modules'],
+    fallback: {
+      fs: false,
+      path: require.resolve('path-browserify')
+    }
   },
-
+  optimization: {
+    usedExports: true,
+  },
   module: {
     rules: [
       {
@@ -59,9 +59,14 @@ module.exports = {
           }
         }
       },
+
       {
-        test: /\/src\/.+\.css$/i,
-        exclude: /node_modules/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
+      },
+      {
+        test: /.+\.css$/i,
+        // exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',
@@ -80,19 +85,15 @@ module.exports = {
       }
     ]
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new NodePolyfillPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080
-    // static: {
-    //   // match the output path
-    //   directory: path.resolve(__dirname, 'dist'),
-    //   // match the output 'publicPath'
-    //   publicPath: '/'
-    // }
   }
-};
+}]

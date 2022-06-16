@@ -3,7 +3,7 @@
 }
 
 .Chart text {
-    fill: #95a5a6;
+    fill: #595c5c;
 }
 
 .Line {
@@ -12,18 +12,23 @@
 
 .Line--type-line {
     fill: none;
-    stroke: #9980FA;
+    stroke: #06b6d4;
     stroke-width: 3px;
     stroke-linecap: round;
 }
 
 .Line--type-area {
-    fill: rgba(152, 128, 250, 0.185);
+    fill: none;
+    stroke-width: 0;
+}
+
+.Line--type-area {
+    fill: #00dfeb;
     stroke-width: 0;
 }
 
 .Axis__line {
-    stroke: #bdc3c7;
+    stroke: #595c5c;
 }
 
 .Axis__label {
@@ -47,12 +52,12 @@
 }
 
 .Circles__circle {
-    fill: #9980FA;
+    fill: #00dfeb;
     transition: all 0.3s ease-out;
 }
 
 .Bars__rect {
-    fill: #9980FA;
+    fill: #00dfeb;
     transition: all 0.3s ease-out;
 }
 

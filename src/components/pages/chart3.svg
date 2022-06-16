@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="Chart" width="100%" height="100%" viewBox='0 0 500 500' >
+<g transform="translate(250, 250)">
+<path  d="M-180.224363721835,-86.71319807883755A200,200,0,0,1,-2.1437508791444564e-13,-200L-8.575003516577825e-14,-80A80,80,0,0,0,-72.08974548873401,-34.68527923153502Z" style="fill: #f43f5e; stroke: rgb(255, 255, 255); stroke-width: 0;"></path>
+<path d="M196.45991666932758,-37.463330635180576A200,200,0,0,1,90.40197337660852,178.4025874521302L36.16078935064341,71.36103498085208A80,80,0,0,0,78.58396666773103,-14.98533225407223Z" style="fill: #fda4af ; stroke: rgb(255, 255, 255); stroke-width: 0;"></path>
+<path d="M90.40197337660852,178.4025874521302A200,200,0,0,1,-139.95931689694007,142.86843463040358L-55.98372675877602,57.14737385216144A80,80,0,0,0,36.16078935064341,71.36103498085208Z" style="fill: #be123c ; stroke: rgb(255, 255, 255); stroke-width: 0;"></path>
+<path d="M1.2246467991473532e-14,-200A200,200,0,0,1,196.45991666932758,-37.463330635180576L78.58396666773103,-14.98533225407223A80,80,0,0,0,4.898587196589413e-15,-80Z" style="fill: #fb7185; stroke: rgb(255, 255, 255); stroke-width: 0;"></path>
+<path d="M-139.95931689694007,142.86843463040358A200,200,0,0,1,-180.224363721835,-86.71319807883755L-72.08974548873401,-34.68527923153502A80,80,0,0,0,-55.98372675877602,57.14737385216144Z" style="fill:  #e11d48; stroke: rgb(255, 255, 255); stroke-width: 0;"></path>
+<text className="font-medium" text-anchor="middle" alignment-baseline="middle" transform="translate(125.6533335119667, 61.73523934780256)" style="fill: black; font-size: 16px;">Adelie 39.2</text>
+<text class="font-semibold" text-anchor="middle" alignment-baseline="middle" transform="translate(-74.5053910407628, -118.52825277486808)" style="fill: black; font-size: 16px;">Gentoo 34.1</text>
+<text className="font-medium" text-anchor="middle" alignment-baseline="middle" transform="translate(89.24290895570444, -107.86891675141568)" style="fill: black; font-size: 16px;">Emperor 42</text>
+<text text-anchor="middle" alignment-baseline="middle" transform="translate(-21.343131761994822, 138.36354551177897)" style="fill: black; font-size: 16px;">Fairy 37.8</text>
+<text text-anchor="middle" alignment-baseline="middle" transform="translate(-137.89525422571026, 24.184682384243384)" style="fill: black; font-size: 16px;">Rock 37.8</text></g></svg>

@@ -29,7 +29,7 @@ export const sampleData = [
     sex: null
   },
   {
-    species: 'fuck',
+    species: 'Fairy',
     island: 'Torgersen',
     culmen_length_mm: 37.8,
     culmen_depth_mm: 17.1,
@@ -38,7 +38,7 @@ export const sampleData = [
     sex: null
   },
   {
-    species: 'me',
+    species: 'Rock',
     island: 'Torgersen',
     culmen_length_mm: 37.8,
     culmen_depth_mm: 17.3,
@@ -47,45 +47,6 @@ export const sampleData = [
     sex: null
   }
 ];
-// console.log(penguins.map((el) => el.species));
-
-// var groupBy = function (data, key) {
-//   // `data` is an array of objects, `key` is the key (or property accessor) to group by
-//   // reduce runs this anonymous function on each element of `data` (the `item` parameter,
-//   // returning the `storage` parameter at the end
-//   return data.reduce(function (storage, item) {
-//     // get the first instance of the key by which we're grouping
-//     var group = item[key];
-
-//     // set `storage` for this instance of group to the outer scope (if not empty) or initialize it
-//     storage[group] = storage[group] || [];
-
-//     // add this item to its group within `storage`
-//     storage[group].push(item);
-
-//     // return the updated storage to the reduce function, which will then loop through the next
-//     return storage;
-//   }, {}); // {} is the initial curr of the storage
-// };
-
-// var groupBy = function (xs, key1, key2) {
-//   return xs.reduce(function (rv, x) {
-//     (rv[x[key1] + "," + x[key2]] = rv[x[key1] + "," + x[key2]] || []).push(x);
-//     return rv;
-//   }, {});
-// };
-
-// console.log(groupBy(penguins, "sex", "species"))
-
-// const result = [];
-// const r = penguins.reduce(function (res, curr) {
-//   if (!res[curr.species]) {
-//     res[curr.species] = { species: curr.species, body_mass_g: 0 };
-//     result.push(res[curr.species]);
-//   }
-//   res[curr.species].body_mass_g += curr.body_mass_g;
-//   return res;
-// }, [])
 
 let xKey = 'species';
 let yKey = 'body_mass_g';

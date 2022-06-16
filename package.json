@@ -1,21 +1,75 @@
 {
-  "name": "d3act",
+  "name": "ad3lie",
   "version": "0.0.1",
   "description": "",
   "main": "main.js",
+  "exports": {
+    ".": "./npm_package_entry.js"
+  },
   "scripts": {
-    "start": "electron . && webpack serve",
+    "start": "webpack && electron .",
     "build": "webpack",
     "start-dev-server": "webpack serve",
+    "mac:installer": "electron-builder --mac",
+    "win:installer": "electron-builder --win",
+    "linux:installer": "electron-builder --linux",
     "tsc": "tsc",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "postinstall": "node_modules/.bin/rn-nodeify -- install fs --hack"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/D3ACT.git"
+    "url": "git+https://github.com/oslabs-beta/ad3lie.git"
+  },
+  "build": {
+    "appId": "com.electron.d3act",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "penguin-icon.png",
+      "target": [
+        "dmg"
+      ]
+    },
+    "dmg": {
+      "title": "ad3lie",
+      "backgroundColor": "#ffffff",
+      "window": {
+        "width": "400",
+        "height": "300"
+      },
+      "contents": [
+        {
+          "x": 100,
+          "y": 100
+        },
+        {
+          "x": 300,
+          "y": 100,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "penguin-icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "uninstallDisplayName": "ad3lie-uninstaller",
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": [
+        "Appimage"
+      ]
+    },
+    "directories": {
+      "output": "installer"
+    }
   },
   "keywords": [],
   "author": "",
@@ -25,7 +79,8 @@
   },
   "homepage": "https://github.com/oslabs-beta/D3ACT#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.0",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
@@ -41,6 +96,7 @@
     "d3": "^7.4.4",
     "dedent-js": "^1.0.1",
     "electron": "^18.2.4",
+    "electron-builder": "^23.0.3",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -49,13 +105,19 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "express": "^4.17.3",
     "file-loader": "^6.2.0",
+    "html-react-parser": "^1.4.14",
     "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "path-browserify": "^1.0.1",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
     "prettier": "^2.6.2",
+    "prettier-format": "^3.1.0",
+    "prettier-standalone": "^1.3.1-0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-test-renderer": "^18.1.0",
     "resize-observer-polyfill": "^1.5.1",
@@ -67,25 +129,37 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^5.5.2",
     "style-loader": "^3.3.1",
+    "svg-inline-loader": "^0.8.2",
     "tailwindcss": "^3.0.24",
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "undefined": "^0.1.0",
     "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
+    "asar": "^3.1.0",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-prettier-parser": "^0.10.8",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "express": "^4.17.3",
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
+    "node-polyfill-webpack-plugin": "^1.1.4",
     "nodeify": "^1.0.1",
+    "prettier-format": "^3.1.0",
     "prop-types": "^15.8.1",
+    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "resize-observer-polyfill": "^1.5.1",
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "tw-elements": "^1.0.0-alpha12"
   }
 }

@@ -21,6 +21,7 @@ const Rectangle = ({
       y={y}
       width={width}
       height={height}
+      style={fill}
     />
   );
 };

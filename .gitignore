@@ -1,6 +1,13 @@
 node_modules
-package-lock.jsondist
 package-lock.json
 ignore.tsx
 *.tsx
 *.ts
+LibrarySample.jsx
+archives
+.tsx
+src/components/Charts/LineGraph/**/*.tsx.jsx
+src/components/Charts/Timeline/**/*.tsx.jsx
+installer
+dist
+.DS_Store
