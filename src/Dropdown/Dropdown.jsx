@@ -8,7 +8,7 @@ function classNames(...classes) {
 
 export default function Dropdown(props) {
   let menuArray = null;
-  if(props.data) {
+  if (props.data) {
     menuArray = Object.keys(props.data[0]).map((ele) => {
       return (
         <option key={ele} value={ele}>

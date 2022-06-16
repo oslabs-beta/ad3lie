@@ -31,12 +31,12 @@ const Form = ({ properties, data, currProps }) => {
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class=" w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
 
-            <Dropdown 
+            <Dropdown
               data={data}
               value={currProps[p]}
               handleChange={handleChange}
@@ -49,14 +49,14 @@ const Form = ({ properties, data, currProps }) => {
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
               {' - ' + startCase(currProps[p])}
             </label>
             <input
               type="range"
-              min="100"
+              min="2"
               max="3000"
               class=" block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}
@@ -72,13 +72,13 @@ const Form = ({ properties, data, currProps }) => {
       //Data needs to be a current property, but doesn't require it's own form field.
       return null
     }
-    
+
     else if (p === 'dataString') {
       //Otherwise do a TextArea
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
@@ -100,16 +100,16 @@ const Form = ({ properties, data, currProps }) => {
               }
               }
             ></textarea>
-            {invalidJSON ? <p className='text-red-400'>Invalid JSON</p>: ''}
+            {invalidJSON ? <p className='text-red-400'>Invalid JSON</p> : ''}
           </div>
         </div>
       );
-      } else {
+    } else {
       //Otherwise do a TextArea
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
@@ -128,7 +128,7 @@ const Form = ({ properties, data, currProps }) => {
   });
 
   return (
-    <form class="rounded w-full max-w-lg" onSubmit={() => {}}>
+    <form class="rounded w-full max-w-lg" onSubmit={() => { }}>
       <div class="rounded flex flex-col flex-wrap mx-6">{inputs}</div>
     </form>
   );
