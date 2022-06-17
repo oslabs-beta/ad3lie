@@ -16,24 +16,24 @@ import {
 } from "../../../features/chart/chartsSlice"
 import ErrorBoundary from './ErrorBoundary.jsx';
 
-  const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
-  const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
-  const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
-  const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
-  const PieChart = lazy(() => import('../../Charts/PieChart/JSX/PieChart.jsx'))
+const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
+const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
+const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
+const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
+const PieChart = lazy(() => import('../../Charts/PieChart/JSX/PieChart.jsx'))
 
-  // Upon navigation to specified route, we first identify our chart using useLocation, then, we will dispatch action using specified chart
-    // Can we do this with useParams as well? --> grab name direclty without slicing and reassigning weirdly
+// Upon navigation to specified route, we first identify our chart using useLocation, then, we will dispatch action using specified chart
+// Can we do this with useParams as well? --> grab name direclty without slicing and reassigning weirdly
 
 const Container = ({ type, name, children, properties }) => {
-// use property accessors for our dispatch
+  // use property accessors for our dispatch
   const charts = {
     "barchart": barchart,
     "histogram": histogram,
     "scatterplot": scatterplot,
     "piechart": piechart,
     "linechart": linechart,
-  } 
+  }
 
   //Dispatching chart sets the chart type, props, children, and default props in state
   const dispatch = useDispatch();
@@ -59,36 +59,32 @@ const Container = ({ type, name, children, properties }) => {
 
   // Memoizing the import
   // We want to rerender of chart as state props changes, but import the actual component only once (unless type change during dispatch)
-    const MyChart = useMemo(() => lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`)), [dispatch]);
-  // const MyChart = useCallback(() => {
-  //   console.log('hi from mychart')
-  //   lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
-  // }, [currProps]);
-  // const MyChart = lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`));
-return (
-  <Fragment>
-    {/* <Suspense fallback={<h1> </h1>}> */}
-  <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
+  const MyChart = useMemo(() => lazy(() => import(`../../Charts/${name}/JSX/${name}.jsx`)), [dispatch]);
 
-    <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+  return (
+    <Fragment>
+      {/* <Suspense fallback={<h1> </h1>}> */}
+      <div className='glass w-32 text-white text-center'><Link to='/'>Home</Link></div>
 
-      <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded overflow-scroll h-full">
-         <Form 
-          key={`Form-${name}`}
-          properties={properties}
-          data={currProps.data} 
-          currProps={currProps} />
-      </div>
-      
-      <div className="glass33 col-start-2 col-span-1 row-span-1 rounded">
-        <ErrorBoundary key={errorKey}>
-          <Suspense fallback={<h1> </h1>}>
-            <MyChart 
-            key={`Chart-${name}`}
-            {...currProps} />      
-          </Suspense>
-        </ErrorBoundary>
-      </div>
+      <div className=" ChartContainer max-h-chart-container grid grid-cols-2 grid-rows-main gap-2 p-2">
+
+        <div className="glass col-start-1 col-span-1 row-span-2 p-2 border-2 rounded overflow-scroll h-full">
+          <Form
+            key={`Form-${name}`}
+            properties={properties}
+            data={currProps.data}
+            currProps={currProps} />
+        </div>
+
+        <div className="glass33 col-start-2 col-span-1 row-span-1 rounded">
+          <ErrorBoundary key={errorKey}>
+            <Suspense fallback={<h1> </h1>}>
+              <MyChart
+                key={`Chart-${name}`}
+                {...currProps} />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
 
         <CodeRender
           key={`CodeRender-${name}`}
@@ -97,12 +93,12 @@ return (
           {...currProps}
         />
 
-      <div class=" flex justify-start col-start-1 col-span-1 row-start-3 row-span-1">
-        <button class="glass glassglow w-32 text-white">Import</button>
-      </div>
+        <div class=" flex justify-start col-start-1 col-span-1 row-start-3 row-span-1">
+          <button class="glass glassglow w-32 text-white">Import</button>
+        </div>
 
-    </div>
-    {/* </Suspense> */}
+      </div>
+      {/* </Suspense> */}
     </Fragment>
   );
 };

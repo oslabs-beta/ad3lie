@@ -56,9 +56,9 @@ const Form = ({ properties, data, currProps }) => {
             </label>
             <input
               type="range"
-              min="2"
-              max="3000"
-              class=" block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              min="100"
+              max="1000"
+              class="slider block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}
               name={`${p}`}
               placeholder={currProps[p]}

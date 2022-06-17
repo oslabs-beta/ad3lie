@@ -53,48 +53,47 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
           class="glass glassglow w-32 text-white"
           onClick={
             async () => {
-            try {
-              const formattedCode = await formatCode(codeRef)
-              const formattedData = `export const data = [${data
-                .reduce((str, obj) => {
-                  return (str +=
-                    '{' + Object.keys(obj).map((key) => `'${key}': ${obj[key]}`) + `}, \n`);
-                }, '')
-                .trim()
-                .slice(0, -1)}]`;
+              try {
+                const formattedCode = await formatCode(codeRef)
+                const formattedData = `export const data = [${data
+                  .reduce((str, obj) => {
+                    return (str +=
+                      '{' + Object.keys(obj).map((key) => `'${key}': ${obj[key]}`) + `}, \n`);
+                  }, '')
+                  .trim()
+                  .slice(0, -1)}]`;
 
-              const saveLocation = await window.electron.showSaveDialog();
-              console.log('saveDialogPromise - saveLocation', saveLocation, new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''))
-              // console.log('save location', saveLocation)
+                const saveLocation = await window.electron.showSaveDialog();
+                console.log('saveDialogPromise - saveLocation', saveLocation, new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''))
 
-              // downloadCode(`My${name}.jsx`, formattedCode)
-              window.electron.mkdirSync(
-                window.electron.path.resolve(
-                  saveLocation,
-                  `${upperFirst(name)}`
-                )
-              );
-              window.electron.writeFileSync(
-                window.electron.path.resolve(
-                  saveLocation,
-                  `${upperFirst(name)}`,
-                  'Data.js'
-                ),
-                formattedData
-              );
-              window.electron.writeFileSync(
-                window.electron.path.resolve(
-                  saveLocation,
-                  `${upperFirst(name)}`,
-                  `${upperFirst(name)}.jsx`
-                ),
-                formattedCode
-              );
-            } catch (err) {
-              console.log(err)
-              return err;
-            }
-          }}
+                // downloadCode(`My${name}.jsx`, formattedCode)
+                window.electron.mkdirSync(
+                  window.electron.path.resolve(
+                    saveLocation,
+                    `${upperFirst(name)}`
+                  )
+                );
+                window.electron.writeFileSync(
+                  window.electron.path.resolve(
+                    saveLocation,
+                    `${upperFirst(name)}`,
+                    `My${upperFirst(name)}Data.js`
+                  ),
+                  formattedData
+                );
+                window.electron.writeFileSync(
+                  window.electron.path.resolve(
+                    saveLocation,
+                    `${upperFirst(name)}`,
+                    `My${upperFirst(name)}.jsx`
+                  ),
+                  formattedCode
+                );
+              } catch (err) {
+                console.log(err)
+                return err;
+              }
+            }}
         >
           Export
         </button>

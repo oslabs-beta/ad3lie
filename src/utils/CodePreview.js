@@ -8,7 +8,6 @@ import dedent from 'dedent-js';
 import styled from 'styled-components';
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
-// const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
 
 export const indent = (content, spaces = 8) =>
   content
@@ -19,7 +18,6 @@ export const indent = (content, spaces = 8) =>
     })
     .join('\n');
 
-/* convert all inputs to json 🙃 */
 export const toJson = (value) => {
   const jsonString = JSON.stringify(value, null, 4);
   const normalized = jsonString
@@ -105,7 +103,9 @@ const My${name} = (${args}) => (
     <${name}
         ${properties.join('\n        ')}
     />
-)`;
+)
+
+export default My${name}`;
 };
 
 export const formatCode = (code) => {

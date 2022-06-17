@@ -76,8 +76,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 body {
-	background-image: url('./topy.png');
-	/* background-color: #1e293b; */
+	/* background-image: url('./topy.png'); */
+	background-color: #1e293b;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;	
 }
