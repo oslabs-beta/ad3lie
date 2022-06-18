@@ -54,4 +54,70 @@ From here, simply use the componet as you would any other child component in you
 
 For more detailed information, please check the related package [documentation](https://docs.ad3lie.dev/) or go directly to our [npm package](https://www.npmjs.com/package/ad3lie).
 
+# How to Setup React App
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = (env) => {
+  return {
+    mode: env.mode,
+    entry: './client/src/index.js',
+    output: {
+      path: path.resolve(__dirname, 'client', 'build'),
+      filename: 'bundle.js'
+    },
+    module: {
+      rules: [{
+        test: /\.jsx?/, 
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', 
+            '@babel/preset-react'],
+            
+              targets: {chrome: "100"}
+            
+          }
+        }
+      },
+      {
+        test: /.+\.css$/i,
+        // exclude: /node_modules/,
+        use: [
+          'style-loader', 
+          'css-loader', 
+           {
+             loader: 'postcss-loader',
+             options: {
+               postcssOptions: {
+                 plugins: {
+                  tailwindcss: {},
+                  autoprefixer: {},
+                }
+               }
+             }
+           }
+          ]
+      }
+    ]
+    },
+    resolve: {
+      extensions: ['', '.js', '.jsx'],
+      alias: {
+        'react': path.resolve(__dirname, 'node_modules/react'),
+      }
+    },
+    
+    plugins: [new HtmlWebpackPlugin({
+      template: './client/src/index.html'
+    })],
+    devServer: {
+      static: './client/build',
+      port: 8888
+    }
+  }
+}
+```
+
 Checkout our [website](https://ad3lie.dev/) to see incoming features, how to get involved, and meet our team!
