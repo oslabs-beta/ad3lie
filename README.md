@@ -55,7 +55,7 @@ From here, simply use the componet as you would any other child component in you
 For more detailed information, please check the related package [documentation](https://docs.ad3lie.dev/) or go directly to our [npm package](https://www.npmjs.com/package/ad3lie).
 
 # How to Setup React App
-```json
+```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
