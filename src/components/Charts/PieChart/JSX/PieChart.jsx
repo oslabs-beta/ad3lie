@@ -20,11 +20,6 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
   const width = 2 * outerRadius + dimensions.marginLeft + dimensions.marginRight;
   const height = 2 * outerRadius + dimensions.marginTop + dimensions.marginBottom;
 
-  /**
-   * Currently the PieChart does not work when placed into <Chart/>
-   * Because Pie directly returns an svg, instead of ind. svg elements? (rect, circle, etc)
-   */
-
   return (
     <Fragment>
       <div className="Pie w-full top-0 left-0 h-full" ref={ref}>
