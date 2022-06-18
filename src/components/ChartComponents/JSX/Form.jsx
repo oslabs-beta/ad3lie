@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { changeProps } from '../../../features/chart/propsSlice';
 import Dropdown from '../../../Dropdown/Dropdown';
 
-// See below explanation on why we don't dynamically use eval() and instead use property accessors to send the correct payload instead
-//Option 2: let our reducer handle what gets updated
+// We don't dynamically use eval() and instead use property accessors to send the correct payload instead
+// Let our reducer handle what gets updated
 // pass input name/value to our single props reducer, which updates the props in state.props
 
 const Form = ({ properties, data, currProps }) => {
@@ -56,7 +56,7 @@ const Form = ({ properties, data, currProps }) => {
             </label>
             <input
               type="range"
-              min="100"
+              min="10"
               max="1000"
               class="slider block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}

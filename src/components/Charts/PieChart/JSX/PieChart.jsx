@@ -16,9 +16,6 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
     // marginRight: 10
   });
 
-
-  // console.log(dimensions)
-
   // const margin = {
   //   top: 50, right: 50, bottom: 50, left: 50,
   // };
@@ -27,9 +24,6 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
 
   const width = 2 * outerRadius + dimensions.marginLeft + dimensions.marginRight;
   const height = 2 * outerRadius + dimensions.marginTop + dimensions.marginBottom;
-
-  // console.log(width)
-  // console.log(height)
 
   /**
    * Currently the PieChart does not work when placed into <Chart/>
@@ -40,15 +34,15 @@ const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
     <Fragment>
       <div className="Pie w-full top-0 left-0 h-full" ref={ref}>
         {/* <Chart dimensions={dimensions}> */}
-          <Pie
-              data={data}
-              height={height}
-              width={width}
-              innerRadius={innerRadius}
-              outerRadius={outerRadius}
-              label={label}
-              pieValue={pieValue}
-            />
+        <Pie
+          data={data}
+          height={height}
+          width={width}
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          label={label}
+          pieValue={pieValue}
+        />
         {/* </Chart> */}
       </div>
     </Fragment>
