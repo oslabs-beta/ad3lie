@@ -55,6 +55,26 @@ From here, simply use the componet as you would any other child component in you
 For more detailed information, please check the related package [documentation](https://docs.ad3lie.dev/) or go directly to our [npm package](https://www.npmjs.com/package/ad3lie).
 
 # How to Setup React App
+Make sure to install these npm packages
+```
+npm i d3
+npm i postcss
+npm i postcss-loader
+npm i autoprefixer
+```
+
+Create a tailwind.config.js in your root directory
+
+```
+module.exports = {
+  content: ["./client/src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
 ```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
