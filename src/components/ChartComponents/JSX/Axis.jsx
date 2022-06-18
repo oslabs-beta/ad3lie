@@ -1,7 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
 import * as d3 from 'd3'
-import { dimensionsPropsType } from "../../../utils/utils.js";
 import { useChartDimensions } from "./Chart.jsx";
 
 const axisComponentsByDimension = {
@@ -22,26 +20,13 @@ const Axis = ({ dimension, ...props }) => {
   )
 }
 
-Axis.propTypes = {
-  dimension: PropTypes.oneOf(["x", "y"]),
-  scale: PropTypes.func,
-  label: PropTypes.string,
-  formatTick: PropTypes.func,
-}
-
-Axis.defaultProps = {
-  dimension: "x",
-  scale: null,
-  formatTick: d3.format(","),
-}
-
 export default Axis
 
 
-function AxisHorizontal ({ dimensions, label, formatTick, scale, data, ...props }) {
+function AxisHorizontal({ dimensions, label, formatTick, scale, data, ...props }) {
   const numberOfTicks = dimensions.boundedWidth < 600
-        ? dimensions.boundedWidth / 100
-        : dimensions.boundedWidth / 250
+    ? dimensions.boundedWidth / 100
+    : dimensions.boundedWidth / 250
 
   const ticks = scale.ticks(numberOfTicks)
 
@@ -58,7 +43,7 @@ function AxisHorizontal ({ dimensions, label, formatTick, scale, data, ...props 
           className="Axis__tick"
           transform={`translate(${scale(tick)}, 25)`}
         >
-          { formatTick(tick) }
+          {formatTick(tick)}
         </text>
       ))}
 
@@ -67,14 +52,14 @@ function AxisHorizontal ({ dimensions, label, formatTick, scale, data, ...props 
           className="Axis__label"
           transform={`translate(${dimensions.boundedWidth / 2}, 60)`}
         >
-          { label }
+          {label}
         </text>
       )}
     </g>
   )
 }
 
-function AxisVertical ({ dimensions, label, formatTick, scale, ...props }) {
+function AxisVertical({ dimensions, label, formatTick, scale, ...props }) {
   const numberOfTicks = dimensions.boundedHeight / 70
 
   const ticks = scale.ticks(numberOfTicks)
@@ -92,7 +77,7 @@ function AxisVertical ({ dimensions, label, formatTick, scale, ...props }) {
           className="Axis__tick"
           transform={`translate(-16, ${scale(tick)})`}
         >
-          { formatTick(tick) }
+          {formatTick(tick)}
         </text>
       ))}
 
@@ -103,17 +88,17 @@ function AxisVertical ({ dimensions, label, formatTick, scale, ...props }) {
             transform: `translate(-56px, ${dimensions.boundedHeight / 2}px) rotate(-90deg)`
           }}
         >
-          { label }
+          {label}
         </text>
       )}
     </g>
   )
 }
 
-function AxisBand ({ dimensions, label, formatTick, scale, data, ...props }) {
+function AxisBand({ dimensions, label, formatTick, scale, data, ...props }) {
   const numberOfTicks = dimensions.boundedWidth < 600
-        ? dimensions.boundedWidth / 100
-        : dimensions.boundedWidth / 250
+    ? dimensions.boundedWidth / 100
+    : dimensions.boundedWidth / 250
 
   const ticks = scale.domain();
 
@@ -128,9 +113,9 @@ function AxisBand ({ dimensions, label, formatTick, scale, data, ...props }) {
         <text
           key={tick}
           className="Axis__tick"
-          transform={`translate(${scale(tick) + scale.bandwidth()/2 }, 25)`}
+          transform={`translate(${scale(tick) + scale.bandwidth() / 2}, 25)`}
         >
-          { (tick) }
+          {(tick)}
         </text>
       ))}
 
@@ -139,7 +124,7 @@ function AxisBand ({ dimensions, label, formatTick, scale, data, ...props }) {
           className="Axis__label"
           transform={`translate(${dimensions.boundedWidth / 2}, 60)`}
         >
-          { label }
+          {label}
         </text>
       )}
     </g>
