@@ -8,7 +8,6 @@ import dedent from 'dedent-js';
 import styled from 'styled-components';
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
-// const { existsSync, writeFileSync, mkdirSync, writeFile } = require('fs');
 
 export const indent = (content, spaces = 8) =>
   content
@@ -19,7 +18,6 @@ export const indent = (content, spaces = 8) =>
     })
     .join('\n');
 
-/* convert all inputs to json 🙃 */
 export const toJson = (value) => {
   const jsonString = JSON.stringify(value, null, 4);
   const normalized = jsonString
@@ -81,6 +79,7 @@ export const generateChartCode = (
   //   (i) => `import { ${i} } from 'ad3lie'`
   // );
   const imports = [name].map((i) => `import { ${i} } from 'ad3lie'`);
+  const importReact = `import React from 'react'`
 
   const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
@@ -98,14 +97,17 @@ export const generateChartCode = (
 
   return `// install (please make sure versions match peerDependencies)
 ${install}
+${importReact} 
 ${importData}
 ${imports.join('\n')}
 ${warning}
-const My${name} = (${args}) => (
+const My${name} = () => (
     <${name}
         ${properties.join('\n        ')}
     />
-)`;
+)
+
+export default My${name}`;
 };
 
 export const formatCode = (code) => {

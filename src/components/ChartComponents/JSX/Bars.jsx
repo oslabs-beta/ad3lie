@@ -1,7 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
 import * as d3 from 'd3'
-import { accessorPropsType, useAccessor } from "../../../utils/utils.js";
+import { useAccessor } from "../../../utils/utils.js";
 
 const Bars = ({ data, keyAccessor, xAccessor, yAccessor, widthAccessor, heightAccessor, ...props }) => (
   <React.Fragment>
@@ -18,17 +17,6 @@ const Bars = ({ data, keyAccessor, xAccessor, yAccessor, widthAccessor, heightAc
   </React.Fragment>
 )
 
-Bars.propTypes = {
-  data: PropTypes.array,
-  keyAccessor: accessorPropsType,
-  xAccessor: accessorPropsType,
-  yAccessor: accessorPropsType,
-  widthAccessor: accessorPropsType,
-  heightAccessor: accessorPropsType,
-}
-
-Bars.defaultProps = {
-}
 
 export default Bars
 

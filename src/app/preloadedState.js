@@ -4,7 +4,7 @@ export const preloadedState = {
   children: [], // what child elements/comps are needed to build chart (idk if we need this), string[]
   properties: [],
   dictionary: {
-    // a massive object of objects that we use to initialize all of our charts info to generate our routes and pass down necessary props for selected containers
+    // Dictionary is an object of objects that we use to initialize all of our charts info to generate our routes and pass down necessary props for selected containers
     // no reducers here since this will remain a static piece of state, unless we directly modify/add to it as we contribute to the chart codebase
     barchart: {
       type: 'barchart',
