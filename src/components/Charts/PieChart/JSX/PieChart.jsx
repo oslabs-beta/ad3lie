@@ -4,7 +4,7 @@ import { useChartDimensions } from '../../../../utils/utils.js';
 import Pie from '../../../ChartComponents/JSX/Pie.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import '../../../ChartComponents/chartstyles.css';
-import '../../../../styles.css';
+import '../../../ChartComponents/Chart.css';
 
 const PieChart = ({ data, innerRadius, outerRadius, label, pieValue }) => {
 

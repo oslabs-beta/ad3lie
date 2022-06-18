@@ -2,9 +2,7 @@
 @tailwind base;
 @tailwind components;
 
-.AxisLine {
-	stroke: #858687;
-}
+
 
 
 .glassglow:hover {
