@@ -79,6 +79,7 @@ export const generateChartCode = (
   //   (i) => `import { ${i} } from 'ad3lie'`
   // );
   const imports = [name].map((i) => `import { ${i} } from 'ad3lie'`);
+  const importReact = `import React from 'react'`
 
   const importData = `import { ${dataKey} } from 'My${name}Data.js'`;
 
@@ -96,10 +97,11 @@ export const generateChartCode = (
 
   return `// install (please make sure versions match peerDependencies)
 ${install}
+${importReact} 
 ${importData}
 ${imports.join('\n')}
 ${warning}
-const My${name} = (${args}) => (
+const My${name} = () => (
     <${name}
         ${properties.join('\n        ')}
     />

@@ -58,7 +58,13 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
                 const formattedData = `export const data = [${data
                   .reduce((str, obj) => {
                     return (str +=
-                      '{' + Object.keys(obj).map((key) => `'${key}': ${obj[key]}`) + `}, \n`);
+                      '{' + Object.keys(obj).map((key) => {
+                        if (typeof obj[key] === 'string') {
+                          return `'${key}': '${obj[key]}'`
+                        } else {
+                          return `'${key}': ${obj[key]}`
+                        }
+                      }) + `}, \n`);
                   }, '')
                   .trim()
                   .slice(0, -1)}]`;
@@ -66,7 +72,6 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
                 const saveLocation = await window.electron.showSaveDialog();
                 console.log('saveDialogPromise - saveLocation', saveLocation, new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''))
 
-                // downloadCode(`My${name}.jsx`, formattedCode)
                 window.electron.mkdirSync(
                   window.electron.path.resolve(
                     saveLocation,
@@ -98,7 +103,7 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
           Export
         </button>
       </div>
-    </Fragment>
+    </Fragment >
   );
 };
 
