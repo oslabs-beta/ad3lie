@@ -18,9 +18,9 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
     pkg: name, // pkg: 'barchart',
   })
 
-  // References created by useRef itself do not trigger component rerenders, and at the start of the first render, it will be null
-  // State must be modified to trigger any rerenders, so we use a callback ref to run some code
-  // when React attaches or detaches a ref to a DOM node (<code>)
+  // References created by useRef itself do not trigger component rerenders, and on initial render, ref will be null
+  // State must be modified to trigger any rerenders, so we use a callback ref to run some code 
+  // whenever React attaches or detaches a ref to a DOM node (html: <code>)
   const useCodeRef = (processNode) => {
     const [node, setNode] = useState(null);
     const setCodeRef = useCallback(newNode => {
@@ -54,7 +54,9 @@ const CodeRender = ({ name, children, data, ...currProps }) => {
           onClick={
             async () => {
               try {
+                // Formatting code using prettier
                 const formattedCode = await formatCode(codeRef)
+                // Formatting data as a JS array which is directly imported into our customized component
                 const formattedData = `export const data = [${data
                   .reduce((str, obj) => {
                     return (str +=

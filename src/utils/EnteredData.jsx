@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const userAxisData = {
   "x": "species",
   "y": "body_mass_g",

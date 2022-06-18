@@ -5,12 +5,15 @@ import { useDispatch } from 'react-redux';
 import { changeProps } from '../../../features/chart/propsSlice';
 import Dropdown from '../../../Dropdown/Dropdown';
 
-// We don't dynamically use eval() and instead use property accessors to send the correct payload instead
-// Let our reducer handle what gets updated
-// pass input name/value to our single props reducer, which updates the props in state.props
+/**
+ * We do not dynamically use eval() and instead use property accessors to send the correct payload instead
+ * Instead, we let our reducer handle what gets updated
+ * We pass input name/value to our single props reducer, which updates the props in state.props
+ * 
+ * Depending on the type of prop, we render specific form elements (text input, dropdown, slider)
+ */
 
 const Form = ({ properties, data, currProps }) => {
-  console.log(properties);
   const dispatch = useDispatch();
 
   const handleChange = useCallback(

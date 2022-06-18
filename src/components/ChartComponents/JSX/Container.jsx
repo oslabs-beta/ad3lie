@@ -6,11 +6,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from "react-router";
 import { Link } from 'react-router-dom';
 import '../chartstyles.css'
-// you should import your specific chart from the chartsSlice here
+// Remember to import your specific chart from the chartsSlice here
 import {
   barchart,
-  scatterplot,
   histogram,
+  scatterplot,
   piechart,
   linechart,
 } from "../../../features/chart/chartsSlice"
@@ -18,12 +18,26 @@ import ErrorBoundary from './ErrorBoundary.jsx';
 
 const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
 const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
-const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
 const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
 const PieChart = lazy(() => import('../../Charts/PieChart/JSX/PieChart.jsx'))
+const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
 
 // Upon navigation to specified route, we first identify our chart using useLocation, then, we will dispatch action using specified chart
-// Can we do this with useParams as well? --> grab name direclty without slicing and reassigning weirdly
+// Can we do this with useParams as well? --> grab name direclty without slicing and reassigning
+
+/**
+ * 
+ * @param { type, name, children, properties } Container
+ * @returns Form, MyChart, CodeRender
+ * 
+ * Container is the general component which contains all of our other modularized components.
+ * On route selection, we use property accesors for our dispatch (chart selection), to programmatically set the chart-unique type, props, children, etc. in state
+ * This selection allows us to:
+ * - dynamically lazy() load in the required chart file when needed
+ * - filter out chart-specific props to pass/populate the modular child components
+ * 
+ */
+
 
 const Container = ({ type, name, children, properties }) => {
   // use property accessors for our dispatch
@@ -42,7 +56,7 @@ const Container = ({ type, name, children, properties }) => {
     dispatch(charts[type]());
   }, [dispatch]);
 
-
+  //Filtering chart-specific props
   const props = useSelector((state) => state.props); // object of all current props
   const currProps = properties.reduce((acc, curr) => {
     acc[curr] = props[curr];

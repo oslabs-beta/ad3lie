@@ -7,7 +7,7 @@ class="Axis__tick" transform="translate(131.6666666666667, 25)">0.4</text><text
 class="Axis__tick" transform="translate(219.44444444444446, 25)">0.5</text><text 
 class="Axis__tick" transform="translate(307.22222222222223, 25)">0.6</text><text 
 class="Axis__tick" transform="translate(395, 25)">0.7</text><text 
-class="Axis__label" transform="translate(197.5, 60)">X-axis: Humidity</text></g><g 
+class="AxisLabel" transform="translate(197.5, 60)">X-axis: Humidity</text></g><g 
 class="Axis AxisVertical"><line 
 class="Axis__line" y2="383"></line><text 
 class="Axis__tick" transform="translate(-16, 383)">0</text><text 
@@ -17,7 +17,7 @@ class="Axis__tick" transform="translate(-16, 191.5)">60</text><text
 class="Axis__tick" transform="translate(-16, 127.66666666666669)">80</text><text 
 class="Axis__tick" transform="translate(-16, 63.83333333333332)">100</text><text 
 class="Axis__tick" transform="translate(-16, 0)">120</text><text 
-class="Axis__label" style="transform: translate(-56px, 191.5px) rotate(-90deg);">Y-axis: Temperature</text></g><circle fill ="#ffe4e6" 
+class="AxisLabel" style="transform: translate(-56px, 191.5px) rotate(-90deg);">Y-axis: Temperature</text></g><circle fill ="#ffe4e6" 
 class="Circles__circle" cx="198.54441353017975" cy="174.252344426395" r="5"></circle><circle fill ="#ffe4e6" 
 class="Circles__circle" cx="78.22562064903292" cy="158.228099990617" r="5"></circle><circle fill ="#fecdd3" 
 class="Circles__circle" cx="384.91165819545995" cy="131.05743181031232" r="5"></circle><circle fill ="#fda4af" 

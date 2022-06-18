@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Arc = ({
+const Arc = ({
     data,
     fill,
     stroke,
@@ -17,3 +17,5 @@ export const Arc = ({
         />
     )
 }
+
+export default Arc
