@@ -63,8 +63,7 @@ npm i postcss-loader
 npm i autoprefixer
 ```
 
-Create a tailwind.config.js in your root directory
-
+tailwind.config.js
 ```
 module.exports = {
   content: ["./client/src/**/*.{html,js}"],
@@ -75,6 +74,7 @@ module.exports = {
 }
 ```
 
+webpack.config.js
 ```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
