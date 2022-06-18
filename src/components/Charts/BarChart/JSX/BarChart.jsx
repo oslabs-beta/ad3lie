@@ -5,7 +5,7 @@ import Axis from '../../../ChartComponents/JSX/Axis.jsx';
 import Rectangle from '../../../ChartComponents/JSX/Rectangle.jsx';
 import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import '../../../ChartComponents/chartstyles.css';
-import '../../../../styles.css';
+import '../../../ChartComponents/Chart.css';
 import { useUniqueId } from '../../../../utils/utils.js';
 import Gradient from "../../../ChartComponents/JSX/Gradient"
 
