@@ -7,7 +7,6 @@ function Homepage() {
 	return (
 		<div>
 			<TheCarousel />
-			{/* <Carousel />  */}
 			<ChartCards />
 		</div>
 	)

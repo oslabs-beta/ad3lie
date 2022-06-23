@@ -5,19 +5,18 @@ import dictionary from './app/dictionary.js'
 
 export const RouteHook = () => {
 
-const Container = lazy(() => import(`./components/ChartComponents/JSX/Container.jsx`))
+  const Container = lazy(() => import(`./components/ChartComponents/JSX/Container.jsx`))
 
-const routes = Object.values(dictionary).reduce((acc, { type, name, children, properties }) => {
-          acc.push( <Route key={type} path={type} exact element={<Container type={type} name={name} children={children} properties={properties} />} /> );
-          return acc;
-        }, []);
-
-console.log('hi from allroutes')
+  // Programmatically creating unique routes for all charts in our dictionary
+  const routes = Object.values(dictionary).reduce((acc, { type, name, children, properties }) => {
+    acc.push(<Route key={type} path={type} exact element={<Container type={type} name={name} children={children} properties={properties} />} />);
+    return acc;
+  }, []);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path="/" element={ <Homepage />} />
+        <Route path="/" element={<Homepage />} />
         {routes}
       </Routes>
     </Suspense>

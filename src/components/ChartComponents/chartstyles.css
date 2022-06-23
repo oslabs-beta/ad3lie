@@ -2,18 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   padding: 1.6em 2em 4em;
   letter-spacing: -0.011em;
   font-family: 'Inter var', sans-serif;
   font-size: 16px;
   color: #34495e;
   background: #f1f3f5;
-}
+} */
 
 #root,
 .App {
   width: 100%;
+  font-family: 'Inter var', sans-serif;
 }
 
 h1 {
