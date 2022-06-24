@@ -9,7 +9,8 @@ module.exports = [{
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    // chunkFilename: "chunk-[name].[contenthash].js"
   },
   // devtool: "source-map",
   resolve: {
@@ -90,7 +91,8 @@ module.exports = [{
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new NodePolyfillPlugin()
+    new NodePolyfillPlugin(),
+    // new BundleAnalyzerPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),

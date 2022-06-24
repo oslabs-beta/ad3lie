@@ -16,6 +16,7 @@ import {
 } from "../../../features/chart/chartsSlice"
 import ErrorBoundary from './ErrorBoundary.jsx';
 
+/* webpackChunkName: "LineChart" */
 const BarChart = lazy(() => import('../../Charts/BarChart/JSX/BarChart.jsx'));
 const Histogram = lazy(() => import('../../Charts/Histogram/JSX/Histogram.jsx'))
 const ScatterPlot = lazy(() => import('../../Charts/ScatterPlot/JSX/ScatterPlot.jsx'))
