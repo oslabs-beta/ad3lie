@@ -90,8 +90,7 @@ module.exports = [{
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new NodePolyfillPlugin(),
-    // new BundleAnalyzerPlugin()
+    new NodePolyfillPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),

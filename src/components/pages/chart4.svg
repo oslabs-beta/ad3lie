@@ -8,15 +8,15 @@
 	<text class="Axis__tick" transform="translate(251.36363636363635, 25)">0.5</text>
 	<text class="Axis__tick" transform="translate(323.1818181818182, 25)">0.6</text>
 	<text class="Axis__tick" transform="translate(395, 25)">0.7</text>
-	<text class="Axis__label" transform="translate(197.5, 60)">X-axis: Humidity</text></g>
+	<text class="AxisLabel" transform="translate(197.5, 60)">X-axis: Humidity</text></g>
 	<g class="Axis AxisVertical fromLinkFiber207"><line class="Axis__line" y2="383"></line>
 	<text class="Axis__tick" transform="translate(-16, 383)">0</text>
 	<text class="Axis__tick" transform="translate(-16, 303.2083333333333)">5</text>
 	<text class="Axis__tick" transform="translate(-16, 223.41666666666663)">10</text>
 	<text class="Axis__tick" transform="translate(-16, 143.625)">15</text>
 	<text class="Axis__tick" transform="translate(-16, 63.83333333333332)">20</text>
-	<text class="Axis__label" style="transform: translate(-56px, 191.5px) rotate(-90deg);">Y-axis: Temperature</text></g>
-	<rect fill="#a21caf" class="Bars__rect fromLinkFiber208" x="2" y="367.0416666666667" width="33.90909090909093" height="15.958333333333314"></rect>
+	<text class="AxisLabel" style="transform: translate(-56px, 191.5px) rotate(-90deg);">Y-axis: Temperature</text></g>
+	<rect fill="#d1fae5" class="Bars__rect fromLinkFiber208" x="2" y="367.0416666666667" width="33.90909090909093" height="15.958333333333314"></rect>
 	<rect fill="#d1fae5"  class="Bars__rect" x="37.90909090909093" y="383" width="33.9090909090909" height="0"></rect>
 	<rect fill="#a7f3d0" class="Bars__rect" x="73.81818181818183" y="367.0416666666667" width="33.90909090909092" height="15.958333333333314"></rect>
 	<rect  fill="#6ee7b7" class="Bars__rect" x="109.72727272727275" y="351.0833333333333" width="33.90909090909091" height="31.916666666666686"></rect>
