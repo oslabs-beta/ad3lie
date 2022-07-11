@@ -11,3 +11,4 @@ src/components/Charts/Timeline/**/*.tsx.jsx
 installer
 dist
 .DS_Store
+.github
