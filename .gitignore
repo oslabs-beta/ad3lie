@@ -1,7 +1,5 @@
 node_modules
 package-lock.json
-.github/workflows/deploy-dev.yml
-*.yml
 ignore.tsx
 *.tsx
 *.ts
