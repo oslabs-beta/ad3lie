@@ -1,5 +1,6 @@
 node_modules
 package-lock.json
+*.yml
 ignore.tsx
 *.tsx
 *.ts
@@ -11,4 +12,3 @@ src/components/Charts/Timeline/**/*.tsx.jsx
 installer
 dist
 .DS_Store
-.github
