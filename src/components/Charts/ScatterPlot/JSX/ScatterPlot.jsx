@@ -5,6 +5,7 @@ import Axis from "../../../ChartComponents/JSX/Axis.jsx"
 import Circles from "../../../ChartComponents/JSX/Circles.jsx"
 import Chart from "../../../ChartComponents/JSX/Chart.jsx"
 import "../../../ChartComponents/chartstyles.css"
+import '../../../ChartComponents/Chart.css';
 
 const ScatterPlot = ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width, radius }) => {
   const xAccessor = (data) => data[xKey];

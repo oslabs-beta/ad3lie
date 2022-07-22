@@ -5,7 +5,7 @@ import Chart from '../../../ChartComponents/JSX/Chart.jsx';
 import Line from '../../../ChartComponents/JSX/Line.jsx';
 import Axis from '../../../ChartComponents/JSX/Axis.jsx';
 import '../../../ChartComponents/chartstyles.css';
-import '../../../../styles.css';
+import '../../../ChartComponents/Chart.css';
 
 export default function LineChart({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) {
   const xAccessor = (data) => data[xKey];
