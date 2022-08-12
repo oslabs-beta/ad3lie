@@ -15,16 +15,16 @@ import Gradient from "../../../ChartComponents/JSX/Gradient"
  * the base component template has to be able to take props supplied from MyBarChart.jsx
  */
 
-export default function BarChart ({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) {
-// export default function BarChart ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) {
+export default function BarChart({ data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }) {
+  // export default function BarChart ({ currProps: { data, xKey, yKey, xAxisLabel, yAxisLabel, height, width }}) {
 
-// if(!data) data = [];
-/*
-Using useMemo for **referential equality** of depedencies: important for React hooks
-2 common use cases of useMemo:
-  1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
-  2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed, you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
-*/
+  // if(!data) data = [];
+  /*
+  Using useMemo for **referential equality** of depedencies: important for React hooks
+  2 common use cases of useMemo:
+    1. When you want to make a slow function wrap inside useMemo so that doesn't re-compute every single time you render your component and it only computed when you acually need the value from that function since the inputs actually change
+    2. Whenever you want to make sure the reference of an object or an array is exactly the same as it was the last time you rendered if none of the internal workings changed, you're gonna want to useMemo here to make sure that you only update the reference of that object whenever the actual contents of the object change instead of updating every single time you render
+  */
 
   // Uncomment below to work with current histogram data (working)
   // (oh also useMemo doesn't work so i will get to that later :( )
@@ -45,14 +45,14 @@ Using useMemo for **referential equality** of depedencies: important for React h
 
   /** For bar charts, it's recommended to use scaleBand() + continuous.rangeRound() fn (since d3 v4) to set the range of the scale to the specified array of values, but in our case, I think either works  */
   // Should we add a form input to control the padding ? 
-    // Outer padding: space before the first bar and after the last one.
-    // Inner padding: space between bars
+  // Outer padding: space before the first bar and after the last one.
+  // Inner padding: space between bars
   const xScale = d3
-  .scaleBand()
-  .domain(data.map(xAccessor))
-  .paddingInner(0.1)
-  .paddingOuter(0.1)
-  .rangeRound([0, dimensions.boundedWidth])
+    .scaleBand()
+    .domain(data.map(xAccessor))
+    .paddingInner(0.1)
+    .paddingOuter(0.1)
+    .rangeRound([0, dimensions.boundedWidth])
   // .padding(0.1)
   // .range([0, dimensions.boundedWidth]);
 
@@ -75,13 +75,13 @@ Using useMemo for **referential equality** of depedencies: important for React h
         y={yScale(yAccessor(d))}
         width={xScale.bandwidth()}
         height={dimensions.boundedHeight - yScale(yAccessor(d))}
-        style={{fill: `url(#${gradientId})`}}
+        style={{ fill: `url(#${gradientId})` }}
       />
     );
   });
 
 
-
+  // currently axis are not working
   return (
     <div className="BarChart w-full top-0 left-0 h-full rounded" ref={ref}>
       <Chart dimensions={dimensions}>
@@ -107,8 +107,6 @@ Using useMemo for **referential equality** of depedencies: important for React h
         />
         {Bars}
       </Chart>
-      
-     
     </div>
   );
 };

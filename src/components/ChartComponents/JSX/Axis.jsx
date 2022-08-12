@@ -7,11 +7,16 @@ const axisComponentsByDimension = {
   y: AxisVertical,
   xB: AxisBand,
 }
-const Axis = ({ dimension, ...props }) => {
-  const dimensions = useChartDimensions()
-  const Component = axisComponentsByDimension[dimension]
-  if (!Component) return null
 
+// dimension will be a string 'x', 'y', or 'xb' to say if the component will be a horiz, vert, or band axis
+const Axis = ({ dimension, ...props }) => {
+  // what does useChartDimesions return?
+  const dimensions = useChartDimensions()
+  // this is where we pick the type of component
+  const Component = axisComponentsByDimension[dimension]
+  // check if the axis exist
+  if (!Component) return null
+  // if id does exist, return the axis, passing in dimensions and prop drilling props
   return (
     <Component
       dimensions={dimensions}
@@ -24,11 +29,15 @@ export default Axis
 
 
 function AxisHorizontal({ dimensions, label, formatTick, scale, data, ...props }) {
+  // this is how we find how many ticks we need for our axis
+  // if bounded width is less that 600, number of ticks are width/100
+  // else number of ticks are width/250
   const numberOfTicks = dimensions.boundedWidth < 600
     ? dimensions.boundedWidth / 100
     : dimensions.boundedWidth / 250
 
   const ticks = scale.ticks(numberOfTicks)
+
 
   return (
     <g className="Axis AxisHorizontal" transform={`translate(0, ${dimensions.boundedHeight})`} {...props}>
