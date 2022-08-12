@@ -30,7 +30,7 @@ const Form = ({ properties, data, currProps }) => {
   const inputs = properties.map((p, i) => {
     //If Property is xKey or yKey then do a form
     if (p === 'xKey' || p === 'yKey') {
-      console.log('has Data Changed to undefined?', data)
+      // console.log('has Data Changed to undefined?', data)
       return (
         <div key={i} class="flex flex-wrap -mx-3 mb-6">
           <div class=" w-full md:w-1/2 px-3 mb-6 md:mb-0">

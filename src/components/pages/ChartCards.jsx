@@ -12,7 +12,7 @@ function ChartCards() {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             >
               <path
                 strokeLinecap="round"
@@ -32,7 +32,7 @@ function ChartCards() {
         </div>
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 items-center indent-10">
-            <i class="fa-solid fa-chart-line fa-xl "></i>
+            <i className="fa-solid fa-chart-line fa-xl "></i>
             <Link to="/linechart" className="p-2">
               Line Chart
             </Link>
@@ -45,7 +45,7 @@ function ChartCards() {
         </div>
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 items-center indent-10">
-            <i class="fa-solid fa-chart-gantt fa-xl p-2"></i>
+            <i className="fa-solid fa-chart-gantt fa-xl p-2"></i>
             <Link to="/scatterplot" className="p-2">
               ScatterPlot
             </Link>
@@ -58,7 +58,7 @@ function ChartCards() {
         </div>
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 items-center indent-10">
-            <i class="fa-solid fa-chart-gantt fa-xl p-2"></i>
+            <i className="fa-solid fa-chart-gantt fa-xl p-2"></i>
             <Link to="histogram" className="p-2">
               Histogram
             </Link>
@@ -71,7 +71,7 @@ function ChartCards() {
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 items-center">
             <Link to="piechart" className="p-2 ">
-              <i class="fa-solid fa-chart-pie fa-xl p-2"></i>
+              <i className="fa-solid fa-chart-pie fa-xl p-2"></i>
               Pie Chart
             </Link>
           </div>
@@ -83,7 +83,7 @@ function ChartCards() {
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           {/* <div className="max-w-sm rounded- overflow-hidden shadow-lg indent-2 glass glassglow text-white p-2"> */}
           <div className="flex font-regular font-sans text-xl mb-2 items-center indent-10">
-            <i class="fa-solid fa-chart-gantt fa-xl p-2"></i>
+            <i className="fa-solid fa-chart-gantt fa-xl p-2"></i>
             Timeline Chart
           </div>
           <p className="text-grey-700 text-base p-2">
@@ -92,20 +92,20 @@ function ChartCards() {
         </div>
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 items-center align-text-top indent-10">
-            <i class="fa-solid fa-chart-gantt fa-xl p-2"></i>
+            <i className="fa-solid fa-chart-gantt fa-xl p-2"></i>
             <a className="p-2">Bubble Graph </a>
           </div>
           <p className="text-grey-700 text-base p-2">
-          An extension of a scatterplot, a bubble chart is commonly used to visualize relationships between three or more numeric variables.          </p>
+            An extension of a scatterplot, a bubble chart is commonly used to visualize relationships between three or more numeric variables.          </p>
         </div>
 
         <div className="glass glassglow text-white max-w-md rounded-lg shadow-lg p-2">
           <div className="flex font-regular font-sans text-xl mb-2 indent-10 pt-2">
-            <i class="fa-solid fa-chart-line fa-xl p-2 pt-2"></i>
+            <i className="fa-solid fa-chart-line fa-xl p-2 pt-2"></i>
             Graph Chart
           </div>
           <p className="text-grey-700 text-base p-2 font-sans">
-          Graph charts show relationships between data and are intended to display the data in a way that is easy to understand and remember.           </p>
+            Graph charts show relationships between data and are intended to display the data in a way that is easy to understand and remember.           </p>
         </div>
         <div className="px-6 py-4 flex place-content-between border-3 rounded-lg  space-y-1"></div>
       </div>
@@ -118,7 +118,7 @@ export default ChartCards;
 {
   /* <div className=" max-w-sm rounded overflow-hidden shadow-lg glass glassglow text-white p-2">
   <div className="flex font-regular font-sans text-xl mb-2 align-text-top indent-10">
-  <i class="fa-solid fa-chart-gantt fa-xl p-2 "></i>
+  <i className="fa-solid fa-chart-gantt fa-xl p-2 "></i>
     Chart Mixed
   </div>
   <p className="text-grey-700 text-base p-2">

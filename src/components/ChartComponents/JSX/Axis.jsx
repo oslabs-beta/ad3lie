@@ -36,6 +36,7 @@ function AxisHorizontal({ dimensions, label, formatTick, scale, data, ...props }
     ? dimensions.boundedWidth / 100
     : dimensions.boundedWidth / 250
 
+  // create ticks based on the scale and how many ticks we need
   const ticks = scale.ticks(numberOfTicks)
 
 
@@ -69,8 +70,10 @@ function AxisHorizontal({ dimensions, label, formatTick, scale, data, ...props }
 }
 
 function AxisVertical({ dimensions, label, formatTick, scale, ...props }) {
+  // get number of ticks depending on bounded height
   const numberOfTicks = dimensions.boundedHeight / 70
 
+  //create ticks based on scale and number of ticks needed
   const ticks = scale.ticks(numberOfTicks)
 
   return (
@@ -105,12 +108,21 @@ function AxisVertical({ dimensions, label, formatTick, scale, ...props }) {
 }
 
 function AxisBand({ dimensions, label, formatTick, scale, data, ...props }) {
+  // this is how we find how many ticks we need for our axis
+  // if bounded width is less that 600, number of ticks are width/100
+  // else number of ticks are width/250
   const numberOfTicks = dimensions.boundedWidth < 600
     ? dimensions.boundedWidth / 100
     : dimensions.boundedWidth / 250
 
+  // create ticks based on the domain
+  // what does scale.domain return
   const ticks = scale.domain();
 
+  console.log(dimensions)
+  console.log(scale)
+
+  // think something in line generation is broken
   return (
     <g className="Axis AxisHorizontal" transform={`translate(0, ${dimensions.boundedHeight})`} {...props}>
       <line

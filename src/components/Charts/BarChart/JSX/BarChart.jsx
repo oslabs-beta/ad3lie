@@ -105,7 +105,7 @@ export default function BarChart({ data, xKey, yKey, xAxisLabel, yAxisLabel, hei
           scale={yScale}
           label={yAxisLabel}
         />
-        {Bars}
+        {/* {Bars} */}
       </Chart>
     </div>
   );
