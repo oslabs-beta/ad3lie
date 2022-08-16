@@ -41,6 +41,7 @@ const LineChart = lazy(() => import('../../Charts/LineChart/JSX/LineChart.jsx'))
 
 const Container = ({ type, name, children, properties }) => {
   // use property accessors for our dispatch
+  // add more charts here when ready to incorporate into router
   const charts = {
     "barchart": barchart,
     "histogram": histogram,

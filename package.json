@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack && electron .",
     "build": "webpack",
+    "test": "jest --verbose",
     "start-dev-server": "webpack serve",
     "mac:installer": "electron-builder --mac",
     "win:installer": "electron-builder --win",
@@ -119,7 +120,7 @@
     "react-dom": "^18.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
-    "react-test-renderer": "^18.1.0",
+    "react-test-renderer": "^18.2.0",
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.61.1",
     "rollup-plugin-cleanup": "^3.2.1",
@@ -149,6 +150,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "express": "^4.17.3",
     "file-loader": "^6.2.0",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
     "lodash": "^4.17.21",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "nodeify": "^1.0.1",
@@ -159,6 +162,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
+    "supertest": "^6.2.4",
     "ts-node": "^10.4.0",
     "tw-elements": "^1.0.0-alpha12"
   }
