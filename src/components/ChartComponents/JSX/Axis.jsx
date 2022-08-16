@@ -19,6 +19,7 @@ const Axis = ({ dimension, ...props }) => {
   // if id does exist, return the axis, passing in dimensions and prop drilling props
   return (
     <Component
+      key={dimension}
       dimensions={dimensions}
       {...props}
     />
@@ -49,7 +50,7 @@ function AxisHorizontal({ dimensions, label, scale, data, ...props }) {
 
       {ticks.map((tick, i) => (
         <text
-          key={tick}
+          key={i}
           className="Axis__tick"
           // move the text to match the tick location and lower it by 25 px
           transform={`translate(${scale(tick)}, 25)`}
@@ -89,7 +90,7 @@ function AxisVertical({ dimensions, label, scale, ...props }) {
 
       {ticks.map((tick, i) => (
         <text
-          key={tick}
+          key={i}
           className="Axis__tick"
           transform={`translate(-16, ${scale(tick)})`}
         >
@@ -126,7 +127,7 @@ function AxisBand({ dimensions, label, scale, data, ...props }) {
   const formatTick = d3.format(",")
 
   // console.log(dimensions)
-  // console.log(scale)
+  // console.log('ticks in axisBand:', ticks)
 
   // think something in line generation is broken
   return (
@@ -138,10 +139,11 @@ function AxisBand({ dimensions, label, scale, data, ...props }) {
 
       {ticks.map((tick, i) => (
         <text
-          key={tick}
+          key={i} // make sure to have this as i instead of tick, can't give a key of undefined when first loaded
           className="Axis__tick"
           transform={`translate(${scale(tick) + scale.bandwidth() / 2}, 25)`}
         >
+          {/* {console.log('tick in ticks.map:', tick)} */}
           {(tick)}
         </text>
       ))}
