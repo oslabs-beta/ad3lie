@@ -8,10 +8,22 @@ export const RouteHook = () => {
   const Container = lazy(() => import(`./components/ChartComponents/JSX/Container.jsx`))
 
   // Programmatically creating unique routes for all charts in our dictionary
-  const routes = Object.values(dictionary).reduce((acc, { type, name, children, properties }) => {
-    acc.push(<Route key={type} path={type} exact element={<Container type={type} name={name} children={children} properties={properties} />} />);
-    return acc;
-  }, []);
+  // getting values from dictionary
+  const routes = Object.values(dictionary)
+    // create a callback function within reduce method passing passing in properties from dictionary
+    .reduce((acc, { type, name, children, properties }) => {
+      // for each chart, grab the type, name, children, and properties from dictionary to populate route and container
+      acc.push(<Route
+        key={type}
+        path={type}
+        exact element={<Container
+          type={type}
+          name={name}
+          children={children}
+          properties={properties} />}
+      />);
+      return acc;
+    }, []);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
