@@ -32,9 +32,9 @@ const Form = ({ properties, data, currProps }) => {
     if (p === 'xKey' || p === 'yKey') {
       // console.log('has Data Changed to undefined?', data)
       return (
-        <div key={i} class="flex flex-wrap -mx-3 mb-6">
-          <div class=" w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
+        <div key={i} className="flex flex-wrap -mx-3 mb-6">
+          <div className=" w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
@@ -50,9 +50,9 @@ const Form = ({ properties, data, currProps }) => {
       );
     } else if (typeof currProps[p] === 'number') {
       return (
-        <div key={i} class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
+        <div key={i} className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
               {' - ' + startCase(currProps[p])}
@@ -61,7 +61,7 @@ const Form = ({ properties, data, currProps }) => {
               type="range"
               min="10"
               max="1000"
-              class="slider block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="slider block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}
               name={`${p}`}
               placeholder={currProps[p]}
@@ -79,14 +79,14 @@ const Form = ({ properties, data, currProps }) => {
     else if (p === 'dataString') {
       //Otherwise do a TextArea
       return (
-        <div key={i} class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
+        <div key={i} className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
             <textarea
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}
               name={`${p}`}
               placeholder={currProps[p]}
@@ -110,14 +110,14 @@ const Form = ({ properties, data, currProps }) => {
     } else {
       //Otherwise do a TextArea
       return (
-        <div key={i} class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
+        <div key={i} className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2">
               {/* `${type-p}` */}
               {startCase(p)}
             </label>
             <textarea
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id={`set-${p}`}
               name={`${p}`}
               placeholder={currProps[p]}
@@ -131,8 +131,8 @@ const Form = ({ properties, data, currProps }) => {
   });
 
   return (
-    <form class="rounded w-full max-w-lg" onSubmit={() => { }}>
-      <div class="rounded flex flex-col flex-wrap mx-6">{inputs}</div>
+    <form className="rounded w-full max-w-lg" onSubmit={() => { }}>
+      <div className="rounded flex flex-col flex-wrap mx-6">{inputs}</div>
     </form>
   );
 };
